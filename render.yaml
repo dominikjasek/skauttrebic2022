@@ -5,6 +5,7 @@ services:
     plan: starter
     buildCommand: yarn install && yarn build
     startCommand: rsync -a public/ /data/public/ && yarn start
+    rootDir: apps/strapi
     healthCheckPath: /_health
     disk:
       name: strapi-data
