@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: strapi
+    name: skauttrebic2022-strapi
     env: node
     plan: starter
     buildCommand: yarn install --frozen-lockfile && yarn build
