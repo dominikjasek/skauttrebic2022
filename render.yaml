@@ -2,7 +2,7 @@ services:
   - type: web
     name: skauttrebic2022-strapi
     env: node
-    plan: free
+    plan: starter
     buildCommand: yarn install --frozen-lockfile && yarn build
     startCommand: rsync -a public/ /data/public/ && yarn start
     rootDir: apps/strapi
