@@ -3,6 +3,7 @@ services:
     name: skauttrebic2022-strapi
     env: node
     plan: starter
+    region: frankfurt
     buildCommand: yarn install --frozen-lockfile && yarn build
     startCommand: rsync -a public/ /data/public/ && yarn start
     rootDir: apps/strapi
