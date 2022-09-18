@@ -1,0 +1,14 @@
+{
+  "name": "translations-helper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "merge-translations-helper.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@parvineyvazov/json-translator": "^1.1.0"
+  }
+}
