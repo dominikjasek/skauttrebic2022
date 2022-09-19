@@ -47,7 +47,7 @@ export default {
         'Auth.form.password.hint': 'Musí to být nejméně 8 znaků, 1 velké, 1 spodní a 1 číslo',
         'Auth.form.password.show-password': 'Zobrazit heslo',
         'Auth.form.register.news.label': 'Informujte mě o nových funkcích a připravovaných vylepšeních (tím souhlasíte s {terms} a {policy}).',
-        'Auth.form.register.subtitle': 'Přihlašovací údaje se používají pouze k ověření v SPAPI. Všechna uložená data budou uložena ve vaší databázi.',
+        'Auth.form.register.subtitle': 'Přihlašovací údaje se používají pouze k ověření v STRAPI. Všechna uložená data budou uložena ve vaší databázi.',
         'Auth.form.rememberMe.label': 'Zapamatovat si mě',
         'Auth.form.username.label': 'Uživatelské jméno',
         'Auth.form.username.placeholder': 'Jan Novák',
