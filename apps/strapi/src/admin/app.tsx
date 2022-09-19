@@ -5,7 +5,7 @@ export default {
     locales: ['en'],
     translations: {
       en: {
-        // Translated original english langs to czech (result of helper script)
+        // Translated original english langs to czech (result of admin-ui-helper script)
         'Analytics': 'Analýzy',
         'Auth.components.Oops.text': 'Váš účet byl pozastaven.',
         'Auth.components.Oops.text.admin': 'Pokud je to chyba, kontaktujte prosím svého správce.',
@@ -707,7 +707,7 @@ export default {
         'form.button.done': 'OK',
         'global.search': 'Vyhledávání',
         'global.actions': 'Akce',
-        'global.back': 'Zadní',
+        'global.back': 'Zpět',
         'global.cancel': 'zrušení',
         'global.change-password': 'Změnit heslo',
         'global.content-manager': 'Manažer obsahu',
@@ -772,13 +772,16 @@ export default {
         'request.error.model.unknown': 'Tento model neexistuje',
         'skipToContent': 'Přeskočit na obsah',
         'submit': 'Předložit',
+        'header.actions.add-assets.upload': 'přidat obráízek',
 
         // Custom translations
         title: 'Nadpis',
         content: 'Obsah',
         files: 'Soubory',
       }
-    }
+    },
+    tutorials: false,
+    notifications: { release: false },
   },
   bootstrap(app) {
     console.log(app);

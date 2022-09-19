@@ -4,9 +4,10 @@
   "version": "0.1.0",
   "description": "A Strapi application",
   "scripts": {
+    "translate": "cp -a ./src/admin/translations/plugins/upload/. ./node_modules/@strapi/plugin-upload/admin/src/translations",
     "dev": "strapi develop",
     "start": "strapi start",
-    "build": "strapi build",
+    "build": "npm run translate && strapi build",
     "strapi": "strapi",
     "lint": "eslint"
   },
