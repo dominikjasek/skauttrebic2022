@@ -27,3 +27,5 @@ services:
         generateValue: true
       - key: API_TOKEN_SALT
         generateValue: true
+      - key: AWS_S3_BUCKET_NAME
+        value: skauttrebic.cz
