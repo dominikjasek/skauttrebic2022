@@ -19,6 +19,7 @@ module.exports = {
     '@typescript-eslint'
   ],
   'rules': {
+    '@typescript-eslint/ban-ts-comment': 'off',
     'quotes': [2, 'single', { 'avoidEscape': true }],
     'indent': ['error', 2]
   }
