@@ -30,6 +30,11 @@
         "videos",
         "audios"
       ]
+    },
+    "author": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "admin::user"
     }
   }
 }
