@@ -1,24 +1,24 @@
 {
   "name": "strapi-plugin-invite-email",
   "version": "1.0.1",
-  "description": "A plugin for Strapi that sends a templated email with a magic link whenever an admin user is invited.",
+  "description": "Zajistí odeslání emailu pro nově pozvané administrátory webu",
   "strapi": {
     "name": "strapi-plugin-invite-email",
-    "description": "A plugin for Strapi that sends a templated email with a magic link whenever an admin user is invited.",
+    "description": "Zajistí odeslání emailu pro nově pozvané administrátory webu",
     "kind": "plugin",
     "displayName": "Admin Invite Email"
   },
   "dependencies": {},
   "author": {
-    "name": "Jay Arella"
+    "name": "Dominik Jašek"
   },
   "maintainers": [
     {
-      "name": "Jay Arella"
+      "name": "Dominik Jašek"
     }
   ],
   "engines": {
-    "node": ">=14.19.1 <=16.x.x",
+    "node": "14.20.0",
     "npm": ">=6.0.0"
   },
   "license": "MIT",

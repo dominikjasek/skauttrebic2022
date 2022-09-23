@@ -163,7 +163,7 @@ export default {
         'Settings.permissions.users.inactive': 'Neaktivní',
         'Settings.permissions.users.form.sso': 'Spojte se s SSO',
         'Settings.permissions.users.form.sso.description': 'Pokud jsou povoleni (zapnuto), mohou uživatelé přihlásit prostřednictvím SSO',
-        'Settings.permissions.users.listview.header.subtitle': 'Všichni uživatelé, kteří mají přístup k panelu Strapi Správce',
+        'Settings.permissions.users.listview.header.subtitle': 'Zde můžete spravovat uživatele, kteří mají přístup ke správě skautského webu a tedy přístup do tohoto administračního systému.',
         'Settings.permissions.users.tabs.label': 'Oprávnění karet',
         'Settings.permissions.users.strapi-super-admin': 'Super admin',
         'Settings.permissions.users.strapi-editor': 'Editor',
