@@ -1,5 +1,3 @@
-// import translatedEnglish from './translations/en.json'
-
 export default {
   config: {
     locales: ['en'],
@@ -12,7 +10,7 @@ export default {
         'Auth.components.Oops.title': 'Jejda ...',
         'Auth.form.active.label': 'Aktivní',
         'Auth.form.button.forgot-password': 'Odeslat e-mail',
-        'Auth.form.button.go-home': 'VRAŤ SE DOMŮ',
+        'Auth.form.button.go-home': 'Jít domů',
         'Auth.form.button.login': 'Přihlásit se',
         'Auth.form.button.login.providers.error': 'Nemůžeme vás připojit prostřednictvím vybraného poskytovatele.',
         'Auth.form.button.login.strapi': 'Přihlaste se přes Strapi',
@@ -38,7 +36,7 @@ export default {
         'Auth.form.error.user.not-exist': 'Tento e-mail neexistuje.',
         'Auth.form.error.username.taken': 'Uživatelské jméno je již obsazeno.',
         'Auth.form.firstname.label': 'Jméno',
-        'Auth.form.firstname.placeholder': 'např. Kai',
+        'Auth.form.firstname.placeholder': 'např. Petr',
         'Auth.form.forgot-password.email.label': 'Zadejte svůj e-mail',
         'Auth.form.forgot-password.email.label.success': 'E-mail úspěšně odeslán na',
         'Auth.form.lastname.label': 'Příjmení',
@@ -273,6 +271,8 @@ export default {
         'admin.pages.MarketPlacePage.tab-group.label': 'Pluginy a poskytovatelé pro Strapi',
         'admin.pages.MarketPlacePage.missingPlugin.title': 'Chybí vám plugin?',
         'admin.pages.MarketPlacePage.missingPlugin.description': 'Řekněte nám, jaký plugin hledáte, a my dáme naši komunitní vývojáři pluginů vědět, že budou hledat inspiraci!',
+        'pages.ListView.header-subtitle':'{number, plural, =0 {Nalezeno # položek} one {Nalezena # položka} two {Nalezeny # položky} three {Nalezeny # položky} =4 {Nalezeny # položky} other {Nalezeno # položek}}',
+        'admin.pages.ListView.header-subtitle':'{number, plural, =0 {Nalezeno # položek} one {Nalezena # položka} two {Nalezeny # položky} three {Nalezeny # položky} =4 {Nalezeny # položky} other {Nalezeno # položek}}',
         'anErrorOccurred': 'Woops! Něco se pokazilo. Prosím zkuste to znovu.',
         'app.component.CopyToClipboard.label': 'Zkopírovat do schránky',
         'app.component.search.label': 'Hledejte {cíl}',
@@ -435,7 +435,7 @@ export default {
         'app.utils.select-field': 'Vyberte pole',
         'app.utils.select-filter': 'Vyberte filtr',
         'app.utils.unpublish': 'Odpublikovat',
-        'clearLabel': 'Průhledná',
+        'clearLabel': 'Smazat',
         'coming.soon': 'Tento obsah je v současné době ve výstavbě a bude zpět za několik týdnů!',
         'component.Input.error.validation.integer': 'Tato hodnota musí být celé číslo',
         'components.AutoReloadBlocker.description': 'Spusťte Strapi jedním z následujících příkazů:',
@@ -680,7 +680,7 @@ export default {
         'content-manager.notification.info.minimumFields': 'Je třeba mít zobrazeno alespoň jedno pole.',
         'content-manager.notification.upload.error': 'Při nahrávání vašich souborů došlo k chybě',
         'content-manager.pageNotFound': 'Stránka nenalezena',
-        'content-manager.pages.ListView.header-subtitle': '{number, plural, = 0 {# položky} One {# entry} další {# položky}} nalezeno',
+        'content-manager.pages.ListView.header-subtitle': '{number, plural, =0 {Nalezeno # položek} one {Nalezena # položka} two {Nalezeny # položky} three {Nalezeny # položky} =4 {Nalezeny # položky} other {Nalezeno # položek}}',
         'content-manager.pages.NoContentType.button': 'Vytvořte svůj první typ obsahu',
         'content-manager.pages.NoContentType.text': 'Ještě nemáte žádný obsah, doporučujeme vám vytvořit svůj první typ obsahu.',
         'content-manager.permissions.not-allowed.create': 'Nemáte dovoleno vytvořit dokument',
