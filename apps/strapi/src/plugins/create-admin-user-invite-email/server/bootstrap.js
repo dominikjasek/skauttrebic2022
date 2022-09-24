@@ -9,18 +9,110 @@ const initEmails = async (pluginStore) => {
     icon: 'magic',
     options: {
       from: {
-        name: 'Administration Panel',
+        name: 'Skaut Třebíč',
         email: 'neodpovidat@skauttrebic.cz',
       },
       response_email: '',
-      object: 'Pozvánka pro přihlášení na správu skautského webu',
-      message: `<p>Hi <%= USER.firstname %>!</p>
+      object: 'Pozvánka k administraci skautského webu',
+      message: `<html>
+<style>
+  @charset "utf-8";
+  /* CSS Document */
+  @font-face {
+    font-family: 'themix';
+    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_400.eot');
+    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_400.eot? #iefix') format('embedded-opentype');
+    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_400.woff') format('woff'),
+    url('https://cdn.skauting.cz/fonts/TheMix_LT_400.woff2') format('woff2'),
+    url('https://cdn.skauting.cz/fonts/TheMix_LT_400.otf') format('opentype'),
+    url('https://cdn.skauting.cz/fonts/TheMix_LT_400.svg#themix') format('svg');
+    font-weight: 400;
+    font-style: normal;
+  }
 
-<p>You've been invited to a workspace. Please click on the link below to create your account.</p>
+  @font-face {
+    font-family: 'themix';
+    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_400i.eot');
+    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_400i.eot? #iefix') format('embedded-opentype');
+    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_400i.woff') format('woff'),
+    url('https://cdn.skauting.cz/fonts/TheMix_LT_400i.woff2') format('woff2'),
+    url('https://cdn.skauting.cz/fonts/TheMix_LT_400i.otf') format('opentype'),
+    url('https://cdn.skauting.cz/fonts/TheMix_LT_400i.svg#themix') format('svg');
+    font-weight: 400;
+    font-style: italic;
+  }
 
-<p><%= URL %></p>
+  @font-face {
+    font-family: 'themix';
+    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_700.eot');
+    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_700.eot? #iefix') format('embedded-opentype');
+    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_700.woff') format('woff'),
+    url('https://cdn.skauting.cz/fonts/TheMix_LT_700.woff2') format('woff2'),
+    url('https://cdn.skauting.cz/fonts/TheMix_LT_700.otf') format('opentype'),
+    url('https://cdn.skauting.cz/fonts/TheMix_LT_700.svg#themix') format('svg');
+    font-weight: 700;
+    font-style: normal;
+  }
 
-<p>Thanks.</p>`,
+  @font-face {
+    font-family: 'themix';
+    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_700i.eot');
+    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_700i.eot? #iefix') format('embedded-opentype');
+    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_700i.woff') format('woff'),
+    url('https://cdn.skauting.cz/fonts/TheMix_LT_700i.woff2') format('woff2'),
+    url('https://cdn.skauting.cz/fonts/TheMix_LT_700i.otf') format('opentype'),
+    url('https://cdn.skauting.cz/fonts/TheMix_LT_700i.svg#themix') format('svg');
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: 'skautbold';
+    src: url('https://cdn.skauting.cz/fonts/skaut-bold-webfont.eot');
+    src: url('https://cdn.skauting.cz/fonts/skaut-bold-webfont.eot? #iefix') format('embedded-opentype');
+    src: url('https://cdn.skauting.cz/fonts/skaut-bold-webfont.woff') format('woff'),
+    url('https://cdn.skauting.cz/fonts/skaut-bold-webfont.woff2') format('woff2'),
+    url('https://cdn.skauting.cz/fonts/skaut-bold-webfont.otf') format('opentype'),
+    url('https://cdn.skauting.cz/fonts/skaut-bold-webfont.svg#skautbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  body {
+    font-family: themix, sans-serif;
+  }
+
+  h1 {
+    font-family: skautbold, sans-serif;
+  }
+
+  .join-btn-wrapper {
+    text-align: center;
+    margin: 30px 0px;
+  }
+
+  .join-btn {
+    background-color: #294885;
+    padding: 10px 50px;
+
+    border-radius: 5px;
+    text-decoration: none !important;
+    color: white;
+    text-transform: uppercase;
+  }
+
+</style>
+<body>
+<h2 class="title">Pozvánka k administraci skautského webu</h2>
+
+<p>Administrátor skautského webu <a href="https://skauttrebic.cz">skauttrebic.cz</a> ti udělil oprávnění k administraci
+  webu.</p>
+
+<div class="join-btn-wrapper">
+  <a class="join-btn" href="<%= URL %>">Připojit se
+  </a>
+</div>
+<small>V případě potíží kontaktuj administrátora webu (Šíšu).</small>`,
     },
   }
 

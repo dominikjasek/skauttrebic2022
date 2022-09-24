@@ -389,7 +389,7 @@ export default {
         'app.components.UpgradePlanModal.text-ee': 'Enterprise Edition',
         'app.components.UpgradePlanModal.text-power': 'Odemkněte úplnou sílu Strapi upgradem plánu na Enterprise Edition',
         'app.components.UpgradePlanModal.text-strapi': 'Strapi upgradem plánu na',
-        'app.components.Users.MagicLink.connect': 'Zkopírujte a sdílejte tento odkaz, abyste získali přístup k tomuto uživateli',
+        'app.components.Users.MagicLink.connect': 'Na zadaný email byl odeslána zpráva s tímto odkazem, který slouží pro vytvoření nového účtu.',
         'app.components.Users.MagicLink.connect.sso': 'Pošlete tento odkaz uživateli, první přihlášení lze provést prostřednictvím poskytovatele SSO',
         'app.components.Users.ModalCreateBody.block-title.details': 'Detaily uživatele',
         'app.components.Users.ModalCreateBody.block-title.roles': 'Role uživatele',
