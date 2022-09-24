@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "troops",
+  "info": {
+    "singularName": "troop",
+    "pluralName": "troops",
+    "displayName": "Oddíly"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "is_accepting_new_members": {
+      "type": "boolean"
+    }
+  }
+}
