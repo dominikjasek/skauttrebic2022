@@ -4,7 +4,8 @@
   "info": {
     "singularName": "troop",
     "pluralName": "troops",
-    "displayName": "Oddíly"
+    "displayName": "Oddíly",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -15,14 +16,11 @@
       "type": "string",
       "required": true
     },
-    "is_accepting_new_members": {
-      "type": "boolean"
-    },
     "users": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "plugin::users-permissions.user",
-      "inversedBy": "troops"
+      "mappedBy": "troops"
     }
   }
 }

@@ -68,6 +68,15 @@
       "relation": "manyToMany",
       "target": "api::troop.troop",
       "inversedBy": "users"
+    },
+    "position": {
+      "type": "enumeration",
+      "enum": [
+        "dítě",
+        "rodič",
+        "vedoucí"
+      ],
+      "default": "child"
     }
   }
 }
