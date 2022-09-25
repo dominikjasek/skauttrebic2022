@@ -20,7 +20,11 @@ module.exports = {
   ],
   'rules': {
     '@typescript-eslint/ban-ts-comment': 'off',
-    'quotes': [2, 'single', { 'avoidEscape': true }],
-    'indent': ['error', 2]
+    'quotes': [2, 'single', {'avoidEscape': true}],
+    'indent': ['error', 2],
+    'object-curly-spacing': ['error', 'never'],
+    'array-bracket-spacing': ['error', 'never'],
+    'block-spacing': ['error', 'never'],
+    'no-multi-spaces': 'error'
   }
 }
