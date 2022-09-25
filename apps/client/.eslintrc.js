@@ -22,5 +22,6 @@ module.exports = {
     ],
     "rules": {
         "@typescript-eslint/semi": ["error", "never"],
+        "react/react-in-jsx-scope": "off"
     }
 }
