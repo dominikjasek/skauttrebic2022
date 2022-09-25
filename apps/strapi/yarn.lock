@@ -1991,7 +1991,7 @@
     "@strapi/utils" "4.3.9"
     lodash "4.17.21"
 
-"@strapi/plugin-graphql@^4.3.9":
+"@strapi/plugin-graphql@^4.3.0", "@strapi/plugin-graphql@^4.3.9":
   version "4.3.9"
   resolved "https://registry.yarnpkg.com/@strapi/plugin-graphql/-/plugin-graphql-4.3.9.tgz#b7fb53cfc570480786306109ad2f7a80b240a3a9"
   integrity sha512-28wfuTvvT0aTrneiBy3QiXadW2WXFire4F1/i2iDXpSLYVUL70ctQQJ8m6g/vgY8D2whU1hNYLxaWnvLoJ56ZA==
@@ -2164,7 +2164,7 @@
     prettier "2.7.1"
     typescript "4.6.2"
 
-"@strapi/utils@4.3.9":
+"@strapi/utils@4.3.9", "@strapi/utils@^4.3.0":
   version "4.3.9"
   resolved "https://registry.yarnpkg.com/@strapi/utils/-/utils-4.3.9.tgz#21bff4ad63a133e3e8c1bfb50f393f3a83b58e3d"
   integrity sha512-EcvLprbMO7tMKJLvDZ4on9GlIkwP8aMVjs2o7oXa4xK1ngSUTIri8C1mvjGsgGcdoLBzqgR1/L+u04OXKBmdvQ==
@@ -3343,6 +3343,18 @@ backo2@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/backo2/-/backo2-1.0.2.tgz#31ab1ac8b129363463e35b3ebb69f4dfcfba7947"
   integrity sha512-zj6Z6M7Eq+PBZ7PQxl5NT665MvJdAkzp0f60nAJ+sLaSCBPMwVak5ZegFbgVCzFcCJTKFoMizvM5Ld7+JrRJHA==
+
+bad-words@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/bad-words/-/bad-words-3.0.4.tgz#044c83935c4c363a905d47b5e0179f7241fecaec"
+  integrity sha512-v/Q9uRPH4+yzDVLL4vR1+S9KoFgOEUl5s4axd6NIAq8SV2mradgi4E8lma/Y0cw1ltVdvyegCQQKffCPRCp8fg==
+  dependencies:
+    badwords-list "^1.0.0"
+
+badwords-list@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/badwords-list/-/badwords-list-1.0.0.tgz#5e9856dbf13482a295c3b0b304afb9d4cfc5c579"
+  integrity sha512-oWhaSG67e+HQj3OGHQt2ucP+vAPm1wTbdp2aDHeuh4xlGXBdWwzZ//pfu6swf5gZ8iX0b7JgmSo8BhgybbqszA==
 
 balanced-match@^1.0.0:
   version "1.0.2"
@@ -10343,6 +10355,15 @@ std-env@^3.0.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/std-env/-/std-env-3.2.1.tgz#00e260ec3901333537125f81282b9296b00d7304"
   integrity sha512-D/uYFWkI/31OrnKmXZqGAGK5GbQRPp/BWA1nuITcc6ICblhhuQUPHS5E2GSCVS7Hwhf4ciq8qsATwBUxv+lI6w==
+
+strapi-plugin-comments@^2.1.8:
+  version "2.1.8"
+  resolved "https://registry.yarnpkg.com/strapi-plugin-comments/-/strapi-plugin-comments-2.1.8.tgz#bbe329ff7f79cae4f2cd5ee3e0f67aaeeecd124f"
+  integrity sha512-aE2jTNLTenAeAKSsBXRJ07cBzMfJTaI+KMaV9f9kbwge3GPW6KRIn133NyU9l4wpjl+gOKz/3acfKUz3gP+weQ==
+  dependencies:
+    "@strapi/plugin-graphql" "^4.3.0"
+    "@strapi/utils" "^4.3.0"
+    bad-words "^3.0.4"
 
 strapi-plugin-email-designer@^2.1.1:
   version "2.1.1"

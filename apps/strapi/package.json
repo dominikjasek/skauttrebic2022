@@ -26,6 +26,7 @@
     "@strapi/provider-upload-aws-s3": "^4.3.9",
     "@strapi/strapi": "^4.3.9",
     "better-sqlite3": "7.4.6",
+    "strapi-plugin-comments": "^2.1.8",
     "strapi-plugin-email-designer": "^2.1.1",
     "strapi-provider-email-sendinblue": "^4.0.0"
   },
