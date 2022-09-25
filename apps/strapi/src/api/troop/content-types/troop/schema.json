@@ -16,11 +16,11 @@
       "type": "string",
       "required": true
     },
-    "users": {
+    "subscribed_users": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "plugin::users-permissions.user",
-      "mappedBy": "troops"
+      "inversedBy": "subscribing_troops"
     }
   }
 }
