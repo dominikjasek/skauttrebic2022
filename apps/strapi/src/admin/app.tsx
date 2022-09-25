@@ -780,6 +780,9 @@ export default {
         content: 'Obsah',
         files: 'Soubory',
         type: 'Typ',
+        images: 'Obrázky',
+        text: 'Text',
+        photo: 'Fotka',
 
         //User
         User: 'Uživatelé',

@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_homepage_home_images",
+  "info": {
+    "displayName": "Homeimage",
+    "icon": "images",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "photo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

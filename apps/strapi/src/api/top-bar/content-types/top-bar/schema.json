@@ -4,7 +4,8 @@
   "info": {
     "singularName": "top-bar",
     "pluralName": "top-bars",
-    "displayName": "Horní lišta"
+    "displayName": "Horní lišta",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
