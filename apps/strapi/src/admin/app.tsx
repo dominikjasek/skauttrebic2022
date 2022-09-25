@@ -779,6 +779,7 @@ export default {
         title: 'Nadpis',
         content: 'Obsah',
         files: 'Soubory',
+        type: 'Typ',
 
         //User
         User: 'Uživatelé',
@@ -790,7 +791,7 @@ export default {
       }
     },
     tutorials: false,
-    notifications: { release: false },
+    notifications: {release: false},
   },
   bootstrap(app) {
     console.log(app);

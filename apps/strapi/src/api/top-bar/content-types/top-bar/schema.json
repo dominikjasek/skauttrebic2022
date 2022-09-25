@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "top-bars",
+  "info": {
+    "singularName": "top-bar",
+    "pluralName": "top-bars",
+    "displayName": "Horní lišta"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "info",
+        "upozornění"
+      ]
+    }
+  }
+}
