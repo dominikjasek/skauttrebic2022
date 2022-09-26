@@ -1,5 +1,5 @@
-// Merge langs provided from strapi (cs.json) with ones translated by machine (en.json)
-// Copy the result to en.json in the directory above
+// Merge langs provided from strapi (cs.json) with ones translated by machine (cs.json)
+// Copy the result to cs.json in the directory above
 
 // run with `node merge-translations-admin-ui-helper.js`
 // eslint-disable-next-line @typescript-eslint/no-var-requires,no-undef

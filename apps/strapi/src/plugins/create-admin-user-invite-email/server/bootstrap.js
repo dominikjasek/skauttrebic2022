@@ -7,6 +7,11 @@ module.exports = async ({strapi}) => {
   strapi.db.lifecycles.subscribe({
     models: ['admin::user'],
 
+    // Not relevant to this package, but I am too lazy to creaty fresh new standalone plugin for this functionality...
+    async beforeCreate(data) {
+      data.params.data.preferedLanguage = 'cs'
+    },
+
     async afterCreate({result}) {
       const {registrationToken} = result;
       if (!registrationToken) return;
