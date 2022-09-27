@@ -31,6 +31,12 @@
         "videos",
         "audios"
       ]
+    },
+    "troops": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::troop.troop",
+      "inversedBy": "posts"
     }
   }
 }
