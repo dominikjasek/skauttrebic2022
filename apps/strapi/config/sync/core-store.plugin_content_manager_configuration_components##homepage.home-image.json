@@ -22,8 +22,8 @@
       },
       "text": {
         "edit": {
-          "label": "text",
-          "description": "",
+          "label": "Popis",
+          "description": "Krátký popis související s fotkou",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -36,7 +36,7 @@
       },
       "photo": {
         "edit": {
-          "label": "photo",
+          "label": "Fotka",
           "description": "",
           "placeholder": "",
           "visible": true,

@@ -8,7 +8,6 @@
       "subject": "api::homepage.homepage",
       "properties": {
         "fields": [
-          "title",
           "images.text",
           "images.photo",
           "troops.title",
@@ -30,7 +29,6 @@
       "subject": "api::homepage.homepage",
       "properties": {
         "fields": [
-          "title",
           "images.text",
           "images.photo",
           "troops.title",
@@ -46,7 +44,6 @@
       "subject": "api::homepage.homepage",
       "properties": {
         "fields": [
-          "title",
           "images.text",
           "images.photo",
           "troops.title",

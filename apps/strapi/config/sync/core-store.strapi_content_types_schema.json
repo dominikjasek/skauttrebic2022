@@ -795,10 +795,6 @@
       },
       "pluginOptions": {},
       "attributes": {
-        "title": {
-          "type": "string",
-          "required": true
-        },
         "images": {
           "displayName": "HomeImage",
           "type": "component",
@@ -850,10 +846,6 @@
         },
         "pluginOptions": {},
         "attributes": {
-          "title": {
-            "type": "string",
-            "required": true
-          },
           "images": {
             "displayName": "HomeImage",
             "type": "component",

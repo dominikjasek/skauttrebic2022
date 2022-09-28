@@ -15,28 +15,28 @@
       "id": {
         "edit": {},
         "list": {
-          "label": "id",
+          "label": "ID",
           "searchable": true,
           "sortable": true
         }
       },
       "title": {
         "edit": {
-          "label": "title",
+          "label": "Název",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "title",
+          "label": "Název",
           "searchable": true,
           "sortable": true
         }
       },
       "content": {
         "edit": {
-          "label": "content",
+          "label": "Obsah",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -50,21 +50,21 @@
       },
       "files": {
         "edit": {
-          "label": "files",
+          "label": "Soubory",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "files",
+          "label": "Soubory",
           "searchable": false,
           "sortable": false
         }
       },
       "troops": {
         "edit": {
-          "label": "troops",
+          "label": "Oddíly",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -72,14 +72,14 @@
           "mainField": "name"
         },
         "list": {
-          "label": "troops",
+          "label": "Oddíly",
           "searchable": false,
           "sortable": false
         }
       },
       "user_likes": {
         "edit": {
-          "label": "user_likes",
+          "label": "Lajky uživatelů",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -87,7 +87,7 @@
           "mainField": "username"
         },
         "list": {
-          "label": "user_likes",
+          "label": "Lajky uživatelů",
           "searchable": false,
           "sortable": false
         }
@@ -101,7 +101,7 @@
           "editable": true
         },
         "list": {
-          "label": "createdAt",
+          "label": "Vytvořeno",
           "searchable": true,
           "sortable": true
         }
@@ -122,12 +122,6 @@
       }
     },
     "layouts": {
-      "list": [
-        "id",
-        "title",
-        "files",
-        "createdAt"
-      ],
       "edit": [
         [
           {
@@ -151,6 +145,12 @@
       "editRelations": [
         "troops",
         "user_likes"
+      ],
+      "list": [
+        "id",
+        "title",
+        "createdAt",
+        "troops"
       ]
     }
   },

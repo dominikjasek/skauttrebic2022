@@ -1,6 +1,6 @@
 {
-  "name": "Authenticated",
-  "description": "Default role given to authenticated user.",
+  "name": "Přihlášený uživatel",
+  "description": "Výchozí role pro přihlášeného uživatele.",
   "type": "authenticated",
   "permissions": [
     {

@@ -22,8 +22,8 @@
       },
       "title": {
         "edit": {
-          "label": "title",
-          "description": "",
+          "label": "Název oddílu",
+          "description": "např. Skauti",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -36,8 +36,8 @@
       },
       "description": {
         "edit": {
-          "label": "description",
-          "description": "",
+          "label": "Popis",
+          "description": "Popište fungování oddílu v několika větách",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -50,8 +50,8 @@
       },
       "age_gender_information": {
         "edit": {
-          "label": "age_gender_information",
-          "description": "",
+          "label": "Věkové omezení",
+          "description": "Věkové a omezení - např. chlapci ve věku 12-15 let",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -64,7 +64,7 @@
       },
       "logo": {
         "edit": {
-          "label": "logo",
+          "label": "Logo",
           "description": "",
           "placeholder": "",
           "visible": true,

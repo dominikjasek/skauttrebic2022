@@ -15,35 +15,35 @@
       "id": {
         "edit": {},
         "list": {
-          "label": "id",
+          "label": "ID",
           "searchable": true,
           "sortable": true
         }
       },
       "firstName": {
         "edit": {
-          "label": "firstName",
+          "label": "Jméno",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "firstName",
+          "label": "Jméno",
           "searchable": true,
           "sortable": true
         }
       },
       "lastName": {
         "edit": {
-          "label": "lastName",
+          "label": "Příjmené",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "lastName",
+          "label": "Příjmení",
           "searchable": true,
           "sortable": true
         }
@@ -113,7 +113,7 @@
           "editable": true
         },
         "list": {
-          "label": "resetPasswordToken",
+          "label": "Token na vyresetování hesla",
           "searchable": true,
           "sortable": true
         }
@@ -127,7 +127,7 @@
           "editable": true
         },
         "list": {
-          "label": "confirmationToken",
+          "label": "Potvrzovací token",
           "searchable": true,
           "sortable": true
         }
@@ -184,14 +184,14 @@
           "editable": true
         },
         "list": {
-          "label": "position",
+          "label": "Pozice",
           "searchable": true,
           "sortable": true
         }
       },
       "subscribing_troops": {
         "edit": {
-          "label": "subscribing_troops",
+          "label": "Odebírané oddíly",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -199,14 +199,14 @@
           "mainField": "name"
         },
         "list": {
-          "label": "subscribing_troops",
+          "label": "Odebírané oddíly",
           "searchable": false,
           "sortable": false
         }
       },
       "post_likes": {
         "edit": {
-          "label": "post_likes",
+          "label": "Lajknuté příspěvky",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -214,7 +214,7 @@
           "mainField": "title"
         },
         "list": {
-          "label": "post_likes",
+          "label": "Lajknuté příspěvky",
           "searchable": false,
           "sortable": false
         }
@@ -249,13 +249,17 @@
       }
     },
     "layouts": {
-      "list": [
-        "id",
-        "username",
-        "email",
-        "subscribing_troops"
-      ],
       "edit": [
+        [
+          {
+            "name": "firstName",
+            "size": 6
+          },
+          {
+            "name": "lastName",
+            "size": 6
+          }
+        ],
         [
           {
             "name": "username",
@@ -272,28 +276,18 @@
             "size": 6
           },
           {
-            "name": "confirmed",
-            "size": 4
-          }
-        ],
-        [
-          {
-            "name": "blocked",
-            "size": 4
-          },
-          {
             "name": "position",
             "size": 6
           }
         ],
         [
           {
-            "name": "firstName",
-            "size": 6
+            "name": "confirmed",
+            "size": 4
           },
           {
-            "name": "lastName",
-            "size": 6
+            "name": "blocked",
+            "size": 4
           }
         ]
       ],
@@ -301,6 +295,15 @@
         "role",
         "subscribing_troops",
         "post_likes"
+      ],
+      "list": [
+        "id",
+        "username",
+        "email",
+        "subscribing_troops",
+        "confirmed",
+        "firstName",
+        "lastName"
       ]
     }
   },

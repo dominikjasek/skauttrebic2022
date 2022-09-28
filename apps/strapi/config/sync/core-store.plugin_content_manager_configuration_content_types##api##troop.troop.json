@@ -15,28 +15,28 @@
       "id": {
         "edit": {},
         "list": {
-          "label": "id",
+          "label": "ID",
           "searchable": true,
           "sortable": true
         }
       },
       "name": {
         "edit": {
-          "label": "name",
-          "description": "",
+          "label": "Název oddílu",
+          "description": "např. Skauti",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "name",
+          "label": "Název oddílu",
           "searchable": true,
           "sortable": true
         }
       },
       "subscribed_users": {
         "edit": {
-          "label": "subscribed_users",
+          "label": "Uživatelé odebírající příspěvky",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -44,14 +44,14 @@
           "mainField": "username"
         },
         "list": {
-          "label": "subscribed_users",
+          "label": "Uživatelé odebírající příspěvky",
           "searchable": false,
           "sortable": false
         }
       },
       "posts": {
         "edit": {
-          "label": "posts",
+          "label": "Příspěvky",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -59,7 +59,7 @@
           "mainField": "title"
         },
         "list": {
-          "label": "posts",
+          "label": "Příspěvky",
           "searchable": false,
           "sortable": false
         }
@@ -73,7 +73,7 @@
           "editable": true
         },
         "list": {
-          "label": "createdAt",
+          "label": "Vytvořeno",
           "searchable": true,
           "sortable": true
         }
@@ -87,19 +87,13 @@
           "editable": true
         },
         "list": {
-          "label": "updatedAt",
+          "label": "Aktualizováno",
           "searchable": true,
           "sortable": true
         }
       }
     },
     "layouts": {
-      "list": [
-        "id",
-        "name",
-        "createdAt",
-        "subscribed_users"
-      ],
       "edit": [
         [
           {
@@ -111,6 +105,12 @@
       "editRelations": [
         "subscribed_users",
         "posts"
+      ],
+      "list": [
+        "id",
+        "name",
+        "createdAt",
+        "subscribed_users"
       ]
     }
   },

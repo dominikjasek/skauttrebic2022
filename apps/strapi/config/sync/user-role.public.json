@@ -1,6 +1,6 @@
 {
-  "name": "Public",
-  "description": "Default role given to unauthenticated user.",
+  "name": "Veřejný",
+  "description": "Výchozí role pro nepřihlášeného návštěvníka webu.",
   "type": "public",
   "permissions": [
     {

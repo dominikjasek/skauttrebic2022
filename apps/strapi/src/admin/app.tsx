@@ -21,6 +21,8 @@ export default {
         password: 'Heslo',
         confirmed: 'Potvrzen',
         blocked: 'Blokován',
+        updatedAt: 'Aktualizováno',
+        createdAt: 'Vytvořeno'
       },
     },
     tutorials: false,
