@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_homepage_troops",
+  "info": {
+    "displayName": "troop",
+    "icon": "hotel"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "age_gender_information": {
+      "type": "string"
+    },
+    "logo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}
