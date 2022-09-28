@@ -37,6 +37,12 @@
       "relation": "manyToMany",
       "target": "api::troop.troop",
       "inversedBy": "posts"
+    },
+    "user_likes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "post_likes"
     }
   }
 }
