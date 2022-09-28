@@ -1,0 +1,32 @@
+{
+  "key": "plugin_comments_config",
+  "value": {
+    "moderatorRoles": [],
+    "badWords": false,
+    "enabledCollections": [
+      "api::post.post"
+    ],
+    "approvalFlow": [],
+    "entryLabel": {
+      "*": [
+        "Title",
+        "title",
+        "Name",
+        "name",
+        "Subject",
+        "subject"
+      ],
+      "api::post.post": [
+        "title"
+      ]
+    },
+    "reportReasons": {
+      "BAD_LANGUAGE": "BAD_LANGUAGE",
+      "DISCRIMINATION": "DISCRIMINATION",
+      "OTHER": "OTHER"
+    }
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

@@ -1,0 +1,21 @@
+{
+  "key": "plugin_users-permissions_email",
+  "value": {
+    "send_magic_link_invite": {
+      "display": "Email.template.send_magic_link_invite",
+      "icon": "magic",
+      "options": {
+        "from": {
+          "name": "Skaut Třebíč",
+          "email": "neodpovidat@skauttrebic.cz"
+        },
+        "response_email": "",
+        "object": "Pozvánka k administraci skautského webu",
+        "message": "<html>\n<style>\n  @charset \"utf-8\";\n  /* CSS Document */\n  @font-face {\n    font-family: 'themix';\n    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_400.eot');\n    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_400.eot? #iefix') format('embedded-opentype');\n    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_400.woff') format('woff'),\n    url('https://cdn.skauting.cz/fonts/TheMix_LT_400.woff2') format('woff2'),\n    url('https://cdn.skauting.cz/fonts/TheMix_LT_400.otf') format('opentype'),\n    url('https://cdn.skauting.cz/fonts/TheMix_LT_400.svg#themix') format('svg');\n    font-weight: 400;\n    font-style: normal;\n  }\n\n  @font-face {\n    font-family: 'themix';\n    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_400i.eot');\n    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_400i.eot? #iefix') format('embedded-opentype');\n    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_400i.woff') format('woff'),\n    url('https://cdn.skauting.cz/fonts/TheMix_LT_400i.woff2') format('woff2'),\n    url('https://cdn.skauting.cz/fonts/TheMix_LT_400i.otf') format('opentype'),\n    url('https://cdn.skauting.cz/fonts/TheMix_LT_400i.svg#themix') format('svg');\n    font-weight: 400;\n    font-style: italic;\n  }\n\n  @font-face {\n    font-family: 'themix';\n    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_700.eot');\n    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_700.eot? #iefix') format('embedded-opentype');\n    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_700.woff') format('woff'),\n    url('https://cdn.skauting.cz/fonts/TheMix_LT_700.woff2') format('woff2'),\n    url('https://cdn.skauting.cz/fonts/TheMix_LT_700.otf') format('opentype'),\n    url('https://cdn.skauting.cz/fonts/TheMix_LT_700.svg#themix') format('svg');\n    font-weight: 700;\n    font-style: normal;\n  }\n\n  @font-face {\n    font-family: 'themix';\n    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_700i.eot');\n    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_700i.eot? #iefix') format('embedded-opentype');\n    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_700i.woff') format('woff'),\n    url('https://cdn.skauting.cz/fonts/TheMix_LT_700i.woff2') format('woff2'),\n    url('https://cdn.skauting.cz/fonts/TheMix_LT_700i.otf') format('opentype'),\n    url('https://cdn.skauting.cz/fonts/TheMix_LT_700i.svg#themix') format('svg');\n    font-weight: 700;\n    font-style: italic;\n  }\n\n  @font-face {\n    font-family: 'skautbold';\n    src: url('https://cdn.skauting.cz/fonts/skaut-bold-webfont.eot');\n    src: url('https://cdn.skauting.cz/fonts/skaut-bold-webfont.eot? #iefix') format('embedded-opentype');\n    src: url('https://cdn.skauting.cz/fonts/skaut-bold-webfont.woff') format('woff'),\n    url('https://cdn.skauting.cz/fonts/skaut-bold-webfont.woff2') format('woff2'),\n    url('https://cdn.skauting.cz/fonts/skaut-bold-webfont.otf') format('opentype'),\n    url('https://cdn.skauting.cz/fonts/skaut-bold-webfont.svg#skautbold') format('svg');\n    font-weight: normal;\n    font-style: normal;\n  }\n\n  body {\n    font-family: themix, sans-serif;\n  }\n\n  h1 {\n    font-family: skautbold, sans-serif;\n  }\n\n  .join-btn-wrapper {\n    text-align: center;\n    margin: 30px 0px;\n  }\n\n  .join-btn {\n    background-color: #294885;\n    padding: 10px 50px;\n\n    border-radius: 5px;\n    text-decoration: none !important;\n    color: white;\n    text-transform: uppercase;\n  }\n\n</style>\n<body>\n<h2 class=\"title\">Pozvánka k administraci skautského webu</h2>\n\n<p>Administrátor skautského webu <a href=\"https://skauttrebic.cz\">skauttrebic.cz</a> ti udělil oprávnění k administraci\n  webu.</p>\n\n<div class=\"join-btn-wrapper\">\n  <a class=\"join-btn\" href=\"<%= URL %>\">Připojit se\n  </a>\n</div>\n<small>V případě potíží kontaktuj administrátora webu (Šíšu).</small>"
+      }
+    }
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

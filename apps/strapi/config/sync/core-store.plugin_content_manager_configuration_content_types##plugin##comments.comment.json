@@ -1,0 +1,326 @@
+{
+  "key": "plugin_content_manager_configuration_content_types::plugin::comments.comment",
+  "value": {
+    "uid": "plugin::comments.comment",
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "blockReason",
+      "defaultSortBy": "blockReason",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "content": {
+        "edit": {
+          "label": "content",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "content",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "blocked": {
+        "edit": {
+          "label": "blocked",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "blocked",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "blockedThread": {
+        "edit": {
+          "label": "blockedThread",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "blockedThread",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "blockReason": {
+        "edit": {
+          "label": "blockReason",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "blockReason",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "authorUser": {
+        "edit": {
+          "label": "authorUser",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "username"
+        },
+        "list": {
+          "label": "authorUser",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "authorId": {
+        "edit": {
+          "label": "authorId",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "authorId",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "authorName": {
+        "edit": {
+          "label": "authorName",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "authorName",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "authorEmail": {
+        "edit": {
+          "label": "authorEmail",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "authorEmail",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "authorAvatar": {
+        "edit": {
+          "label": "authorAvatar",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "authorAvatar",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "removed": {
+        "edit": {
+          "label": "removed",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "removed",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "approvalStatus": {
+        "edit": {
+          "label": "approvalStatus",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "approvalStatus",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "related": {
+        "edit": {
+          "label": "related",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "related",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "reports": {
+        "edit": {
+          "label": "reports",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "id"
+        },
+        "list": {
+          "label": "reports",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "threadOf": {
+        "edit": {
+          "label": "threadOf",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "blockReason"
+        },
+        "list": {
+          "label": "threadOf",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "createdAt": {
+        "edit": {
+          "label": "createdAt",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true
+        },
+        "list": {
+          "label": "createdAt",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "updatedAt": {
+        "edit": {
+          "label": "updatedAt",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true
+        },
+        "list": {
+          "label": "updatedAt",
+          "searchable": true,
+          "sortable": true
+        }
+      }
+    },
+    "layouts": {
+      "list": [
+        "id",
+        "content",
+        "blocked",
+        "blockedThread"
+      ],
+      "editRelations": [
+        "authorUser",
+        "reports",
+        "threadOf"
+      ],
+      "edit": [
+        [
+          {
+            "name": "content",
+            "size": 6
+          },
+          {
+            "name": "blocked",
+            "size": 4
+          }
+        ],
+        [
+          {
+            "name": "blockedThread",
+            "size": 4
+          },
+          {
+            "name": "blockReason",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "authorId",
+            "size": 6
+          },
+          {
+            "name": "authorName",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "authorEmail",
+            "size": 6
+          },
+          {
+            "name": "authorAvatar",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "removed",
+            "size": 4
+          },
+          {
+            "name": "approvalStatus",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "related",
+            "size": 6
+          }
+        ]
+      ]
+    }
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}
