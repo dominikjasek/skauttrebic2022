@@ -36,7 +36,7 @@
       },
       "images": {
         "edit": {
-          "label": "images",
+          "label": "Obrázky",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -50,7 +50,7 @@
       },
       "troops": {
         "edit": {
-          "label": "troops",
+          "label": "Oddíly",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -92,12 +92,6 @@
       }
     },
     "layouts": {
-      "list": [
-        "id",
-        "title",
-        "images",
-        "createdAt"
-      ],
       "edit": [
         [
           {
@@ -118,7 +112,13 @@
           }
         ]
       ],
-      "editRelations": []
+      "editRelations": [],
+      "list": [
+        "id",
+        "title",
+        "images",
+        "createdAt"
+      ]
     }
   },
   "type": "object",
