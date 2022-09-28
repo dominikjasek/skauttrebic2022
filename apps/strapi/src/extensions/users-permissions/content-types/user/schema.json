@@ -3,16 +3,24 @@
   "collectionName": "up_users",
   "info": {
     "name": "user",
-    "description": "",
+    "description": "Uživatelé na webu (členové, rodiče, vedoucí)",
     "singularName": "user",
     "pluralName": "users",
-    "displayName": "User"
+    "displayName": "Uživatelé webu"
   },
   "options": {
     "draftAndPublish": false,
     "timestamps": true
   },
   "attributes": {
+    "firstName": {
+      "type": "string",
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "required": true
+    },
     "username": {
       "type": "string",
       "minLength": 3,
@@ -76,7 +84,7 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::troop.troop",
-      "inversedBy": "subscribed_users"
+      "mappedBy": "subscribed_users"
     },
     "post_likes": {
       "type": "relation",

@@ -15,6 +15,8 @@ export default {
         //User
         User: 'Uživatelé',
         username: 'Uživatelské jméno (přezdívka nebo celé jméno)',
+        firstName: 'Jméno',
+        lastName: 'Příjmení',
         email: 'Email',
         password: 'Heslo',
         confirmed: 'Potvrzen',
