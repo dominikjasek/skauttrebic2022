@@ -90,7 +90,7 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::post.post",
-      "inversedBy": "user_likes"
+      "mappedBy": "user_likes"
     }
   }
 }
