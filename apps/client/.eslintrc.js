@@ -22,6 +22,7 @@ module.exports = {
     ],
     "rules": {
         "@typescript-eslint/semi": ["error", "never"],
-        "react/react-in-jsx-scope": "off"
+        "react/react-in-jsx-scope": "off",
+        "object-curly-spacing": ["error", "always"]
     }
 }
