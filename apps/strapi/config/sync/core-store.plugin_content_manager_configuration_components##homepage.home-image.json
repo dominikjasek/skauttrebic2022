@@ -47,13 +47,28 @@
           "searchable": false,
           "sortable": false
         }
+      },
+      "background_color": {
+        "edit": {
+          "label": "Barva pozadí textu",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "background_color",
+          "searchable": true,
+          "sortable": true
+        }
       }
     },
     "layouts": {
       "list": [
         "id",
         "text",
-        "photo"
+        "photo",
+        "background_color"
       ],
       "edit": [
         [
@@ -62,8 +77,14 @@
             "size": 6
           },
           {
-            "name": "photo",
+            "name": "background_color",
             "size": 6
+          }
+        ],
+        [
+          {
+            "name": "photo",
+            "size": 12
           }
         ]
       ],

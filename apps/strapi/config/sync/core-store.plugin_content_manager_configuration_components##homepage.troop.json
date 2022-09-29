@@ -51,7 +51,7 @@
       "age_gender_information": {
         "edit": {
           "label": "Věkové omezení",
-          "description": "Věkové a omezení - např. chlapci ve věku 12-15 let",
+          "description": "Věkové a genderové - např. chlapci ve věku 12-15 let",
           "placeholder": "",
           "visible": true,
           "editable": true

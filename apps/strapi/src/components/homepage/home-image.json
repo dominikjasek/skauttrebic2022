@@ -20,6 +20,10 @@
         "videos",
         "audios"
       ]
+    },
+    "background_color": {
+      "type": "customField",
+      "customField": "plugin::color-picker.color"
     }
   }
 }

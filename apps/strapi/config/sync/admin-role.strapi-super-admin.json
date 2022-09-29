@@ -10,6 +10,7 @@
         "fields": [
           "images.text",
           "images.photo",
+          "images.background_color",
           "troops.title",
           "troops.description",
           "troops.age_gender_information",
@@ -31,6 +32,7 @@
         "fields": [
           "images.text",
           "images.photo",
+          "images.background_color",
           "troops.title",
           "troops.description",
           "troops.age_gender_information",
@@ -46,6 +48,7 @@
         "fields": [
           "images.text",
           "images.photo",
+          "images.background_color",
           "troops.title",
           "troops.description",
           "troops.age_gender_information",
@@ -464,6 +467,30 @@
     },
     {
       "action": "plugin::content-type-builder.read",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::documentation.read",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::documentation.settings.read",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::documentation.settings.regenerate",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::documentation.settings.update",
       "subject": null,
       "properties": {},
       "conditions": []

@@ -2488,7 +2488,7 @@
           "type": "relation",
           "relation": "manyToMany",
           "target": "api::post.post",
-          "inversedBy": "user_likes"
+          "mappedBy": "user_likes"
         },
         "createdAt": {
           "type": "datetime"
@@ -2623,7 +2623,7 @@
             "type": "relation",
             "relation": "manyToMany",
             "target": "api::post.post",
-            "inversedBy": "user_likes"
+            "mappedBy": "user_likes"
           }
         },
         "kind": "collectionType"
