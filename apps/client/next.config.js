@@ -7,7 +7,12 @@ const nextConfig = {
         destination: '/test'
       }
     ]
+  },
+  reactStrictMode: true,
+  compiler: {
+    emotion: true
   }
 }
 
+// eslint-disable-next-line no-undef
 module.exports = nextConfig
