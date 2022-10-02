@@ -7,7 +7,7 @@ const Home: NextPage = () => {
 
   return (
     <main>
-      vitej doma
+      vitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej doma
       <Link href={'/testik'}>testik</Link>
     </main>
   )

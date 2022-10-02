@@ -8,13 +8,13 @@ import * as React from 'react'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-      <ThemeProvider theme={lightTheme}>
-          <CssBaseline />
-          <AppLayout>
-              <title>Skaut Třebíč</title>
-              <Component {...pageProps} />
-          </AppLayout>
-      </ThemeProvider>
+    <ThemeProvider theme={lightTheme}>
+      <CssBaseline />
+      <AppLayout>
+        <title>Skaut Třebíč</title>
+        <Component {...pageProps} />
+      </AppLayout>
+    </ThemeProvider>
   )
 }
 

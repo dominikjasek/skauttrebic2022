@@ -27,9 +27,12 @@ module.exports = {
     'no-multiple-empty-lines': ['error', { 'max': 1, 'maxEOF': 1 }],
     'react/jsx-space-before-closing': ['error', 'always'],
     'indent': ['error', 2],
-    'react/jsx-indent' : ['error', 2],
+    'react/jsx-indent': ['error', 2],
     'quotes': ['error', 'single'],
     '@typescript-eslint/ban-ts-comment': 'off',
-    'no-trailing-spaces': 'error'
+    'no-trailing-spaces': 'error',
+    'react/jsx-newline': ['error', { 'prevent': true }],
+    '@typescript-eslint/no-empty-interface': 'off',
+    'key-spacing': ['error', { 'afterColon': true }]
   }
 }
