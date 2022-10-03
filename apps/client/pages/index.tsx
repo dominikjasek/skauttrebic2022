@@ -8,21 +8,6 @@ const Home: NextPage = () => {
   return (
     <main>
       vitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej doma
-      vitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej doma
-      vitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej doma
-      vitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej doma
-      vitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej doma
-      vitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej doma
-      vitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej doma
-      vitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej doma
-      vitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej doma
-      vitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej doma
-      vitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej doma
-      vitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej doma
-      vitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej doma
-      vitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej doma
-      vitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej doma
-      vitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej domavitej doma
       <Link href={'/testik'}>testik</Link>
     </main>
   )
