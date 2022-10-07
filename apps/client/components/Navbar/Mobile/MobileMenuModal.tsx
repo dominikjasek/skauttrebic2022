@@ -57,7 +57,9 @@ export const MobileMenuModal: React.FC<MobileMenuModalProps> = (props) => {
         >
           <MobileNavigationItems items={props.items} />
         </Stack>
-        <MenuToggle toggle={() => toggleOpen()} />
+        <Box pr={1.4}>
+          <MenuToggle toggle={() => toggleOpen()} />
+        </Box>
       </motion.nav>
     </Box>
   )
