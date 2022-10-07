@@ -16,6 +16,8 @@ import Hamburger from 'hamburger-react'
 import { useState } from 'react'
 import { MobileMenuModal } from './MobileMenuModal'
 import { MenuItem as MenuItemType } from './Navbar.interface'
+import Link from 'next/link'
+import Routes from '~/pages/routes'
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
 
@@ -75,9 +77,13 @@ export const Navbar: React.FC = () => {
             aria-controls="menu-appbar"
             aria-haspopup="true"
             disableRipple
-            sx={{ color: theme.palette.grey['900'], height: { xs: 40, sm: 45, md: 55 }, p: 0, pl: 1, zIndex: 1000 }}
+            sx={{ color: theme.palette.grey['900'], height: { xs: 40, sm: 45, md: 55 }, p: 0, pl: 2, zIndex: 1000 }}
           >
-            <SkautLogo width={'auto'} height={'100%'} />
+            <Link href={Routes.home} >
+              <a style={{ width: 'auto', height: '100%' }}>
+                <SkautLogo />
+              </a>
+            </Link>
           </IconButton>
           <Typography
             variant="h6"
