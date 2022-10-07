@@ -12,6 +12,7 @@ import { MenuItem as MenuItemType } from './Navbar.interface'
 import Link from 'next/link'
 import { DesktopMenuNavigation } from '~/components/Navbar/Desktop/DesktopMenuNavigation'
 import Routes from '~/config/routes'
+import { useScreen } from '~/utility/use-screen'
 
 export const Navbar: React.FC = () => {
   const theme = useTheme()
@@ -31,6 +32,8 @@ export const Navbar: React.FC = () => {
     }
   ]
 
+  const { onlyMediumScreen, onlySmallScreen } = useScreen()
+
   return (
     <AppBar position="static" sx={{ backgroundColor: theme.palette.grey['300'] }}>
       <Container maxWidth="xl" disableGutters>
@@ -46,7 +49,7 @@ export const Navbar: React.FC = () => {
           >
             <Link href={Routes.home} >
               <a style={{ width: 'auto', height: '100%' }}>
-                <SkautLogo />
+                <SkautLogo size={onlySmallScreen ? 0.5 : onlyMediumScreen? 0.57 : 0.65}  />
               </a>
             </Link>
           </IconButton>

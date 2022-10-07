@@ -22,6 +22,10 @@ const staggerVariants = {
 const AnimationRoot = (props: React.PropsWithChildren) => (
   <motion.ul
     variants={staggerVariants}
+    style={{
+      padding: 0,
+      listStyleType: 'none'
+    }}
   >
     {props.children}
   </motion.ul>
@@ -49,6 +53,10 @@ const AnimationUl = (props: React.PropsWithChildren) => (
     variants={variants}
     whileHover={{ scale: 1.1 }}
     whileTap={{ scale: 0.95 }}
+    style={{
+      padding: 0,
+      listStyleType: 'none'
+    }}
   >
     {props.children}
   </motion.ul>
@@ -69,9 +77,8 @@ export const MobileNavigationItems: React.FC<MobileNavigationItemsProps> = ({ it
     <AnimationRoot>
       {items.map(item => (
         <div key={item.label}>
-          <AnimationUl
-          >
-            <Link  href={'todo'} key={item.label}>
+          <AnimationUl>
+            <Link href={'todo'} key={item.label}>
               <MenuLink>
                 {item.label}
               </MenuLink>

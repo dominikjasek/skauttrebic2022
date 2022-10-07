@@ -22,10 +22,11 @@ export const MenuToggle: React.FC<MenuToggleProps> = ({ toggle }) => (
       border: 'none',
       cursor: 'pointer',
       position: 'absolute',
-      top: '17.3px',
-      right: '17px',
+      top: '14.5px',
+      right: '15px',
       borderRadius: '50%',
       background: 'transparent',
+      margin: '2px'
     }}
     onClick={toggle}
   >
