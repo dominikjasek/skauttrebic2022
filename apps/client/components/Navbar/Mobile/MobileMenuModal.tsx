@@ -52,7 +52,7 @@ export const MobileMenuModal: React.FC<MobileMenuModalProps> = (props) => {
             inset: 0,
             alignItems: 'center',
             justifyContent: 'center',
-            backgroundColor: theme.palette.grey['200']
+            backgroundColor: theme.palette.grey['300']
           }} variants={sidebar}
         >
           <MobileNavigationItems items={props.items} />
