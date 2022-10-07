@@ -6,7 +6,7 @@ const Routes = {
 
 const routes = [
   {
-    home: Routes.home,
+    source: Routes.home,
     destination: '/'
   },
   {

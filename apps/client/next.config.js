@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-undef,@typescript-eslint/no-var-requires
-const { routes } = require('./pages/routes/routes')
+const { routes } = require('./routes')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {

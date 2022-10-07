@@ -4,25 +4,16 @@ import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
 import IconButton from '@mui/material/IconButton'
 import Typography from '@mui/material/Typography'
-import Menu from '@mui/material/Menu'
 import Container from '@mui/material/Container'
-import Avatar from '@mui/material/Avatar'
-import MenuItem from '@mui/material/MenuItem'
-import Button from '@mui/material/Button'
 import { SkautLogo } from '../Logo/SkautLogo'
 import { useTheme } from '@mui/material'
-import { ExpandMore } from '@mui/icons-material'
-import Hamburger from 'hamburger-react'
-import { useState } from 'react'
-import { MobileMenuModal } from './MobileMenuModal'
+import { MobileMenuModal } from './Mobile/MobileMenuModal'
 import { MenuItem as MenuItemType } from './Navbar.interface'
 import Link from 'next/link'
-import Routes from '~/pages/routes'
-
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
+import { DesktopMenuNavigation } from '~/components/Navbar/Desktop/DesktopMenuNavigation'
+import Routes from '~/config/routes'
 
 export const Navbar: React.FC = () => {
-  const [isHamburgerOpen, setHamburger] = useState<boolean>(false)
   const theme = useTheme()
 
   const menuItems: MenuItemType[] = [
@@ -39,32 +30,6 @@ export const Navbar: React.FC = () => {
       label: 'Kontakt'
     }
   ]
-
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null)
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null)
-
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setHamburger(true)
-    setAnchorElNav(event.currentTarget)
-  }
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    console.log('handleOpenUserMenu')
-    // setAnchorElUser(event.currentTarget)
-  }
-
-  const handleCloseNavMenu = () => {
-    // setHamburger(false)
-    // setAnchorElNav(null)
-  }
-
-  const handleCloseUserMenu = () => {
-    console.log('handleCloseUserMenu')
-    setAnchorElUser(null)
-  }
-
-  const toggleHamburger = (newState: boolean) => {
-    setHamburger(newState)
-  }
 
   return (
     <AppBar position="static" sx={{ backgroundColor: theme.palette.grey['300'] }}>
@@ -91,7 +56,7 @@ export const Navbar: React.FC = () => {
             component="a"
             fontFamily="skautbold"
             mr={2}
-            ml={1}
+            ml={2}
             color={theme.palette.grey['900']}
             sx={{
               display: { xs: 'none', md: 'flex' },
@@ -103,75 +68,8 @@ export const Navbar: React.FC = () => {
               2. Skautské oddíly Třebíč
             </Box>
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'flex-end' }}>
-            {menuItems.map((item) => (
-              <Button
-                key={item.label}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: theme.palette.grey['900'], display: 'block' }}
-              >
-                {item.label}
-              </Button>
-            ))}
-          </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, justifyContent: 'flex-end' }}>
-            <Box p={1} pr={2} zIndex={1000}>
-              <Hamburger toggled={isHamburgerOpen} onToggle={toggleHamburger} color={theme.palette.grey['900']} />
-            </Box>
-            <MobileMenuModal items={menuItems} isOpen={isHamburgerOpen} />
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-              {menuItems.map((item) => (
-                <MenuItem key={item.label} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{item.label}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'block' } }}>
-            <IconButton disableRipple onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-              <Avatar alt="You" />
-              <ExpandMore fontSize={'small'} />
-            </IconButton>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+          <MobileMenuModal items={menuItems}  />
+          <DesktopMenuNavigation items={menuItems} />
         </Toolbar>
       </Container>
     </AppBar>

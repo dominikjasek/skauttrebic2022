@@ -15,11 +15,11 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "~/components/*": ["components/*"],
-      "~/styles/*": ["styles/*"],
-      "~/pages/*": ["pages/*"],
-      "~/config/*": ["config/*"],
-      "~/public/*": ["public/*"]
+      "~/components/*": ["./components/*"],
+      "~/styles/*": ["./styles/*"],
+      "~/pages/*": ["./pages/*"],
+      "~/config/*": ["./config/*"],
+      "~/public/*": ["./public/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
