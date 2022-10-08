@@ -65,7 +65,7 @@
       "troops": {
         "edit": {
           "label": "Oddíly",
-          "description": "",
+          "description": "Oddíly kterých se tento příspěvek týká",
           "placeholder": "",
           "visible": true,
           "editable": true,
@@ -90,6 +90,21 @@
           "label": "Lajky uživatelů",
           "searchable": false,
           "sortable": false
+        }
+      },
+      "publish_at": {
+        "edit": {
+          "label": "Datum publikování",
+          "description": "Automatické publikování příspěvku v daný čas",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "step": 30
+        },
+        "list": {
+          "label": "publish_at",
+          "searchable": true,
+          "sortable": true
         }
       },
       "createdAt": {
@@ -139,12 +154,15 @@
           {
             "name": "files",
             "size": 6
+          },
+          {
+            "name": "publish_at",
+            "size": 6
           }
         ]
       ],
       "editRelations": [
-        "troops",
-        "user_likes"
+        "troops"
       ],
       "list": [
         "id",

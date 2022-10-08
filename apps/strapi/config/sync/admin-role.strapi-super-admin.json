@@ -66,13 +66,20 @@
           "content",
           "files",
           "troops",
-          "user_likes"
+          "user_likes",
+          "publish_at"
         ]
       },
       "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::post.post",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
       "subject": "api::post.post",
       "properties": {},
       "conditions": []
@@ -86,7 +93,8 @@
           "content",
           "files",
           "troops",
-          "user_likes"
+          "user_likes",
+          "publish_at"
         ]
       },
       "conditions": []
@@ -100,7 +108,8 @@
           "content",
           "files",
           "troops",
-          "user_likes"
+          "user_likes",
+          "publish_at"
         ]
       },
       "conditions": []

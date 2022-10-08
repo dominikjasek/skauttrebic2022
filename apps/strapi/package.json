@@ -12,9 +12,13 @@
     "cs-export": "yarn cs e -y",
     "dev": "strapi develop",
     "start": "strapi start",
-    "build": "yarn translate && strapi build",
+    "build": "yarn translate $$ yarn strapi ts:generate-types && strapi build",
     "strapi": "strapi",
     "lint": "eslint"
+  },
+  "imports": {
+    "#config/*": "./config/*",
+    "#src/*": "./src/*"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.37.0",

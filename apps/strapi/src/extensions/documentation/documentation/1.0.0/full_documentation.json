@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2022-09-29T17:59:54.857Z"
+    "x-generation-date": "2022-10-08T21:39:52.700Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -2761,6 +2761,10 @@
                   ],
                   "example": "string or id"
                 }
+              },
+              "publish_at": {
+                "type": "string",
+                "format": "date-time"
               }
             }
           }
@@ -4599,11 +4603,19 @@
                                                             }
                                                           }
                                                         },
+                                                        "publish_at": {
+                                                          "type": "string",
+                                                          "format": "date-time"
+                                                        },
                                                         "createdAt": {
                                                           "type": "string",
                                                           "format": "date-time"
                                                         },
                                                         "updatedAt": {
+                                                          "type": "string",
+                                                          "format": "date-time"
+                                                        },
+                                                        "publishedAt": {
                                                           "type": "string",
                                                           "format": "date-time"
                                                         },
@@ -4786,11 +4798,19 @@
                   }
                 }
               },
+              "publish_at": {
+                "type": "string",
+                "format": "date-time"
+              },
               "createdAt": {
                 "type": "string",
                 "format": "date-time"
               },
               "updatedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "publishedAt": {
                 "type": "string",
                 "format": "date-time"
               },
@@ -6665,11 +6685,19 @@
                                                             }
                                                           }
                                                         },
+                                                        "publish_at": {
+                                                          "type": "string",
+                                                          "format": "date-time"
+                                                        },
                                                         "createdAt": {
                                                           "type": "string",
                                                           "format": "date-time"
                                                         },
                                                         "updatedAt": {
+                                                          "type": "string",
+                                                          "format": "date-time"
+                                                        },
+                                                        "publishedAt": {
                                                           "type": "string",
                                                           "format": "date-time"
                                                         },
@@ -6852,11 +6880,19 @@
                   }
                 }
               },
+              "publish_at": {
+                "type": "string",
+                "format": "date-time"
+              },
               "createdAt": {
                 "type": "string",
                 "format": "date-time"
               },
               "updatedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "publishedAt": {
                 "type": "string",
                 "format": "date-time"
               },
@@ -8764,11 +8800,19 @@
                                                             }
                                                           }
                                                         },
+                                                        "publish_at": {
+                                                          "type": "string",
+                                                          "format": "date-time"
+                                                        },
                                                         "createdAt": {
                                                           "type": "string",
                                                           "format": "date-time"
                                                         },
                                                         "updatedAt": {
+                                                          "type": "string",
+                                                          "format": "date-time"
+                                                        },
+                                                        "publishedAt": {
                                                           "type": "string",
                                                           "format": "date-time"
                                                         },
@@ -8951,11 +8995,19 @@
                   }
                 }
               },
+              "publish_at": {
+                "type": "string",
+                "format": "date-time"
+              },
               "createdAt": {
                 "type": "string",
                 "format": "date-time"
               },
               "updatedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "publishedAt": {
                 "type": "string",
                 "format": "date-time"
               },
@@ -10830,11 +10882,19 @@
                                                             }
                                                           }
                                                         },
+                                                        "publish_at": {
+                                                          "type": "string",
+                                                          "format": "date-time"
+                                                        },
                                                         "createdAt": {
                                                           "type": "string",
                                                           "format": "date-time"
                                                         },
                                                         "updatedAt": {
+                                                          "type": "string",
+                                                          "format": "date-time"
+                                                        },
+                                                        "publishedAt": {
                                                           "type": "string",
                                                           "format": "date-time"
                                                         },
@@ -11017,11 +11077,19 @@
                   }
                 }
               },
+              "publish_at": {
+                "type": "string",
+                "format": "date-time"
+              },
               "createdAt": {
                 "type": "string",
                 "format": "date-time"
               },
               "updatedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "publishedAt": {
                 "type": "string",
                 "format": "date-time"
               },
@@ -13657,11 +13725,19 @@
                                                             }
                                                           }
                                                         },
+                                                        "publish_at": {
+                                                          "type": "string",
+                                                          "format": "date-time"
+                                                        },
                                                         "createdAt": {
                                                           "type": "string",
                                                           "format": "date-time"
                                                         },
                                                         "updatedAt": {
+                                                          "type": "string",
+                                                          "format": "date-time"
+                                                        },
+                                                        "publishedAt": {
                                                           "type": "string",
                                                           "format": "date-time"
                                                         },
@@ -15096,11 +15172,19 @@
                                                             }
                                                           }
                                                         },
+                                                        "publish_at": {
+                                                          "type": "string",
+                                                          "format": "date-time"
+                                                        },
                                                         "createdAt": {
                                                           "type": "string",
                                                           "format": "date-time"
                                                         },
                                                         "updatedAt": {
+                                                          "type": "string",
+                                                          "format": "date-time"
+                                                        },
+                                                        "publishedAt": {
                                                           "type": "string",
                                                           "format": "date-time"
                                                         },
@@ -16568,11 +16652,19 @@
                                                             }
                                                           }
                                                         },
+                                                        "publish_at": {
+                                                          "type": "string",
+                                                          "format": "date-time"
+                                                        },
                                                         "createdAt": {
                                                           "type": "string",
                                                           "format": "date-time"
                                                         },
                                                         "updatedAt": {
+                                                          "type": "string",
+                                                          "format": "date-time"
+                                                        },
+                                                        "publishedAt": {
                                                           "type": "string",
                                                           "format": "date-time"
                                                         },
@@ -18007,11 +18099,19 @@
                                                             }
                                                           }
                                                         },
+                                                        "publish_at": {
+                                                          "type": "string",
+                                                          "format": "date-time"
+                                                        },
                                                         "createdAt": {
                                                           "type": "string",
                                                           "format": "date-time"
                                                         },
                                                         "updatedAt": {
+                                                          "type": "string",
+                                                          "format": "date-time"
+                                                        },
+                                                        "publishedAt": {
                                                           "type": "string",
                                                           "format": "date-time"
                                                         },
@@ -24552,11 +24652,19 @@
                                                                         }
                                                                       }
                                                                     },
+                                                                    "publish_at": {
+                                                                      "type": "string",
+                                                                      "format": "date-time"
+                                                                    },
                                                                     "createdAt": {
                                                                       "type": "string",
                                                                       "format": "date-time"
                                                                     },
                                                                     "updatedAt": {
+                                                                      "type": "string",
+                                                                      "format": "date-time"
+                                                                    },
+                                                                    "publishedAt": {
                                                                       "type": "string",
                                                                       "format": "date-time"
                                                                     },
@@ -25968,11 +26076,19 @@
                                                                         }
                                                                       }
                                                                     },
+                                                                    "publish_at": {
+                                                                      "type": "string",
+                                                                      "format": "date-time"
+                                                                    },
                                                                     "createdAt": {
                                                                       "type": "string",
                                                                       "format": "date-time"
                                                                     },
                                                                     "updatedAt": {
+                                                                      "type": "string",
+                                                                      "format": "date-time"
+                                                                    },
+                                                                    "publishedAt": {
                                                                       "type": "string",
                                                                       "format": "date-time"
                                                                     },
@@ -27417,11 +27533,19 @@
                                                                         }
                                                                       }
                                                                     },
+                                                                    "publish_at": {
+                                                                      "type": "string",
+                                                                      "format": "date-time"
+                                                                    },
                                                                     "createdAt": {
                                                                       "type": "string",
                                                                       "format": "date-time"
                                                                     },
                                                                     "updatedAt": {
+                                                                      "type": "string",
+                                                                      "format": "date-time"
+                                                                    },
+                                                                    "publishedAt": {
                                                                       "type": "string",
                                                                       "format": "date-time"
                                                                     },
@@ -28833,11 +28957,19 @@
                                                                         }
                                                                       }
                                                                     },
+                                                                    "publish_at": {
+                                                                      "type": "string",
+                                                                      "format": "date-time"
+                                                                    },
                                                                     "createdAt": {
                                                                       "type": "string",
                                                                       "format": "date-time"
                                                                     },
                                                                     "updatedAt": {
+                                                                      "type": "string",
+                                                                      "format": "date-time"
+                                                                    },
+                                                                    "publishedAt": {
                                                                       "type": "string",
                                                                       "format": "date-time"
                                                                     },
@@ -30021,11 +30153,19 @@
                                                                                       }
                                                                                     }
                                                                                   },
+                                                                                  "publish_at": {
+                                                                                    "type": "string",
+                                                                                    "format": "date-time"
+                                                                                  },
                                                                                   "createdAt": {
                                                                                     "type": "string",
                                                                                     "format": "date-time"
                                                                                   },
                                                                                   "updatedAt": {
+                                                                                    "type": "string",
+                                                                                    "format": "date-time"
+                                                                                  },
+                                                                                  "publishedAt": {
                                                                                     "type": "string",
                                                                                     "format": "date-time"
                                                                                   },
@@ -31466,11 +31606,19 @@
                                                                                       }
                                                                                     }
                                                                                   },
+                                                                                  "publish_at": {
+                                                                                    "type": "string",
+                                                                                    "format": "date-time"
+                                                                                  },
                                                                                   "createdAt": {
                                                                                     "type": "string",
                                                                                     "format": "date-time"
                                                                                   },
                                                                                   "updatedAt": {
+                                                                                    "type": "string",
+                                                                                    "format": "date-time"
+                                                                                  },
+                                                                                  "publishedAt": {
                                                                                     "type": "string",
                                                                                     "format": "date-time"
                                                                                   },
@@ -32944,11 +33092,19 @@
                                                                                       }
                                                                                     }
                                                                                   },
+                                                                                  "publish_at": {
+                                                                                    "type": "string",
+                                                                                    "format": "date-time"
+                                                                                  },
                                                                                   "createdAt": {
                                                                                     "type": "string",
                                                                                     "format": "date-time"
                                                                                   },
                                                                                   "updatedAt": {
+                                                                                    "type": "string",
+                                                                                    "format": "date-time"
+                                                                                  },
+                                                                                  "publishedAt": {
                                                                                     "type": "string",
                                                                                     "format": "date-time"
                                                                                   },
@@ -34389,11 +34545,19 @@
                                                                                       }
                                                                                     }
                                                                                   },
+                                                                                  "publish_at": {
+                                                                                    "type": "string",
+                                                                                    "format": "date-time"
+                                                                                  },
                                                                                   "createdAt": {
                                                                                     "type": "string",
                                                                                     "format": "date-time"
                                                                                   },
                                                                                   "updatedAt": {
+                                                                                    "type": "string",
+                                                                                    "format": "date-time"
+                                                                                  },
+                                                                                  "publishedAt": {
                                                                                     "type": "string",
                                                                                     "format": "date-time"
                                                                                   },
@@ -36259,11 +36423,19 @@
                                                                         }
                                                                       }
                                                                     },
+                                                                    "publish_at": {
+                                                                      "type": "string",
+                                                                      "format": "date-time"
+                                                                    },
                                                                     "createdAt": {
                                                                       "type": "string",
                                                                       "format": "date-time"
                                                                     },
                                                                     "updatedAt": {
+                                                                      "type": "string",
+                                                                      "format": "date-time"
+                                                                    },
+                                                                    "publishedAt": {
                                                                       "type": "string",
                                                                       "format": "date-time"
                                                                     },
@@ -37748,11 +37920,19 @@
                                                                         }
                                                                       }
                                                                     },
+                                                                    "publish_at": {
+                                                                      "type": "string",
+                                                                      "format": "date-time"
+                                                                    },
                                                                     "createdAt": {
                                                                       "type": "string",
                                                                       "format": "date-time"
                                                                     },
                                                                     "updatedAt": {
+                                                                      "type": "string",
+                                                                      "format": "date-time"
+                                                                    },
+                                                                    "publishedAt": {
                                                                       "type": "string",
                                                                       "format": "date-time"
                                                                     },
@@ -39270,11 +39450,19 @@
                                                                         }
                                                                       }
                                                                     },
+                                                                    "publish_at": {
+                                                                      "type": "string",
+                                                                      "format": "date-time"
+                                                                    },
                                                                     "createdAt": {
                                                                       "type": "string",
                                                                       "format": "date-time"
                                                                     },
                                                                     "updatedAt": {
+                                                                      "type": "string",
+                                                                      "format": "date-time"
+                                                                    },
+                                                                    "publishedAt": {
                                                                       "type": "string",
                                                                       "format": "date-time"
                                                                     },
@@ -40759,11 +40947,19 @@
                                                                         }
                                                                       }
                                                                     },
+                                                                    "publish_at": {
+                                                                      "type": "string",
+                                                                      "format": "date-time"
+                                                                    },
                                                                     "createdAt": {
                                                                       "type": "string",
                                                                       "format": "date-time"
                                                                     },
                                                                     "updatedAt": {
+                                                                      "type": "string",
+                                                                      "format": "date-time"
+                                                                    },
+                                                                    "publishedAt": {
                                                                       "type": "string",
                                                                       "format": "date-time"
                                                                     },

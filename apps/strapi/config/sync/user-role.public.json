@@ -4,10 +4,16 @@
   "type": "public",
   "permissions": [
     {
+      "action": "api::homepage.homepage.find"
+    },
+    {
       "action": "api::post.post.find"
     },
     {
       "action": "api::post.post.findOne"
+    },
+    {
+      "action": "api::top-bar.top-bar.find"
     },
     {
       "action": "plugin::comments.client.findAllFlat"
