@@ -12,7 +12,7 @@
     "cs-export": "yarn cs e -y",
     "dev": "strapi develop",
     "start": "strapi start",
-    "build": "yarn translate $$ yarn strapi ts:generate-types && strapi build",
+    "build": "yarn translate && yarn strapi ts:generate-types && strapi build",
     "strapi": "strapi",
     "lint": "eslint"
   },
