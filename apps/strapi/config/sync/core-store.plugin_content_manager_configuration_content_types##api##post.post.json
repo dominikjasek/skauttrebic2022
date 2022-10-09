@@ -6,7 +6,7 @@
       "bulkable": true,
       "filterable": true,
       "searchable": true,
-      "pageSize": 10,
+      "pageSize": 50,
       "mainField": "title",
       "defaultSortBy": "title",
       "defaultSortOrder": "ASC"
@@ -92,17 +92,17 @@
           "sortable": false
         }
       },
-      "publish_at": {
+      "schedule_publish_at": {
         "edit": {
-          "label": "Datum publikování",
-          "description": "Automatické publikování příspěvku v daný čas",
+          "label": "Naplánovat publikování",
+          "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true,
-          "step": 30
+          "step": 15
         },
         "list": {
-          "label": "publish_at",
+          "label": "schedule_publish_at",
           "searchable": true,
           "sortable": true
         }
@@ -156,7 +156,7 @@
             "size": 6
           },
           {
-            "name": "publish_at",
+            "name": "schedule_publish_at",
             "size": 6
           }
         ]

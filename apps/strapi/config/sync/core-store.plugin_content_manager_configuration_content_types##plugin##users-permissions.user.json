@@ -293,8 +293,7 @@
       ],
       "editRelations": [
         "role",
-        "subscribing_troops",
-        "post_likes"
+        "subscribing_troops"
       ],
       "list": [
         "id",

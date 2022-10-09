@@ -20,6 +20,7 @@ module.exports = {
   ],
   'rules': {
     '@typescript-eslint/ban-ts-comment': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
     'quotes': [2, 'single', {'avoidEscape': true}],
     'indent': ['error', 2],
     'object-curly-spacing': ['error', 'never'],

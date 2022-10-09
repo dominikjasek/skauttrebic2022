@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2022-10-09T14:15:57.342Z"
+    "x-generation-date": "2022-10-09T20:36:42.119Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -2762,7 +2762,7 @@
                   "example": "string or id"
                 }
               },
-              "publish_at": {
+              "schedule_publish_at": {
                 "type": "string",
                 "format": "date-time"
               }
@@ -4603,7 +4603,7 @@
                                                             }
                                                           }
                                                         },
-                                                        "publish_at": {
+                                                        "schedule_publish_at": {
                                                           "type": "string",
                                                           "format": "date-time"
                                                         },
@@ -4798,7 +4798,7 @@
                   }
                 }
               },
-              "publish_at": {
+              "schedule_publish_at": {
                 "type": "string",
                 "format": "date-time"
               },
@@ -6685,7 +6685,7 @@
                                                             }
                                                           }
                                                         },
-                                                        "publish_at": {
+                                                        "schedule_publish_at": {
                                                           "type": "string",
                                                           "format": "date-time"
                                                         },
@@ -6880,7 +6880,7 @@
                   }
                 }
               },
-              "publish_at": {
+              "schedule_publish_at": {
                 "type": "string",
                 "format": "date-time"
               },
@@ -8800,7 +8800,7 @@
                                                             }
                                                           }
                                                         },
-                                                        "publish_at": {
+                                                        "schedule_publish_at": {
                                                           "type": "string",
                                                           "format": "date-time"
                                                         },
@@ -8995,7 +8995,7 @@
                   }
                 }
               },
-              "publish_at": {
+              "schedule_publish_at": {
                 "type": "string",
                 "format": "date-time"
               },
@@ -10882,7 +10882,7 @@
                                                             }
                                                           }
                                                         },
-                                                        "publish_at": {
+                                                        "schedule_publish_at": {
                                                           "type": "string",
                                                           "format": "date-time"
                                                         },
@@ -11077,7 +11077,7 @@
                   }
                 }
               },
-              "publish_at": {
+              "schedule_publish_at": {
                 "type": "string",
                 "format": "date-time"
               },
@@ -13725,7 +13725,7 @@
                                                             }
                                                           }
                                                         },
-                                                        "publish_at": {
+                                                        "schedule_publish_at": {
                                                           "type": "string",
                                                           "format": "date-time"
                                                         },
@@ -15172,7 +15172,7 @@
                                                             }
                                                           }
                                                         },
-                                                        "publish_at": {
+                                                        "schedule_publish_at": {
                                                           "type": "string",
                                                           "format": "date-time"
                                                         },
@@ -16652,7 +16652,7 @@
                                                             }
                                                           }
                                                         },
-                                                        "publish_at": {
+                                                        "schedule_publish_at": {
                                                           "type": "string",
                                                           "format": "date-time"
                                                         },
@@ -18099,7 +18099,7 @@
                                                             }
                                                           }
                                                         },
-                                                        "publish_at": {
+                                                        "schedule_publish_at": {
                                                           "type": "string",
                                                           "format": "date-time"
                                                         },
@@ -24652,7 +24652,7 @@
                                                                         }
                                                                       }
                                                                     },
-                                                                    "publish_at": {
+                                                                    "schedule_publish_at": {
                                                                       "type": "string",
                                                                       "format": "date-time"
                                                                     },
@@ -26076,7 +26076,7 @@
                                                                         }
                                                                       }
                                                                     },
-                                                                    "publish_at": {
+                                                                    "schedule_publish_at": {
                                                                       "type": "string",
                                                                       "format": "date-time"
                                                                     },
@@ -27533,7 +27533,7 @@
                                                                         }
                                                                       }
                                                                     },
-                                                                    "publish_at": {
+                                                                    "schedule_publish_at": {
                                                                       "type": "string",
                                                                       "format": "date-time"
                                                                     },
@@ -28957,7 +28957,7 @@
                                                                         }
                                                                       }
                                                                     },
-                                                                    "publish_at": {
+                                                                    "schedule_publish_at": {
                                                                       "type": "string",
                                                                       "format": "date-time"
                                                                     },
@@ -30153,7 +30153,7 @@
                                                                                       }
                                                                                     }
                                                                                   },
-                                                                                  "publish_at": {
+                                                                                  "schedule_publish_at": {
                                                                                     "type": "string",
                                                                                     "format": "date-time"
                                                                                   },
@@ -31606,7 +31606,7 @@
                                                                                       }
                                                                                     }
                                                                                   },
-                                                                                  "publish_at": {
+                                                                                  "schedule_publish_at": {
                                                                                     "type": "string",
                                                                                     "format": "date-time"
                                                                                   },
@@ -33092,7 +33092,7 @@
                                                                                       }
                                                                                     }
                                                                                   },
-                                                                                  "publish_at": {
+                                                                                  "schedule_publish_at": {
                                                                                     "type": "string",
                                                                                     "format": "date-time"
                                                                                   },
@@ -34545,7 +34545,7 @@
                                                                                       }
                                                                                     }
                                                                                   },
-                                                                                  "publish_at": {
+                                                                                  "schedule_publish_at": {
                                                                                     "type": "string",
                                                                                     "format": "date-time"
                                                                                   },
@@ -36423,7 +36423,7 @@
                                                                         }
                                                                       }
                                                                     },
-                                                                    "publish_at": {
+                                                                    "schedule_publish_at": {
                                                                       "type": "string",
                                                                       "format": "date-time"
                                                                     },
@@ -37920,7 +37920,7 @@
                                                                         }
                                                                       }
                                                                     },
-                                                                    "publish_at": {
+                                                                    "schedule_publish_at": {
                                                                       "type": "string",
                                                                       "format": "date-time"
                                                                     },
@@ -39450,7 +39450,7 @@
                                                                         }
                                                                       }
                                                                     },
-                                                                    "publish_at": {
+                                                                    "schedule_publish_at": {
                                                                       "type": "string",
                                                                       "format": "date-time"
                                                                     },
@@ -40947,7 +40947,7 @@
                                                                         }
                                                                       }
                                                                     },
-                                                                    "publish_at": {
+                                                                    "schedule_publish_at": {
                                                                       "type": "string",
                                                                       "format": "date-time"
                                                                     },

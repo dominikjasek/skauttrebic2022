@@ -915,7 +915,7 @@
           "target": "plugin::users-permissions.user",
           "inversedBy": "post_likes"
         },
-        "publish_at": {
+        "schedule_publish_at": {
           "type": "datetime"
         },
         "createdAt": {
@@ -996,7 +996,7 @@
             "target": "plugin::users-permissions.user",
             "inversedBy": "post_likes"
           },
-          "publish_at": {
+          "schedule_publish_at": {
             "type": "datetime"
           }
         },
