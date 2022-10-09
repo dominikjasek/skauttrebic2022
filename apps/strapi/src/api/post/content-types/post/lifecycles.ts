@@ -2,7 +2,7 @@ import {sendEmailsToSubscribersOnPostPublished} from '../../../../extensions/ema
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const {ForbiddenError} = require('@strapi/utils').errors;
-import {AfterXXXEvent} from './interfaces';
+import {AfterXXXEvent, Post} from './interfaces';
 
 const MAX_TIME_DIFFERENCE_TO_RESOLVE_AS_JUST_PUBLISHED = 300 // millisecods
 
@@ -36,22 +36,36 @@ const handlePostPublished = async (event: AfterXXXEvent) => {
 
 const validateTroops = async (event: AfterXXXEvent) => {
   console.log(event)
-  const currentPost = event.params.where?.id ? await strapi.entityService.findOne('api::post.post', event.params.where.id, {populate: ['troops']}) : {}
+  const currentPost: Post = event.params.where?.id ? await strapi.entityService.findOne('api::post.post', event.params.where.id, {populate: ['troops']}) : {}
   console.log('currentPost', currentPost)
-  const newPost = {...currentPost, ...event.params.data}
+  const newPost: Post = {...currentPost, ...event.params.data}
   console.log('newPost', newPost)
-  if (newPost.troops === undefined || newPost.troops.length === 0) {
-    throw new ForbiddenError('Vyberte oddíl(y)');
-  }
+  // if (newPost.attributes.troops === undefined || newPost.attributes.troops.target.length === 0) {
+  //   throw new ForbiddenError('Vyberte oddíl(y)');
+  // }
 }
 
 export default {
   async beforeUpdate(event: AfterXXXEvent) {
-    await validateTroops(event)
+    // await validateTroops(event)
+    const newPost: Post = event.params.data
+    const currentPost: Post = await strapi.entityService.findOne('api::post.post', event.params.where.id, {populate: ['troops']})
+    const mergedPost: Post = {...currentPost, ...newPost}
+    const troops = mergedPost.troops as unknown as number[] | undefined
+
+    if (troops === undefined || troops.length === 0) {
+      throw new ForbiddenError('Nemůžete odebrat oddíly z příspěvku. Ponechte alespoň jeden.');
+    }
   },
 
   async beforeCreate(event) {
-    await validateTroops(event)
+    const newPost: Post = event.params.data
+    const troops = newPost.troops as unknown as number[] | undefined
+    console.log(troops)
+
+    if (troops === undefined || troops.length === 0) {
+      throw new ForbiddenError('Vyberte oddíl(y). Nelze vytvořit příspěvek bez žádného přiřazeného oddílu.');
+    }
   },
 
   async afterCreate(event: AfterXXXEvent) {
