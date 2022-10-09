@@ -578,6 +578,7 @@
   "content-manager.containers.Edit.information.editing": "Upravuje se",
   "content-manager.containers.Edit.information.lastUpdate": "Poslední aktualizace",
   "content-manager.containers.Edit.information.publishedVersion": "publikovaná verze",
+  "content-manager.containers.Edit.relations": "Propojení",
   "content-manager.containers.Edit.pluginHeader.title.new": "Vytvořit záznam",
   "content-manager.containers.Edit.reset": "Resetovat",
   "content-manager.containers.Edit.returnList": "Návrat do výpisu",
