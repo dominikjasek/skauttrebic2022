@@ -5,8 +5,8 @@ import {AfterXXXEvent, Post} from './interfaces';
 
 const MAX_TIME_DIFFERENCE_TO_RESOLVE_AS_JUST_PUBLISHED = 300 // millisecods
 
-const timeDifference = (date1: Date, date2: Date) => {
-  return date2.getTime() - date1.getTime()
+const timeDifference = (earlierDate: Date, laterDate: Date) => {
+  return laterDate.getTime() - earlierDate.getTime()
 }
 
 /**
@@ -15,11 +15,12 @@ const timeDifference = (date1: Date, date2: Date) => {
  * @param event
  */
 const postWasJustPublished = (event: AfterXXXEvent) => {
+  console.log(event.result)
   if (event.result.publishedAt === null) {
     return false
   }
 
-  const diff = timeDifference(new Date(event.result.updatedAt), new Date(event.result.publishedAt))
+  const diff = timeDifference(new Date(event.result.publishedAt), new Date(event.result.updatedAt))
   console.log('timedifference = ', diff)
   if (diff <= MAX_TIME_DIFFERENCE_TO_RESOLVE_AS_JUST_PUBLISHED) {
     console.log('Post was just published!!!')
@@ -28,6 +29,8 @@ const postWasJustPublished = (event: AfterXXXEvent) => {
 }
 
 const handlePostPublished = async (event: AfterXXXEvent) => {
+  // Strapi doesn`t have afterPublished event, therefore we need to fake it this way.
+  // If updatedAt is close to publishedAt, we claim this was publish event
   if (postWasJustPublished(event)) {
     await sendEmailsToSubscribersOnPostPublished(event.result)
   }
