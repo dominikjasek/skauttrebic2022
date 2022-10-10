@@ -28,7 +28,9 @@ export const sendEmailsToSubscribersOnPostPublished = async (postData: Post) => 
         .sendTemplatedEmail( {to: subscriber.email},
           {templateReferenceId: 2},
           {
-            // this object must include all variables you're using in your email template
+            title: post.title,
+            content: post.content,
+            link: 'https://new.skauttrebic.cz' // TODO: fix link
           }
         );
     } catch (err) {
