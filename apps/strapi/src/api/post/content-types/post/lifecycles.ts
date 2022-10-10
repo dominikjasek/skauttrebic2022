@@ -1,5 +1,4 @@
 import {sendEmailsToSubscribersOnPostPublished} from '../../../../extensions/email/use-cases/sendEmailsToSubscribersOnPostPublished';
-
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const {ForbiddenError} = require('@strapi/utils').errors;
 import {AfterXXXEvent, Post} from './interfaces';
@@ -16,8 +15,6 @@ const timeDifference = (date1: Date, date2: Date) => {
  * @param event
  */
 const postWasJustPublished = (event: AfterXXXEvent) => {
-  console.log('checking if post was just published')
-  console.log(event.result)
   if (event.result.publishedAt === null) {
     return false
   }
