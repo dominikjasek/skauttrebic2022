@@ -875,7 +875,7 @@
       "info": {
         "singularName": "post",
         "pluralName": "posts",
-        "displayName": "Příspěvky",
+        "displayName": "Aktuality",
         "description": ""
       },
       "options": {
@@ -956,7 +956,7 @@
         "info": {
           "singularName": "post",
           "pluralName": "posts",
-          "displayName": "Příspěvky",
+          "displayName": "Aktuality",
           "description": ""
         },
         "options": {
