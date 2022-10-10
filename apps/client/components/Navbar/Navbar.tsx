@@ -13,6 +13,7 @@ import Link from 'next/link'
 import { DesktopMenuNavigation } from '~/components/Navbar/Desktop/DesktopMenuNavigation'
 import Routes from '~/config/routes'
 import { useScreen } from '~/utility/use-screen'
+import { useNavbarHeight } from '~/components/Navbar/NavbarHeight'
 
 export const Navbar: React.FC = () => {
   const theme = useTheme()
@@ -33,9 +34,10 @@ export const Navbar: React.FC = () => {
   ]
 
   const { onlyMediumScreen, onlySmallScreen } = useScreen()
+  const navbarHeight = useNavbarHeight()
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: theme.palette.grey['300'] }}>
+    <AppBar position="fixed" sx={{ backgroundColor: theme.palette.grey['300'], height: { xs: `${navbarHeight.xs}px`, sm: `${navbarHeight.md}px` } }}>
       <Container maxWidth="xl" disableGutters>
         <Toolbar disableGutters>
 
