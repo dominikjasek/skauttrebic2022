@@ -1,20 +1,20 @@
 {
-  "name": "Author",
+  "name": "Autor",
   "code": "strapi-author",
-  "description": "Authors can manage the content they have created.",
+  "description": "Autor může pouze vytvářet příspěvky, nemůže je ale publikovat.",
   "permissions": [
     {
       "action": "plugin::content-manager.explorer.create",
       "subject": "api::homepage.homepage",
       "properties": {
         "fields": [
-          "images.text",
-          "images.photo",
           "images.background_color",
-          "troops.title",
-          "troops.description",
+          "images.photo",
+          "images.text",
           "troops.age_gender_information",
-          "troops.logo"
+          "troops.description",
+          "troops.logo",
+          "troops.title"
         ]
       },
       "conditions": [
@@ -34,13 +34,13 @@
       "subject": "api::homepage.homepage",
       "properties": {
         "fields": [
-          "images.text",
-          "images.photo",
           "images.background_color",
-          "troops.title",
-          "troops.description",
+          "images.photo",
+          "images.text",
           "troops.age_gender_information",
-          "troops.logo"
+          "troops.description",
+          "troops.logo",
+          "troops.title"
         ]
       },
       "conditions": [
@@ -52,13 +52,13 @@
       "subject": "api::homepage.homepage",
       "properties": {
         "fields": [
-          "images.text",
-          "images.photo",
           "images.background_color",
-          "troops.title",
-          "troops.description",
+          "images.photo",
+          "images.text",
           "troops.age_gender_information",
-          "troops.logo"
+          "troops.description",
+          "troops.logo",
+          "troops.title"
         ]
       },
       "conditions": [
@@ -70,12 +70,12 @@
       "subject": "api::post.post",
       "properties": {
         "fields": [
-          "title",
           "content",
           "files",
+          "schedule_publish_at",
+          "title",
           "troops",
-          "user_likes",
-          "schedule_publish_at"
+          "user_likes"
         ]
       },
       "conditions": [
@@ -95,12 +95,12 @@
       "subject": "api::post.post",
       "properties": {
         "fields": [
-          "title",
           "content",
           "files",
+          "schedule_publish_at",
+          "title",
           "troops",
-          "user_likes",
-          "schedule_publish_at"
+          "user_likes"
         ]
       },
       "conditions": [
@@ -112,12 +112,12 @@
       "subject": "api::post.post",
       "properties": {
         "fields": [
-          "title",
           "content",
           "files",
+          "schedule_publish_at",
+          "title",
           "troops",
-          "user_likes",
-          "schedule_publish_at"
+          "user_likes"
         ]
       },
       "conditions": [
@@ -177,8 +177,8 @@
       "properties": {
         "fields": [
           "name",
-          "subscribed_users",
-          "posts"
+          "posts",
+          "subscribed_users"
         ]
       },
       "conditions": [
@@ -199,8 +199,8 @@
       "properties": {
         "fields": [
           "name",
-          "subscribed_users",
-          "posts"
+          "posts",
+          "subscribed_users"
         ]
       },
       "conditions": [
@@ -213,8 +213,8 @@
       "properties": {
         "fields": [
           "name",
-          "subscribed_users",
-          "posts"
+          "posts",
+          "subscribed_users"
         ]
       },
       "conditions": [
