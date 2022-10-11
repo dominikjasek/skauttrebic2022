@@ -166,6 +166,36 @@
       "conditions": []
     },
     {
+      "action": "admin::roles.read",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "admin::users.create",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "admin::users.delete",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "admin::users.read",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "admin::users.update",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
       "action": "plugin::upload.assets.copy-link",
       "subject": null,
       "properties": {},
