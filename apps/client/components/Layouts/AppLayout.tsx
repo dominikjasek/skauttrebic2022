@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react'
 import { Navbar } from '../Navbar/Navbar'
-import { Typography } from '@mui/material'
+import { Container, Typography } from '@mui/material'
 import { useNavbarHeight } from '~/components/Navbar/NavbarHeight'
 import { Box } from '@mui/system'
 
@@ -9,10 +9,14 @@ export const AppLayout: React.FC<PropsWithChildren> = ({ children }) => {
 
   return (
     <>
-      <Navbar></Navbar>
+      <Navbar />
       <Box component="main" sx={{
         marginTop: { xs: `${navbarHeight.xs}px`, sm: `${navbarHeight.md}px` }
-      }}>{children}</Box>
+      }}>
+        <Container maxWidth="xl">
+          {children}
+        </Container>
+      </Box>
       <Typography fontFamily={'skautbold'}>footer</Typography>
     </>
   )

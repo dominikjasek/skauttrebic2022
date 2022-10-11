@@ -18,6 +18,7 @@ const Home: NextPage = ({ homepage }: InferGetStaticPropsType<typeof getStaticPr
 export const getStaticProps: GetStaticProps = async () => {
   const homepageRepository = useHomePageRepository()
   const data = await homepageRepository.fetchHomePageData()
+  console.log(data)
 
   return {
     props: {

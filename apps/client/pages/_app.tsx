@@ -1,5 +1,5 @@
 import type { AppProps } from 'next/app'
-import { AppLayout } from '../components/Layouts/AppLayout'
+import { AppLayout } from '~/components/Layouts/AppLayout'
 import { ThemeProvider, CssBaseline } from '@mui/material'
 
 import '../styles/globals.css'
