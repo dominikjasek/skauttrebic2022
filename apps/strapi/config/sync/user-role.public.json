@@ -1,29 +1,8 @@
 {
-  "name": "Veřejný",
-  "description": "Výchozí role pro nepřihlášeného návštěvníka webu.",
+  "name": "Public",
+  "description": "Default role given to unauthenticated user.",
   "type": "public",
   "permissions": [
-    {
-      "action": "api::homepage.homepage.find"
-    },
-    {
-      "action": "api::post.post.find"
-    },
-    {
-      "action": "api::post.post.findOne"
-    },
-    {
-      "action": "api::top-bar.top-bar.find"
-    },
-    {
-      "action": "plugin::comments.client.findAllFlat"
-    },
-    {
-      "action": "plugin::comments.client.findAllInHierarchy"
-    },
-    {
-      "action": "plugin::comments.client.post"
-    },
     {
       "action": "plugin::users-permissions.auth.callback"
     },

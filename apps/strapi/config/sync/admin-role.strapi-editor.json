@@ -5,12 +5,69 @@
   "permissions": [
     {
       "action": "plugin::content-manager.explorer.create",
+      "subject": "api::homepage.homepage",
+      "properties": {
+        "fields": [
+          "images.text",
+          "images.photo",
+          "images.background_color",
+          "troops.title",
+          "troops.description",
+          "troops.age_gender_information",
+          "troops.logo"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::homepage.homepage",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::homepage.homepage",
+      "properties": {
+        "fields": [
+          "images.text",
+          "images.photo",
+          "images.background_color",
+          "troops.title",
+          "troops.description",
+          "troops.age_gender_information",
+          "troops.logo"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::homepage.homepage",
+      "properties": {
+        "fields": [
+          "images.text",
+          "images.photo",
+          "images.background_color",
+          "troops.title",
+          "troops.description",
+          "troops.age_gender_information",
+          "troops.logo"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
       "subject": "api::post.post",
       "properties": {
         "fields": [
           "title",
           "content",
-          "files"
+          "files",
+          "troops",
+          "user_likes",
+          "schedule_publish_at"
         ]
       },
       "conditions": []
@@ -22,13 +79,22 @@
       "conditions": []
     },
     {
+      "action": "plugin::content-manager.explorer.publish",
+      "subject": "api::post.post",
+      "properties": {},
+      "conditions": []
+    },
+    {
       "action": "plugin::content-manager.explorer.read",
       "subject": "api::post.post",
       "properties": {
         "fields": [
           "title",
           "content",
-          "files"
+          "files",
+          "troops",
+          "user_likes",
+          "schedule_publish_at"
         ]
       },
       "conditions": []
@@ -40,7 +106,91 @@
         "fields": [
           "title",
           "content",
-          "files"
+          "files",
+          "troops",
+          "user_likes",
+          "schedule_publish_at"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::top-bar.top-bar",
+      "properties": {
+        "fields": [
+          "content",
+          "type"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::top-bar.top-bar",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::top-bar.top-bar",
+      "properties": {
+        "fields": [
+          "content",
+          "type"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::top-bar.top-bar",
+      "properties": {
+        "fields": [
+          "content",
+          "type"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::troop.troop",
+      "properties": {
+        "fields": [
+          "name",
+          "subscribed_users",
+          "posts"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::troop.troop",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::troop.troop",
+      "properties": {
+        "fields": [
+          "name",
+          "subscribed_users",
+          "posts"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::troop.troop",
+      "properties": {
+        "fields": [
+          "name",
+          "subscribed_users",
+          "posts"
         ]
       },
       "conditions": []
