@@ -20,7 +20,8 @@
       "~/pages/*": ["./pages/*"],
       "~/config/*": ["./config/*"],
       "~/public/*": ["./public/*"],
-      "~/utility/*": ["./utility/*"]
+      "~/utility/*": ["./utility/*"],
+      "~/src/*": ["./src/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
