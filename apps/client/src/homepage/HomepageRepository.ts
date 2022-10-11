@@ -1,9 +1,9 @@
 import { IHomepage } from './homepage.interface'
 
 class HomepageRepository {
-  async fetch(): Promise<IHomepage> {
-    const res = await fetch('http://localhost:1337/api/homepage?populate=*')
-    return await res.json()
+  async fetchHomePageData(): Promise<IHomepage> {
+    const res = await fetch(`${process.env.API_URL}/homepage?populate=*`)
+    return await res.json() as IHomepage
   }
 
 }
