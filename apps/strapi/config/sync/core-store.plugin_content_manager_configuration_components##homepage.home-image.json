@@ -51,8 +51,8 @@
       "background_color": {
         "edit": {
           "label": "Barva pozadí textu",
-          "description": "",
-          "placeholder": "",
+          "description": "Doporučené skautské barvy: #294885, #3979B5, #F49E00, #F9B200",
+          "placeholder": "#294885",
           "visible": true,
           "editable": true
         },

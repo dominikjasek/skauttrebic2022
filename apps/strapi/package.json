@@ -7,7 +7,7 @@
     "translate-admin": "cp -a ./src/admin/translations/admin/. ./node_modules/@strapi/admin/admin/src/translations/",
     "translate-upload-plugin": "cp -a ./src/admin/translations/plugins/upload/. ./node_modules/@strapi/plugin-upload/admin/src/translations",
     "translate-strapi-plugin-content-type-builder": "cp -a ./src/admin/translations/plugins/plugin-content-type-builder/. ./node_modules/@strapi/plugin-content-type-builder/admin/src/translations",
-    "translate": "npm run translate-admin && npm run translate-strapi-plugin-content-type-builder && npm run translate-strapi-plugin-content-type-builder",
+    "translate": "yarn translate-admin && yarn translate-upload-plugin && yarn translate-strapi-plugin-content-type-builder",
     "cs": "config-sync",
     "cs-export": "yarn cs e -y",
     "dev": "strapi develop",

@@ -51,7 +51,7 @@
       },
       "posts": {
         "edit": {
-          "label": "Aktuality",
+          "label": "Příspěvky",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -59,7 +59,7 @@
           "mainField": "title"
         },
         "list": {
-          "label": "Aktuality",
+          "label": "Příspěvky",
           "searchable": false,
           "sortable": false
         }

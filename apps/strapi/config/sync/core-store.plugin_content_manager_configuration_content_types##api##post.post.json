@@ -95,11 +95,11 @@
       "schedule_publish_at": {
         "edit": {
           "label": "Naplánovat publikování",
-          "description": "",
+          "description": "Příspěvek bude automaticky publikován a také budou odeslány emaily všem odběratelům",
           "placeholder": "",
           "visible": true,
           "editable": true,
-          "step": 15
+          "step": 30
         },
         "list": {
           "label": "schedule_publish_at",
