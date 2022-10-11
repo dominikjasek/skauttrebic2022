@@ -1,7 +1,7 @@
 {
   "name": "Super Admin",
   "code": "strapi-super-admin",
-  "description": "Super Admins can access and manage all features and settings.",
+  "description": "Super Admin může dělat všechny akce ve strapi",
   "permissions": [
     {
       "action": "plugin::content-manager.explorer.create",

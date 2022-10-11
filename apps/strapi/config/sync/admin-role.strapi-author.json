@@ -1,7 +1,7 @@
 {
-  "name": "Autor",
+  "name": "Přispěvatel",
   "code": "strapi-author",
-  "description": "Autor může pouze vytvářet příspěvky, nemůže je ale publikovat.",
+  "description": "Přispěvatel může vytvářet, editovat a publikovat příspěvky.",
   "permissions": [
     {
       "action": "plugin::content-manager.explorer.create",

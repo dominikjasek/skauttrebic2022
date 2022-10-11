@@ -1,7 +1,7 @@
 {
-  "name": "Editor",
+  "name": "Admin",
   "code": "strapi-editor",
-  "description": "Editor může editovat obsah na webu.",
+  "description": "Admin může editovat téměř všechen obsah na webu a vytvářet nové strapi uživatele.",
   "permissions": [
     {
       "action": "plugin::content-manager.explorer.create",
