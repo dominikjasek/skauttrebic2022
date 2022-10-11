@@ -1,8 +1,14 @@
 {
-  "name": "Public",
-  "description": "Default role given to unauthenticated user.",
+  "name": "Veřejný",
+  "description": "Výchozí role pro nepřihlášeného uživatele.",
   "type": "public",
   "permissions": [
+    {
+      "action": "api::homepage.homepage.find"
+    },
+    {
+      "action": "api::top-bar.top-bar.find"
+    },
     {
       "action": "plugin::users-permissions.auth.callback"
     },

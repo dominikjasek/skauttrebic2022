@@ -4,16 +4,31 @@
   "type": "authenticated",
   "permissions": [
     {
+      "action": "api::homepage.homepage.find"
+    },
+    {
       "action": "api::post.post.find"
     },
     {
       "action": "api::post.post.findOne"
     },
     {
+      "action": "api::top-bar.top-bar.find"
+    },
+    {
       "action": "plugin::comments.client.findAllFlat"
     },
     {
       "action": "plugin::comments.client.findAllInHierarchy"
+    },
+    {
+      "action": "plugin::comments.client.post"
+    },
+    {
+      "action": "plugin::comments.client.put"
+    },
+    {
+      "action": "plugin::comments.client.removeComment"
     },
     {
       "action": "plugin::users-permissions.auth.changePassword"
