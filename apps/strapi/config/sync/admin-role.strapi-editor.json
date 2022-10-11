@@ -8,13 +8,13 @@
       "subject": "api::homepage.homepage",
       "properties": {
         "fields": [
-          "images.background_color",
-          "images.photo",
           "images.text",
-          "troops.age_gender_information",
+          "images.photo",
+          "images.background_color",
+          "troops.title",
           "troops.description",
-          "troops.logo",
-          "troops.title"
+          "troops.age_gender_information",
+          "troops.logo"
         ]
       },
       "conditions": []
@@ -30,13 +30,13 @@
       "subject": "api::homepage.homepage",
       "properties": {
         "fields": [
-          "images.background_color",
-          "images.photo",
           "images.text",
-          "troops.age_gender_information",
+          "images.photo",
+          "images.background_color",
+          "troops.title",
           "troops.description",
-          "troops.logo",
-          "troops.title"
+          "troops.age_gender_information",
+          "troops.logo"
         ]
       },
       "conditions": []
@@ -46,13 +46,13 @@
       "subject": "api::homepage.homepage",
       "properties": {
         "fields": [
-          "images.background_color",
-          "images.photo",
           "images.text",
-          "troops.age_gender_information",
+          "images.photo",
+          "images.background_color",
+          "troops.title",
           "troops.description",
-          "troops.logo",
-          "troops.title"
+          "troops.age_gender_information",
+          "troops.logo"
         ]
       },
       "conditions": []
@@ -62,12 +62,12 @@
       "subject": "api::post.post",
       "properties": {
         "fields": [
+          "title",
           "content",
           "files",
-          "schedule_publish_at",
-          "title",
           "troops",
-          "user_likes"
+          "user_likes",
+          "schedule_publish_at"
         ]
       },
       "conditions": []
@@ -89,12 +89,12 @@
       "subject": "api::post.post",
       "properties": {
         "fields": [
+          "title",
           "content",
           "files",
-          "schedule_publish_at",
-          "title",
           "troops",
-          "user_likes"
+          "user_likes",
+          "schedule_publish_at"
         ]
       },
       "conditions": []
@@ -104,12 +104,12 @@
       "subject": "api::post.post",
       "properties": {
         "fields": [
+          "title",
           "content",
           "files",
-          "schedule_publish_at",
-          "title",
           "troops",
-          "user_likes"
+          "user_likes",
+          "schedule_publish_at"
         ]
       },
       "conditions": []
@@ -159,8 +159,8 @@
       "properties": {
         "fields": [
           "name",
-          "posts",
-          "subscribed_users"
+          "subscribed_users",
+          "posts"
         ]
       },
       "conditions": []
@@ -193,6 +193,81 @@
       "action": "admin::users.update",
       "subject": null,
       "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "plugin::users-permissions.user",
+      "properties": {
+        "fields": [
+          "firstName",
+          "lastName",
+          "username",
+          "email",
+          "provider",
+          "password",
+          "resetPasswordToken",
+          "confirmationToken",
+          "confirmed",
+          "blocked",
+          "role",
+          "position",
+          "subscribing_troops",
+          "post_likes"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "plugin::users-permissions.user",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "plugin::users-permissions.user",
+      "properties": {
+        "fields": [
+          "firstName",
+          "lastName",
+          "username",
+          "email",
+          "provider",
+          "password",
+          "resetPasswordToken",
+          "confirmationToken",
+          "confirmed",
+          "blocked",
+          "role",
+          "position",
+          "subscribing_troops",
+          "post_likes"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "plugin::users-permissions.user",
+      "properties": {
+        "fields": [
+          "firstName",
+          "lastName",
+          "username",
+          "email",
+          "provider",
+          "password",
+          "resetPasswordToken",
+          "confirmationToken",
+          "confirmed",
+          "blocked",
+          "role",
+          "position",
+          "subscribing_troops",
+          "post_likes"
+        ]
+      },
       "conditions": []
     },
     {

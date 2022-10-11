@@ -17,17 +17,13 @@
           "troops.title"
         ]
       },
-      "conditions": [
-        "admin::is-creator"
-      ]
+      "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.delete",
       "subject": "api::homepage.homepage",
       "properties": {},
-      "conditions": [
-        "admin::is-creator"
-      ]
+      "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.read",
@@ -43,9 +39,7 @@
           "troops.title"
         ]
       },
-      "conditions": [
-        "admin::is-creator"
-      ]
+      "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.update",
@@ -61,9 +55,7 @@
           "troops.title"
         ]
       },
-      "conditions": [
-        "admin::is-creator"
-      ]
+      "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.create",
@@ -78,17 +70,19 @@
           "user_likes"
         ]
       },
-      "conditions": [
-        "admin::is-creator"
-      ]
+      "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.delete",
       "subject": "api::post.post",
       "properties": {},
-      "conditions": [
-        "admin::is-creator"
-      ]
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "subject": "api::post.post",
+      "properties": {},
+      "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.read",
@@ -103,9 +97,7 @@
           "user_likes"
         ]
       },
-      "conditions": [
-        "admin::is-creator"
-      ]
+      "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.update",
@@ -120,9 +112,7 @@
           "user_likes"
         ]
       },
-      "conditions": [
-        "admin::is-creator"
-      ]
+      "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.create",
@@ -133,17 +123,13 @@
           "type"
         ]
       },
-      "conditions": [
-        "admin::is-creator"
-      ]
+      "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.delete",
       "subject": "api::top-bar.top-bar",
       "properties": {},
-      "conditions": [
-        "admin::is-creator"
-      ]
+      "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.read",
@@ -154,9 +140,7 @@
           "type"
         ]
       },
-      "conditions": [
-        "admin::is-creator"
-      ]
+      "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.update",
@@ -167,31 +151,7 @@
           "type"
         ]
       },
-      "conditions": [
-        "admin::is-creator"
-      ]
-    },
-    {
-      "action": "plugin::content-manager.explorer.create",
-      "subject": "api::troop.troop",
-      "properties": {
-        "fields": [
-          "name",
-          "posts",
-          "subscribed_users"
-        ]
-      },
-      "conditions": [
-        "admin::is-creator"
-      ]
-    },
-    {
-      "action": "plugin::content-manager.explorer.delete",
-      "subject": "api::troop.troop",
-      "properties": {},
-      "conditions": [
-        "admin::is-creator"
-      ]
+      "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.read",
@@ -203,23 +163,7 @@
           "subscribed_users"
         ]
       },
-      "conditions": [
-        "admin::is-creator"
-      ]
-    },
-    {
-      "action": "plugin::content-manager.explorer.update",
-      "subject": "api::troop.troop",
-      "properties": {
-        "fields": [
-          "name",
-          "posts",
-          "subscribed_users"
-        ]
-      },
-      "conditions": [
-        "admin::is-creator"
-      ]
+      "conditions": []
     },
     {
       "action": "plugin::upload.assets.copy-link",
@@ -243,17 +187,13 @@
       "action": "plugin::upload.assets.update",
       "subject": null,
       "properties": {},
-      "conditions": [
-        "admin::is-creator"
-      ]
+      "conditions": []
     },
     {
       "action": "plugin::upload.read",
       "subject": null,
       "properties": {},
-      "conditions": [
-        "admin::is-creator"
-      ]
+      "conditions": []
     }
   ]
 }
