@@ -85,7 +85,7 @@
   "Settings.apiTokens.copy.editTitle": "Tento token již není přístupný.",
   "Settings.apiTokens.copy.lastWarning": "Nezapomeňte tento token zkopírovat, nebudete to moci znovu vidět!",
   "Settings.apiTokens.create": "Vytvořte nový token API",
-  "Settings.apiTokens.description": "Seznam generovaných žetonů pro konzumaci API",
+  "Settings.apiTokens.description": "Seznam generovaných tokenů pro konzumaci API",
   "Settings.apiTokens.emptyStateLayout": "Zatím nemáte žádný obsah ...",
   "Settings.apiTokens.ListView.headers.name": "název",
   "Settings.apiTokens.ListView.headers.description": "Popis",
