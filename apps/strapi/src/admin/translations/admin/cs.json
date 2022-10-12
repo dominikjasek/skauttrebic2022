@@ -388,7 +388,7 @@
   "app.components.Users.MagicLink.connect.sso": "Pošlete tento odkaz uživateli, první přihlášení lze provést prostřednictvím poskytovatele SSO",
   "app.components.Users.ModalCreateBody.block-title.details": "Detaily uživatele",
   "app.components.Users.ModalCreateBody.block-title.roles": "Role uživatele",
-  "app.components.Users.ModalCreateBody.block-title.roles.description": "Uživatel může mít jednu nebo několik rolí",
+  "app.components.Users.ModalCreateBody.block-title.roles.description": "Uživatel může mít roli Admin nebo Příspěvatel, ale ne Super Admin!",
   "app.components.Users.SortPicker.button-label": "Seřazeno podle",
   "app.components.Users.SortPicker.sortby.email_asc": "E -mail (a do z)",
   "app.components.Users.SortPicker.sortby.email_desc": "E -mail (z to a)",

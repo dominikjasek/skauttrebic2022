@@ -27,3 +27,5 @@ services:
         generateValue: true
       - key: API_TOKEN_SALT
         generateValue: true
+      - key: ALLOW_CREATE_SUPER_ADMIN_STRAPI_USER
+        value: false

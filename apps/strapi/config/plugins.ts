@@ -37,7 +37,7 @@ module.exports = ({env}) => ({
 
   'create-admin-user-invite-email': {
     enabled: true,
-    resolve: './src/plugins/create-admin-user-invite-email'
+    resolve: './src/plugins/create-admin-customization'
   },
 
   ckeditor: {
