@@ -43,7 +43,7 @@
   "components.componentSelect.no-component-available.with-search": "Nenašel se žádný komponent splňující výraz",
   "components.componentSelect.value-component": "Označené komponenty: {number} (zadejte hledaný text)",
   "components.componentSelect.value-components": "Označené komponenty: {number}",
-  "configurations": "nastavení",
+  "configurations": "Nastavení",
   "contentType.apiId-plural.description": "Pluralized API ID",
   "contentType.apiId-plural.label": "API ID (Plural)",
   "contentType.apiId-singular.description": "The UID is used to generate the API routes and databases tables/collections",
