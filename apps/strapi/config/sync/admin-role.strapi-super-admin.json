@@ -155,6 +155,63 @@
     },
     {
       "action": "plugin::content-manager.explorer.create",
+      "subject": "api::totem.totem",
+      "properties": {
+        "fields": [
+          "comment.name",
+          "comment.text",
+          "comment.author",
+          "legend.title",
+          "legend.photo",
+          "legend.audio"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::totem.totem",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "subject": "api::totem.totem",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::totem.totem",
+      "properties": {
+        "fields": [
+          "comment.name",
+          "comment.text",
+          "comment.author",
+          "legend.title",
+          "legend.photo",
+          "legend.audio"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::totem.totem",
+      "properties": {
+        "fields": [
+          "comment.name",
+          "comment.text",
+          "comment.author",
+          "legend.title",
+          "legend.photo",
+          "legend.audio"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
       "subject": "api::troop.troop",
       "properties": {
         "fields": [

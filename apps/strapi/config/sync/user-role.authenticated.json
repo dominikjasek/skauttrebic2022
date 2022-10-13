@@ -16,6 +16,12 @@
       "action": "api::top-bar.top-bar.find"
     },
     {
+      "action": "api::totem.totem.find"
+    },
+    {
+      "action": "api::totem.totem.update"
+    },
+    {
       "action": "plugin::comments.client.findAllFlat"
     },
     {
