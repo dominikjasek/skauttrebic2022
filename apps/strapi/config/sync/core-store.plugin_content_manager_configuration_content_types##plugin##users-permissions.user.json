@@ -36,7 +36,7 @@
       },
       "lastName": {
         "edit": {
-          "label": "Příjmené",
+          "label": "Příjmení",
           "description": "",
           "placeholder": "",
           "visible": true,
