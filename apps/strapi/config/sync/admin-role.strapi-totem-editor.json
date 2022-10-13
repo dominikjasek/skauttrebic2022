@@ -1,0 +1,86 @@
+{
+  "name": "Editor totemu",
+  "code": "strapi-totem-editor",
+  "description": "Může editovat legendy a komentáře na totemu.",
+  "permissions": [
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::totem.totem",
+      "properties": {
+        "fields": [
+          "legend.title",
+          "legend.photo",
+          "legend.audio"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::totem.totem",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::totem.totem",
+      "properties": {
+        "fields": [
+          "comment.name",
+          "comment.text",
+          "comment.author",
+          "legend.title",
+          "legend.photo",
+          "legend.audio"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::totem.totem",
+      "properties": {
+        "fields": [
+          "comment.name",
+          "comment.text",
+          "comment.author",
+          "legend.title",
+          "legend.photo",
+          "legend.audio"
+        ]
+      },
+      "conditions": []
+    },
+
+    {
+      "action": "plugin::upload.assets.copy-link",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::upload.assets.create",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::upload.assets.download",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::upload.assets.update",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::upload.read",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    }
+  ]
+}
