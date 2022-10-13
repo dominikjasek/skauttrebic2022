@@ -15,7 +15,7 @@
     "build": "yarn translate && strapi build",
     "strapi": "strapi",
     "lint": "eslint",
-    "postinstall": "patch-package"
+    "postinstall": "yarn patch-package"
   },
   "imports": {
     "#config/*": "./config/*",
