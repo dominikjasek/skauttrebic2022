@@ -14,7 +14,8 @@
     "start": "strapi start",
     "build": "yarn translate && strapi build",
     "strapi": "strapi",
-    "lint": "eslint"
+    "lint": "eslint",
+    "postinstall": "patch-package"
   },
   "imports": {
     "#config/*": "./config/*",
@@ -23,7 +24,9 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.37.0",
     "@typescript-eslint/parser": "^5.37.0",
-    "eslint": "8.25.0"
+    "eslint": "8.25.0",
+    "patch-package": "^6.4.7",
+    "postinstall-postinstall": "^2.1.0"
   },
   "dependencies": {
     "@_sh/strapi-plugin-ckeditor": "^1.1.2",

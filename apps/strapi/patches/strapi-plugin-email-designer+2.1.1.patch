@@ -1,0 +1,206 @@
+diff --git a/node_modules/strapi-plugin-email-designer/admin/src/index.js b/node_modules/strapi-plugin-email-designer/admin/src/index.js
+index cec5733..a601083 100644
+--- a/node_modules/strapi-plugin-email-designer/admin/src/index.js
++++ b/node_modules/strapi-plugin-email-designer/admin/src/index.js
+@@ -3,6 +3,7 @@ import pluginPkg from '../../package.json';
+ import pluginId from './pluginId';
+ import Initializer from './components/Initializer';
+ import PluginIcon from './components/PluginIcon';
++import pluginPermissions from 'strapi-plugin-email-designer/admin/src/permissions';
+ 
+ const name = pluginPkg.strapi.name;
+ 
+@@ -20,13 +21,7 @@ export default {
+ 
+         return component;
+       },
+-      permissions: [
+-        // Uncomment to set the permissions of the plugin here
+-        // {
+-        //   action: '', // the action name should be plugin::plugin-name.actionType
+-        //   subject: null,
+-        // },
+-      ],
++      permissions: pluginPermissions.main
+     });
+     app.registerPlugin({
+       id: pluginId,
+diff --git a/node_modules/strapi-plugin-email-designer/admin/src/permissions.js b/node_modules/strapi-plugin-email-designer/admin/src/permissions.js
+new file mode 100644
+index 0000000..0299cc5
+--- /dev/null
++++ b/node_modules/strapi-plugin-email-designer/admin/src/permissions.js
+@@ -0,0 +1,10 @@
++const pluginPermissions = {
++  main: [
++    {
++      action: 'plugin::email-designer.read',
++      subject: null
++    }
++  ],
++};
++
++export default pluginPermissions;
+diff --git a/node_modules/strapi-plugin-email-designer/server/bootstrap.js b/node_modules/strapi-plugin-email-designer/server/bootstrap.js
+new file mode 100644
+index 0000000..6e5aae3
+--- /dev/null
++++ b/node_modules/strapi-plugin-email-designer/server/bootstrap.js
+@@ -0,0 +1,14 @@
++'use strict';
++
++module.exports = async ({ strapi }) => {
++  const actions = [
++    {
++      section: 'plugins',
++      displayName: 'Read',
++      uid: 'read',
++      pluginName: 'email-designer',
++    },
++  ];
++
++  await strapi.admin.services.permission.actionProvider.registerMany(actions);
++};
+diff --git a/node_modules/strapi-plugin-email-designer/server/index.js b/node_modules/strapi-plugin-email-designer/server/index.js
+index 735bea5..34b4fd9 100644
+--- a/node_modules/strapi-plugin-email-designer/server/index.js
++++ b/node_modules/strapi-plugin-email-designer/server/index.js
+@@ -1,11 +1,13 @@
+ 'use strict';
+ 
++const bootstrap = require('./bootstrap')
+ const services = require('./services');
+ const routes = require('./routes');
+ const controllers = require('./controllers');
+ const contentTypes = require('./content-types');
+ 
+ module.exports = {
++  bootstrap,
+   contentTypes,
+   controllers,
+   routes,
+diff --git a/node_modules/strapi-plugin-email-designer/server/routes/index.js b/node_modules/strapi-plugin-email-designer/server/routes/index.js
+index a5b87d4..02bf870 100644
+--- a/node_modules/strapi-plugin-email-designer/server/routes/index.js
++++ b/node_modules/strapi-plugin-email-designer/server/routes/index.js
+@@ -3,48 +3,112 @@ module.exports = [
+     method: 'GET',
+     path: '/templates',
+     handler: 'designer.getTemplates',
+-    config: { policies: [] },
++    config: {
++      policies: [
++        'admin::isAuthenticatedAdmin',
++        {
++          name: 'admin::hasPermissions',
++          config: { actions: ['plugin::email-designer.read'] },
++        },
++      ],
++    },
+   },
+   {
+     method: 'GET',
+     path: '/templates/:templateId',
+     handler: 'designer.getTemplate',
+-    config: { policies: [] },
++    config: {
++      policies: [
++        'admin::isAuthenticatedAdmin',
++        {
++          name: 'admin::hasPermissions',
++          config: { actions: ['plugin::email-designer.read'] },
++        },
++      ],
++    },
+   },
+   {
+     method: 'POST',
+     path: '/templates/:templateId',
+     handler: 'designer.saveTemplate',
+-    config: { policies: [] },
++    config: {
++      policies: [
++        'admin::isAuthenticatedAdmin',
++        {
++          name: 'admin::hasPermissions',
++          config: { actions: ['plugin::email-designer.read'] },
++        },
++      ],
++    },
+   },
+   {
+     method: 'DELETE',
+     path: '/templates/:templateId',
+     handler: 'designer.deleteTemplate',
+-    config: { policies: [] },
++    config: {
++      policies: [
++        'admin::isAuthenticatedAdmin',
++        {
++          name: 'admin::hasPermissions',
++          config: { actions: ['plugin::email-designer.read'] },
++        },
++      ],
++    },
+   },
+   {
+     method: 'POST',
+     path: '/templates/duplicate/:sourceTemplateId',
+     handler: 'designer.duplicateTemplate',
+-    config: { policies: [] },
++    config: {
++      policies: [
++        'admin::isAuthenticatedAdmin',
++        {
++          name: 'admin::hasPermissions',
++          config: { actions: ['plugin::email-designer.read'] },
++        },
++      ],
++    },
+   },
+   {
+     method: 'GET',
+     path: '/config/:configKey',
+     handler: 'config.getConfig',
+-    config: { policies: [] },
++    config: {
++      policies: [
++        'admin::isAuthenticatedAdmin',
++        {
++          name: 'admin::hasPermissions',
++          config: { actions: ['plugin::email-designer.read'] },
++        },
++      ],
++    },
+   },
+   {
+     method: 'GET',
+     path: '/core/:coreEmailType',
+     handler: 'designer.getCoreEmailType',
+-    config: { policies: [] },
++    config: {
++      policies: [
++        'admin::isAuthenticatedAdmin',
++        {
++          name: 'admin::hasPermissions',
++          config: { actions: ['plugin::email-designer.read'] },
++        },
++      ],
++    },
+   },
+   {
+     method: 'POST',
+     path: '/core/:coreEmailType',
+     handler: 'designer.saveCoreEmailType',
+-    config: { policies: [] },
++    config: {
++      policies: [
++        'admin::isAuthenticatedAdmin',
++        {
++          name: 'admin::hasPermissions',
++          config: { actions: ['plugin::email-designer.read'] },
++        },
++      ],
++    },
+   },
+ ];
