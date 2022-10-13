@@ -21,9 +21,9 @@ module.exports = {
   'rules': {
     '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
-    'quotes': [2, 'single', {'avoidEscape': true}],
+    'quotes': [2, 'single', { 'avoidEscape': true }],
     'indent': ['error', 2],
-    'object-curly-spacing': ['error', 'never'],
+    'object-curly-spacing': ['error', 'always'],
     'array-bracket-spacing': ['error', 'never'],
     'block-spacing': ['error', 'never'],
     'no-multi-spaces': 'error'

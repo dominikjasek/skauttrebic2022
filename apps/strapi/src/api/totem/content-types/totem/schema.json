@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "totems",
+  "info": {
+    "singularName": "totem",
+    "pluralName": "totems",
+    "displayName": "Totem",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "comment": {
+      "type": "component",
+      "repeatable": true,
+      "component": "totem.totem-comment"
+    },
+    "legend": {
+      "type": "component",
+      "repeatable": true,
+      "component": "totem.legend"
+    }
+  }
+}
