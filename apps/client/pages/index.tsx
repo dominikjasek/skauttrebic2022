@@ -1,5 +1,4 @@
 import type { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
-import Link from 'next/link'
 import { useTitle } from 'react-use'
 import { Homepage } from '~/components/Homepage/Homepage'
 import { useHomePageRepository } from '~/src/homepage/HomepageRepository'
@@ -10,7 +9,6 @@ const Home: NextPage = ({ homepage }: InferGetStaticPropsType<typeof getStaticPr
   return (
     <main>
       <Homepage homepage={homepage} />
-      <Link href={'/testik'}>testik</Link>
     </main>
   )
 }
@@ -18,7 +16,6 @@ const Home: NextPage = ({ homepage }: InferGetStaticPropsType<typeof getStaticPr
 export const getStaticProps: GetStaticProps = async () => {
   const homepageRepository = useHomePageRepository()
   const data = await homepageRepository.fetchHomePageData()
-  console.log(data)
 
   return {
     props: {

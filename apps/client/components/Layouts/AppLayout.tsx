@@ -1,11 +1,10 @@
 import React, { PropsWithChildren } from 'react'
 import { Navbar } from '../Navbar/Navbar'
 import { Container, Typography } from '@mui/material'
-import { useNavbarHeight } from '~/components/Navbar/NavbarHeight'
+import { navbarHeight } from '~/components/Navbar/NavbarHeight'
 import { Box } from '@mui/system'
 
 export const AppLayout: React.FC<PropsWithChildren> = ({ children }) => {
-  const navbarHeight = useNavbarHeight()
 
   return (
     <>
