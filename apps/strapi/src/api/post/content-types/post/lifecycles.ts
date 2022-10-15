@@ -1,7 +1,7 @@
-import {sendEmailsToSubscribersOnPostPublished} from '../../../../extensions/email/use-cases/sendEmailsToSubscribersOnPostPublished';
+import { sendEmailsToSubscribersOnPostPublished } from '../../../../extensions/email/use-cases/sendEmailsToSubscribersOnPostPublished';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const {ForbiddenError} = require('@strapi/utils').errors;
-import {AfterXXXEvent, Post} from './interfaces';
+const { ForbiddenError } = require('@strapi/utils').errors;
+import { AfterXXXEvent, Post } from './interfaces';
 
 const MAX_TIME_DIFFERENCE_TO_RESOLVE_AS_JUST_PUBLISHED = 300 // millisecods
 
@@ -15,15 +15,12 @@ const timeDifference = (earlierDate: Date, laterDate: Date) => {
  * @param event
  */
 const postWasJustPublished = (event: AfterXXXEvent) => {
-  console.log(event.result)
   if (event.result.publishedAt === null) {
     return false
   }
 
   const diff = timeDifference(new Date(event.result.publishedAt), new Date(event.result.updatedAt))
-  console.log('timedifference = ', diff)
   if (diff <= MAX_TIME_DIFFERENCE_TO_RESOLVE_AS_JUST_PUBLISHED) {
-    console.log('Post was just published!!!')
     return true
   }
 }
@@ -45,8 +42,8 @@ const validateTroops = (troops: number[]) => {
 export default {
   async beforeUpdate(event: AfterXXXEvent) {
     const newPost: Post = event.params.data
-    const currentPost: Post = await strapi.entityService.findOne('api::post.post', event.params.where.id, {populate: ['troops']})
-    const mergedPost: Post = {...currentPost, ...newPost}
+    const currentPost: Post = await strapi.entityService.findOne('api::post.post', event.params.where.id, { populate: ['troops'] })
+    const mergedPost: Post = { ...currentPost, ...newPost }
     const troops = mergedPost.troops as unknown as number[] | undefined
 
     validateTroops(troops)
