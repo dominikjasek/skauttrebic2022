@@ -11,6 +11,7 @@
           "images.text",
           "images.photo",
           "images.background_color",
+          "images.text_color",
           "troops.title",
           "troops.description",
           "troops.age_gender_information",
@@ -33,6 +34,7 @@
           "images.text",
           "images.photo",
           "images.background_color",
+          "images.text_color",
           "troops.title",
           "troops.description",
           "troops.age_gender_information",
@@ -49,6 +51,7 @@
           "images.text",
           "images.photo",
           "images.background_color",
+          "images.text_color",
           "troops.title",
           "troops.description",
           "troops.age_gender_information",
@@ -557,6 +560,12 @@
     },
     {
       "action": "plugin::documentation.settings.update",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::email-designer.read",
       "subject": null,
       "properties": {},
       "conditions": []

@@ -781,6 +781,512 @@
       "plugin": "admin",
       "globalId": "AdminApiTokenPermission"
     },
+    "api::homepage.homepage": {
+      "kind": "singleType",
+      "collectionName": "homepages",
+      "info": {
+        "singularName": "homepage",
+        "pluralName": "homepages",
+        "displayName": "Úvodní stránka",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": false
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "images": {
+          "displayName": "HomeImage",
+          "type": "component",
+          "repeatable": true,
+          "component": "homepage.home-image"
+        },
+        "troops": {
+          "type": "component",
+          "repeatable": true,
+          "component": "homepage.troop"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "homepages",
+        "info": {
+          "singularName": "homepage",
+          "pluralName": "homepages",
+          "displayName": "Úvodní stránka",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": false
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "images": {
+            "displayName": "HomeImage",
+            "type": "component",
+            "repeatable": true,
+            "component": "homepage.home-image"
+          },
+          "troops": {
+            "type": "component",
+            "repeatable": true,
+            "component": "homepage.troop"
+          }
+        },
+        "kind": "singleType"
+      },
+      "modelType": "contentType",
+      "modelName": "homepage",
+      "connection": "default",
+      "uid": "api::homepage.homepage",
+      "apiName": "homepage",
+      "globalId": "Homepage",
+      "actions": {},
+      "lifecycles": {}
+    },
+    "api::post.post": {
+      "kind": "collectionType",
+      "collectionName": "posts",
+      "info": {
+        "singularName": "post",
+        "pluralName": "posts",
+        "displayName": "Aktuality",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": true,
+        "populateCreatorFields": true
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "title": {
+          "type": "string",
+          "required": true
+        },
+        "content": {
+          "type": "richtext",
+          "required": true
+        },
+        "files": {
+          "type": "media",
+          "multiple": true,
+          "required": false,
+          "allowedTypes": [
+            "images",
+            "files",
+            "videos",
+            "audios"
+          ]
+        },
+        "troops": {
+          "type": "relation",
+          "relation": "manyToMany",
+          "target": "api::troop.troop",
+          "inversedBy": "posts"
+        },
+        "user_likes": {
+          "type": "relation",
+          "relation": "manyToMany",
+          "target": "plugin::users-permissions.user",
+          "inversedBy": "post_likes"
+        },
+        "schedule_publish_at": {
+          "type": "datetime"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "publishedAt": {
+          "type": "datetime",
+          "configurable": false,
+          "writable": true,
+          "visible": false
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": false
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": false
+        }
+      },
+      "__schema__": {
+        "collectionName": "posts",
+        "info": {
+          "singularName": "post",
+          "pluralName": "posts",
+          "displayName": "Aktuality",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": true,
+          "populateCreatorFields": true
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "title": {
+            "type": "string",
+            "required": true
+          },
+          "content": {
+            "type": "richtext",
+            "required": true
+          },
+          "files": {
+            "type": "media",
+            "multiple": true,
+            "required": false,
+            "allowedTypes": [
+              "images",
+              "files",
+              "videos",
+              "audios"
+            ]
+          },
+          "troops": {
+            "type": "relation",
+            "relation": "manyToMany",
+            "target": "api::troop.troop",
+            "inversedBy": "posts"
+          },
+          "user_likes": {
+            "type": "relation",
+            "relation": "manyToMany",
+            "target": "plugin::users-permissions.user",
+            "inversedBy": "post_likes"
+          },
+          "schedule_publish_at": {
+            "type": "datetime"
+          }
+        },
+        "kind": "collectionType"
+      },
+      "modelType": "contentType",
+      "modelName": "post",
+      "connection": "default",
+      "uid": "api::post.post",
+      "apiName": "post",
+      "globalId": "Post",
+      "actions": {},
+      "lifecycles": {}
+    },
+    "api::top-bar.top-bar": {
+      "kind": "singleType",
+      "collectionName": "top-bars",
+      "info": {
+        "singularName": "top-bar",
+        "pluralName": "top-bars",
+        "displayName": "Horní lišta",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": false
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "content": {
+          "type": "string"
+        },
+        "type": {
+          "type": "enumeration",
+          "enum": [
+            "info",
+            "upozornění"
+          ]
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "top-bars",
+        "info": {
+          "singularName": "top-bar",
+          "pluralName": "top-bars",
+          "displayName": "Horní lišta",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": false
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "content": {
+            "type": "string"
+          },
+          "type": {
+            "type": "enumeration",
+            "enum": [
+              "info",
+              "upozornění"
+            ]
+          }
+        },
+        "kind": "singleType"
+      },
+      "modelType": "contentType",
+      "modelName": "top-bar",
+      "connection": "default",
+      "uid": "api::top-bar.top-bar",
+      "apiName": "top-bar",
+      "globalId": "TopBar",
+      "actions": {},
+      "lifecycles": {}
+    },
+    "api::totem.totem": {
+      "kind": "singleType",
+      "collectionName": "totems",
+      "info": {
+        "singularName": "totem",
+        "pluralName": "totems",
+        "displayName": "Totem",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": true
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "comment": {
+          "type": "component",
+          "repeatable": true,
+          "component": "totem.totem-comment"
+        },
+        "legend": {
+          "type": "component",
+          "repeatable": true,
+          "component": "totem.legend"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "publishedAt": {
+          "type": "datetime",
+          "configurable": false,
+          "writable": true,
+          "visible": false
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "totems",
+        "info": {
+          "singularName": "totem",
+          "pluralName": "totems",
+          "displayName": "Totem",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": true
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "comment": {
+            "type": "component",
+            "repeatable": true,
+            "component": "totem.totem-comment"
+          },
+          "legend": {
+            "type": "component",
+            "repeatable": true,
+            "component": "totem.legend"
+          }
+        },
+        "kind": "singleType"
+      },
+      "modelType": "contentType",
+      "modelName": "totem",
+      "connection": "default",
+      "uid": "api::totem.totem",
+      "apiName": "totem",
+      "globalId": "Totem",
+      "actions": {},
+      "lifecycles": {}
+    },
+    "api::troop.troop": {
+      "kind": "collectionType",
+      "collectionName": "troops",
+      "info": {
+        "singularName": "troop",
+        "pluralName": "troops",
+        "displayName": "Oddíly",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": false
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "name": {
+          "type": "string",
+          "required": true
+        },
+        "subscribed_users": {
+          "type": "relation",
+          "relation": "manyToMany",
+          "target": "plugin::users-permissions.user",
+          "inversedBy": "subscribing_troops"
+        },
+        "posts": {
+          "type": "relation",
+          "relation": "manyToMany",
+          "target": "api::post.post",
+          "mappedBy": "troops"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "troops",
+        "info": {
+          "singularName": "troop",
+          "pluralName": "troops",
+          "displayName": "Oddíly",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": false
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "name": {
+            "type": "string",
+            "required": true
+          },
+          "subscribed_users": {
+            "type": "relation",
+            "relation": "manyToMany",
+            "target": "plugin::users-permissions.user",
+            "inversedBy": "subscribing_troops"
+          },
+          "posts": {
+            "type": "relation",
+            "relation": "manyToMany",
+            "target": "api::post.post",
+            "mappedBy": "troops"
+          }
+        },
+        "kind": "collectionType"
+      },
+      "modelType": "contentType",
+      "modelName": "troop",
+      "connection": "default",
+      "uid": "api::troop.troop",
+      "apiName": "troop",
+      "globalId": "Troop",
+      "actions": {},
+      "lifecycles": {}
+    },
     "plugin::upload.file": {
       "collectionName": "files",
       "info": {
@@ -2232,512 +2738,6 @@
       "uid": "plugin::users-permissions.user",
       "plugin": "users-permissions",
       "globalId": "UsersPermissionsUser"
-    },
-    "api::homepage.homepage": {
-      "kind": "singleType",
-      "collectionName": "homepages",
-      "info": {
-        "singularName": "homepage",
-        "pluralName": "homepages",
-        "displayName": "Domovská stránka",
-        "description": ""
-      },
-      "options": {
-        "draftAndPublish": false
-      },
-      "pluginOptions": {},
-      "attributes": {
-        "images": {
-          "displayName": "HomeImage",
-          "type": "component",
-          "repeatable": true,
-          "component": "homepage.home-image"
-        },
-        "troops": {
-          "type": "component",
-          "repeatable": true,
-          "component": "homepage.troop"
-        },
-        "createdAt": {
-          "type": "datetime"
-        },
-        "updatedAt": {
-          "type": "datetime"
-        },
-        "createdBy": {
-          "type": "relation",
-          "relation": "oneToOne",
-          "target": "admin::user",
-          "configurable": false,
-          "writable": false,
-          "visible": false,
-          "useJoinTable": false,
-          "private": true
-        },
-        "updatedBy": {
-          "type": "relation",
-          "relation": "oneToOne",
-          "target": "admin::user",
-          "configurable": false,
-          "writable": false,
-          "visible": false,
-          "useJoinTable": false,
-          "private": true
-        }
-      },
-      "__schema__": {
-        "collectionName": "homepages",
-        "info": {
-          "singularName": "homepage",
-          "pluralName": "homepages",
-          "displayName": "Domovská stránka",
-          "description": ""
-        },
-        "options": {
-          "draftAndPublish": false
-        },
-        "pluginOptions": {},
-        "attributes": {
-          "images": {
-            "displayName": "HomeImage",
-            "type": "component",
-            "repeatable": true,
-            "component": "homepage.home-image"
-          },
-          "troops": {
-            "type": "component",
-            "repeatable": true,
-            "component": "homepage.troop"
-          }
-        },
-        "kind": "singleType"
-      },
-      "modelType": "contentType",
-      "modelName": "homepage",
-      "connection": "default",
-      "uid": "api::homepage.homepage",
-      "apiName": "homepage",
-      "globalId": "Homepage",
-      "actions": {},
-      "lifecycles": {}
-    },
-    "api::post.post": {
-      "kind": "collectionType",
-      "collectionName": "posts",
-      "info": {
-        "singularName": "post",
-        "pluralName": "posts",
-        "displayName": "Aktuality",
-        "description": ""
-      },
-      "options": {
-        "draftAndPublish": true,
-        "populateCreatorFields": true
-      },
-      "pluginOptions": {},
-      "attributes": {
-        "title": {
-          "type": "string",
-          "required": true
-        },
-        "content": {
-          "type": "richtext",
-          "required": true
-        },
-        "files": {
-          "type": "media",
-          "multiple": true,
-          "required": false,
-          "allowedTypes": [
-            "images",
-            "files",
-            "videos",
-            "audios"
-          ]
-        },
-        "troops": {
-          "type": "relation",
-          "relation": "manyToMany",
-          "target": "api::troop.troop",
-          "inversedBy": "posts"
-        },
-        "user_likes": {
-          "type": "relation",
-          "relation": "manyToMany",
-          "target": "plugin::users-permissions.user",
-          "inversedBy": "post_likes"
-        },
-        "schedule_publish_at": {
-          "type": "datetime"
-        },
-        "createdAt": {
-          "type": "datetime"
-        },
-        "updatedAt": {
-          "type": "datetime"
-        },
-        "publishedAt": {
-          "type": "datetime",
-          "configurable": false,
-          "writable": true,
-          "visible": false
-        },
-        "createdBy": {
-          "type": "relation",
-          "relation": "oneToOne",
-          "target": "admin::user",
-          "configurable": false,
-          "writable": false,
-          "visible": false,
-          "useJoinTable": false,
-          "private": false
-        },
-        "updatedBy": {
-          "type": "relation",
-          "relation": "oneToOne",
-          "target": "admin::user",
-          "configurable": false,
-          "writable": false,
-          "visible": false,
-          "useJoinTable": false,
-          "private": false
-        }
-      },
-      "__schema__": {
-        "collectionName": "posts",
-        "info": {
-          "singularName": "post",
-          "pluralName": "posts",
-          "displayName": "Aktuality",
-          "description": ""
-        },
-        "options": {
-          "draftAndPublish": true,
-          "populateCreatorFields": true
-        },
-        "pluginOptions": {},
-        "attributes": {
-          "title": {
-            "type": "string",
-            "required": true
-          },
-          "content": {
-            "type": "richtext",
-            "required": true
-          },
-          "files": {
-            "type": "media",
-            "multiple": true,
-            "required": false,
-            "allowedTypes": [
-              "images",
-              "files",
-              "videos",
-              "audios"
-            ]
-          },
-          "troops": {
-            "type": "relation",
-            "relation": "manyToMany",
-            "target": "api::troop.troop",
-            "inversedBy": "posts"
-          },
-          "user_likes": {
-            "type": "relation",
-            "relation": "manyToMany",
-            "target": "plugin::users-permissions.user",
-            "inversedBy": "post_likes"
-          },
-          "schedule_publish_at": {
-            "type": "datetime"
-          }
-        },
-        "kind": "collectionType"
-      },
-      "modelType": "contentType",
-      "modelName": "post",
-      "connection": "default",
-      "uid": "api::post.post",
-      "apiName": "post",
-      "globalId": "Post",
-      "actions": {},
-      "lifecycles": {}
-    },
-    "api::top-bar.top-bar": {
-      "kind": "singleType",
-      "collectionName": "top-bars",
-      "info": {
-        "singularName": "top-bar",
-        "pluralName": "top-bars",
-        "displayName": "Horní lišta",
-        "description": ""
-      },
-      "options": {
-        "draftAndPublish": false
-      },
-      "pluginOptions": {},
-      "attributes": {
-        "content": {
-          "type": "string"
-        },
-        "type": {
-          "type": "enumeration",
-          "enum": [
-            "info",
-            "upozornění"
-          ]
-        },
-        "createdAt": {
-          "type": "datetime"
-        },
-        "updatedAt": {
-          "type": "datetime"
-        },
-        "createdBy": {
-          "type": "relation",
-          "relation": "oneToOne",
-          "target": "admin::user",
-          "configurable": false,
-          "writable": false,
-          "visible": false,
-          "useJoinTable": false,
-          "private": true
-        },
-        "updatedBy": {
-          "type": "relation",
-          "relation": "oneToOne",
-          "target": "admin::user",
-          "configurable": false,
-          "writable": false,
-          "visible": false,
-          "useJoinTable": false,
-          "private": true
-        }
-      },
-      "__schema__": {
-        "collectionName": "top-bars",
-        "info": {
-          "singularName": "top-bar",
-          "pluralName": "top-bars",
-          "displayName": "Horní lišta",
-          "description": ""
-        },
-        "options": {
-          "draftAndPublish": false
-        },
-        "pluginOptions": {},
-        "attributes": {
-          "content": {
-            "type": "string"
-          },
-          "type": {
-            "type": "enumeration",
-            "enum": [
-              "info",
-              "upozornění"
-            ]
-          }
-        },
-        "kind": "singleType"
-      },
-      "modelType": "contentType",
-      "modelName": "top-bar",
-      "connection": "default",
-      "uid": "api::top-bar.top-bar",
-      "apiName": "top-bar",
-      "globalId": "TopBar",
-      "actions": {},
-      "lifecycles": {}
-    },
-    "api::totem.totem": {
-      "kind": "singleType",
-      "collectionName": "totems",
-      "info": {
-        "singularName": "totem",
-        "pluralName": "totems",
-        "displayName": "Totem",
-        "description": ""
-      },
-      "options": {
-        "draftAndPublish": true
-      },
-      "pluginOptions": {},
-      "attributes": {
-        "comment": {
-          "type": "component",
-          "repeatable": true,
-          "component": "totem.totem-comment"
-        },
-        "legend": {
-          "type": "component",
-          "repeatable": true,
-          "component": "totem.legend"
-        },
-        "createdAt": {
-          "type": "datetime"
-        },
-        "updatedAt": {
-          "type": "datetime"
-        },
-        "publishedAt": {
-          "type": "datetime",
-          "configurable": false,
-          "writable": true,
-          "visible": false
-        },
-        "createdBy": {
-          "type": "relation",
-          "relation": "oneToOne",
-          "target": "admin::user",
-          "configurable": false,
-          "writable": false,
-          "visible": false,
-          "useJoinTable": false,
-          "private": true
-        },
-        "updatedBy": {
-          "type": "relation",
-          "relation": "oneToOne",
-          "target": "admin::user",
-          "configurable": false,
-          "writable": false,
-          "visible": false,
-          "useJoinTable": false,
-          "private": true
-        }
-      },
-      "__schema__": {
-        "collectionName": "totems",
-        "info": {
-          "singularName": "totem",
-          "pluralName": "totems",
-          "displayName": "Totem",
-          "description": ""
-        },
-        "options": {
-          "draftAndPublish": true
-        },
-        "pluginOptions": {},
-        "attributes": {
-          "comment": {
-            "type": "component",
-            "repeatable": true,
-            "component": "totem.totem-comment"
-          },
-          "legend": {
-            "type": "component",
-            "repeatable": true,
-            "component": "totem.legend"
-          }
-        },
-        "kind": "singleType"
-      },
-      "modelType": "contentType",
-      "modelName": "totem",
-      "connection": "default",
-      "uid": "api::totem.totem",
-      "apiName": "totem",
-      "globalId": "Totem",
-      "actions": {},
-      "lifecycles": {}
-    },
-    "api::troop.troop": {
-      "kind": "collectionType",
-      "collectionName": "troops",
-      "info": {
-        "singularName": "troop",
-        "pluralName": "troops",
-        "displayName": "Oddíly",
-        "description": ""
-      },
-      "options": {
-        "draftAndPublish": false
-      },
-      "pluginOptions": {},
-      "attributes": {
-        "name": {
-          "type": "string",
-          "required": true
-        },
-        "subscribed_users": {
-          "type": "relation",
-          "relation": "manyToMany",
-          "target": "plugin::users-permissions.user",
-          "inversedBy": "subscribing_troops"
-        },
-        "posts": {
-          "type": "relation",
-          "relation": "manyToMany",
-          "target": "api::post.post",
-          "mappedBy": "troops"
-        },
-        "createdAt": {
-          "type": "datetime"
-        },
-        "updatedAt": {
-          "type": "datetime"
-        },
-        "createdBy": {
-          "type": "relation",
-          "relation": "oneToOne",
-          "target": "admin::user",
-          "configurable": false,
-          "writable": false,
-          "visible": false,
-          "useJoinTable": false,
-          "private": true
-        },
-        "updatedBy": {
-          "type": "relation",
-          "relation": "oneToOne",
-          "target": "admin::user",
-          "configurable": false,
-          "writable": false,
-          "visible": false,
-          "useJoinTable": false,
-          "private": true
-        }
-      },
-      "__schema__": {
-        "collectionName": "troops",
-        "info": {
-          "singularName": "troop",
-          "pluralName": "troops",
-          "displayName": "Oddíly",
-          "description": ""
-        },
-        "options": {
-          "draftAndPublish": false
-        },
-        "pluginOptions": {},
-        "attributes": {
-          "name": {
-            "type": "string",
-            "required": true
-          },
-          "subscribed_users": {
-            "type": "relation",
-            "relation": "manyToMany",
-            "target": "plugin::users-permissions.user",
-            "inversedBy": "subscribing_troops"
-          },
-          "posts": {
-            "type": "relation",
-            "relation": "manyToMany",
-            "target": "api::post.post",
-            "mappedBy": "troops"
-          }
-        },
-        "kind": "collectionType"
-      },
-      "modelType": "contentType",
-      "modelName": "troop",
-      "connection": "default",
-      "uid": "api::troop.troop",
-      "apiName": "troop",
-      "globalId": "Troop",
-      "actions": {},
-      "lifecycles": {}
     }
   },
   "type": "object",

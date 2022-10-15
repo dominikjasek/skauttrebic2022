@@ -61,6 +61,20 @@
           "searchable": true,
           "sortable": true
         }
+      },
+      "text_color": {
+        "edit": {
+          "label": "Barva textu",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "text_color",
+          "searchable": true,
+          "sortable": true
+        }
       }
     },
     "layouts": {
@@ -73,18 +87,22 @@
       "edit": [
         [
           {
-            "name": "text",
+            "name": "photo",
             "size": 6
           },
           {
-            "name": "background_color",
+            "name": "text",
             "size": 6
           }
         ],
         [
           {
-            "name": "photo",
-            "size": 12
+            "name": "text_color",
+            "size": 6
+          },
+          {
+            "name": "background_color",
+            "size": 6
           }
         ]
       ],
