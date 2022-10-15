@@ -1,25 +1,30 @@
-import type { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
+import type { NextPage } from 'next'
 import { useTitle } from 'react-use'
 import { Homepage } from '~/components/Homepage/Homepage'
 import { useHomePageRepository } from '~/src/homepage/HomepageRepository'
+import { dehydrate, QueryClient, useQuery } from 'react-query'
 
-const Home: NextPage = ({ homepage }: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Home: NextPage = () => {
   useTitle('Skaut Třebíč')
+  const homepageRepository = useHomePageRepository()
+  const { data: homepage } = useQuery('homepage', homepageRepository.fetchHomePageData)
 
   return (
     <main>
-      <Homepage homepage={homepage} />
+      {homepage && <Homepage homepage={homepage} />}
     </main>
   )
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps = async () => {
   const homepageRepository = useHomePageRepository()
-  const data = await homepageRepository.fetchHomePageData()
+  const queryClient = new QueryClient()
+  await queryClient.prefetchQuery('homepage', homepageRepository.fetchHomePageData)
 
   return {
+
     props: {
-      homepage: data,
+      dehydratedState: dehydrate(queryClient),
     },
     // Next.js will attempt to re-generate the page:
     // - When a request comes in
