@@ -20,6 +20,12 @@
     },
     "background_color": {
       "type": "customField",
+      "customField": "plugin::color-picker.color",
+      "required": false
+    },
+    "text_color": {
+      "type": "customField",
+      "required": false,
       "customField": "plugin::color-picker.color"
     }
   }
