@@ -7,11 +7,17 @@ import { dehydrate, QueryClient, useQuery } from 'react-query'
 const Home: NextPage = () => {
   useTitle('Skaut Třebíč')
   const homepageRepository = useHomePageRepository()
-  const { data: homepage } = useQuery('homepage', homepageRepository.fetchHomePageData)
+  const { data, isLoading } = useQuery('homepage', homepageRepository.fetchHomePageData)
+
+  if (isLoading) {
+    return <div>
+      Loading...
+    </div>
+  }
 
   return (
     <main>
-      {homepage && <Homepage homepage={homepage} />}
+      {data && <Homepage homepage={data} />}
     </main>
   )
 }

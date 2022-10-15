@@ -5,12 +5,7 @@ import { wrap } from 'popmotion'
 import styles from './styles.module.css'
 import { navbarHeightPx } from '~/components/Navbar/NavbarHeight'
 import { Box, styled } from '@mui/material'
-
-const images = [
-  'https://d33wubrfki0l68.cloudfront.net/dd23708ebc4053551bb33e18b7174e73b6e1710b/dea24/static/images/wallpapers/shared-colors@2x.png',
-  'https://d33wubrfki0l68.cloudfront.net/49de349d12db851952c5556f3c637ca772745316/cfc56/static/images/wallpapers/bridge-02@2x.png',
-  'https://d33wubrfki0l68.cloudfront.net/594de66469079c21fc54c14db0591305a1198dd6/3f4b1/static/images/wallpapers/bridge-01@2x.png'
-]
+import { ComponentHomepageHomeImage } from '~/src/gql/graphql'
 
 const variants = {
   enter: (direction: number) => {
@@ -33,7 +28,7 @@ const variants = {
   }
 }
 
-const ImageSliderWrapper=styled(Box)(({ theme })=>({
+const ImageSliderWrapper = styled(Box)(({ theme })=>({
   width: '100vw',
   height: `calc(100vh - ${navbarHeightPx.md})`,
   position: 'relative',
@@ -60,7 +55,11 @@ const swipePower = (offset: number, velocity: number) => {
   return Math.abs(offset) * velocity
 }
 
-export const HomepageImageSlider: React.FC = () => {
+interface HomepageImageSliderProps {
+  images: ComponentHomepageHomeImage[]
+}
+
+export const HomepageImageSlider: React.FC<HomepageImageSliderProps> = ({ images }) => {
   const [[page, direction], setPage] = useState([0, 0])
   // We only have 3 images, but we paginate them absolutely (ie 1, 2, 3, 4, 5...) and
   // then wrap that within 0-2 to find our image ID in the array below. By passing an
@@ -79,14 +78,14 @@ export const HomepageImageSlider: React.FC = () => {
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           className={styles.image}
           key={page}
-          src={images[imageIndex]}
+          src={images[imageIndex].photo.data?.attributes?.url}
           custom={direction}
           variants={variants}
           initial="enter"
           animate="center"
           exit="exit"
           transition={{
-            x: { type: 'spring', stiffness: 300, damping: 30 },
+            x: { type: 'spring', stiffness: 800, damping: 70 },
             opacity: { duration: 0.2 }
           }}
           drag="x"

@@ -1,11 +1,11 @@
-import { IHomepage } from './homepage.interface'
+import { graphqlRequestClient } from '~/src/lib/graphqlRequestClient'
+import { HomepageDocument, HomepageEntity } from './../gql/graphql'
 
 class HomepageRepository {
-  async fetchHomePageData(): Promise<IHomepage> {
-    const res = await fetch(`${process.env.API_URL}/homepage?populate[0]=images&populate[images][populate][1]=photo&populate[2]=troops`)
-    return await res.json() as IHomepage
+  async fetchHomePageData() {
+    const response = await graphqlRequestClient.request(HomepageDocument)
+    return response.homepage?.data as HomepageEntity
   }
-
 }
 
 export const useHomePageRepository = () => {

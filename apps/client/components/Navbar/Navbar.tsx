@@ -49,7 +49,7 @@ export const Navbar: React.FC = () => {
           >
             <Link href={Routes.home} >
               <a style={{ width: 'auto', height: '100%' }}>
-                <SkautLogo size={onlySmallScreen ? 0.5 : onlyMediumScreen? 0.57 : 0.65}  />
+                <SkautLogo size={onlySmallScreen ? 0.5 : onlyMediumScreen ? 0.57 : 0.65} />
               </a>
             </Link>
           </IconButton>
@@ -71,7 +71,7 @@ export const Navbar: React.FC = () => {
               2. Skautské oddíly Třebíč
             </Box>
           </Typography>
-          <MobileMenuModal items={menuItems}  />
+          <MobileMenuModal items={menuItems} />
           <DesktopMenuNavigation items={menuItems} />
         </Toolbar>
       </Container>

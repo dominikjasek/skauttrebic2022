@@ -1,0 +1,1198 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+union GenericMorph = CommentsComment | CommentsCommentReport | ComponentHomepageHomeImage | ComponentHomepageTroop | ComponentTotemLegend | ComponentTotemTotemComment | EmailDesignerEmailTemplate | Homepage | I18NLocale | Post | TopBar | Totem | Troop | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser
+
+type CommentAuthor {
+    avatar: String
+    email: String
+    id: Id
+    name: String!
+}
+
+type CommentNested {
+    approvalStatus: String
+    author: CommentAuthor
+    blocked: Boolean
+    blockedThread: Boolean
+    children: [CommentNested]
+    content: String!
+    createdAt: String
+    id: Id
+    removed: Boolean
+    threadOf: CommentSingle
+    updatedAt: String
+}
+
+type CommentSingle {
+    approvalStatus: String
+    author: CommentAuthor
+    blocked: Boolean
+    blockedThread: Boolean
+    content: String!
+    createdAt: String
+    id: Id
+    removed: Boolean
+    threadOf: CommentSingle
+    updatedAt: String
+}
+
+type CommentsComment {
+    approvalStatus: String
+    authorAvatar: String
+    authorEmail: String
+    authorId: String
+    authorName: String
+    authorUser: UsersPermissionsUserEntityResponse
+    blockReason: String
+    blocked: Boolean
+    blockedThread: Boolean
+    content: String!
+    createdAt: DateTime
+    related: String
+    removed: Boolean
+    reports(filters: CommentsCommentReportFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): CommentsCommentReportRelationResponseCollection
+    threadOf: CommentsCommentEntityResponse
+    updatedAt: DateTime
+}
+
+type CommentsCommentEntity {
+    attributes: CommentsComment
+    id: Id
+}
+
+type CommentsCommentEntityResponse {
+    data: CommentsCommentEntity
+}
+
+type CommentsCommentReport {
+    content: String
+    createdAt: DateTime
+    reason: ENUM_COMMENTSCOMMENTREPORT_REASON!
+    related: CommentsCommentEntityResponse
+    resolved: Boolean
+    updatedAt: DateTime
+}
+
+type CommentsCommentReportEntity {
+    attributes: CommentsCommentReport
+    id: Id
+}
+
+type CommentsCommentReportRelationResponseCollection {
+    data: [CommentsCommentReportEntity!]!
+}
+
+type ComponentHomepageHomeImage {
+    background_color: String
+    id: Id!
+    photo: UploadFileEntityResponse!
+    text: String
+    text_color: String
+}
+
+type ComponentHomepageTroop {
+    age_gender_information: String
+    description: String
+    id: Id!
+    logo: UploadFileEntityResponse!
+    title: String
+}
+
+type ComponentTotemLegend {
+    audio: UploadFileEntityResponse!
+    id: Id!
+    photo: UploadFileEntityResponse!
+    title: String!
+}
+
+type ComponentTotemTotemComment {
+    author: UsersPermissionsUserEntityResponse
+    id: Id!
+    name: String
+    text: String!
+}
+
+type EmailDesignerEmailTemplate {
+    bodyHtml: String
+    bodyText: String
+    createdAt: DateTime
+    design: JSON
+    enabled: Boolean
+    name: String
+    subject: String
+    tags: JSON
+    templateReferenceId: Int
+    updatedAt: DateTime
+}
+
+type EmailDesignerEmailTemplateEntity {
+    attributes: EmailDesignerEmailTemplate
+    id: Id
+}
+
+type EmailDesignerEmailTemplateEntityResponse {
+    data: EmailDesignerEmailTemplateEntity
+}
+
+type EmailDesignerEmailTemplateEntityResponseCollection {
+    data: [EmailDesignerEmailTemplateEntity!]!
+    meta: ResponseCollectionMeta!
+}
+
+type Homepage {
+    createdAt: DateTime
+    images(filters: ComponentHomepageHomeImageFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentHomepageHomeImage]
+    troops(filters: ComponentHomepageTroopFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentHomepageTroop]
+    updatedAt: DateTime
+}
+
+type HomepageEntity {
+    attributes: Homepage
+    id: Id
+}
+
+type HomepageEntityResponse {
+    data: HomepageEntity
+}
+
+type I18NLocale {
+    code: String
+    createdAt: DateTime
+    name: String
+    updatedAt: DateTime
+}
+
+type I18NLocaleEntity {
+    attributes: I18NLocale
+    id: Id
+}
+
+type I18NLocaleEntityResponse {
+    data: I18NLocaleEntity
+}
+
+type I18NLocaleEntityResponseCollection {
+    data: [I18NLocaleEntity!]!
+    meta: ResponseCollectionMeta!
+}
+
+type Mutation {
+    "Change user password. Confirm with the current password."
+    changePassword(currentPassword: String!, password: String!, passwordConfirmation: String!): UsersPermissionsLoginPayload
+    createAbuseReport(input: CreateReport!): Report!
+    createComment(input: CreateComment!): CommentSingle!
+    createEmailDesignerEmailTemplate(data: EmailDesignerEmailTemplateInput!): EmailDesignerEmailTemplateEntityResponse
+    createPost(data: PostInput!): PostEntityResponse
+    createTroop(data: TroopInput!): TroopEntityResponse
+    createUploadFile(data: UploadFileInput!): UploadFileEntityResponse
+    createUploadFolder(data: UploadFolderInput!): UploadFolderEntityResponse
+    "Create a new role"
+    createUsersPermissionsRole(data: UsersPermissionsRoleInput!): UsersPermissionsCreateRolePayload
+    "Create a new user"
+    createUsersPermissionsUser(data: UsersPermissionsUserInput!): UsersPermissionsUserEntityResponse!
+    deleteEmailDesignerEmailTemplate(id: ID!): EmailDesignerEmailTemplateEntityResponse
+    deleteHomepage: HomepageEntityResponse
+    deletePost(id: ID!): PostEntityResponse
+    deleteTopBar: TopBarEntityResponse
+    deleteTotem: TotemEntityResponse
+    deleteTroop(id: ID!): TroopEntityResponse
+    deleteUploadFile(id: ID!): UploadFileEntityResponse
+    deleteUploadFolder(id: ID!): UploadFolderEntityResponse
+    "Delete an existing role"
+    deleteUsersPermissionsRole(id: ID!): UsersPermissionsDeleteRolePayload
+    "Delete an existing user"
+    deleteUsersPermissionsUser(id: ID!): UsersPermissionsUserEntityResponse!
+    "Confirm an email users email address"
+    emailConfirmation(confirmation: String!): UsersPermissionsLoginPayload
+    "Request a reset password token"
+    forgotPassword(email: String!): UsersPermissionsPasswordPayload
+    login(input: UsersPermissionsLoginInput!): UsersPermissionsLoginPayload!
+    multipleUpload(field: String, files: [Upload]!, ref: String, refId: ID): [UploadFileEntityResponse]!
+    "Register a user"
+    register(input: UsersPermissionsRegisterInput!): UsersPermissionsLoginPayload!
+    removeComment(input: RemoveComment!): CommentSingle!
+    removeFile(id: ID!): UploadFileEntityResponse
+    "Reset user password. Confirm with a code (resetToken from forgotPassword)"
+    resetPassword(code: String!, password: String!, passwordConfirmation: String!): UsersPermissionsLoginPayload
+    updateComment(input: UpdateComment!): CommentSingle!
+    updateEmailDesignerEmailTemplate(data: EmailDesignerEmailTemplateInput!, id: ID!): EmailDesignerEmailTemplateEntityResponse
+    updateFileInfo(id: ID!, info: FileInfoInput): UploadFileEntityResponse!
+    updateHomepage(data: HomepageInput!): HomepageEntityResponse
+    updatePost(data: PostInput!, id: ID!): PostEntityResponse
+    updateTopBar(data: TopBarInput!): TopBarEntityResponse
+    updateTotem(data: TotemInput!): TotemEntityResponse
+    updateTroop(data: TroopInput!, id: ID!): TroopEntityResponse
+    updateUploadFile(data: UploadFileInput!, id: ID!): UploadFileEntityResponse
+    updateUploadFolder(data: UploadFolderInput!, id: ID!): UploadFolderEntityResponse
+    "Update an existing role"
+    updateUsersPermissionsRole(data: UsersPermissionsRoleInput!, id: ID!): UsersPermissionsUpdateRolePayload
+    "Update an existing user"
+    updateUsersPermissionsUser(data: UsersPermissionsUserInput!, id: ID!): UsersPermissionsUserEntityResponse!
+    upload(field: String, file: Upload!, info: FileInfoInput, ref: String, refId: ID): UploadFileEntityResponse!
+}
+
+type Pagination {
+    page: Int!
+    pageCount: Int!
+    pageSize: Int!
+    total: Int!
+}
+
+type Post {
+    content: String!
+    createdAt: DateTime
+    files(filters: UploadFileFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UploadFileRelationResponseCollection
+    publishedAt: DateTime
+    schedule_publish_at: DateTime
+    title: String!
+    troops(filters: TroopFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): TroopRelationResponseCollection
+    updatedAt: DateTime
+    user_likes(filters: UsersPermissionsUserFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UsersPermissionsUserRelationResponseCollection
+}
+
+type PostEntity {
+    attributes: Post
+    id: Id
+}
+
+type PostEntityResponse {
+    data: PostEntity
+}
+
+type PostEntityResponseCollection {
+    data: [PostEntity!]!
+    meta: ResponseCollectionMeta!
+}
+
+type PostRelationResponseCollection {
+    data: [PostEntity!]!
+}
+
+type Query {
+    emailDesignerEmailTemplate(id: ID): EmailDesignerEmailTemplateEntityResponse
+    emailDesignerEmailTemplates(filters: EmailDesignerEmailTemplateFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): EmailDesignerEmailTemplateEntityResponseCollection
+    findAllFlat(filters: CommentFiltersInput, pagination: PaginationArg = {}, relation: String!, sort: [String] = []): ResponseFindAll
+    findAllInHierarchy(relation: String!, sort: [String] = []): [CommentNested]!
+    homepage: HomepageEntityResponse
+    i18NLocale(id: ID): I18NLocaleEntityResponse
+    i18NLocales(filters: I18NLocaleFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): I18NLocaleEntityResponseCollection
+    me: UsersPermissionsMe
+    post(id: ID): PostEntityResponse
+    posts(filters: PostFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): PostEntityResponseCollection
+    topBar: TopBarEntityResponse
+    totem(publicationState: PublicationState = LIVE): TotemEntityResponse
+    troop(id: ID): TroopEntityResponse
+    troops(filters: TroopFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): TroopEntityResponseCollection
+    uploadFile(id: ID): UploadFileEntityResponse
+    uploadFiles(filters: UploadFileFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UploadFileEntityResponseCollection
+    uploadFolder(id: ID): UploadFolderEntityResponse
+    uploadFolders(filters: UploadFolderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UploadFolderEntityResponseCollection
+    usersPermissionsRole(id: ID): UsersPermissionsRoleEntityResponse
+    usersPermissionsRoles(filters: UsersPermissionsRoleFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UsersPermissionsRoleEntityResponseCollection
+    usersPermissionsUser(id: ID): UsersPermissionsUserEntityResponse
+    usersPermissionsUsers(filters: UsersPermissionsUserFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UsersPermissionsUserEntityResponseCollection
+}
+
+type Report {
+    content: String!
+    createdAt: String
+    id: Id
+    reason: ReportReason
+    related: CommentSingle
+    updatedAt: String
+}
+
+type ResponseCollectionMeta {
+    pagination: Pagination!
+}
+
+type ResponseFindAll {
+    data: [CommentSingle]
+    meta: ResponseMeta
+}
+
+type ResponseMeta {
+    pagination: ResponsePagination
+}
+
+type ResponsePagination {
+    limit: Int
+    page: Int
+    pageCount: Int
+    pageSize: Int
+    start: Int
+    total: Int
+}
+
+type TopBar {
+    content: String
+    createdAt: DateTime
+    type: ENUM_TOPBAR_TYPE
+    updatedAt: DateTime
+}
+
+type TopBarEntity {
+    attributes: TopBar
+    id: Id
+}
+
+type TopBarEntityResponse {
+    data: TopBarEntity
+}
+
+type Totem {
+    comment(filters: ComponentTotemTotemCommentFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTotemTotemComment]
+    createdAt: DateTime
+    legend(filters: ComponentTotemLegendFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTotemLegend]
+    publishedAt: DateTime
+    updatedAt: DateTime
+}
+
+type TotemEntity {
+    attributes: Totem
+    id: Id
+}
+
+type TotemEntityResponse {
+    data: TotemEntity
+}
+
+type Troop {
+    createdAt: DateTime
+    name: String!
+    posts(filters: PostFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): PostRelationResponseCollection
+    subscribed_users(filters: UsersPermissionsUserFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UsersPermissionsUserRelationResponseCollection
+    updatedAt: DateTime
+}
+
+type TroopEntity {
+    attributes: Troop
+    id: Id
+}
+
+type TroopEntityResponse {
+    data: TroopEntity
+}
+
+type TroopEntityResponseCollection {
+    data: [TroopEntity!]!
+    meta: ResponseCollectionMeta!
+}
+
+type TroopRelationResponseCollection {
+    data: [TroopEntity!]!
+}
+
+type UploadFile {
+    alternativeText: String
+    caption: String
+    createdAt: DateTime
+    ext: String
+    formats: JSON
+    hash: String!
+    height: Int
+    mime: String!
+    name: String!
+    previewUrl: String
+    provider: String!
+    provider_metadata: JSON
+    related: [GenericMorph]
+    size: Float!
+    updatedAt: DateTime
+    url: String!
+    width: Int
+}
+
+type UploadFileEntity {
+    attributes: UploadFile
+    id: Id
+}
+
+type UploadFileEntityResponse {
+    data: UploadFileEntity
+}
+
+type UploadFileEntityResponseCollection {
+    data: [UploadFileEntity!]!
+    meta: ResponseCollectionMeta!
+}
+
+type UploadFileRelationResponseCollection {
+    data: [UploadFileEntity!]!
+}
+
+type UploadFolder {
+    children(filters: UploadFolderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UploadFolderRelationResponseCollection
+    createdAt: DateTime
+    files(filters: UploadFileFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UploadFileRelationResponseCollection
+    name: String!
+    parent: UploadFolderEntityResponse
+    path: String!
+    pathId: Int!
+    updatedAt: DateTime
+}
+
+type UploadFolderEntity {
+    attributes: UploadFolder
+    id: Id
+}
+
+type UploadFolderEntityResponse {
+    data: UploadFolderEntity
+}
+
+type UploadFolderEntityResponseCollection {
+    data: [UploadFolderEntity!]!
+    meta: ResponseCollectionMeta!
+}
+
+type UploadFolderRelationResponseCollection {
+    data: [UploadFolderEntity!]!
+}
+
+type UsersPermissionsCreateRolePayload {
+    ok: Boolean!
+}
+
+type UsersPermissionsDeleteRolePayload {
+    ok: Boolean!
+}
+
+type UsersPermissionsLoginPayload {
+    jwt: String
+    user: UsersPermissionsMe!
+}
+
+type UsersPermissionsMe {
+    blocked: Boolean
+    confirmed: Boolean
+    email: String
+    id: Id!
+    role: UsersPermissionsMeRole
+    username: String!
+}
+
+type UsersPermissionsMeRole {
+    description: String
+    id: Id!
+    name: String!
+    type: String
+}
+
+type UsersPermissionsPasswordPayload {
+    ok: Boolean!
+}
+
+type UsersPermissionsPermission {
+    action: String!
+    createdAt: DateTime
+    role: UsersPermissionsRoleEntityResponse
+    updatedAt: DateTime
+}
+
+type UsersPermissionsPermissionEntity {
+    attributes: UsersPermissionsPermission
+    id: Id
+}
+
+type UsersPermissionsPermissionRelationResponseCollection {
+    data: [UsersPermissionsPermissionEntity!]!
+}
+
+type UsersPermissionsRole {
+    createdAt: DateTime
+    description: String
+    name: String!
+    permissions(filters: UsersPermissionsPermissionFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UsersPermissionsPermissionRelationResponseCollection
+    type: String
+    updatedAt: DateTime
+    users(filters: UsersPermissionsUserFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UsersPermissionsUserRelationResponseCollection
+}
+
+type UsersPermissionsRoleEntity {
+    attributes: UsersPermissionsRole
+    id: Id
+}
+
+type UsersPermissionsRoleEntityResponse {
+    data: UsersPermissionsRoleEntity
+}
+
+type UsersPermissionsRoleEntityResponseCollection {
+    data: [UsersPermissionsRoleEntity!]!
+    meta: ResponseCollectionMeta!
+}
+
+type UsersPermissionsUpdateRolePayload {
+    ok: Boolean!
+}
+
+type UsersPermissionsUser {
+    blocked: Boolean
+    confirmed: Boolean
+    createdAt: DateTime
+    email: String!
+    firstName: String!
+    lastName: String!
+    position: ENUM_USERSPERMISSIONSUSER_POSITION
+    post_likes(filters: PostFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): PostRelationResponseCollection
+    provider: String
+    role: UsersPermissionsRoleEntityResponse
+    subscribing_troops(filters: TroopFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): TroopRelationResponseCollection
+    updatedAt: DateTime
+    username: String!
+}
+
+type UsersPermissionsUserEntity {
+    attributes: UsersPermissionsUser
+    id: Id
+}
+
+type UsersPermissionsUserEntityResponse {
+    data: UsersPermissionsUserEntity
+}
+
+type UsersPermissionsUserEntityResponseCollection {
+    data: [UsersPermissionsUserEntity!]!
+    meta: ResponseCollectionMeta!
+}
+
+type UsersPermissionsUserRelationResponseCollection {
+    data: [UsersPermissionsUserEntity!]!
+}
+
+enum ENUM_COMMENTSCOMMENTREPORT_REASON {
+    BAD_LANGUAGE
+    DISCRIMINATION
+    OTHER
+}
+
+enum ENUM_TOPBAR_TYPE {
+    info
+    upozorneni
+}
+
+enum ENUM_USERSPERMISSIONSUSER_POSITION {
+    clen
+    rodic
+    vedouci
+}
+
+enum PublicationState {
+    LIVE
+    PREVIEW
+}
+
+"Reason of abuse report"
+enum ReportReason {
+    BAD_LANGUAGE
+    DISCRIMINATION
+    OTHER
+}
+
+"A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar."
+scalar DateTime
+
+"Id as string or int"
+scalar Id
+
+"The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)."
+scalar JSON
+
+"The `Upload` scalar type represents a file upload."
+scalar Upload
+
+input BooleanFilterInput {
+    and: [Boolean]
+    between: [Boolean]
+    contains: Boolean
+    containsi: Boolean
+    endsWith: Boolean
+    eq: Boolean
+    eqi: Boolean
+    gt: Boolean
+    gte: Boolean
+    in: [Boolean]
+    lt: Boolean
+    lte: Boolean
+    ne: Boolean
+    not: BooleanFilterInput
+    notContains: Boolean
+    notContainsi: Boolean
+    notIn: [Boolean]
+    notNull: Boolean
+    null: Boolean
+    or: [Boolean]
+    startsWith: Boolean
+}
+
+input CommentFiltersInput {
+    and: [CommentFiltersInput]
+    approvalStatus: StringFilterInput
+    authorAvatar: StringFilterInput
+    authorEmail: StringFilterInput
+    authorId: StringFilterInput
+    authorName: StringFilterInput
+    authorUser: UsersPermissionsUserFiltersInput
+    blockReason: StringFilterInput
+    blocked: BooleanFilterInput
+    blockedThread: BooleanFilterInput
+    content: StringFilterInput
+    not: CommentFiltersInput
+    or: [CommentFiltersInput]
+    related: StringFilterInput
+    removed: BooleanFilterInput
+    reports: CommentsCommentReportFiltersInput
+    threadOf: CommentsCommentFiltersInput
+}
+
+input CommentsCommentFiltersInput {
+    and: [CommentsCommentFiltersInput]
+    approvalStatus: StringFilterInput
+    authorAvatar: StringFilterInput
+    authorEmail: StringFilterInput
+    authorId: StringFilterInput
+    authorName: StringFilterInput
+    authorUser: UsersPermissionsUserFiltersInput
+    blockReason: StringFilterInput
+    blocked: BooleanFilterInput
+    blockedThread: BooleanFilterInput
+    content: StringFilterInput
+    createdAt: DateTimeFilterInput
+    id: IDFilterInput
+    not: CommentsCommentFiltersInput
+    or: [CommentsCommentFiltersInput]
+    related: StringFilterInput
+    removed: BooleanFilterInput
+    reports: CommentsCommentReportFiltersInput
+    threadOf: CommentsCommentFiltersInput
+    updatedAt: DateTimeFilterInput
+}
+
+input CommentsCommentReportFiltersInput {
+    and: [CommentsCommentReportFiltersInput]
+    content: StringFilterInput
+    createdAt: DateTimeFilterInput
+    id: IDFilterInput
+    not: CommentsCommentReportFiltersInput
+    or: [CommentsCommentReportFiltersInput]
+    reason: StringFilterInput
+    related: CommentsCommentFiltersInput
+    resolved: BooleanFilterInput
+    updatedAt: DateTimeFilterInput
+}
+
+input ComponentHomepageHomeImageFiltersInput {
+    and: [ComponentHomepageHomeImageFiltersInput]
+    background_color: StringFilterInput
+    not: ComponentHomepageHomeImageFiltersInput
+    or: [ComponentHomepageHomeImageFiltersInput]
+    text: StringFilterInput
+    text_color: StringFilterInput
+}
+
+input ComponentHomepageHomeImageInput {
+    background_color: String
+    id: Id
+    photo: Id
+    text: String
+    text_color: String
+}
+
+input ComponentHomepageTroopFiltersInput {
+    age_gender_information: StringFilterInput
+    and: [ComponentHomepageTroopFiltersInput]
+    description: StringFilterInput
+    not: ComponentHomepageTroopFiltersInput
+    or: [ComponentHomepageTroopFiltersInput]
+    title: StringFilterInput
+}
+
+input ComponentHomepageTroopInput {
+    age_gender_information: String
+    description: String
+    id: Id
+    logo: Id
+    title: String
+}
+
+input ComponentTotemLegendFiltersInput {
+    and: [ComponentTotemLegendFiltersInput]
+    not: ComponentTotemLegendFiltersInput
+    or: [ComponentTotemLegendFiltersInput]
+    title: StringFilterInput
+}
+
+input ComponentTotemLegendInput {
+    audio: Id
+    id: Id
+    photo: Id
+    title: String
+}
+
+input ComponentTotemTotemCommentFiltersInput {
+    and: [ComponentTotemTotemCommentFiltersInput]
+    author: UsersPermissionsUserFiltersInput
+    name: StringFilterInput
+    not: ComponentTotemTotemCommentFiltersInput
+    or: [ComponentTotemTotemCommentFiltersInput]
+    text: StringFilterInput
+}
+
+input ComponentTotemTotemCommentInput {
+    author: Id
+    id: Id
+    name: String
+    text: String
+}
+
+input CreateComment {
+    author: CreateCommentAuthor
+    content: String!
+    relation: String!
+    threadOf: Id
+}
+
+input CreateCommentAuthor {
+    avatar: String
+    email: String
+    id: Id!
+    name: String!
+}
+
+input CreateReport {
+    commentId: Id
+    content: String!
+    reason: ReportReason
+    relation: String!
+}
+
+input DateTimeFilterInput {
+    and: [DateTime]
+    between: [DateTime]
+    contains: DateTime
+    containsi: DateTime
+    endsWith: DateTime
+    eq: DateTime
+    eqi: DateTime
+    gt: DateTime
+    gte: DateTime
+    in: [DateTime]
+    lt: DateTime
+    lte: DateTime
+    ne: DateTime
+    not: DateTimeFilterInput
+    notContains: DateTime
+    notContainsi: DateTime
+    notIn: [DateTime]
+    notNull: Boolean
+    null: Boolean
+    or: [DateTime]
+    startsWith: DateTime
+}
+
+input EmailDesignerEmailTemplateFiltersInput {
+    and: [EmailDesignerEmailTemplateFiltersInput]
+    bodyHtml: StringFilterInput
+    bodyText: StringFilterInput
+    createdAt: DateTimeFilterInput
+    design: JSONFilterInput
+    enabled: BooleanFilterInput
+    id: IDFilterInput
+    name: StringFilterInput
+    not: EmailDesignerEmailTemplateFiltersInput
+    or: [EmailDesignerEmailTemplateFiltersInput]
+    subject: StringFilterInput
+    tags: JSONFilterInput
+    templateReferenceId: IntFilterInput
+    updatedAt: DateTimeFilterInput
+}
+
+input EmailDesignerEmailTemplateInput {
+    bodyHtml: String
+    bodyText: String
+    design: JSON
+    enabled: Boolean
+    name: String
+    subject: String
+    tags: JSON
+    templateReferenceId: Int
+}
+
+input FileInfoInput {
+    alternativeText: String
+    caption: String
+    name: String
+}
+
+input FloatFilterInput {
+    and: [Float]
+    between: [Float]
+    contains: Float
+    containsi: Float
+    endsWith: Float
+    eq: Float
+    eqi: Float
+    gt: Float
+    gte: Float
+    in: [Float]
+    lt: Float
+    lte: Float
+    ne: Float
+    not: FloatFilterInput
+    notContains: Float
+    notContainsi: Float
+    notIn: [Float]
+    notNull: Boolean
+    null: Boolean
+    or: [Float]
+    startsWith: Float
+}
+
+input HomepageInput {
+    images: [ComponentHomepageHomeImageInput]
+    troops: [ComponentHomepageTroopInput]
+}
+
+input I18NLocaleFiltersInput {
+    and: [I18NLocaleFiltersInput]
+    code: StringFilterInput
+    createdAt: DateTimeFilterInput
+    id: IDFilterInput
+    name: StringFilterInput
+    not: I18NLocaleFiltersInput
+    or: [I18NLocaleFiltersInput]
+    updatedAt: DateTimeFilterInput
+}
+
+input IDFilterInput {
+    and: [ID]
+    between: [ID]
+    contains: ID
+    containsi: ID
+    endsWith: ID
+    eq: ID
+    eqi: ID
+    gt: ID
+    gte: ID
+    in: [ID]
+    lt: ID
+    lte: ID
+    ne: ID
+    not: IDFilterInput
+    notContains: ID
+    notContainsi: ID
+    notIn: [ID]
+    notNull: Boolean
+    null: Boolean
+    or: [ID]
+    startsWith: ID
+}
+
+input IdentifyCommentAuthor {
+    id: Id!
+}
+
+input IntFilterInput {
+    and: [Int]
+    between: [Int]
+    contains: Int
+    containsi: Int
+    endsWith: Int
+    eq: Int
+    eqi: Int
+    gt: Int
+    gte: Int
+    in: [Int]
+    lt: Int
+    lte: Int
+    ne: Int
+    not: IntFilterInput
+    notContains: Int
+    notContainsi: Int
+    notIn: [Int]
+    notNull: Boolean
+    null: Boolean
+    or: [Int]
+    startsWith: Int
+}
+
+input JSONFilterInput {
+    and: [JSON]
+    between: [JSON]
+    contains: JSON
+    containsi: JSON
+    endsWith: JSON
+    eq: JSON
+    eqi: JSON
+    gt: JSON
+    gte: JSON
+    in: [JSON]
+    lt: JSON
+    lte: JSON
+    ne: JSON
+    not: JSONFilterInput
+    notContains: JSON
+    notContainsi: JSON
+    notIn: [JSON]
+    notNull: Boolean
+    null: Boolean
+    or: [JSON]
+    startsWith: JSON
+}
+
+input PaginationArg {
+    limit: Int
+    page: Int
+    pageSize: Int
+    start: Int
+}
+
+input PostFiltersInput {
+    and: [PostFiltersInput]
+    content: StringFilterInput
+    createdAt: DateTimeFilterInput
+    id: IDFilterInput
+    not: PostFiltersInput
+    or: [PostFiltersInput]
+    publishedAt: DateTimeFilterInput
+    schedule_publish_at: DateTimeFilterInput
+    title: StringFilterInput
+    troops: TroopFiltersInput
+    updatedAt: DateTimeFilterInput
+    user_likes: UsersPermissionsUserFiltersInput
+}
+
+input PostInput {
+    content: String
+    files: [Id]
+    publishedAt: DateTime
+    schedule_publish_at: DateTime
+    title: String
+    troops: [Id]
+    user_likes: [Id]
+}
+
+input RemoveComment {
+    author: IdentifyCommentAuthor
+    id: Id
+    relation: String!
+}
+
+input StringFilterInput {
+    and: [String]
+    between: [String]
+    contains: String
+    containsi: String
+    endsWith: String
+    eq: String
+    eqi: String
+    gt: String
+    gte: String
+    in: [String]
+    lt: String
+    lte: String
+    ne: String
+    not: StringFilterInput
+    notContains: String
+    notContainsi: String
+    notIn: [String]
+    notNull: Boolean
+    null: Boolean
+    or: [String]
+    startsWith: String
+}
+
+input TopBarInput {
+    content: String
+    type: ENUM_TOPBAR_TYPE
+}
+
+input TotemInput {
+    comment: [ComponentTotemTotemCommentInput]
+    legend: [ComponentTotemLegendInput]
+    publishedAt: DateTime
+}
+
+input TroopFiltersInput {
+    and: [TroopFiltersInput]
+    createdAt: DateTimeFilterInput
+    id: IDFilterInput
+    name: StringFilterInput
+    not: TroopFiltersInput
+    or: [TroopFiltersInput]
+    posts: PostFiltersInput
+    subscribed_users: UsersPermissionsUserFiltersInput
+    updatedAt: DateTimeFilterInput
+}
+
+input TroopInput {
+    name: String
+    posts: [Id]
+    subscribed_users: [Id]
+}
+
+input UpdateComment {
+    author: IdentifyCommentAuthor
+    content: String!
+    id: Id
+    relation: String!
+}
+
+input UploadFileFiltersInput {
+    alternativeText: StringFilterInput
+    and: [UploadFileFiltersInput]
+    caption: StringFilterInput
+    createdAt: DateTimeFilterInput
+    ext: StringFilterInput
+    folder: UploadFolderFiltersInput
+    folderPath: StringFilterInput
+    formats: JSONFilterInput
+    hash: StringFilterInput
+    height: IntFilterInput
+    id: IDFilterInput
+    mime: StringFilterInput
+    name: StringFilterInput
+    not: UploadFileFiltersInput
+    or: [UploadFileFiltersInput]
+    previewUrl: StringFilterInput
+    provider: StringFilterInput
+    provider_metadata: JSONFilterInput
+    size: FloatFilterInput
+    updatedAt: DateTimeFilterInput
+    url: StringFilterInput
+    width: IntFilterInput
+}
+
+input UploadFileInput {
+    alternativeText: String
+    caption: String
+    ext: String
+    folder: Id
+    folderPath: String
+    formats: JSON
+    hash: String
+    height: Int
+    mime: String
+    name: String
+    previewUrl: String
+    provider: String
+    provider_metadata: JSON
+    size: Float
+    url: String
+    width: Int
+}
+
+input UploadFolderFiltersInput {
+    and: [UploadFolderFiltersInput]
+    children: UploadFolderFiltersInput
+    createdAt: DateTimeFilterInput
+    files: UploadFileFiltersInput
+    id: IDFilterInput
+    name: StringFilterInput
+    not: UploadFolderFiltersInput
+    or: [UploadFolderFiltersInput]
+    parent: UploadFolderFiltersInput
+    path: StringFilterInput
+    pathId: IntFilterInput
+    updatedAt: DateTimeFilterInput
+}
+
+input UploadFolderInput {
+    children: [Id]
+    files: [Id]
+    name: String
+    parent: Id
+    path: String
+    pathId: Int
+}
+
+input UsersPermissionsLoginInput {
+    identifier: String!
+    password: String!
+    provider: String! = "local"
+}
+
+input UsersPermissionsPermissionFiltersInput {
+    action: StringFilterInput
+    and: [UsersPermissionsPermissionFiltersInput]
+    createdAt: DateTimeFilterInput
+    id: IDFilterInput
+    not: UsersPermissionsPermissionFiltersInput
+    or: [UsersPermissionsPermissionFiltersInput]
+    role: UsersPermissionsRoleFiltersInput
+    updatedAt: DateTimeFilterInput
+}
+
+input UsersPermissionsRegisterInput {
+    email: String!
+    password: String!
+    username: String!
+}
+
+input UsersPermissionsRoleFiltersInput {
+    and: [UsersPermissionsRoleFiltersInput]
+    createdAt: DateTimeFilterInput
+    description: StringFilterInput
+    id: IDFilterInput
+    name: StringFilterInput
+    not: UsersPermissionsRoleFiltersInput
+    or: [UsersPermissionsRoleFiltersInput]
+    permissions: UsersPermissionsPermissionFiltersInput
+    type: StringFilterInput
+    updatedAt: DateTimeFilterInput
+    users: UsersPermissionsUserFiltersInput
+}
+
+input UsersPermissionsRoleInput {
+    description: String
+    name: String
+    permissions: [Id]
+    type: String
+    users: [Id]
+}
+
+input UsersPermissionsUserFiltersInput {
+    and: [UsersPermissionsUserFiltersInput]
+    blocked: BooleanFilterInput
+    confirmationToken: StringFilterInput
+    confirmed: BooleanFilterInput
+    createdAt: DateTimeFilterInput
+    email: StringFilterInput
+    firstName: StringFilterInput
+    id: IDFilterInput
+    lastName: StringFilterInput
+    not: UsersPermissionsUserFiltersInput
+    or: [UsersPermissionsUserFiltersInput]
+    password: StringFilterInput
+    position: StringFilterInput
+    post_likes: PostFiltersInput
+    provider: StringFilterInput
+    resetPasswordToken: StringFilterInput
+    role: UsersPermissionsRoleFiltersInput
+    subscribing_troops: TroopFiltersInput
+    updatedAt: DateTimeFilterInput
+    username: StringFilterInput
+}
+
+input UsersPermissionsUserInput {
+    blocked: Boolean
+    confirmationToken: String
+    confirmed: Boolean
+    email: String
+    firstName: String
+    lastName: String
+    password: String
+    position: ENUM_USERSPERMISSIONSUSER_POSITION
+    post_likes: [Id]
+    provider: String
+    resetPasswordToken: String
+    role: Id
+    subscribing_troops: [Id]
+    username: String
+}

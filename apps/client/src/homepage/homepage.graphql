@@ -1,0 +1,31 @@
+query Homepage {
+    homepage {
+        data {
+            attributes {
+                images {
+                    id
+                    photo {
+                        data {
+                            attributes {
+                                url
+                                formats
+                            }
+                        }
+                    }
+                }
+                troops {
+                    age_gender_information
+                    description
+                    id
+                    logo {
+                        data {
+                            attributes {
+                                formats
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

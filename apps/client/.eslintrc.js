@@ -2,6 +2,7 @@
 module.exports = {
   'env': {
     'browser': true,
+    'node': true,
     'es2021': true
   },
   'extends': [
@@ -32,6 +33,9 @@ module.exports = {
     '@typescript-eslint/ban-ts-comment': 'off',
     'react/jsx-newline': ['error', { 'prevent': true }],
     '@typescript-eslint/no-empty-interface': 'off',
-    'key-spacing': ['error', { 'afterColon': true }]
+    'key-spacing': ['error', { 'afterColon': true }],
+    'no-multi-spaces': 'error',
+    'no-trailing-spaces': 'error',
+    'space-infix-ops': 'error'
   }
 }
