@@ -15,7 +15,8 @@
           "troops.title",
           "troops.description",
           "troops.age_gender_information",
-          "troops.logo"
+          "troops.logo",
+          "about"
         ]
       },
       "conditions": []
@@ -38,7 +39,8 @@
           "troops.title",
           "troops.description",
           "troops.age_gender_information",
-          "troops.logo"
+          "troops.logo",
+          "about"
         ]
       },
       "conditions": []
@@ -55,7 +57,8 @@
           "troops.title",
           "troops.description",
           "troops.age_gender_information",
-          "troops.logo"
+          "troops.logo",
+          "about"
         ]
       },
       "conditions": []

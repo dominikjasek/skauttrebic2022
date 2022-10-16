@@ -48,6 +48,20 @@
           "sortable": false
         }
       },
+      "about": {
+        "edit": {
+          "label": "O nás",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "about",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -78,15 +92,16 @@
       }
     },
     "layouts": {
-      "list": [
-        "id",
-        "images",
-        "createdAt"
-      ],
       "edit": [
         [
           {
             "name": "images",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "about",
             "size": 12
           }
         ],
@@ -97,7 +112,13 @@
           }
         ]
       ],
-      "editRelations": []
+      "editRelations": [],
+      "list": [
+        "id",
+        "images",
+        "createdAt",
+        "about"
+      ]
     }
   },
   "type": "object",
