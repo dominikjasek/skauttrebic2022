@@ -25,6 +25,11 @@
     z-index: 2;
 }
 
+.nextButton:hover,
+.previousButton:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
 .nextButton {
     right: 10px;
 }
@@ -34,6 +39,3 @@
     transform: scale(-1);
 }
 
-.image {
-    position: absolute;
-}

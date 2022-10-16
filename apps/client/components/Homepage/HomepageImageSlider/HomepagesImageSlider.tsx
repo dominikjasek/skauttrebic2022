@@ -4,8 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { wrap } from 'popmotion'
 import styles from './styles.module.css'
 import { navbarHeightPx } from '~/components/Navbar/NavbarHeight'
-import { Box, styled } from '@mui/material'
-import { ComponentHomepageHomeImage } from '~/src/gql/graphql'
+import { Box, styled, useTheme } from '@mui/material'
+import { HomepageImageSliderProps } from '~/components/Homepage/HomepageImageSlider/HomepagesImageSlider.interfaces'
 
 const variants = {
   enter: (direction: number) => {
@@ -55,12 +55,21 @@ const swipePower = (offset: number, velocity: number) => {
   return Math.abs(offset) * velocity
 }
 
-interface HomepageImageSliderProps {
-  images: ComponentHomepageHomeImage[]
+const generateRandomPotatoShape = () => {
+  const getRandomInt = (min:number, max: number) => {
+    min = Math.ceil(min)
+    max = Math.floor(max)
+    return Math.floor(Math.random() * (max - min) + min) // The maximum is exclusive and the minimum is inclusive
+  }
+
+  const getBorderPercentage = () => getRandomInt(40,60)
+  const getRandomBorderPercentagesForSide = () => `${getBorderPercentage()}% ${getBorderPercentage()}% ${getBorderPercentage()}% ${getBorderPercentage()}%`
+  return `${getRandomBorderPercentagesForSide()} / ${getRandomBorderPercentagesForSide()}`
 }
 
 export const HomepageImageSlider: React.FC<HomepageImageSliderProps> = ({ images }) => {
   const [[page, direction], setPage] = useState([0, 0])
+  const theme = useTheme()
   // We only have 3 images, but we paginate them absolutely (ie 1, 2, 3, 4, 5...) and
   // then wrap that within 0-2 to find our image ID in the array below. By passing an
   // absolute page index as the `motion` component's `key` prop, `AnimatePresence` will
@@ -74,11 +83,9 @@ export const HomepageImageSlider: React.FC<HomepageImageSliderProps> = ({ images
   return (
     <ImageSliderWrapper>
       <AnimatePresence initial={false} custom={direction}>
-        <motion.img
-          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-          className={styles.image}
+        <motion.div
+          style={{ width: '100%', height: '100%', position: 'absolute' }}
           key={page}
-          src={images[imageIndex].photo.data?.attributes?.url}
           custom={direction}
           variants={variants}
           initial="enter"
@@ -99,7 +106,38 @@ export const HomepageImageSlider: React.FC<HomepageImageSliderProps> = ({ images
               paginate(-1)
             }
           }}
-        />
+        >
+          <Box onDragStart={(event) => {
+            event.preventDefault()
+            event.stopPropagation()
+          }}>
+            <img
+              src={images[imageIndex].url} style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute' }} />
+            {
+              images[imageIndex].text && <Box sx={{
+                borderRadius: generateRandomPotatoShape(),
+                backgroundColor: images[imageIndex].backgroundColor,
+                color: images[imageIndex].textColor,
+                fontSize: theme.typography.fontSize * 2,
+                fontFamily: 'skautbold',
+                textAlign: 'center',
+                position: 'absolute',
+                width: 'clamp(200px, 20%, 400px)',
+                padding: '40px',
+                margin: '40px',
+                [theme.breakpoints.down('md')]: {
+                  fontSize: theme.typography.fontSize,
+                  padding: '20px',
+                  margin: '10px'
+                },
+              }}>
+                <div>
+                  {images[imageIndex].text}
+                </div>
+              </Box>
+            }
+          </Box>
+        </motion.div>
       </AnimatePresence>
       <div className={styles.nextButton} onClick={() => paginate(1)}>
         {'‣'}

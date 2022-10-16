@@ -12,6 +12,9 @@ query Homepage {
                             }
                         }
                     }
+                    text
+                    background_color
+                    text_color
                 }
                 troops {
                     age_gender_information
