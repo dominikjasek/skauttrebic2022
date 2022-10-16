@@ -5,6 +5,7 @@ import { notEmpty } from '~/utility/typescript/not-empty'
 import { HomepageImage } from '~/components/Homepage/HomepageImageSlider/HomepagesImageSlider.interfaces'
 import { TroopProps } from '~/components/Homepage/Troops/Troop'
 import { Troops } from '~/components/Homepage/Troops/Troops'
+import { AboutUs } from '~/components/Homepage/AboutUs'
 
 interface HomepageProps {
     homepage: HomepageQuery
@@ -19,6 +20,8 @@ export const Homepage: React.FC<HomepageProps> = ({ homepage }) => {
     textColor: image.text_color ?? undefined
   })) ?? []
 
+  const aboutUsText = homepage.homepage!.data!.attributes!.about
+
   const troops: TroopProps[] = homepage.homepage?.data?.attributes?.troops?.filter(notEmpty).map(troop => ({
     logo: {
       url: troop.logo.data!.attributes!.url
@@ -32,6 +35,7 @@ export const Homepage: React.FC<HomepageProps> = ({ homepage }) => {
   return (
     <div>
       <HomepageImageSlider images={images} />
+      <AboutUs text={aboutUsText} />
       <Troops troops={troops} />
     </div>
   )

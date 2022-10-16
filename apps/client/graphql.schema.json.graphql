@@ -96,11 +96,11 @@ type ComponentHomepageHomeImage {
 }
 
 type ComponentHomepageTroop {
-    age_gender_information: String
-    description: String
+    age_gender_information: String!
+    description: String!
     id: Id!
     logo: UploadFileEntityResponse!
-    title: String
+    title: String!
 }
 
 type ComponentTotemLegend {
@@ -145,6 +145,7 @@ type EmailDesignerEmailTemplateEntityResponseCollection {
 }
 
 type Homepage {
+    about: String!
     createdAt: DateTime
     images(filters: ComponentHomepageHomeImageFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentHomepageHomeImage]
     troops(filters: ComponentHomepageTroopFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentHomepageTroop]
@@ -855,6 +856,7 @@ input FloatFilterInput {
 }
 
 input HomepageInput {
+    about: String
     images: [ComponentHomepageHomeImageInput]
     troops: [ComponentHomepageTroopInput]
 }

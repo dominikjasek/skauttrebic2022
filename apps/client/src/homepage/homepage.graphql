@@ -16,6 +16,7 @@ query Homepage {
                     background_color
                     text_color
                 }
+                about
                 troops {
                     title
                     age_gender_information

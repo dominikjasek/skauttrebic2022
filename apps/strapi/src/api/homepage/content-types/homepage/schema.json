@@ -22,6 +22,10 @@
       "type": "component",
       "repeatable": true,
       "component": "homepage.troop"
+    },
+    "about": {
+      "type": "string",
+      "required": true
     }
   }
 }
