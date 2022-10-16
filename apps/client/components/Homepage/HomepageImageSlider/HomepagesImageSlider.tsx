@@ -109,13 +109,16 @@ export const HomepageImageSlider: React.FC<HomepageImageSliderProps> = ({ images
                 fontFamily: 'skautbold',
                 textAlign: 'center',
                 position: 'absolute',
-                width: 'clamp(200px, 20%, 400px)',
-                padding: '40px',
-                margin: '40px',
+                right: 0,
+                bottom: 0,
+                width: 'clamp(200px, 40%, 400px)',
+                padding: '50px',
+                margin: '60px',
                 [theme.breakpoints.down('md')]: {
                   fontSize: theme.typography.fontSize,
-                  padding: '20px',
-                  margin: '10px'
+                  width: 'clamp(200px, 30%, 250px)',
+                  padding: '28px',
+                  margin: '20px',
                 },
               }}>
                 <div>
