@@ -62,13 +62,13 @@ export const Navbar: React.FC = () => {
             ml={2}
             color={theme.palette.grey['900']}
             sx={{
-              display: { xs: 'none', md: 'flex' },
+              display: 'flex',
               textDecoration: 'none',
               lineHeight: 1.4
             }}
           >
             <Box>
-              2. Skautské oddíly Třebíč
+              {onlySmallScreen ? 'Skaut Třebíč' : '2. Skautské oddíly Třebíč'}
             </Box>
           </Typography>
           <MobileMenuModal items={menuItems} />
