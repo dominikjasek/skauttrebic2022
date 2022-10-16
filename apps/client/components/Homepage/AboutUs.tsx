@@ -1,5 +1,6 @@
 import React from 'react'
 import { Box, Divider, Stack, Typography, useTheme } from '@mui/material'
+import { useScreen } from '~/utility/use-screen'
 
 interface AboutUsProps {
 text: string
@@ -7,6 +8,7 @@ text: string
 
 export const AboutUs: React.FC<AboutUsProps> = ({ text }) => {
   const theme = useTheme()
+  const { onlyMediumScreen } = useScreen()
 
   return (
     <Box sx={{
@@ -20,7 +22,7 @@ export const AboutUs: React.FC<AboutUsProps> = ({ text }) => {
       color: 'white',
       padding: '60px',
     }}>
-      <Stack m={'auto'} width={'clamp(200px, 60%, 800px)'} flexDirection={'row'} gap={'40px'}>
+      <Stack m={'auto'} maxWidth={onlyMediumScreen ? 'auto' : '60%'} flexDirection={onlyMediumScreen ? 'column' : 'row'} gap={'40px'}>
         <Stack justifyContent="center">
           <Typography variant={'h2'}>
             O&#160;nás
@@ -30,7 +32,7 @@ export const AboutUs: React.FC<AboutUsProps> = ({ text }) => {
           sx={{
             bgcolor: 'white',
           }}
-          flexItem orientation='vertical'
+          flexItem orientation={onlyMediumScreen ? 'horizontal' : 'vertical'}
         />
         <div>{text}</div>
       </Stack>
