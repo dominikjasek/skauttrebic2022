@@ -1,8 +1,9 @@
 import React, { PropsWithChildren } from 'react'
 import { Navbar } from '../Navbar/Navbar'
-import { Container, Typography } from '@mui/material'
+import { Container } from '@mui/material'
 import { navbarHeight } from '~/components/Navbar/NavbarHeight'
 import { Box } from '@mui/system'
+import { Footer } from '~/components/Footer/Footer'
 
 export const AppLayout: React.FC<PropsWithChildren> = ({ children }) => {
 
@@ -16,7 +17,7 @@ export const AppLayout: React.FC<PropsWithChildren> = ({ children }) => {
           {children}
         </Container>
       </Box>
-      <Typography fontFamily={'skautbold'}>footer</Typography>
+      <Footer />
     </>
   )
 }
