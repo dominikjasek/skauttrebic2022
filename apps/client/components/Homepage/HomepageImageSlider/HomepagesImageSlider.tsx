@@ -54,19 +54,6 @@ const swipeConfidenceThreshold = 10000
 const swipePower = (offset: number, velocity: number) => {
   return Math.abs(offset) * velocity
 }
-
-const generateRandomPotatoShape = () => {
-  const getRandomInt = (min:number, max: number) => {
-    min = Math.ceil(min)
-    max = Math.floor(max)
-    return Math.floor(Math.random() * (max - min) + min) // The maximum is exclusive and the minimum is inclusive
-  }
-
-  const getBorderPercentage = () => getRandomInt(40,60)
-  const getRandomBorderPercentagesForSide = () => `${getBorderPercentage()}% ${getBorderPercentage()}% ${getBorderPercentage()}% ${getBorderPercentage()}%`
-  return `${getRandomBorderPercentagesForSide()} / ${getRandomBorderPercentagesForSide()}`
-}
-
 export const HomepageImageSlider: React.FC<HomepageImageSliderProps> = ({ images }) => {
   const [[page, direction], setPage] = useState([0, 0])
   const theme = useTheme()
@@ -112,10 +99,10 @@ export const HomepageImageSlider: React.FC<HomepageImageSliderProps> = ({ images
             event.stopPropagation()
           }}>
             <img
-              src={images[imageIndex].url} style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute' }} />
+              src={images[imageIndex].url} alt={images[imageIndex].text ?? ''} style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute' }} />
             {
               images[imageIndex].text && <Box sx={{
-                borderRadius: '63% 78% 55% 76%/53% 49% 52% 72%',
+                borderRadius: '40% 54% 46% 56% / 49% 43% 43% 57%',
                 backgroundColor: images[imageIndex].backgroundColor,
                 color: images[imageIndex].textColor,
                 fontSize: theme.typography.fontSize * 2,
