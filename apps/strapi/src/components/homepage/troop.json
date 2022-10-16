@@ -2,26 +2,30 @@
   "collectionName": "components_homepage_troops",
   "info": {
     "displayName": "troop",
-    "icon": "hotel"
+    "icon": "hotel",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "description": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "age_gender_information": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "logo": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }

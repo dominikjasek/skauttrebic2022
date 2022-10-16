@@ -21,6 +21,7 @@ module.exports = {
     'react',
     '@typescript-eslint'
   ],
+  'ignorePatterns': ['src/gql/*.ts'],
   'rules': {
     '@typescript-eslint/semi': ['error', 'never'],
     'react/react-in-jsx-scope': 'off',

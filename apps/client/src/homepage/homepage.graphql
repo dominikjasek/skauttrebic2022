@@ -17,12 +17,14 @@ query Homepage {
                     text_color
                 }
                 troops {
+                    title
                     age_gender_information
                     description
                     id
                     logo {
                         data {
                             attributes {
+                                url
                                 formats
                             }
                         }

@@ -18,8 +18,6 @@ const Home: NextPage = () => {
   return (
     <main>
       {data && <Homepage homepage={data} />}
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque cupiditate, nihil? Animi architecto beatae consectetur, consequatur dicta est pariatur veniam! A consectetur culpa dolorum labore nam odit, similique. Amet, enim! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad assumenda deleniti dolorem iste omnis porro provident quisquam rerum, similique. Accusantium ad aut consectetur culpa dolorem eligendi est eum facere fugiat, hic iste libero, nobis obcaecati quis sed sint velit. Deserunt expedita natus nesciunt optio quae ullam voluptates. Nemo, quibusdam.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque cupiditate, nihil? Animi architecto beatae consectetur, consequatur dicta est pariatur veniam! A consectetur culpa dolorum labore nam odit, similique. Amet, enim! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad assumenda deleniti dolorem iste omnis porro provident quisquam rerum, similique. Accusantium ad aut consectetur culpa dolorem eligendi est eum facere fugiat, hic iste libero, nobis obcaecati quis sed sint velit. Deserunt expedita natus nesciunt optio quae ullam voluptates. Nemo, quibusdam.
     </main>
   )
 }

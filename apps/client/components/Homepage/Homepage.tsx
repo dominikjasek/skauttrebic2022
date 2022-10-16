@@ -3,6 +3,8 @@ import { HomepageImageSlider } from '~/components/Homepage/HomepageImageSlider/H
 import { HomepageQuery } from '~/src/gql/graphql'
 import { notEmpty } from '~/utility/typescript/not-empty'
 import { HomepageImage } from '~/components/Homepage/HomepageImageSlider/HomepagesImageSlider.interfaces'
+import { TroopProps } from '~/components/Homepage/Troops/Troop'
+import { Troops } from '~/components/Homepage/Troops/Troops'
 
 interface HomepageProps {
     homepage: HomepageQuery
@@ -17,9 +19,20 @@ export const Homepage: React.FC<HomepageProps> = ({ homepage }) => {
     textColor: image.text_color ?? undefined
   })) ?? []
 
+  const troops: TroopProps[] = homepage.homepage?.data?.attributes?.troops?.filter(notEmpty).map(troop => ({
+    logo: {
+      url: troop.logo.data!.attributes!.url
+    },
+    ageInfo: troop.age_gender_information,
+    id: troop.id,
+    title: troop.title,
+    description: troop.description
+  })) ?? []
+
   return (
     <div>
-      {images && <HomepageImageSlider images={images} />}
+      <HomepageImageSlider images={images} />
+      <Troops troops={troops} />
     </div>
   )
 }
