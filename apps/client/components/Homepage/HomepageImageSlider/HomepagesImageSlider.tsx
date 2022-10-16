@@ -115,7 +115,7 @@ export const HomepageImageSlider: React.FC<HomepageImageSliderProps> = ({ images
               src={images[imageIndex].url} style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute' }} />
             {
               images[imageIndex].text && <Box sx={{
-                borderRadius: generateRandomPotatoShape(),
+                borderRadius: '63% 78% 55% 76%/53% 49% 52% 72%',
                 backgroundColor: images[imageIndex].backgroundColor,
                 color: images[imageIndex].textColor,
                 fontSize: theme.typography.fontSize * 2,
