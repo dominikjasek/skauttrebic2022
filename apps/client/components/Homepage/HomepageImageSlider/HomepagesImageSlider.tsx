@@ -7,17 +7,17 @@ import { navbarHeightPx } from '~/components/Navbar/NavbarHeight'
 import { Box, styled, useTheme } from '@mui/material'
 import { HomepageImageSliderProps } from '~/components/Homepage/HomepageImageSlider/HomepagesImageSlider.interfaces'
 
+const SLIDER_AUTOMATIC_CHANGE = 7000 //milliseconds
+
 const variants = {
   enter: (direction: number) => {
     return {
       x: direction > 0 ? 1000 : -1000,
-      opacity: 0
     }
   },
   center: {
     zIndex: 1,
     x: 0,
-    opacity: 1
   },
   exit: (direction: number) => {
     return {
@@ -63,8 +63,16 @@ export const HomepageImageSlider: React.FC<HomepageImageSliderProps> = ({ images
   // absolute page index as the `motion` component's `key` prop, `AnimatePresence` will
   // detect it as an entirely new image. So you can infinitely paginate as few as 1 images.
   const imageIndex = wrap(0, images.length, page)
+  setInterval(()=>{
+    if (!userClickedArrow) {
+      setPage([page + 1, 1])
+    }
+    setUserClickedArrow(false)
+  },SLIDER_AUTOMATIC_CHANGE)
 
+  const [userClickedArrow, setUserClickedArrow] = useState(false)
   const paginate = (newDirection: number) => {
+    setUserClickedArrow(true)
     setPage([page + newDirection, newDirection])
   }
 
