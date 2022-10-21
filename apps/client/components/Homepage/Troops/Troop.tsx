@@ -23,7 +23,7 @@ export const Troop: React.FC<TroopProps> = (props ) => {
       textAlign: 'center'
     }}>
       <Stack flexDirection={onlyMediumScreen ? 'column' : 'row'} >
-        <Box display="flex" alignItems="center" justifyContent="center" width='150px' margin={onlyMediumScreen ? 'auto' : '0 30px 0 0'}>
+        <Box display="flex" alignItems="center" justifyContent="center" width='150px' margin={onlyMediumScreen ? '15px auto' : '0 30px 0 0'}>
           <img style={{ zIndex: 1, width: '150px', position: 'relative' }} src="https://skauttrebic2022.s3.eu-central-1.amazonaws.com/potato_10a64b61b7.svg?updated_at=2022-10-16T20:04:34.401Z" alt="brambora" />
           <img style={{ zIndex: 2, width: '100px', position: 'absolute' }} src={props.logo.url} alt={props.title + ' logo'} />
         </Box>

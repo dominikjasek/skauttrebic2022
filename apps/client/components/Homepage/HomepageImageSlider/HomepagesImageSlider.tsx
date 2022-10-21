@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { wrap } from 'popmotion'
 import styles from './styles.module.css'
@@ -63,12 +63,15 @@ export const HomepageImageSlider: React.FC<HomepageImageSliderProps> = ({ images
   // absolute page index as the `motion` component's `key` prop, `AnimatePresence` will
   // detect it as an entirely new image. So you can infinitely paginate as few as 1 images.
   const imageIndex = wrap(0, images.length, page)
-  setInterval(()=>{
-    if (!userClickedArrow) {
-      setPage([page + 1, 1])
-    }
-    setUserClickedArrow(false)
-  },SLIDER_AUTOMATIC_CHANGE)
+
+  useEffect(() => {
+    setInterval(()=>{
+      if (!userClickedArrow) {
+        setPage(([page, ]) => [(page + 1) % images.length, 1])
+      }
+      setUserClickedArrow(false)
+    },SLIDER_AUTOMATIC_CHANGE)
+  },[])
 
   const [userClickedArrow, setUserClickedArrow] = useState(false)
   const paginate = (newDirection: number) => {
