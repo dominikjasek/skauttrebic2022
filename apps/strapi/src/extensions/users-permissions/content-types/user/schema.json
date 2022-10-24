@@ -13,14 +13,6 @@
     "timestamps": true
   },
   "attributes": {
-    "firstName": {
-      "type": "string",
-      "required": true
-    },
-    "lastName": {
-      "type": "string",
-      "required": true
-    },
     "username": {
       "type": "string",
       "minLength": 3,
@@ -71,14 +63,13 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "position": {
-      "type": "enumeration",
-      "enum": [
-        "člen",
-        "rodič",
-        "vedoucí"
-      ],
-      "default": "child"
+    "firstName": {
+      "type": "string",
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "required": true
     },
     "subscribing_troops": {
       "type": "relation",

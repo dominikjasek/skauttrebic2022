@@ -146,8 +146,6 @@
       "subject": "plugin::users-permissions.user",
       "properties": {
         "fields": [
-          "firstName",
-          "lastName",
           "username",
           "email",
           "provider",
@@ -157,7 +155,8 @@
           "confirmed",
           "blocked",
           "role",
-          "position",
+          "firstName",
+          "lastName",
           "subscribing_troops",
           "post_likes"
         ]
@@ -175,8 +174,6 @@
       "subject": "plugin::users-permissions.user",
       "properties": {
         "fields": [
-          "firstName",
-          "lastName",
           "username",
           "email",
           "provider",
@@ -186,7 +183,8 @@
           "confirmed",
           "blocked",
           "role",
-          "position",
+          "firstName",
+          "lastName",
           "subscribing_troops",
           "post_likes"
         ]
@@ -198,8 +196,6 @@
       "subject": "plugin::users-permissions.user",
       "properties": {
         "fields": [
-          "firstName",
-          "lastName",
           "username",
           "email",
           "provider",
@@ -209,7 +205,8 @@
           "confirmed",
           "blocked",
           "role",
-          "position",
+          "firstName",
+          "lastName",
           "subscribing_troops",
           "post_likes"
         ]

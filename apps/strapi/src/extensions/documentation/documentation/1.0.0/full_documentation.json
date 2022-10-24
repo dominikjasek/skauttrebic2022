@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2022-10-24T06:24:22.372Z"
+    "x-generation-date": "2022-10-24T06:46:35.037Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -3460,12 +3460,6 @@
                                       "attributes": {
                                         "type": "object",
                                         "properties": {
-                                          "firstName": {
-                                            "type": "string"
-                                          },
-                                          "lastName": {
-                                            "type": "string"
-                                          },
                                           "username": {
                                             "type": "string"
                                           },
@@ -3911,13 +3905,11 @@
                                               }
                                             }
                                           },
-                                          "position": {
-                                            "type": "string",
-                                            "enum": [
-                                              "člen",
-                                              "rodič",
-                                              "vedoucí"
-                                            ]
+                                          "firstName": {
+                                            "type": "string"
+                                          },
+                                          "lastName": {
+                                            "type": "string"
                                           },
                                           "subscribing_troops": {
                                             "type": "object",
@@ -5542,12 +5534,6 @@
                                       "attributes": {
                                         "type": "object",
                                         "properties": {
-                                          "firstName": {
-                                            "type": "string"
-                                          },
-                                          "lastName": {
-                                            "type": "string"
-                                          },
                                           "username": {
                                             "type": "string"
                                           },
@@ -5993,13 +5979,11 @@
                                               }
                                             }
                                           },
-                                          "position": {
-                                            "type": "string",
-                                            "enum": [
-                                              "člen",
-                                              "rodič",
-                                              "vedoucí"
-                                            ]
+                                          "firstName": {
+                                            "type": "string"
+                                          },
+                                          "lastName": {
+                                            "type": "string"
                                           },
                                           "subscribing_troops": {
                                             "type": "object",
@@ -7657,12 +7641,6 @@
                                       "attributes": {
                                         "type": "object",
                                         "properties": {
-                                          "firstName": {
-                                            "type": "string"
-                                          },
-                                          "lastName": {
-                                            "type": "string"
-                                          },
                                           "username": {
                                             "type": "string"
                                           },
@@ -8108,13 +8086,11 @@
                                               }
                                             }
                                           },
-                                          "position": {
-                                            "type": "string",
-                                            "enum": [
-                                              "člen",
-                                              "rodič",
-                                              "vedoucí"
-                                            ]
+                                          "firstName": {
+                                            "type": "string"
+                                          },
+                                          "lastName": {
+                                            "type": "string"
                                           },
                                           "subscribing_troops": {
                                             "type": "object",
@@ -9739,12 +9715,6 @@
                                       "attributes": {
                                         "type": "object",
                                         "properties": {
-                                          "firstName": {
-                                            "type": "string"
-                                          },
-                                          "lastName": {
-                                            "type": "string"
-                                          },
                                           "username": {
                                             "type": "string"
                                           },
@@ -10190,13 +10160,11 @@
                                               }
                                             }
                                           },
-                                          "position": {
-                                            "type": "string",
-                                            "enum": [
-                                              "člen",
-                                              "rodič",
-                                              "vedoucí"
-                                            ]
+                                          "firstName": {
+                                            "type": "string"
+                                          },
+                                          "lastName": {
+                                            "type": "string"
                                           },
                                           "subscribing_troops": {
                                             "type": "object",
@@ -12869,12 +12837,6 @@
                   "attributes": {
                     "type": "object",
                     "properties": {
-                      "firstName": {
-                        "type": "string"
-                      },
-                      "lastName": {
-                        "type": "string"
-                      },
                       "username": {
                         "type": "string"
                       },
@@ -13320,13 +13282,11 @@
                           }
                         }
                       },
-                      "position": {
-                        "type": "string",
-                        "enum": [
-                          "člen",
-                          "rodič",
-                          "vedoucí"
-                        ]
+                      "firstName": {
+                        "type": "string"
+                      },
+                      "lastName": {
+                        "type": "string"
                       },
                       "subscribing_troops": {
                         "type": "object",
@@ -15551,12 +15511,6 @@
                         "attributes": {
                           "type": "object",
                           "properties": {
-                            "firstName": {
-                              "type": "string"
-                            },
-                            "lastName": {
-                              "type": "string"
-                            },
                             "username": {
                               "type": "string"
                             },
@@ -16002,13 +15956,11 @@
                                 }
                               }
                             },
-                            "position": {
-                              "type": "string",
-                              "enum": [
-                                "člen",
-                                "rodič",
-                                "vedoucí"
-                              ]
+                            "firstName": {
+                              "type": "string"
+                            },
+                            "lastName": {
+                              "type": "string"
                             },
                             "subscribing_troops": {
                               "type": "object",
@@ -16998,12 +16950,6 @@
                         "attributes": {
                           "type": "object",
                           "properties": {
-                            "firstName": {
-                              "type": "string"
-                            },
-                            "lastName": {
-                              "type": "string"
-                            },
                             "username": {
                               "type": "string"
                             },
@@ -17449,13 +17395,11 @@
                                 }
                               }
                             },
-                            "position": {
-                              "type": "string",
-                              "enum": [
-                                "člen",
-                                "rodič",
-                                "vedoucí"
-                              ]
+                            "firstName": {
+                              "type": "string"
+                            },
+                            "lastName": {
+                              "type": "string"
                             },
                             "subscribing_troops": {
                               "type": "object",
@@ -18478,12 +18422,6 @@
                         "attributes": {
                           "type": "object",
                           "properties": {
-                            "firstName": {
-                              "type": "string"
-                            },
-                            "lastName": {
-                              "type": "string"
-                            },
                             "username": {
                               "type": "string"
                             },
@@ -18929,13 +18867,11 @@
                                 }
                               }
                             },
-                            "position": {
-                              "type": "string",
-                              "enum": [
-                                "člen",
-                                "rodič",
-                                "vedoucí"
-                              ]
+                            "firstName": {
+                              "type": "string"
+                            },
+                            "lastName": {
+                              "type": "string"
                             },
                             "subscribing_troops": {
                               "type": "object",
@@ -19925,12 +19861,6 @@
                         "attributes": {
                           "type": "object",
                           "properties": {
-                            "firstName": {
-                              "type": "string"
-                            },
-                            "lastName": {
-                              "type": "string"
-                            },
                             "username": {
                               "type": "string"
                             },
@@ -20376,13 +20306,11 @@
                                 }
                               }
                             },
-                            "position": {
-                              "type": "string",
-                              "enum": [
-                                "člen",
-                                "rodič",
-                                "vedoucí"
-                              ]
+                            "firstName": {
+                              "type": "string"
+                            },
+                            "lastName": {
+                              "type": "string"
                             },
                             "subscribing_troops": {
                               "type": "object",
@@ -26884,12 +26812,6 @@
                                     "attributes": {
                                       "type": "object",
                                       "properties": {
-                                        "firstName": {
-                                          "type": "string"
-                                        },
-                                        "lastName": {
-                                          "type": "string"
-                                        },
                                         "username": {
                                           "type": "string"
                                         },
@@ -26929,13 +26851,11 @@
                                             }
                                           }
                                         },
-                                        "position": {
-                                          "type": "string",
-                                          "enum": [
-                                            "člen",
-                                            "rodič",
-                                            "vedoucí"
-                                          ]
+                                        "firstName": {
+                                          "type": "string"
+                                        },
+                                        "lastName": {
+                                          "type": "string"
                                         },
                                         "subscribing_troops": {
                                           "type": "object",
@@ -28308,12 +28228,6 @@
                                     "attributes": {
                                       "type": "object",
                                       "properties": {
-                                        "firstName": {
-                                          "type": "string"
-                                        },
-                                        "lastName": {
-                                          "type": "string"
-                                        },
                                         "username": {
                                           "type": "string"
                                         },
@@ -28353,13 +28267,11 @@
                                             }
                                           }
                                         },
-                                        "position": {
-                                          "type": "string",
-                                          "enum": [
-                                            "člen",
-                                            "rodič",
-                                            "vedoucí"
-                                          ]
+                                        "firstName": {
+                                          "type": "string"
+                                        },
+                                        "lastName": {
+                                          "type": "string"
                                         },
                                         "subscribing_troops": {
                                           "type": "object",
@@ -29765,12 +29677,6 @@
                                     "attributes": {
                                       "type": "object",
                                       "properties": {
-                                        "firstName": {
-                                          "type": "string"
-                                        },
-                                        "lastName": {
-                                          "type": "string"
-                                        },
                                         "username": {
                                           "type": "string"
                                         },
@@ -29810,13 +29716,11 @@
                                             }
                                           }
                                         },
-                                        "position": {
-                                          "type": "string",
-                                          "enum": [
-                                            "člen",
-                                            "rodič",
-                                            "vedoucí"
-                                          ]
+                                        "firstName": {
+                                          "type": "string"
+                                        },
+                                        "lastName": {
+                                          "type": "string"
                                         },
                                         "subscribing_troops": {
                                           "type": "object",
@@ -31189,12 +31093,6 @@
                                     "attributes": {
                                       "type": "object",
                                       "properties": {
-                                        "firstName": {
-                                          "type": "string"
-                                        },
-                                        "lastName": {
-                                          "type": "string"
-                                        },
                                         "username": {
                                           "type": "string"
                                         },
@@ -31234,13 +31132,11 @@
                                             }
                                           }
                                         },
-                                        "position": {
-                                          "type": "string",
-                                          "enum": [
-                                            "člen",
-                                            "rodič",
-                                            "vedoucí"
-                                          ]
+                                        "firstName": {
+                                          "type": "string"
+                                        },
+                                        "lastName": {
+                                          "type": "string"
                                         },
                                         "subscribing_troops": {
                                           "type": "object",
@@ -32385,12 +32281,6 @@
                                                   "attributes": {
                                                     "type": "object",
                                                     "properties": {
-                                                      "firstName": {
-                                                        "type": "string"
-                                                      },
-                                                      "lastName": {
-                                                        "type": "string"
-                                                      },
                                                       "username": {
                                                         "type": "string"
                                                       },
@@ -32430,13 +32320,11 @@
                                                           }
                                                         }
                                                       },
-                                                      "position": {
-                                                        "type": "string",
-                                                        "enum": [
-                                                          "člen",
-                                                          "rodič",
-                                                          "vedoucí"
-                                                        ]
+                                                      "firstName": {
+                                                        "type": "string"
+                                                      },
+                                                      "lastName": {
+                                                        "type": "string"
                                                       },
                                                       "subscribing_troops": {
                                                         "type": "object",
@@ -33838,12 +33726,6 @@
                                                   "attributes": {
                                                     "type": "object",
                                                     "properties": {
-                                                      "firstName": {
-                                                        "type": "string"
-                                                      },
-                                                      "lastName": {
-                                                        "type": "string"
-                                                      },
                                                       "username": {
                                                         "type": "string"
                                                       },
@@ -33883,13 +33765,11 @@
                                                           }
                                                         }
                                                       },
-                                                      "position": {
-                                                        "type": "string",
-                                                        "enum": [
-                                                          "člen",
-                                                          "rodič",
-                                                          "vedoucí"
-                                                        ]
+                                                      "firstName": {
+                                                        "type": "string"
+                                                      },
+                                                      "lastName": {
+                                                        "type": "string"
                                                       },
                                                       "subscribing_troops": {
                                                         "type": "object",
@@ -35324,12 +35204,6 @@
                                                   "attributes": {
                                                     "type": "object",
                                                     "properties": {
-                                                      "firstName": {
-                                                        "type": "string"
-                                                      },
-                                                      "lastName": {
-                                                        "type": "string"
-                                                      },
                                                       "username": {
                                                         "type": "string"
                                                       },
@@ -35369,13 +35243,11 @@
                                                           }
                                                         }
                                                       },
-                                                      "position": {
-                                                        "type": "string",
-                                                        "enum": [
-                                                          "člen",
-                                                          "rodič",
-                                                          "vedoucí"
-                                                        ]
+                                                      "firstName": {
+                                                        "type": "string"
+                                                      },
+                                                      "lastName": {
+                                                        "type": "string"
                                                       },
                                                       "subscribing_troops": {
                                                         "type": "object",
@@ -36777,12 +36649,6 @@
                                                   "attributes": {
                                                     "type": "object",
                                                     "properties": {
-                                                      "firstName": {
-                                                        "type": "string"
-                                                      },
-                                                      "lastName": {
-                                                        "type": "string"
-                                                      },
                                                       "username": {
                                                         "type": "string"
                                                       },
@@ -36822,13 +36688,11 @@
                                                           }
                                                         }
                                                       },
-                                                      "position": {
-                                                        "type": "string",
-                                                        "enum": [
-                                                          "člen",
-                                                          "rodič",
-                                                          "vedoucí"
-                                                        ]
+                                                      "firstName": {
+                                                        "type": "string"
+                                                      },
+                                                      "lastName": {
+                                                        "type": "string"
                                                       },
                                                       "subscribing_troops": {
                                                         "type": "object",
@@ -38158,19 +38022,13 @@
         "properties": {
           "data": {
             "required": [
-              "firstName",
-              "lastName",
               "username",
-              "email"
+              "email",
+              "firstName",
+              "lastName"
             ],
             "type": "object",
             "properties": {
-              "firstName": {
-                "type": "string"
-              },
-              "lastName": {
-                "type": "string"
-              },
               "username": {
                 "type": "string"
               },
@@ -38209,13 +38067,11 @@
                 ],
                 "example": "string or id"
               },
-              "position": {
-                "type": "string",
-                "enum": [
-                  "člen",
-                  "rodič",
-                  "vedoucí"
-                ]
+              "firstName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
               },
               "subscribing_troops": {
                 "type": "array",
@@ -38258,12 +38114,6 @@
           "attributes": {
             "type": "object",
             "properties": {
-              "firstName": {
-                "type": "string"
-              },
-              "lastName": {
-                "type": "string"
-              },
               "username": {
                 "type": "string"
               },
@@ -38655,12 +38505,6 @@
                                     "attributes": {
                                       "type": "object",
                                       "properties": {
-                                        "firstName": {
-                                          "type": "string"
-                                        },
-                                        "lastName": {
-                                          "type": "string"
-                                        },
                                         "username": {
                                           "type": "string"
                                         },
@@ -38700,13 +38544,11 @@
                                             }
                                           }
                                         },
-                                        "position": {
-                                          "type": "string",
-                                          "enum": [
-                                            "člen",
-                                            "rodič",
-                                            "vedoucí"
-                                          ]
+                                        "firstName": {
+                                          "type": "string"
+                                        },
+                                        "lastName": {
+                                          "type": "string"
                                         },
                                         "subscribing_troops": {
                                           "type": "object",
@@ -39652,13 +39494,11 @@
                   }
                 }
               },
-              "position": {
-                "type": "string",
-                "enum": [
-                  "člen",
-                  "rodič",
-                  "vedoucí"
-                ]
+              "firstName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
               },
               "subscribing_troops": {
                 "type": "object",
@@ -39755,12 +39595,6 @@
           "attributes": {
             "type": "object",
             "properties": {
-              "firstName": {
-                "type": "string"
-              },
-              "lastName": {
-                "type": "string"
-              },
               "username": {
                 "type": "string"
               },
@@ -40152,12 +39986,6 @@
                                     "attributes": {
                                       "type": "object",
                                       "properties": {
-                                        "firstName": {
-                                          "type": "string"
-                                        },
-                                        "lastName": {
-                                          "type": "string"
-                                        },
                                         "username": {
                                           "type": "string"
                                         },
@@ -40197,13 +40025,11 @@
                                             }
                                           }
                                         },
-                                        "position": {
-                                          "type": "string",
-                                          "enum": [
-                                            "člen",
-                                            "rodič",
-                                            "vedoucí"
-                                          ]
+                                        "firstName": {
+                                          "type": "string"
+                                        },
+                                        "lastName": {
+                                          "type": "string"
                                         },
                                         "subscribing_troops": {
                                           "type": "object",
@@ -41149,13 +40975,11 @@
                   }
                 }
               },
-              "position": {
-                "type": "string",
-                "enum": [
-                  "člen",
-                  "rodič",
-                  "vedoucí"
-                ]
+              "firstName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
               },
               "subscribing_troops": {
                 "type": "object",
@@ -41285,12 +41109,6 @@
           "attributes": {
             "type": "object",
             "properties": {
-              "firstName": {
-                "type": "string"
-              },
-              "lastName": {
-                "type": "string"
-              },
               "username": {
                 "type": "string"
               },
@@ -41682,12 +41500,6 @@
                                     "attributes": {
                                       "type": "object",
                                       "properties": {
-                                        "firstName": {
-                                          "type": "string"
-                                        },
-                                        "lastName": {
-                                          "type": "string"
-                                        },
                                         "username": {
                                           "type": "string"
                                         },
@@ -41727,13 +41539,11 @@
                                             }
                                           }
                                         },
-                                        "position": {
-                                          "type": "string",
-                                          "enum": [
-                                            "člen",
-                                            "rodič",
-                                            "vedoucí"
-                                          ]
+                                        "firstName": {
+                                          "type": "string"
+                                        },
+                                        "lastName": {
+                                          "type": "string"
                                         },
                                         "subscribing_troops": {
                                           "type": "object",
@@ -42679,13 +42489,11 @@
                   }
                 }
               },
-              "position": {
-                "type": "string",
-                "enum": [
-                  "člen",
-                  "rodič",
-                  "vedoucí"
-                ]
+              "firstName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
               },
               "subscribing_troops": {
                 "type": "object",
@@ -42782,12 +42590,6 @@
           "attributes": {
             "type": "object",
             "properties": {
-              "firstName": {
-                "type": "string"
-              },
-              "lastName": {
-                "type": "string"
-              },
               "username": {
                 "type": "string"
               },
@@ -43179,12 +42981,6 @@
                                     "attributes": {
                                       "type": "object",
                                       "properties": {
-                                        "firstName": {
-                                          "type": "string"
-                                        },
-                                        "lastName": {
-                                          "type": "string"
-                                        },
                                         "username": {
                                           "type": "string"
                                         },
@@ -43224,13 +43020,11 @@
                                             }
                                           }
                                         },
-                                        "position": {
-                                          "type": "string",
-                                          "enum": [
-                                            "člen",
-                                            "rodič",
-                                            "vedoucí"
-                                          ]
+                                        "firstName": {
+                                          "type": "string"
+                                        },
+                                        "lastName": {
+                                          "type": "string"
                                         },
                                         "subscribing_troops": {
                                           "type": "object",
@@ -44176,13 +43970,11 @@
                   }
                 }
               },
-              "position": {
-                "type": "string",
-                "enum": [
-                  "člen",
-                  "rodič",
-                  "vedoucí"
-                ]
+              "firstName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
               },
               "subscribing_troops": {
                 "type": "object",

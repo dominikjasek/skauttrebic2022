@@ -20,34 +20,6 @@
           "sortable": true
         }
       },
-      "firstName": {
-        "edit": {
-          "label": "Jméno",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "Jméno",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "lastName": {
-        "edit": {
-          "label": "Příjmení",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "Příjmení",
-          "searchable": true,
-          "sortable": true
-        }
-      },
       "username": {
         "edit": {
           "label": "Přezdívka",
@@ -162,7 +134,7 @@
       },
       "role": {
         "edit": {
-          "label": "role",
+          "label": "Uživatelská role",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -175,16 +147,30 @@
           "sortable": true
         }
       },
-      "position": {
+      "firstName": {
         "edit": {
-          "label": "Pozice",
+          "label": "Jméno",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "Pozice",
+          "label": "Jméno",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "lastName": {
+        "edit": {
+          "label": "Příjmení",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "Příjmení",
           "searchable": true,
           "sortable": true
         }
@@ -274,10 +260,6 @@
           {
             "name": "password",
             "size": 6
-          },
-          {
-            "name": "position",
-            "size": 6
           }
         ],
         [
@@ -292,7 +274,6 @@
         ]
       ],
       "editRelations": [
-        "role",
         "subscribing_troops"
       ],
       "list": [
