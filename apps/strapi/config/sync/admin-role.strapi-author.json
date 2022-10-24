@@ -21,46 +21,6 @@
       "conditions": []
     },
     {
-      "action": "plugin::content-manager.explorer.delete",
-      "subject": "api::homepage.homepage",
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.read",
-      "subject": "api::homepage.homepage",
-      "properties": {
-        "fields": [
-          "images.text",
-          "images.photo",
-          "images.background_color",
-          "troops.title",
-          "troops.description",
-          "troops.age_gender_information",
-          "troops.logo",
-          "about"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.update",
-      "subject": "api::homepage.homepage",
-      "properties": {
-        "fields": [
-          "images.text",
-          "images.photo",
-          "images.background_color",
-          "troops.title",
-          "troops.description",
-          "troops.age_gender_information",
-          "troops.logo",
-          "about"
-        ]
-      },
-      "conditions": []
-    },
-    {
       "action": "plugin::content-manager.explorer.create",
       "subject": "api::post.post",
       "properties": {

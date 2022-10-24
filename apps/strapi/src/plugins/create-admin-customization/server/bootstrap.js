@@ -1,8 +1,9 @@
 'use strict';
 
-const {getAbsoluteAdminUrl} = require('@strapi/utils');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { getAbsoluteAdminUrl } = require('@strapi/utils');
 
-module.exports = async ({strapi}) => {
+module.exports = async ({ strapi }) => {
   // bootstrap phase
   strapi.db.lifecycles.subscribe({
     models: ['admin::user'],
@@ -21,9 +22,9 @@ module.exports = async ({strapi}) => {
       event.params.data.preferedLanguage = 'cs'
     },
 
-    async afterCreate({result}) {
+    async afterCreate({ result }) {
       // Send email to new strapi user
-      const {registrationToken} = result;
+      const { registrationToken } = result;
       if (!registrationToken) return;
 
       const inviteLink = `${getAbsoluteAdminUrl(strapi.config)}/auth/register?registrationToken=${registrationToken}`;
@@ -32,8 +33,8 @@ module.exports = async ({strapi}) => {
         await strapi
           .plugin('email-designer')
           .service('email')
-          .sendTemplatedEmail( {to: result.email},
-            {templateReferenceId: 1},
+          .sendTemplatedEmail( { to: result.email },
+            { templateReferenceId: 1 },
             {
             // this object must include all variables you're using in your email template
               inviteLink,
