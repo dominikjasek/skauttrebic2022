@@ -50,9 +50,8 @@ export default {
       },
     },
     tutorials: false,
-    notifications: {release: false},
+    notifications: { release: false },
   },
-  bootstrap(app) {
-    console.log(app);
+  bootstrap(app) { 
   },
 };

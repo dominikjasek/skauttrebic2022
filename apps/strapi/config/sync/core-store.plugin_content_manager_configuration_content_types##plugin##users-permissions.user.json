@@ -8,7 +8,7 @@
       "searchable": true,
       "pageSize": 10,
       "mainField": "id",
-      "defaultSortBy": "username",
+      "defaultSortBy": "id",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -272,7 +272,6 @@
       ],
       "list": [
         "id",
-        "username",
         "email",
         "subscribing_troops",
         "confirmed",

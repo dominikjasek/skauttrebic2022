@@ -2,6 +2,7 @@
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { getAbsoluteAdminUrl } = require('@strapi/utils');
+const { sendEmailToNewStrapiUser } = require('apps/strapi/src/extensions/email/use-cases/sendEmailToNewStrapiUser');
 
 module.exports = async ({ strapi }) => {
   // bootstrap phase
@@ -29,20 +30,7 @@ module.exports = async ({ strapi }) => {
 
       const inviteLink = `${getAbsoluteAdminUrl(strapi.config)}/auth/register?registrationToken=${registrationToken}`;
 
-      try {
-        await strapi
-          .plugin('email-designer')
-          .service('email')
-          .sendTemplatedEmail( { to: result.email },
-            { templateReferenceId: 1 },
-            {
-            // this object must include all variables you're using in your email template
-              inviteLink,
-            }
-          );
-      } catch (err) {
-        strapi.log.debug('📺 Failed to send email: ', err);
-      }
+      await sendEmailToNewStrapiUser({ to: result.to, inviteLink })
     },
   });
 };

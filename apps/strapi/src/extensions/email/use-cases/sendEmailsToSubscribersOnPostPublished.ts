@@ -1,4 +1,5 @@
-import {Post, Troop} from '../../../api/post/content-types/post/interfaces';
+import { Post, Troop } from '../../../api/post/content-types/post/interfaces';
+import { EMAIL_TEMPLATE } from '../templates/emailTemplates';
 
 export const sendEmailsToSubscribersOnPostPublished = async (postData: Post) => {
   // I need to fetch post once again because in case of cron, we dont receive here troops attribute inside postData
@@ -25,8 +26,8 @@ export const sendEmailsToSubscribersOnPostPublished = async (postData: Post) => 
       return strapi
         .plugin('email-designer')
         .service('email')
-        .sendTemplatedEmail( {to: subscriber.email},
-          {templateReferenceId: 2},
+        .sendTemplatedEmail( { to: subscriber.email },
+          { templateReferenceId: EMAIL_TEMPLATE.POST_PUBLISH },
           {
             title: post.title,
             content: post.content,
