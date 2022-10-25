@@ -7,7 +7,7 @@
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "username",
+      "mainField": "id",
       "defaultSortBy": "username",
       "defaultSortOrder": "ASC"
     },
@@ -248,15 +248,9 @@
         ],
         [
           {
-            "name": "username",
-            "size": 6
-          },
-          {
             "name": "email",
             "size": 6
-          }
-        ],
-        [
+          },
           {
             "name": "password",
             "size": 6

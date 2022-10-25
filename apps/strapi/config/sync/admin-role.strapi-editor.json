@@ -146,13 +146,9 @@
       "subject": "plugin::users-permissions.user",
       "properties": {
         "fields": [
-          "username",
           "email",
-          "provider",
-          "password",
           "resetPasswordToken",
           "confirmationToken",
-          "confirmed",
           "blocked",
           "role",
           "firstName",
@@ -174,7 +170,6 @@
       "subject": "plugin::users-permissions.user",
       "properties": {
         "fields": [
-          "username",
           "email",
           "provider",
           "password",
@@ -196,19 +191,13 @@
       "subject": "plugin::users-permissions.user",
       "properties": {
         "fields": [
-          "username",
           "email",
-          "provider",
-          "password",
           "resetPasswordToken",
           "confirmationToken",
-          "confirmed",
           "blocked",
-          "role",
           "firstName",
           "lastName",
-          "subscribing_troops",
-          "post_likes"
+          "subscribing_troops"
         ]
       },
       "conditions": []

@@ -15,10 +15,8 @@
   "attributes": {
     "username": {
       "type": "string",
-      "minLength": 3,
-      "unique": true,
       "configurable": false,
-      "required": true
+      "private": true
     },
     "email": {
       "type": "email",
@@ -32,7 +30,7 @@
     },
     "password": {
       "type": "password",
-      "minLength": 6,
+      "minLength": 4,
       "configurable": false,
       "private": true
     },
