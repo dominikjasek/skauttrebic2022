@@ -149,6 +149,7 @@
           "email",
           "resetPasswordToken",
           "confirmationToken",
+          "confirmed",
           "blocked",
           "role",
           "firstName",
