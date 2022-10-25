@@ -1,11 +1,12 @@
 import * as React from 'react'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { wrap } from 'popmotion'
 import styles from './styles.module.css'
 import { navbarHeightPx } from '~/components/Navbar/NavbarHeight'
 import { Box, styled, useTheme } from '@mui/material'
 import { HomepageImageSliderProps } from '~/components/Homepage/HomepageImageSlider/HomepagesImageSlider.interfaces'
+import { useHarmonicIntervalFn } from 'react-use'
 
 const SLIDER_AUTOMATIC_CHANGE = 7000 //milliseconds
 
@@ -56,7 +57,11 @@ const swipePower = (offset: number, velocity: number) => {
   return Math.abs(offset) * velocity
 }
 export const HomepageImageSlider: React.FC<HomepageImageSliderProps> = ({ images }) => {
-  const [[page, direction], setPage] = useState([0, 0])
+  const [page, setPage] = useState(0)
+  const nextPage = (slideToLeft = true) => {
+    setPage((currentPage) => (currentPage + (slideToLeft ? -1 : 1)) % images.length)
+  }
+
   const theme = useTheme()
   // We only have 3 images, but we paginate them absolutely (ie 1, 2, 3, 4, 5...) and
   // then wrap that within 0-2 to find our image ID in the array below. By passing an
@@ -64,28 +69,27 @@ export const HomepageImageSlider: React.FC<HomepageImageSliderProps> = ({ images
   // detect it as an entirely new image. So you can infinitely paginate as few as 1 images.
   const imageIndex = wrap(0, images.length, page)
 
-  useEffect(() => {
-    setInterval(()=>{
-      if (!userClickedArrow) {
-        setPage(([page, ]) => [(page + 1) % images.length, 1])
-      }
-      setUserClickedArrow(false)
-    },SLIDER_AUTOMATIC_CHANGE)
-  },[])
+  useHarmonicIntervalFn(()=>{
+    console.log(userClickedArrow)
+    if (!userClickedArrow) {
+      nextPage()
+    }
+    setUserClickedArrow(false)
+  }, SLIDER_AUTOMATIC_CHANGE)
 
   const [userClickedArrow, setUserClickedArrow] = useState(false)
-  const paginate = (newDirection: number) => {
+
+  const paginate = (slideToLeft: boolean) => {
     setUserClickedArrow(true)
-    setPage([page + newDirection, newDirection])
+    nextPage(slideToLeft)
   }
 
   return (
     <ImageSliderWrapper>
-      <AnimatePresence initial={false} custom={direction}>
+      <AnimatePresence initial={false}>
         <motion.div
           style={{ width: '100%', height: '100%', position: 'absolute' }}
           key={page}
-          custom={direction}
           variants={variants}
           initial="enter"
           animate="center"
@@ -100,9 +104,9 @@ export const HomepageImageSlider: React.FC<HomepageImageSliderProps> = ({ images
           onDragEnd={(e, { offset, velocity }) => {
             const swipe = swipePower(offset.x, velocity.x)
             if (swipe < -swipeConfidenceThreshold) {
-              paginate(1)
+              paginate(false)
             } else if (swipe > swipeConfidenceThreshold) {
-              paginate(-1)
+              paginate(true)
             }
           }}
         >
@@ -141,10 +145,10 @@ export const HomepageImageSlider: React.FC<HomepageImageSliderProps> = ({ images
           </Box>
         </motion.div>
       </AnimatePresence>
-      <div className={styles.nextButton} onClick={() => paginate(1)}>
+      <div className={styles.nextButton} onClick={() => paginate(false)}>
         {'‣'}
       </div>
-      <div className={styles.previousButton} onClick={() => paginate(-1)}>
+      <div className={styles.previousButton} onClick={() => paginate(true)}>
         {'‣'}
       </div>
     </ImageSliderWrapper>
