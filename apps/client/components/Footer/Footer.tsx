@@ -5,6 +5,8 @@ const Dot = () => {
   return <span style={{ padding: '0px 10px' }}>•</span>
 }
 
+export const FOOTER_HEIGHT = '60px'
+
 export const Footer: React.FC = () => {
   const theme = useTheme()
 
@@ -12,12 +14,14 @@ export const Footer: React.FC = () => {
     <footer style={{
       color: theme.palette.grey[800],
       width: '100%',
-      height: '60px',
+      height: FOOTER_HEIGHT,
       marginTop: '10px',
       padding: '10px',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
+      position: 'fixed',
+      bottom: 0,
       background: theme.palette.grey[300],
     }}>
       <a href="https://api.skauttrebic.cz/admin" target={'_blank'} rel="noreferrer" style={{ textDecoration: 'none' }}>

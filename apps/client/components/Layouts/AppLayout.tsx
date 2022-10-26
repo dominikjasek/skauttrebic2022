@@ -3,7 +3,7 @@ import { Navbar } from '../Navbar/Navbar'
 import { Container } from '@mui/material'
 import { navbarHeight } from '~/components/Navbar/NavbarHeight'
 import { Box } from '@mui/system'
-import { Footer } from '~/components/Footer/Footer'
+import { Footer, FOOTER_HEIGHT } from '~/components/Footer/Footer'
 
 export const AppLayout: React.FC<PropsWithChildren> = ({ children }) => {
 
@@ -11,7 +11,8 @@ export const AppLayout: React.FC<PropsWithChildren> = ({ children }) => {
     <>
       <Navbar />
       <Box component="main" sx={{
-        marginTop: { xs: `${navbarHeight.xs}px`, sm: `${navbarHeight.md}px` }
+        marginTop: { xs: `${navbarHeight.xs}px`, sm: `${navbarHeight.md}px` },
+        marginBottom: FOOTER_HEIGHT
       }}>
         <Container maxWidth="xl">
           {children}
