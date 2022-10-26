@@ -1,6 +1,6 @@
 const Routes = {
   home: '/',
-  test: '/testik',
+  confirmRegistration: '/potvrzeni-registrace',
   posts: '/aktuality'
 }
 
@@ -10,8 +10,8 @@ const routes = [
     destination: '/'
   },
   {
-    source: Routes.test,
-    destination: '/test'
+    source: Routes.confirmRegistration,
+    destination: '/auth/confirmRegistration'
   },
   {
     source: Routes.posts,
