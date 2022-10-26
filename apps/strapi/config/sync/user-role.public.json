@@ -4,6 +4,9 @@
   "type": "public",
   "permissions": [
     {
+      "action": "api::confirm-registration.confirm-registration.confirmRegistration"
+    },
+    {
       "action": "api::homepage.homepage.find"
     },
     {

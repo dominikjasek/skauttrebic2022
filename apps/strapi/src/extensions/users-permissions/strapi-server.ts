@@ -1,11 +1,11 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
+import { sendEmailToNewUser } from '../email/use-cases/sendEmailToNewUser';
+
 const crypto = require('crypto')
 
 import { AfterXXXEvent } from '../../api/post/content-types/post/interfaces';
 
 module.exports = (plugin) => {
-  console.log(plugin.controllers.auth.resetPassword)
-
   const originalCreate = plugin.controllers.contentmanageruser.create
   plugin.controllers.contentmanageruser.create = async (ctx) => {
     ctx.request.body.username = ctx.request.body.email // we don't want to work with username, but strapi somehow requires this field required, therefore we set some value
@@ -20,17 +20,21 @@ module.exports = (plugin) => {
       async afterCreate(event: AfterXXXEvent) {
         // Send email to user with reset password
         console.log('result', event.result)
-        const user = await strapi.entityService.findOne('plugin::users-permissions.user', event.result.id)
-        console.log(user)
-
         const hash = crypto.createHash('sha256').digest('hex').toString();
-        console.log('hash', hash)
+
+        const user = await strapi.entityService.update('plugin::users-permissions.user', event.result.id, {
+          data: {
+            resetPasswordToken: hash
+          }
+        })
+
+        const registrationLink = `${process.env.FRONTEND_URL}/registrace?hash=${hash}`
 
         // const result = await plugin.controllers.auth.resetPassword(user.id)
         // console.log('result', result)
         // console.log(event.params.data.email)
         // console.log(`email: ${event.params.data.email}`)
-        // await sendEmailToNewUser()
+        await sendEmailToNewUser({ to: user.email, link: registrationLink })
       },
       afterCount(): void {return},
       afterCreateMany(): void {return},
