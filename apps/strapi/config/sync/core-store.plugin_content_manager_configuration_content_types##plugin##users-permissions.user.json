@@ -272,11 +272,11 @@
       ],
       "list": [
         "id",
-        "email",
-        "subscribing_troops",
-        "confirmed",
         "firstName",
-        "lastName"
+        "lastName",
+        "email",
+        "confirmed",
+        "subscribing_troops"
       ]
     }
   },
