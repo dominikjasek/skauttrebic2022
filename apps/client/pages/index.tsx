@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import { useTitle } from 'react-use'
 import { Homepage } from '~/components/Homepage/Homepage'
-import { useHomePageRepository } from '~/src/homepage/HomepageRepository'
+import { useHomePageRepository } from '~/src/api/homepage/HomepageRepository'
 import { dehydrate, QueryClient, useQuery } from 'react-query'
 
 const Home: NextPage = () => {

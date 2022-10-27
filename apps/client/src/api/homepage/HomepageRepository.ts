@@ -1,5 +1,5 @@
-import { graphqlRequestClient } from '~/src/lib/graphqlRequestClient'
-import { HomepageDocument } from './../gql/graphql'
+import { graphqlRequestClient } from '~/src/api/lib/graphqlRequestClient'
+import { HomepageDocument } from '../gql/graphql'
 
 class HomepageRepository {
   async fetchHomePageData() {
