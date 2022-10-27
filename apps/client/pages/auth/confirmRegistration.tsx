@@ -6,9 +6,12 @@ import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 import { useQuery } from 'react-query'
 import { Loading } from '~/components/Loading/Loading'
+import Link from 'next/link'
+import Routes from '~/config/routes'
 
 const confirmRegistration: React.FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({ query }) => {
   const { confirmRegistration, validateConfirmRegistration } = useAuthRepository()
+  const [isSubmitted, setIsSubmitted] = useState(false)
   const {
     register,
     handleSubmit,
@@ -33,12 +36,27 @@ const confirmRegistration: React.FC<InferGetServerSidePropsType<typeof getServer
   if (validationData === undefined) {
     throw new Error('Data was not loaded properly. Probably API is not responding. See network tab.')
   }
+  const submitConfirmRegistration = async (password: string) => {
+    await confirmRegistration({ hash, id, password })
+    setIsSubmitted(true)
+  }
+
+  if (isSubmitted) {
+    return (
+      <Container sx={{ p: 6 }} maxWidth={'sm'}>
+        <Typography variant={'h1'} mb={2}>Registrace</Typography>
+        <Typography>
+          Tvoje heslo bylo úspěšně nastaveno, pro přihlášení pokračuj <Link href={Routes.login}>zde</Link>.
+        </Typography>
+      </Container>
+    )
+  }
 
   if (!validationData.isAllowedToSetPassword) {
     return (
       <Container sx={{ p: 6 }} maxWidth={'sm'}>
         <Typography>
-          Už jsi zaregistrovaný! Můžeš se přihlásit pomocí hesla, které jsi si zvolil.
+          Už jsi zaregistrovaný! Můžeš se <Link href={Routes.login}>přihlásit</Link> pomocí hesla, které jsi si zvolil.
         </Typography>
       </Container>
     )
@@ -48,9 +66,10 @@ const confirmRegistration: React.FC<InferGetServerSidePropsType<typeof getServer
     <Container sx={{ p: 6 }} maxWidth={'sm'}>
       <Typography variant={'h1'} mb={2}>Registrace</Typography>
       <Typography align={'center'} sx={{ mb: 1 }}>Zadáním hesla dokončíte svou registraci.</Typography>
-      <form noValidate onSubmit={handleSubmit((data) => confirmRegistration({ hash, id, password: data.password }))}>
+      <form noValidate onSubmit={handleSubmit((data) => submitConfirmRegistration(data.password))}>
         <Stack direction='column' gap={2}>
-          <TextField variant='outlined' label='Jméno a příjmení' disabled {...register('name', { value: `${firstName} ${lastName}` })} />
+          <TextField variant='outlined' label='Jméno a příjmení'
+            disabled {...register('name', { value: `${firstName} ${lastName}` })} />
           <TextField variant='outlined' label='Email' disabled {...register('email', { value: email })} />
           <TextField
             variant='outlined'
@@ -58,9 +77,14 @@ const confirmRegistration: React.FC<InferGetServerSidePropsType<typeof getServer
             type='password'
             error={Boolean(errors.password)}
             helperText={errors.password?.message?.toString() ?? ''}
-            required {...register('password', { required: { value: true, message: 'Zadejte heslo' }, minLength: { value: 4, message: 'Heslo musí mít alespoň 4 znaky' } })}
+            required {...register('password', {
+              required: { value: true, message: 'Zadejte heslo' },
+              minLength: { value: 4, message: 'Heslo musí mít alespoň 4 znaky' }
+            })}
           />
-          <TextField variant='outlined' label='Potvrzení hesla' type='password' error={Boolean(errors.repeatPassword)} helperText={errors.repeatPassword?.message?.toString() ?? ''}
+          <TextField variant='outlined' label='Potvrzení hesla' type='password'
+            error={Boolean(errors.repeatPassword)}
+            helperText={errors.repeatPassword?.message?.toString() ?? ''}
             required {...register('repeatPassword', {
               validate: (val: string) => {
                 if (watch('password') != val) {

@@ -1,6 +1,7 @@
 const Routes = {
   home: '/',
   confirmRegistration: '/potvrzeni-registrace',
+  login: '/prihlasit-se',
   posts: '/aktuality'
 }
 
@@ -12,6 +13,10 @@ const routes = [
   {
     source: Routes.confirmRegistration,
     destination: '/auth/confirmRegistration'
+  },
+  {
+    source: Routes.login,
+    destination: '/auth/login'
   },
   {
     source: Routes.posts,
