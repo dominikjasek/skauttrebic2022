@@ -28,7 +28,7 @@ module.exports = (plugin) => {
           }
         })
 
-        const registrationLink = `${process.env.FRONTEND_URL}/registrace?hash=${hash}&id=${user.id}&email=${user.email}&firstName=${user.firstName}&lastName=${user.lastName}`
+        const registrationLink = `${process.env.FRONTEND_URL}/potvrzeni-registrace?hash=${hash}&id=${user.id}&email=${user.email}&firstName=${user.firstName}&lastName=${user.lastName}`
         await sendEmailToNewUser({ to: user.email, link: registrationLink })
       },
       afterCount(): void {return},
