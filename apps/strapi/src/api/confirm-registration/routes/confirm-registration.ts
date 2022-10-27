@@ -1,7 +1,7 @@
 module.exports = {
   routes: [
     {
-      method: 'GET',
+      method: 'POST',
       path: '/confirm-registration',
       handler: 'confirm-registration.confirmRegistration',
       config: {
@@ -9,5 +9,14 @@ module.exports = {
         middlewares: [],
       },
     },
+    {
+      method: 'GET',
+      path: '/validate-confirm-registration/:id',
+      handler: 'confirm-registration.validate',
+      config: {
+        policies: [],
+        middlewares: [],
+      },
+    }
   ],
 };

@@ -1,22 +1,32 @@
-import { Axios } from 'axios'
-import { useApiAxios } from '~/src/api/lib/axios'
+import { useFetch } from '~/src/api/lib/fetch'
+import { $Fetch } from 'ohmyfetch'
 
 interface ConfirmRegistrationRequest {
   password: string
   hash: string
 }
 
-class AuthRepository {
-  constructor(private readonly axios: Axios) {}
+interface ValidateConfirmRegistrationResponse {
+  isAllowedToSetPassword: boolean
+}
 
-  confirmRegistration = async (data: ConfirmRegistrationRequest) => {
-    return await this.axios.post('/confirm-registration', data)
+interface ConfirmRegistrationResponse {
+  success: boolean
+}
+
+class AuthRepository {
+  constructor(private readonly fetch: $Fetch) {}
+
+  validateConfirmRegistration = async (id: string): Promise<ValidateConfirmRegistrationResponse> => {
+    return await this.fetch(`/validate-confirm-registration/${id}`)
+  }
+
+  confirmRegistration = async (data: ConfirmRegistrationRequest): Promise<ConfirmRegistrationResponse> => {
+    return await this.fetch('/confirm-registration', { method: 'POST', body: data })
   }
 }
 
 export const useAuthRepository = () => {
-  const axios = useApiAxios()
-  const authRepository = new AuthRepository(axios)
-
-  return authRepository
+  const fetch = useFetch()
+  return new AuthRepository(fetch)
 }
