@@ -8,16 +8,21 @@ export default {
   confirmRegistration: async (ctx: Context) => {
     try {
       const hash = ctx.request.body.hash as string | null
+      const id = ctx.request.body.id as string | null
       const password = ctx.request.body.password as string | null
 
       if (!hash) {
         return ctx.throw(401, 'hash is missing');
       }
+      if (!id) {
+        return ctx.throw(401, 'id is missing');
+      }
       if (!password) {
         return ctx.throw(401, 'password is missing');
       }
 
-      await confirmRegistrationService.confirm(hash as string, password as string)
+      await confirmRegistrationService.confirm(hash, id, password)
+
       ctx.response.status = 200
       ctx.send({ success:true })
     } catch (err) {

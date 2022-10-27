@@ -48,10 +48,10 @@ const confirmRegistration: React.FC<InferGetServerSidePropsType<typeof getServer
     <Container sx={{ p: 6 }} maxWidth={'sm'}>
       <Typography variant={'h1'} mb={2}>Registrace</Typography>
       <Typography align={'center'} sx={{ mb: 1 }}>Zadáním hesla dokončíte svou registraci.</Typography>
-      <form noValidate onSubmit={handleSubmit((data) => confirmRegistration({ hash, password: data.password }))}>
+      <form noValidate onSubmit={handleSubmit((data) => confirmRegistration({ hash, id, password: data.password }))}>
         <Stack direction='column' gap={2}>
-          <TextField variant='filled' label='Jméno a příjmení' disabled {...register('name', { value: `${firstName} ${lastName}` })} />
-          <TextField variant='filled' label='Email' disabled {...register('email', { value: email })} />
+          <TextField variant='outlined' label='Jméno a příjmení' disabled {...register('name', { value: `${firstName} ${lastName}` })} />
+          <TextField variant='outlined' label='Email' disabled {...register('email', { value: email })} />
           <TextField
             variant='outlined'
             label='Heslo'

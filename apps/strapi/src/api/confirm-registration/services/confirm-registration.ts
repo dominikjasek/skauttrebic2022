@@ -1,11 +1,11 @@
 import auth from '@strapi/admin/server/services/auth';
 
 export default {
-  confirm: async (hash: string, newPassword: string) => {
+  confirm: async (hash: string, id: string, newPassword: string) => {
     const hashPassword = await auth.hashPassword(newPassword);
 
     const user = await strapi.query('plugin::users-permissions.user').update({
-      where: { resetPasswordToken: hash },
+      where: { resetPasswordToken: hash, id },
       data: { resetPasswordToken: null, password: hashPassword },
     });
 

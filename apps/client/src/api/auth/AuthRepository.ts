@@ -3,6 +3,7 @@ import { $Fetch } from 'ohmyfetch'
 
 interface ConfirmRegistrationRequest {
   password: string
+  id: string
   hash: string
 }
 
