@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useAuthRepository } from '~/src/api/auth/AuthRepository'
-import { Box, Button, Container, FormControlLabel, Stack, TextField, Typography } from '@mui/material'
+import { Button, Container, Stack, TextField, Typography } from '@mui/material'
 import { useForm } from 'react-hook-form'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { ParsedUrlQuery } from 'querystring'
@@ -55,7 +55,7 @@ const confirmRegistration: React.FC<InferGetServerSidePropsType<typeof getServer
   if (!validationData.isAllowedToSetPassword) {
     return (
       <Container sx={{ p: 6 }} maxWidth={'sm'}>
-        <Typography>
+        <Typography align={'center'}>
           Už jsi zaregistrovaný! Můžeš se <Link href={Routes.login}>přihlásit</Link> pomocí hesla, které jsi si zvolil.
         </Typography>
       </Container>
