@@ -37,7 +37,7 @@ const confirmRegistration: React.FC<InferGetServerSidePropsType<typeof getServer
     throw new Error('Data was not loaded properly. Probably API is not responding. See network tab.')
   }
   const submitConfirmRegistration = async (password: string) => {
-    await confirmRegistration({ code: hash, passwordConfirmation: password, password })
+    await confirmRegistration({ hash, id, password })
     setIsSubmitted(true)
   }
 

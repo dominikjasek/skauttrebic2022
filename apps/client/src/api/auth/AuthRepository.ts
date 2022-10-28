@@ -1,9 +1,10 @@
 import { IFetch, useFetch } from '~/src/api/lib/fetch'
+import { $Fetch } from 'ohmyfetch'
 
 interface ConfirmRegistrationRequest {
   password: string
-  passwordConfirmation: string
-  code: string
+  id: string
+  hash: string
 }
 
 interface ValidateConfirmRegistrationResponse {
@@ -22,7 +23,7 @@ class AuthRepository {
   }
 
   confirmRegistration = async (data: ConfirmRegistrationRequest): Promise<ConfirmRegistrationResponse> => {
-    return await this.fetch('/auth/reset-password', { method: 'POST', body: data })
+    return await this.fetch('/confirm-registration', { method: 'POST', body: data })
   }
 }
 
