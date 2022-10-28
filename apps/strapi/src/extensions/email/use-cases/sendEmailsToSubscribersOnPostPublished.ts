@@ -31,7 +31,7 @@ export const sendEmailsToSubscribersOnPostPublished = async (postData: Post) => 
           {
             title: post.title,
             content: post.content,
-            link: 'https://new.skauttrebic.cz' // TODO: fix link
+            link: `${process.env.FRONTEND_URL}/aktualita/${post.id}`
           }
         );
     } catch (err) {
