@@ -15,7 +15,6 @@ export const Footer: React.FC = () => {
       color: theme.palette.grey[800],
       width: '100%',
       height: FOOTER_HEIGHT,
-      marginTop: '10px',
       padding: '10px',
       display: 'flex',
       alignItems: 'center',
@@ -25,10 +24,10 @@ export const Footer: React.FC = () => {
       background: theme.palette.grey[300],
     }}>
       <a href="https://api.skauttrebic.cz/admin" target={'_blank'} rel="noreferrer" style={{ textDecoration: 'none' }}>
-        <Button variant="outlined" size="small">Administrace webu</Button>
+        <Button variant="outlined" size="small">Administrace</Button>
       </a>
       <Dot />
-      <span>Administrátor webu: <a href="mailto:sisa@skauttrebic.cz" target={'_blank'} style={{ textDecoration: 'none', color: theme.palette.grey[800] }} rel="noreferrer">
+      <span><a href="mailto:sisa@skauttrebic.cz" target={'_blank'} style={{ display: 'flex', textAlign: 'center', textDecoration: 'none', color: theme.palette.grey[800] }} rel="noreferrer">
         Dominik Jašek
       </a></span>
       <Dot />
