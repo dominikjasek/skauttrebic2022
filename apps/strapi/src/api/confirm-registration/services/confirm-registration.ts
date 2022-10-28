@@ -9,6 +9,8 @@ export default {
       data: { resetPasswordToken: null, password: hashPassword },
     });
 
+    console.log('user', user)
+
     if (user===null) {
       throw new Error('Hash is not valid. It was probably already used.')
     }

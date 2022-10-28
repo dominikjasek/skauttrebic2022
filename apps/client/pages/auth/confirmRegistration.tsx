@@ -1,17 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useAuthRepository } from '~/src/api/auth/AuthRepository'
-import { Button, Container, Stack, TextField, Typography } from '@mui/material'
+import { Container, Stack, TextField, Typography } from '@mui/material'
+import { LoadingButton } from '@mui/lab'
 import { useForm } from 'react-hook-form'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { ParsedUrlQuery } from 'querystring'
-import { useQuery } from 'react-query'
+import { useMutation, useQuery } from 'react-query'
 import { Loading } from '~/components/Loading/Loading'
 import Link from 'next/link'
 import Routes from '~/config/routes'
 
 const confirmRegistration: React.FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({ query }) => {
   const { confirmRegistration, validateConfirmRegistration } = useAuthRepository()
-  const [isSubmitted, setIsSubmitted] = useState(false)
   const {
     register,
     handleSubmit,
@@ -29,22 +29,21 @@ const confirmRegistration: React.FC<InferGetServerSidePropsType<typeof getServer
 
   const { isLoading, data: validationData } = useQuery('allowed-to-register', () => validateConfirmRegistration(id))
 
+  const { isSuccess: isSubmitted, isLoading: isSubmitLoading, mutate: submitConfirmRegistration } = useMutation(async (password: string) => {
+    await confirmRegistration({ hash, id, password })
+  })
+
   if (isLoading) {
     return <Loading />
   }
-
   if (validationData === undefined) {
     throw new Error('Data was not loaded properly. Probably API is not responding. See network tab.')
-  }
-  const submitConfirmRegistration = async (password: string) => {
-    await confirmRegistration({ hash, id, password })
-    setIsSubmitted(true)
   }
 
   if (isSubmitted) {
     return (
       <Container sx={{ p: 6 }} maxWidth={'sm'}>
-        <Typography variant={'h1'} mb={2}>Registrace</Typography>
+        <Typography variant={'h3'} align={'center'} mb={2}>Registrace</Typography>
         <Typography>
           Tvoje heslo bylo úspěšně nastaveno, pro přihlášení pokračuj <Link href={Routes.login}>zde</Link>.
         </Typography>
@@ -64,7 +63,7 @@ const confirmRegistration: React.FC<InferGetServerSidePropsType<typeof getServer
 
   return (
     <Container sx={{ p: 6 }} maxWidth={'sm'}>
-      <Typography variant={'h1'} mb={2}>Registrace</Typography>
+      <Typography variant={'h3'} align={'center'} mb={2}>Registrace</Typography>
       <Typography align={'center'} sx={{ mb: 1 }}>Zadáním hesla dokončíte svou registraci.</Typography>
       <form noValidate onSubmit={handleSubmit((data) => submitConfirmRegistration(data.password))}>
         <Stack direction='column' gap={2}>
@@ -93,7 +92,7 @@ const confirmRegistration: React.FC<InferGetServerSidePropsType<typeof getServer
               }
             })}
           />
-          <Button sx={{ width: '200px', mx: 'auto' }} variant='contained' type="submit">Potvrdit heslo</Button>
+          <LoadingButton sx={{ width: '200px', mx: 'auto' }} loading={isSubmitLoading} variant='contained' type="submit">Potvrdit heslo</LoadingButton>
         </Stack>
       </form>
     </Container>
