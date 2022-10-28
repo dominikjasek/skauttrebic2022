@@ -6,10 +6,8 @@ export default {
 
     const user = await strapi.query('plugin::users-permissions.user').update({
       where: { resetPasswordToken: hash, id },
-      data: { resetPasswordToken: null, password: hashPassword },
+      data: { resetPasswordToken: null, password: hashPassword, confirmed: true },
     });
-
-    console.log('user', user)
 
     if (user===null) {
       throw new Error('Hash is not valid. It was probably already used.')
