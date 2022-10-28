@@ -22,7 +22,7 @@ const login: React.FC = () => {
     <Container sx={{ p: 6 }} maxWidth={'sm'}>
       <Typography variant={'h3'} align={'center'} mb={2}>Přihlášení</Typography>
       <Typography align={'center'} sx={{ mb: 2 }}>Vyplňte své údaje.</Typography>
-      <form noValidate onSubmit={handleSubmit(data=> execLogin({ email: data.email, password: data.password }))} >
+      <form noValidate onSubmit={handleSubmit(data=> execLogin({ identifier: data.email, password: data.password }))} >
         <Stack direction='column' gap={2}>
           <TextField
             variant={'outlined'}
