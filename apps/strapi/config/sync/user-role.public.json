@@ -7,6 +7,9 @@
       "action": "api::confirm-registration.confirm-registration.confirmRegistration"
     },
     {
+      "action": "api::confirm-registration.confirm-registration.validate"
+    },
+    {
       "action": "api::homepage.homepage.find"
     },
     {
