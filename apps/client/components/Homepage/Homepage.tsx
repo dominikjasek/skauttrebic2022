@@ -1,11 +1,11 @@
 import React from 'react'
 import { HomepageImageSlider } from '~/components/Homepage/HomepageImageSlider/HomepagesImageSlider'
 import { HomepageQuery } from '~/src/api/gql/graphql'
-import { notEmpty } from '~/utility/typescript/not-empty'
 import { HomepageImage } from '~/components/Homepage/HomepageImageSlider/HomepagesImageSlider.interfaces'
 import { TroopProps } from '~/components/Homepage/Troops/Troop'
 import { Troops } from '~/components/Homepage/Troops/Troops'
 import { AboutUs } from '~/components/Homepage/AboutUs'
+import { notEmpty } from '~/src/utility/typescript/not-empty'
 
 interface HomepageProps {
     homepage: HomepageQuery

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, Divider, Stack, Typography } from '@mui/material'
-import { useScreen } from '~/utility/use-screen'
+import { useScreen } from '~/src/utility/use-screen'
 
 export interface TroopProps {
     title: string,

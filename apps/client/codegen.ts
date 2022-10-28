@@ -6,7 +6,7 @@ const config: CodegenConfig = {
   documents: 'src/**/*.graphql',
   // hooks: { afterAllFileWrite: ['next lint --fix'] },
   generates: {
-    'src/gql': {
+    'src/api/gql': {
       preset: 'client',
       plugins: []
     },

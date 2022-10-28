@@ -70,7 +70,6 @@ export const HomepageImageSlider: React.FC<HomepageImageSliderProps> = ({ images
   const imageIndex = wrap(0, images.length, page)
 
   useHarmonicIntervalFn(()=>{
-    console.log(userClickedArrow)
     if (!userClickedArrow) {
       nextPage()
     }

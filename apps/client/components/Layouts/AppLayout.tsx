@@ -4,7 +4,7 @@ import { Container } from '@mui/material'
 import { navbarHeight, navbarHeightPx } from '~/components/Navbar/NavbarHeight'
 import { Box } from '@mui/system'
 import { Footer, FOOTER_HEIGHT } from '~/components/Footer/Footer'
-import { useScreen } from '~/utility/use-screen'
+import { useScreen } from '~/src/utility/use-screen'
 
 export const AppLayout: React.FC<PropsWithChildren> = ({ children }) => {
   const { onlySmallScreen } = useScreen()

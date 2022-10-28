@@ -540,13 +540,11 @@ type UsersPermissionsUser {
     email: String!
     firstName: String!
     lastName: String!
-    position: ENUM_USERSPERMISSIONSUSER_POSITION
     post_likes(filters: PostFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): PostRelationResponseCollection
     provider: String
     role: UsersPermissionsRoleEntityResponse
     subscribing_troops(filters: TroopFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): TroopRelationResponseCollection
     updatedAt: DateTime
-    username: String!
 }
 
 type UsersPermissionsUserEntity {
@@ -576,12 +574,6 @@ enum ENUM_COMMENTSCOMMENTREPORT_REASON {
 enum ENUM_TOPBAR_TYPE {
     info
     upozorneni
-}
-
-enum ENUM_USERSPERMISSIONSUSER_POSITION {
-    clen
-    rodic
-    vedouci
 }
 
 enum PublicationState {
@@ -1172,7 +1164,6 @@ input UsersPermissionsUserFiltersInput {
     not: UsersPermissionsUserFiltersInput
     or: [UsersPermissionsUserFiltersInput]
     password: StringFilterInput
-    position: StringFilterInput
     post_likes: PostFiltersInput
     provider: StringFilterInput
     resetPasswordToken: StringFilterInput
@@ -1190,7 +1181,6 @@ input UsersPermissionsUserInput {
     firstName: String
     lastName: String
     password: String
-    position: ENUM_USERSPERMISSIONSUSER_POSITION
     post_likes: [Id]
     provider: String
     resetPasswordToken: String

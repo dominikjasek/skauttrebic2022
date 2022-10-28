@@ -76,7 +76,8 @@ const confirmRegistration: React.FC<InferGetServerSidePropsType<typeof getServer
             type='password'
             error={Boolean(errors.password)}
             helperText={errors.password?.message?.toString() ?? ''}
-            required {...register('password', {
+            required
+            {...register('password', {
               required: { value: true, message: 'Zadejte heslo' },
               minLength: { value: 4, message: 'Heslo musí mít alespoň 4 znaky' }
             })}
@@ -86,13 +87,13 @@ const confirmRegistration: React.FC<InferGetServerSidePropsType<typeof getServer
             helperText={errors.repeatPassword?.message?.toString() ?? ''}
             required {...register('repeatPassword', {
               validate: (val: string) => {
-                if (watch('password') != val) {
+                if (watch('password') !== val) {
                   return 'Hesla se musí shodovat'
                 }
               }
             })}
           />
-          <LoadingButton sx={{ width: '200px', mx: 'auto' }} loading={isSubmitLoading} variant='contained' type="submit">Potvrdit heslo</LoadingButton>
+          <LoadingButton sx={{ width: '100%', py: 2, mx: 'auto' }} loading={isSubmitLoading} variant='contained' type="submit">Potvrdit heslo</LoadingButton>
         </Stack>
       </form>
     </Container>

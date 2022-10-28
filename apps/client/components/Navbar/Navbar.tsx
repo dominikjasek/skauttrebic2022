@@ -12,7 +12,7 @@ import { MenuItem as MenuItemType } from './Navbar.interface'
 import Link from 'next/link'
 import { DesktopMenuNavigation } from '~/components/Navbar/Desktop/DesktopMenuNavigation'
 import Routes from '~/config/routes'
-import { useScreen } from '~/utility/use-screen'
+import { useScreen } from '~/src/utility/use-screen'
 import { navbarHeight } from '~/components/Navbar/NavbarHeight'
 
 export const Navbar: React.FC = () => {
