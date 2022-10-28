@@ -20,7 +20,7 @@ export const Footer: React.FC = () => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      position: 'fixed',
+      position: 'absolute',
       bottom: 0,
       background: theme.palette.grey[300],
     }}>

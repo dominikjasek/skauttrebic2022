@@ -12,7 +12,6 @@ export const AppLayout: React.FC<PropsWithChildren> = ({ children }) => {
       <Navbar />
       <Box component="main" sx={{
         marginTop: { xs: `${navbarHeight.xs}px`, sm: `${navbarHeight.md}px` },
-        marginBottom: FOOTER_HEIGHT
       }}>
         <Container maxWidth="xl">
           {children}

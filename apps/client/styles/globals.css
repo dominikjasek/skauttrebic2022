@@ -1,3 +1,14 @@
+/* Trick: */
+body {
+  position: relative;
+}
+
+body::after {
+  content: '';
+  display: block;
+  height: 60px; /* Set same as footer's height */
+}
+
 @font-face {
   font-family: 'themix';
   src: url('https://cdn.skauting.cz/fonts/TheMix_LT_400.eot');
