@@ -19,7 +19,6 @@ module.exports = (plugin) => {
       models: ['plugin::users-permissions.user'],
       async afterCreate(event: AfterXXXEvent) {
         // Send email to user with reset password
-        console.log('result', event.result)
         const hash = crypto.createHash('sha256').digest('hex').toString();
 
         const user = await strapi.entityService.update('plugin::users-permissions.user', event.result.id, {
