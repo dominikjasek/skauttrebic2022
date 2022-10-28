@@ -1,4 +1,4 @@
-import { useFetch } from '~/src/api/lib/fetch'
+import { IFetch, useFetch } from '~/src/api/lib/fetch'
 import { $Fetch } from 'ohmyfetch'
 
 interface ConfirmRegistrationRequest {
@@ -16,7 +16,7 @@ interface ConfirmRegistrationResponse {
 }
 
 class AuthRepository {
-  constructor(private readonly fetch: $Fetch) {}
+  constructor(private readonly fetch: IFetch) {}
 
   validateConfirmRegistration = async (id: string): Promise<ValidateConfirmRegistrationResponse> => {
     return await this.fetch(`/validate-confirm-registration/${id}`)
