@@ -17,3 +17,9 @@ export const requireAuthentication = (context: GetServerSidePropsContext) => {
     props: {}
   }
 }
+
+const protectedGuard = (context: GetServerSidePropsContext) => {
+  return requireAuthentication(context)
+}
+
+export const protectedGuardFactory = () => protectedGuard

@@ -7,6 +7,7 @@ import { isValidEmail } from '~/src/utility/is-email'
 import { LoadingButton } from '@mui/lab'
 import { useAuth } from '~/src/api/auth/context/AuthContextProvider'
 import { useRouter } from 'next/router'
+import { publicGuardFactory } from '~/src/api/lib/requirePublic'
 
 const login: React.FC = () => {
   const {
@@ -79,5 +80,7 @@ const login: React.FC = () => {
     </Container>
   )
 }
+
+export const getServerSideProps = publicGuardFactory()
 
 export default login

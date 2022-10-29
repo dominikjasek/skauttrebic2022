@@ -93,7 +93,7 @@ const confirmRegistration: React.FC<InferGetServerSidePropsType<typeof getServer
               }
             })}
           />
-          <LoadingButton sx={{ width: '100%', py: 2, mx: 'auto' }} loading={isSubmitLoading} variant='contained' type="submit">Potvrdit heslo</LoadingButton>
+          <LoadingButton sx={{ width: '100%', py: 2, mx: 'auto' }} loading={isSubmitLoading} variant='contained' type="submit">Vytvořit účet</LoadingButton>
         </Stack>
       </form>
     </Container>
