@@ -1,6 +1,6 @@
 import { $fetch, FetchOptions, FetchRequest } from 'ohmyfetch'
 
-export const useFetch = () => {
+const initApiCall = () => {
   return async (request: FetchRequest, fetchRequest?: FetchOptions) => {
     fetchRequest = fetchRequest ?? {}
     fetchRequest.baseURL = process.env.API_URL
@@ -8,4 +8,6 @@ export const useFetch = () => {
   }
 }
 
-export type IFetch = ReturnType<typeof useFetch>
+export const apiCall = initApiCall()
+
+export type IApiCall = typeof apiCall

@@ -1,4 +1,4 @@
-import { IFetch, useFetch } from '~/src/api/lib/fetch'
+import { IApiCall, apiCall } from '~/src/api/lib/apiCall'
 
 interface ConfirmRegistrationRequest {
   password: string
@@ -34,8 +34,8 @@ interface LoginResponse {
   }
 }
 
-class AuthRepository {
-  constructor(private readonly fetch: IFetch) {}
+export class AuthRepository {
+  constructor(private readonly fetch: IApiCall) {}
 
   validateConfirmRegistration = async (id: string): Promise<ValidateConfirmRegistrationResponse> => {
     return await this.fetch(`/validate-confirm-registration/${id}`)
@@ -51,6 +51,5 @@ class AuthRepository {
 }
 
 export const useAuthRepository = () => {
-  const fetch = useFetch()
-  return new AuthRepository(fetch)
+  return new AuthRepository(apiCall)
 }

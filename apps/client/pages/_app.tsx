@@ -8,8 +8,9 @@ import lightTheme from '../styles/theme/lighttheme'
 import * as React from 'react'
 import { useRef } from 'react'
 import { Analytics } from '@vercel/analytics/react'
+import { AuthProvider } from '~/src/api/auth/context/AuthContextProvider'
 
-function MyApp({ Component, pageProps }: AppProps<{ dehydratedState: unknown }>) {
+function MyApp({ Component, pageProps }: AppProps<{ dehydratedState: any }>) {
   const queryclient = useRef(new QueryClient())
 
   return (
@@ -17,11 +18,13 @@ function MyApp({ Component, pageProps }: AppProps<{ dehydratedState: unknown }>)
       <Hydrate state={pageProps.dehydratedState}>
         <ThemeProvider theme={lightTheme}>
           <CssBaseline />
-          <AppLayout>
-            <title>Skaut Třebíč</title>
-            <Component {...pageProps} />
-            <Analytics />
-          </AppLayout>
+          <AuthProvider>
+            <AppLayout>
+              <title>Skaut Třebíč</title>
+              <Component {...pageProps} />
+              <Analytics />
+            </AppLayout>
+          </AuthProvider>
         </ThemeProvider>
       </Hydrate>
     </QueryClientProvider>

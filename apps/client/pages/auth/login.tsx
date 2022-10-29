@@ -5,6 +5,8 @@ import { LoginRequest, useAuthRepository } from '~/src/api/auth/AuthRepository'
 import { useForm } from 'react-hook-form'
 import { isValidEmail } from '~/src/utility/is-email'
 import { LoadingButton } from '@mui/lab'
+import { useAuth } from '~/src/api/auth/context/AuthContextProvider'
+import { useRouter } from 'next/router'
 
 const login: React.FC = () => {
   const {
@@ -12,10 +14,25 @@ const login: React.FC = () => {
     handleSubmit,
     formState: { errors },
   } = useForm()
+  const router = useRouter()
+
+  const auth = useAuth()
   const { login } = useAuthRepository()
+
   const { mutateAsync: execLogin, isLoading: isLoginLoading } = useMutation(async (data: LoginRequest) => {
     const response = await login(data)
-    console.log(response)
+    auth?.setAuth({
+      jwt: response.jwt,
+      user: {
+        firstName: response.user.firstName,
+        lastName: response.user.lastName,
+        id: response.user.id,
+        email: response.user.email
+      }
+    })
+    await router.replace({
+      pathname: '/',
+    })
   })
 
   return (
