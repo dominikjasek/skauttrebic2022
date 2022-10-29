@@ -1,13 +1,26 @@
-import { $fetch, FetchOptions, FetchRequest } from 'ohmyfetch'
+import axios from 'axios'
+import { JwtCookieStorage } from '~/src/api/auth/context/JwtCookieStorage'
 
-const initApiCall = () => {
-  return async (request: FetchRequest, fetchRequest?: FetchOptions) => {
-    fetchRequest = fetchRequest ?? {}
-    fetchRequest.baseURL = process.env.API_URL
-    return await $fetch(request, fetchRequest)
-  }
+const initializeApiCall = () => {
+  const apiCall = axios.create({
+    baseURL: process.env.API_URL,
+    headers: {},
+  })
+
+  apiCall.interceptors.request.use((config) => {
+    const jwtStorage = new JwtCookieStorage()
+    const jwt = jwtStorage.get()
+
+    if (jwt) {
+      config.headers!.Authorization = `Bearer ${jwt}`
+    }
+
+    return config
+  })
+
+  return apiCall
 }
 
-export const apiCall = initApiCall()
+export const apiCall = initializeApiCall()
 
 export type IApiCall = typeof apiCall

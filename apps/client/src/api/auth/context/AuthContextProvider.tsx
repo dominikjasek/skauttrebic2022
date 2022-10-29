@@ -1,26 +1,37 @@
-import React, { createContext, PropsWithChildren, useContext, useEffect, useState } from 'react'
+import React, { PropsWithChildren, useEffect, useState } from 'react'
 import { useJwtCookieStorage } from '~/src/api/auth/context/JwtCookieStorage'
-
-export interface IAuth {
-    user?: {
-        firstName: string
-        lastName: string
-        id: number
-        email: string
-        image?: string
-    }
-    jwt?: string,
-}
-
-export const AuthContext = createContext<{ auth: IAuth | null, setAuth: (val: IAuth)=>void } | null>(null)
+import { AuthContext, IAuth } from '~/src/api/auth/context/AuthContext'
+import { useAuthRepository } from '~/src/api/auth/AuthRepository'
 
 export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const jwtCookieStorage = useJwtCookieStorage()
+  const authRepository = useAuthRepository()
+
   const [auth, setAuth] = useState<IAuth | null>({ jwt: jwtCookieStorage.get() })
+
+  const reloadUserInfo = async (jwt: string) => {
+    jwtCookieStorage.set(jwt)
+    const response = await authRepository.getUserInfo()
+    setAuth({
+      user: {
+        firstName: response.firstName,
+        lastName: response.lastName,
+        email: response.email,
+        id: response.id
+      },
+      jwt: jwt
+    })
+  }
+
+  const clearUserInfo = () => {
+    setAuth(null)
+  }
 
   useEffect(() => {
     if (auth?.jwt) {
-      jwtCookieStorage.set(auth.jwt)
+      reloadUserInfo(auth.jwt)
+    } else {
+      clearUserInfo()
     }
   }, [auth?.jwt])
 
@@ -35,6 +46,3 @@ export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
   )
 }
 
-export const useAuth = () => {
-  return useContext(AuthContext)
-}

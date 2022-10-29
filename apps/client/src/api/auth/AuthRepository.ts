@@ -34,19 +34,35 @@ interface LoginResponse {
   }
 }
 
+interface UserInfo {
+  blocked: boolean
+  confirmed: boolean
+  createdAt: string
+  email: string
+  firstName: string
+  id: number
+  lastName: string
+  provider: string
+  updatedAt: string
+}
+
 export class AuthRepository {
   constructor(private readonly fetch: IApiCall) {}
 
   validateConfirmRegistration = async (id: string): Promise<ValidateConfirmRegistrationResponse> => {
-    return await this.fetch(`/validate-confirm-registration/${id}`)
+    return (await this.fetch(`/validate-confirm-registration/${id}`)).data
   }
 
   confirmRegistration = async (data: ConfirmRegistrationRequest): Promise<ConfirmRegistrationResponse> => {
-    return await this.fetch('/confirm-registration', { method: 'POST', body: data })
+    return (await this.fetch('/confirm-registration', { method: 'POST', data })).data
   }
 
   login = async (data: LoginRequest): Promise<LoginResponse> => {
-    return await this.fetch('/auth/local', { method: 'POST', body: data })
+    return (await this.fetch('/auth/local', { method: 'POST', data })).data
+  }
+
+  getUserInfo = async (): Promise<UserInfo> => {
+    return (await this.fetch('/users/me')).data
   }
 }
 
