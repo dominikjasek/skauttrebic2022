@@ -2,7 +2,10 @@ const Routes = {
   home: '/',
   confirmRegistration: '/potvrzeni-registrace',
   login: '/prihlasit-se',
-  posts: '/aktuality'
+  posts: '/aktuality',
+  clubRoom: '/klubovna',
+  photos: '/fotografie',
+  contact: '/kontakt',
 }
 
 const routes = [
@@ -21,6 +24,18 @@ const routes = [
   {
     source: Routes.posts,
     destination: '/posts'
+  },
+  {
+    source: Routes.clubRoom,
+    destination: '/clubroom'
+  },
+  {
+    source: Routes.photos,
+    destination: '/photos',
+  },
+  {
+    source: Routes.contact,
+    destination: '/contact'
   }
 ]
 

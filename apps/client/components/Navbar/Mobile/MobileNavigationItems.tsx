@@ -5,6 +5,7 @@ import { Typography } from '@mui/material'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { UserProfileMenu } from '~/components/Navbar/UserProfileMenu'
+import { useUser } from '~/src/api/auth/context/AuthContext'
 
 interface MobileNavigationItemsProps {
     items: MenuItem[]
@@ -73,12 +74,14 @@ const MenuLink = styled(Typography)(({ theme })=>({
 }))
 
 export const MobileNavigationItems: React.FC<MobileNavigationItemsProps> = ({ items }) => {
+  const user = useUser()
+
   return (
     <AnimationRoot>
       {items.map(item => (
         <div key={item.label}>
           <AnimationUl>
-            <Link href={'todo'} key={item.label}>
+            <Link href={item.link} key={item.label}>
               <MenuLink>
                 {item.label}
               </MenuLink>
@@ -86,11 +89,13 @@ export const MobileNavigationItems: React.FC<MobileNavigationItemsProps> = ({ it
           </AnimationUl>
         </div>)
       )}
-      <AnimationUl>
-        <MenuLink>
-          <UserProfileMenu />
-        </MenuLink>
-      </AnimationUl>
+      {
+        user && <AnimationUl>
+          <MenuLink>
+            <UserProfileMenu />
+          </MenuLink>
+        </AnimationUl>
+      }
     </AnimationRoot>
 
   )

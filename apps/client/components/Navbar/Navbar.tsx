@@ -14,63 +14,78 @@ import { DesktopMenuNavigation } from '~/components/Navbar/Desktop/DesktopMenuNa
 import Routes from '~/config/routes'
 import { useScreen } from '~/src/utility/use-screen'
 import { navbarHeight } from '~/components/Navbar/NavbarHeight'
+import { useMemo } from 'react'
+import { useUser } from '~/src/api/auth/context/AuthContext'
+
+const ITEMS: MenuItemType[] = [
+  {
+    label: 'Aktuality',
+    link: Routes.posts
+  },
+  {
+    label: 'Fotogalerie',
+    link: Routes.photos
+  },
+  {
+    label: 'Klubovna',
+    link: Routes.clubRoom
+  },
+  {
+    label: 'Kontakt',
+    link: Routes.contact
+  }
+]
 
 export const Navbar: React.FC = () => {
   const theme = useTheme()
+  const user = useUser()
 
-  const menuItems: MenuItemType[] = [
-    {
-      label: 'Aktuality'
-    },
-    {
-      label: 'Fotogalerie'
-    },
-    {
-      label: 'Klubovna'
-    },
-    {
-      label: 'Kontakt'
+  const menuItems = useMemo(() => {
+    const itemsCpy = [...ITEMS]
+    if (user === null) {
+      itemsCpy.push({ label: 'Přihlásit se', link: Routes.login })
     }
-  ]
+    return itemsCpy
+  }, [user])
 
   const { onlyMediumScreen, onlySmallScreen } = useScreen()
   return (
     <AppBar position="fixed" sx={{ backgroundColor: theme.palette.grey['300'], height: { xs: `${navbarHeight.xs}px`, sm: `${navbarHeight.md}px` } }}>
       <Container maxWidth="xl" disableGutters>
         <Toolbar disableGutters>
-
-          <IconButton
-            size="large"
-            aria-label="account of current user"
-            aria-controls="menu-appbar"
-            aria-haspopup="true"
-            disableRipple
-            sx={{ color: theme.palette.grey['900'], height: { xs: 40, sm: 45, md: 55 }, p: 0, pl: 2, zIndex: 1000 }}
-          >
-            <Link href={Routes.home} >
-              <a style={{ width: 'auto', height: '100%' }}>
-                <SkautLogo size={onlySmallScreen ? 0.5 : onlyMediumScreen ? 0.57 : 0.65} />
-              </a>
-            </Link>
-          </IconButton>
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            fontFamily="skautbold"
-            mr={2}
-            ml={2}
-            color={theme.palette.grey['900']}
-            sx={{
-              display: 'flex',
-              textDecoration: 'none',
-              lineHeight: 1.4
-            }}
-          >
-            <Box>
-              {onlySmallScreen ? 'Skaut Třebíč' : '2. Skautské oddíly Třebíč'}
-            </Box>
-          </Typography>
+          <Link href={Routes.home}>
+            <a style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                disableRipple
+                sx={{ color: theme.palette.grey['900'], height: { xs: 40, sm: 45, md: 55 }, p: 0, pl: 2, zIndex: 1000 }}
+              >
+                <span style={{ width: 'auto', height: '100%' }}>
+                  <SkautLogo size={onlySmallScreen ? 0.5 : onlyMediumScreen ? 0.57 : 0.65} />
+                </span>
+              </IconButton>
+              <Typography
+                variant="h6"
+                noWrap
+                component="a"
+                fontFamily="skautbold"
+                mr={2}
+                ml={2}
+                color={theme.palette.grey['900']}
+                sx={{
+                  display: 'flex',
+                  textDecoration: 'none',
+                  lineHeight: 1.4,
+                  cursor: 'pointer'
+                }}
+              >
+                {onlySmallScreen ? 'Skaut Třebíč' : '2. Skautské oddíly Třebíč'}
+              </Typography>
+            </a>
+          </Link>
           <MobileMenuModal items={menuItems} />
           <DesktopMenuNavigation items={menuItems} />
         </Toolbar>
