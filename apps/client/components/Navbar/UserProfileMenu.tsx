@@ -43,7 +43,6 @@ function stringAvatar(name: string) {
 export const UserProfileMenu: React.FC = () => {
   const theme = useTheme()
   const user = useUser()
-  console.log('user', user)
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
   const open = Boolean(anchorEl)

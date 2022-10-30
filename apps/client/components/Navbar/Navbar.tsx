@@ -6,7 +6,7 @@ import IconButton from '@mui/material/IconButton'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 import { SkautLogo } from '../Logo/SkautLogo'
-import { useTheme } from '@mui/material'
+import { Stack, useTheme } from '@mui/material'
 import { MobileMenuModal } from './Mobile/MobileMenuModal'
 import { MenuItem as MenuItemType } from './Navbar.interface'
 import Link from 'next/link'
@@ -54,7 +54,7 @@ export const Navbar: React.FC = () => {
       <Container maxWidth="xl" disableGutters>
         <Toolbar disableGutters>
           <Link href={Routes.home}>
-            <a style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+            <Stack direction={'row'} alignItems={'center'} justifyContent={'center'}>
               <IconButton
                 size="large"
                 aria-label="account of current user"
@@ -84,7 +84,7 @@ export const Navbar: React.FC = () => {
               >
                 {onlySmallScreen ? 'Skaut Třebíč' : '2. Skautské oddíly Třebíč'}
               </Typography>
-            </a>
+            </Stack>
           </Link>
           <MobileMenuModal items={menuItems} />
           <DesktopMenuNavigation items={menuItems} />
