@@ -1,9 +1,16 @@
 import { GraphQLClient } from 'graphql-request'
+import { JwtCookieStorage } from '~/src/api/auth/context/JwtCookieStorage'
 
-const requestHeaders = {
-  // authorization: 'Bearer MY_TOKEN',
-}
+const requestHeaders: HeadersInit = {}
 
 export const graphqlRequestClient = new GraphQLClient(process.env.GRAPHQL_API_URL as string, {
-  headers: requestHeaders,
+  headers: () => {
+    const jwtStorage = new JwtCookieStorage()
+    const jwt = jwtStorage.get()
+
+    if (jwt) {
+      requestHeaders.Authorization = `Bearer ${jwt}`
+    }
+    return requestHeaders
+  },
 })
