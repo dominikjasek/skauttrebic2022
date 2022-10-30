@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { wrap } from 'popmotion'
+import { motion, AnimatePresence, Variants } from 'framer-motion'
 import styles from './styles.module.css'
 import { navbarHeightPx } from '~/components/Navbar/NavbarHeight'
 import { Box, styled, useTheme } from '@mui/material'
@@ -10,23 +9,28 @@ import { useHarmonicIntervalFn } from 'react-use'
 
 const SLIDER_AUTOMATIC_CHANGE = 7000 //milliseconds
 
-const variants = {
-  enter: (direction: number) => {
+const variants: Variants = {
+  initial: (direction: number) => {
     return {
-      x: direction > 0 ? 1000 : -1000,
+      x: direction > 0 ? '100%' : '-100%',
+      opacity: 0,
+      scale: 1,
     }
   },
-  center: {
-    zIndex: 1,
+  animate: {
     x: 0,
+    opacity: 1,
+    scale: 1,
+    transition: { ease: 'easeOut', duration: 0.2 },
   },
   exit: (direction: number) => {
     return {
-      zIndex: 0,
-      x: direction < 0 ? 1000 : -1000,
-      opacity: 0
+      x: direction > 0 ? '-100%' : '100%',
+      opacity: 0,
+      scale: 1,
+      transition: { ease: 'easeIn' },
     }
-  }
+  },
 }
 
 const ImageSliderWrapper = styled(Box)(({ theme })=>({
@@ -46,66 +50,57 @@ const ImageSliderWrapper = styled(Box)(({ theme })=>({
   }
 }))
 
-/**
- * Experimenting with distilling swipe offset and velocity into a single variable, so the
- * less distance a user has swiped, the more velocity they need to register as a swipe.
- * Should accomodate longer swipes and short flicks without having binary checks on
- * just distance thresholds and velocity > 0.
- */
 const swipeConfidenceThreshold = 10000
 const swipePower = (offset: number, velocity: number) => {
   return Math.abs(offset) * velocity
 }
 export const HomepageImageSlider: React.FC<HomepageImageSliderProps> = ({ images }) => {
-  const [page, setPage] = useState(0)
-  const nextPage = (slideToLeft = true) => {
-    setPage((currentPage) => (currentPage + (slideToLeft ? -1 : 1)) % images.length)
-  }
+  const [index, setIndex] = useState(0)
+  const [direction, setDirection] = useState(0)
 
   const theme = useTheme()
-  // We only have 3 images, but we paginate them absolutely (ie 1, 2, 3, 4, 5...) and
-  // then wrap that within 0-2 to find our image ID in the array below. By passing an
-  // absolute page index as the `motion` component's `key` prop, `AnimatePresence` will
-  // detect it as an entirely new image. So you can infinitely paginate as few as 1 images.
-  const imageIndex = wrap(0, images.length, page)
 
   useHarmonicIntervalFn(()=>{
     if (!userClickedArrow) {
-      nextPage()
+      nextStep()
     }
     setUserClickedArrow(false)
   }, SLIDER_AUTOMATIC_CHANGE)
 
   const [userClickedArrow, setUserClickedArrow] = useState(false)
 
-  const paginate = (slideToLeft: boolean) => {
+  const nextStep = () =>{
+    setDirection(1)
     setUserClickedArrow(true)
-    nextPage(slideToLeft)
+    setIndex((currentIndex) => (currentIndex + 1) % images.length )
+  }
+
+  const prevStep = () => {
+    setDirection(-1)
+    setUserClickedArrow(true)
+    setIndex((currentIndex) => (currentIndex - 1 + images.length) % images.length )
   }
 
   return (
     <ImageSliderWrapper>
-      <AnimatePresence initial={false}>
+      <AnimatePresence initial={false} custom={direction}>
         <motion.div
           style={{ width: '100%', height: '100%', position: 'absolute' }}
-          key={page}
+          key={index}
           variants={variants}
-          initial="enter"
-          animate="center"
+          initial="initial"
+          animate="animate"
           exit="exit"
-          transition={{
-            x: { type: 'spring', stiffness: 800, damping: 70 },
-            opacity: { duration: 0.2 }
-          }}
+          custom={direction}
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
           dragElastic={1}
           onDragEnd={(e, { offset, velocity }) => {
             const swipe = swipePower(offset.x, velocity.x)
             if (swipe < -swipeConfidenceThreshold) {
-              paginate(false)
+              nextStep()
             } else if (swipe > swipeConfidenceThreshold) {
-              paginate(true)
+              prevStep()
             }
           }}
         >
@@ -114,12 +109,12 @@ export const HomepageImageSlider: React.FC<HomepageImageSliderProps> = ({ images
             event.stopPropagation()
           }}>
             <img
-              src={images[imageIndex].url} alt={images[imageIndex].text ?? ''} style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute' }} />
+              src={images[index].url} alt={images[index].text ?? ''} style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute' }} />
             {
-              images[imageIndex].text && <Box sx={{
+              images[index].text && <Box sx={{
                 borderRadius: '40% 54% 46% 56% / 49% 43% 43% 57%',
-                backgroundColor: images[imageIndex].backgroundColor,
-                color: images[imageIndex].textColor,
+                backgroundColor: images[index].backgroundColor,
+                color: images[index].textColor,
                 fontSize: theme.typography.fontSize * 2,
                 fontFamily: 'skautbold',
                 textAlign: 'center',
@@ -137,17 +132,17 @@ export const HomepageImageSlider: React.FC<HomepageImageSliderProps> = ({ images
                 },
               }}>
                 <div>
-                  {images[imageIndex].text}
+                  {images[index].text}
                 </div>
               </Box>
             }
           </Box>
         </motion.div>
       </AnimatePresence>
-      <div className={styles.nextButton} onClick={() => paginate(false)}>
+      <div className={styles.nextButton} onClick={nextStep}>
         {'‣'}
       </div>
-      <div className={styles.previousButton} onClick={() => paginate(true)}>
+      <div className={styles.previousButton} onClick={prevStep}>
         {'‣'}
       </div>
     </ImageSliderWrapper>
