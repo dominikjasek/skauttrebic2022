@@ -61,11 +61,9 @@ export const Navbar: React.FC = () => {
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 disableRipple
-                sx={{ color: theme.palette.grey['900'], height: { xs: 40, sm: 45, md: 55 }, p: 0, pl: 2, zIndex: 1000 }}
+                sx={{ color: theme.palette.grey['900'], p: 0, pl: 2, zIndex: 1000 }}
               >
-                <span style={{ width: 'auto', height: '100%' }}>
-                  <SkautLogo size={onlySmallScreen ? 0.5 : onlyMediumScreen ? 0.57 : 0.65} />
-                </span>
+                <SkautLogo size={onlySmallScreen ? 0.5 : onlyMediumScreen ? 0.57 : 0.65} />
               </IconButton>
               <Typography
                 variant="h6"
