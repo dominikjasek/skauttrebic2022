@@ -1,12 +1,11 @@
 import * as React from 'react'
 import AppBar from '@mui/material/AppBar'
-import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
 import IconButton from '@mui/material/IconButton'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 import { SkautLogo } from '../Logo/SkautLogo'
-import { Stack, useTheme } from '@mui/material'
+import { Box, Stack, useTheme } from '@mui/material'
 import { MobileMenuModal } from './Mobile/MobileMenuModal'
 import { MenuItem as MenuItemType } from './Navbar.interface'
 import Link from 'next/link'
@@ -55,16 +54,9 @@ export const Navbar: React.FC = () => {
         <Toolbar disableGutters>
           <Link href={Routes.home}>
             <Stack direction={'row'} alignItems={'center'} justifyContent={'center'}>
-              <IconButton
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                disableRipple
-                sx={{ color: theme.palette.grey['900'], p: 0, pl: 2, zIndex: 1000 }}
-              >
+              <Box sx={{ color: theme.palette.grey['900'], p: 0, pl: 2, zIndex: 1000, display: 'grid', placeItems: 'center', cursor: 'pointer' }}>
                 <SkautLogo size={onlySmallScreen ? 0.5 : onlyMediumScreen ? 0.57 : 0.65} />
-              </IconButton>
+              </Box>
               <Typography
                 variant="h6"
                 noWrap
