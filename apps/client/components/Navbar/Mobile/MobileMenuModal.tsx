@@ -1,10 +1,11 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Box, useTheme } from '@mui/material'
 import { motion, useCycle } from 'framer-motion'
 import { Stack } from '@mui/system'
 import { MenuItem } from '../Navbar.interface'
 import { MenuToggle } from '~/components/Navbar/Mobile/MenuToggler'
 import { MobileNavigationItems } from '~/components/Navbar/Mobile/MobileNavigationItems'
+import { useLocation } from 'react-use'
 
 interface MobileMenuModalProps {
     items: MenuItem[]
@@ -32,6 +33,13 @@ const sidebar = {
 
 export const MobileMenuModal: React.FC<MobileMenuModalProps> = (props) => {
   const theme = useTheme()
+
+  const { pathname } = useLocation()
+  useEffect(() => {
+    if (isOpen) {
+      toggleOpen()
+    }
+  }, [pathname])
 
   const [isOpen, toggleOpen] = useCycle(false, true)
   const containerRef = useRef(null)
