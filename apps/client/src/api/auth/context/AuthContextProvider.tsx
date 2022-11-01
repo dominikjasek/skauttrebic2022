@@ -25,6 +25,7 @@ export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
 
   const clearUserInfo = () => {
     setAuth(null)
+    jwtCookieStorage.delete()
   }
 
   useEffect(() => {

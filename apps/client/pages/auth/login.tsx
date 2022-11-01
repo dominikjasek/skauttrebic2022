@@ -1,5 +1,5 @@
 import React from 'react'
-import { Alert, Container, FormHelperText, Stack, TextField, Typography, useTheme } from '@mui/material'
+import { Alert, Container, Stack, TextField, Typography, useTheme } from '@mui/material'
 import { useMutation } from 'react-query'
 import { LoginRequest, useAuthRepository } from '~/src/api/auth/AuthRepository'
 import { useForm } from 'react-hook-form'
@@ -9,7 +9,6 @@ import { useRouter } from 'next/router'
 import { useAuth } from '~/src/api/auth/context/AuthContext'
 
 const login: React.FC = () => {
-  const theme = useTheme()
   const {
     register,
     handleSubmit,

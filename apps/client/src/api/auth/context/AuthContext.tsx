@@ -13,7 +13,7 @@ export interface IAuth {
     jwt?: string,
 }
 
-type IAuthContext = { auth: IAuth | null, setAuth: (val: IAuth) => void } | null
+type IAuthContext = { auth: IAuth | null, setAuth: (val: IAuth | null) => void } | null
 
 export const AuthContext = createContext<IAuthContext>(null)
 

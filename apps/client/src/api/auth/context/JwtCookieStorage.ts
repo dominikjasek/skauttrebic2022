@@ -10,6 +10,10 @@ export class JwtCookieStorage {
   get() {
     return Cookie.get(JWT_KEY)?.toString()
   }
+
+  delete() {
+    Cookie.remove(JWT_KEY)
+  }
 }
 
 export const useJwtCookieStorage = () => {

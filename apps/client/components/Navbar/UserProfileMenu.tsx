@@ -6,7 +6,7 @@ import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import Typography from '@mui/material/Typography'
 import { useTheme } from '@mui/material'
-import { useUser } from '~/src/api/auth/context/AuthContext'
+import { useAuth, useUser } from '~/src/api/auth/context/AuthContext'
 
 const settings = ['Profil', 'Nastavení', 'Odhlásit se']
 
@@ -43,6 +43,7 @@ function stringAvatar(name: string) {
 export const UserProfileMenu: React.FC = () => {
   const theme = useTheme()
   const user = useUser()
+  const auth = useAuth()
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
   const open = Boolean(anchorEl)
@@ -83,11 +84,9 @@ export const UserProfileMenu: React.FC = () => {
           'aria-labelledby': 'basic-button',
         }}
       >
-        {settings.map((setting) => (
-          <MenuItem key={setting} >
-            <Typography textAlign="center">{setting}</Typography>
-          </MenuItem>
-        ))}
+        <MenuItem onClick={() => auth!.setAuth(null)}>
+          <Typography textAlign="center">Odhlásit se</Typography>
+        </MenuItem>
       </Menu>
     </>
   )
