@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import Routes from '~/config/routes'
-import { protectedGuardFactory } from '~/src/api/lib/requireAuthentication'
 
 const Test = (props: any) => {
 
@@ -10,7 +9,5 @@ const Test = (props: any) => {
     </>
   )
 }
-
-export const getServerSideProps = protectedGuardFactory()
 
 export default Test

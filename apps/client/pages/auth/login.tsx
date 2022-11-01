@@ -6,7 +6,6 @@ import { useForm } from 'react-hook-form'
 import { isValidEmail } from '~/src/utility/is-email'
 import { LoadingButton } from '@mui/lab'
 import { useRouter } from 'next/router'
-import { publicGuardFactory } from '~/src/api/lib/requirePublic'
 import { useAuth } from '~/src/api/auth/context/AuthContext'
 
 const login: React.FC = () => {
@@ -80,7 +79,5 @@ const login: React.FC = () => {
     </Container>
   )
 }
-
-export const getServerSideProps = publicGuardFactory()
 
 export default login
