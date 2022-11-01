@@ -1,7 +1,7 @@
 import { apiCall, IApiCall } from '~/src/api/lib/apiCall'
 import { TroopEntity, UploadFileEntity } from '~/src/api/gql/graphql'
 
-interface StrapiUser {
+export interface StrapiUser {
   attributes: {
     createdAt: string
     firstname: string
@@ -13,7 +13,7 @@ interface StrapiUser {
   id: number
 }
 
-interface Post {
+export interface Post {
   id: number
   attributes: {
     title: string
