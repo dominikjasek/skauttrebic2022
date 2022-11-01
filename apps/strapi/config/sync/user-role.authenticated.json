@@ -22,6 +22,12 @@
       "action": "api::totem.totem.update"
     },
     {
+      "action": "api::troop.troop.find"
+    },
+    {
+      "action": "api::troop.troop.findOne"
+    },
+    {
       "action": "plugin::comments.client.findAllFlat"
     },
     {

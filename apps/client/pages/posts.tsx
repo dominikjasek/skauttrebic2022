@@ -1,22 +1,33 @@
-import React, { useLayoutEffect } from 'react'
-import { useUser } from '~/src/api/auth/context/AuthContext'
-import { useRouter } from 'next/router'
-import Routes from '~/config/routes'
+import React from 'react'
+import { dehydrate, QueryClient, useQuery } from 'react-query'
+import { usePostsRepository } from '~/src/api/posts/PostsRepository'
+import { Loading } from '~/components/Loading/Loading'
 
 export const posts: React.FC = () => {
-  const user = useUser()
-  const router = useRouter()
+  const postsRepository = usePostsRepository()
+  const { data, isLoading } = useQuery('posts', postsRepository.getPosts)
 
-  useLayoutEffect(() => {
-    // checks if the user is authenticated
-    if (user === null) {
-      router.push(Routes.login)
-    }
-  }, [])
+  if (isLoading) {
+    return <Loading />
+  }
 
   return (
-    <div>posts</div>
+    <>
+      {data && <pre>{JSON.stringify(data,null, 2)}</pre>}
+    </>
   )
+}
+
+export const getServerSideProps = async () => {
+  const postsRepository = usePostsRepository()
+  const queryClient = new QueryClient()
+  await queryClient.prefetchQuery('posts', postsRepository.getPosts)
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    }
+  }
 }
 
 export default posts
