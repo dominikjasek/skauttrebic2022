@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Stack, TextField, Typography } from '@mui/material'
+import { Alert, Container, FormHelperText, Stack, TextField, Typography, useTheme } from '@mui/material'
 import { useMutation } from 'react-query'
 import { LoginRequest, useAuthRepository } from '~/src/api/auth/AuthRepository'
 import { useForm } from 'react-hook-form'
@@ -9,30 +9,38 @@ import { useRouter } from 'next/router'
 import { useAuth } from '~/src/api/auth/context/AuthContext'
 
 const login: React.FC = () => {
+  const theme = useTheme()
   const {
     register,
     handleSubmit,
     formState: { errors },
+    setError
   } = useForm()
   const router = useRouter()
 
   const auth = useAuth()
   const { login } = useAuthRepository()
+  register('form')
 
   const { mutateAsync: execLogin, isLoading: isLoginLoading } = useMutation(async (data: LoginRequest) => {
-    const response = await login(data)
-    auth?.setAuth({
-      jwt: response.jwt,
-      user: {
-        firstName: response.user.firstName,
-        lastName: response.user.lastName,
-        id: response.user.id,
-        email: response.user.email
-      }
-    })
-    await router.replace({
-      pathname: '/',
-    })
+    try {
+      const response = await login(data)
+      auth?.setAuth({
+        jwt: response.jwt,
+        user: {
+          firstName: response.user.firstName,
+          lastName: response.user.lastName,
+          id: response.user.id,
+          email: response.user.email
+        }
+      })
+      await router.replace({
+        pathname: '/',
+      })
+    }
+    catch (err) {
+      setError('form', { type: 'custom', message: 'Neplatné přihlašovací údaje.' })
+    }
   })
 
   return (
@@ -41,6 +49,7 @@ const login: React.FC = () => {
       <Typography align={'center'} sx={{ mb: 2 }}>Vyplňte své údaje.</Typography>
       <form noValidate onSubmit={handleSubmit(data=> execLogin({ identifier: data.email, password: data.password }))} >
         <Stack direction='column' gap={2}>
+          {Boolean(errors.form) && <Alert severity="error">{errors.form?.message as string}</Alert>}
           <TextField
             variant={'outlined'}
             label={'Email'}
