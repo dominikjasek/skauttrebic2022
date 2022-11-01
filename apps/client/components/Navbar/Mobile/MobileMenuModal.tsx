@@ -64,10 +64,10 @@ export const MobileMenuModal: React.FC<MobileMenuModalProps> = (props) => {
             touchAction: isOpen ? 'none' : 'initial'
           }} variants={sidebar}
         >
-          <MobileNavigationItems items={props.items} />
+          <MobileNavigationItems onLogout={toggleOpen} items={props.items} />
         </Stack>
         <Box pr={1.4}>
-          <MenuToggle toggle={() => toggleOpen()} />
+          <MenuToggle toggled={isOpen} toggle={toggleOpen} />
         </Box>
       </motion.nav>
     </Box>

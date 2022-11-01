@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import IconButton from '@mui/material/IconButton'
 import Avatar from '@mui/material/Avatar'
 import { ExpandMore } from '@mui/icons-material'
@@ -7,8 +7,6 @@ import MenuItem from '@mui/material/MenuItem'
 import Typography from '@mui/material/Typography'
 import { useTheme } from '@mui/material'
 import { useAuth, useUser } from '~/src/api/auth/context/AuthContext'
-
-const settings = ['Profil', 'Nastavení', 'Odhlásit se']
 
 function stringToColor(string: string) {
   let hash = 0
@@ -40,7 +38,11 @@ function stringAvatar(name: string) {
   }
 }
 
-export const UserProfileMenu: React.FC = () => {
+interface UserProfileMenuProps {
+  onLogout?: () => void
+}
+
+export const UserProfileMenu: React.FC<UserProfileMenuProps> = ({ onLogout }) => {
   const theme = useTheme()
   const user = useUser()
   const auth = useAuth()
@@ -58,6 +60,11 @@ export const UserProfileMenu: React.FC = () => {
     return (
       <span>prihlas se</span>
     )
+  }
+
+  const logout = () => {
+    auth!.setAuth(null)
+    onLogout?.()
   }
 
   return (
@@ -84,7 +91,7 @@ export const UserProfileMenu: React.FC = () => {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={() => auth!.setAuth(null)}>
+        <MenuItem onClick={logout}>
           <Typography textAlign="center">Odhlásit se</Typography>
         </MenuItem>
       </Menu>
