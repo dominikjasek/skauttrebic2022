@@ -9,11 +9,12 @@ import { useLocation } from 'react-use'
 
 interface MobileMenuModalProps {
     items: MenuItem[]
+    onModalToggle: () => void
 }
 
 const sidebar = {
   open: () => ({
-    clipPath: 'circle(1500px at calc(100% - 35px) 28px)',
+    clipPath: 'circle(1500px at calc(100% - 35px) 32px)',
     transition: {
       type: 'spring',
       stiffness: 70,
@@ -21,7 +22,7 @@ const sidebar = {
     }
   }),
   closed: {
-    clipPath: 'circle(22px at calc(100% - 35px) 28px)',
+    clipPath: 'circle(22px at calc(100% - 35px) 32px)',
     transition: {
       delay: 0.2,
       type: 'spring',
@@ -62,12 +63,16 @@ export const MobileMenuModal: React.FC<MobileMenuModalProps> = (props) => {
             justifyContent: 'center',
             backgroundColor: theme.palette.grey['300'],
             touchAction: isOpen ? 'none' : 'initial'
-          }} variants={sidebar}
+          }}
+          variants={sidebar}
         >
           <MobileNavigationItems onRedirectButtonClick={toggleOpen} onLogout={toggleOpen} items={props.items} />
         </Stack>
         <Box pr={1.4}>
-          <MenuToggle toggled={isOpen} toggle={toggleOpen} />
+          <MenuToggle toggled={isOpen} toggle={() => {
+            toggleOpen()
+            props.onModalToggle()
+          }} />
         </Box>
       </motion.nav>
     </Box>

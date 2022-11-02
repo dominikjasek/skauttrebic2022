@@ -12,8 +12,9 @@ import { DesktopMenuNavigation } from '~/components/Navbar/Desktop/DesktopMenuNa
 import Routes from '~/config/routes'
 import { useScreen } from '~/src/utility/use-screen'
 import { navbarHeight } from '~/components/Navbar/NavbarHeight'
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { useUser } from '~/src/api/auth/context/AuthContext'
+import { useCycle } from 'framer-motion'
 
 const ITEMS: MenuItemType[] = [
   {
@@ -37,6 +38,7 @@ const ITEMS: MenuItemType[] = [
 export const Navbar: React.FC = () => {
   const theme = useTheme()
   const user = useUser()
+  const [isLogoColorful, toggleLogoColorful] = useCycle(false, true)
 
   const menuItems = useMemo(() => {
     const itemsCpy = [...ITEMS]
@@ -48,13 +50,13 @@ export const Navbar: React.FC = () => {
 
   const { onlyMediumScreen, onlySmallScreen } = useScreen()
   return (
-    <AppBar position="fixed" sx={{ backgroundColor: theme.palette.grey['300'], height: { xs: `${navbarHeight.xs}px`, sm: `${navbarHeight.md}px` } }}>
+    <AppBar position="fixed" sx={{ backgroundColor: theme.palette.secondary.main, height: { xs: `${navbarHeight.xs}px`, sm: `${navbarHeight.md}px` } }}>
       <Container maxWidth="xl" disableGutters>
         <Toolbar disableGutters>
           <Link href={Routes.home}>
             <Stack direction={'row'} alignItems={'center'} justifyContent={'center'}>
               <Box sx={{ color: theme.palette.grey['900'], p: 0, pl: 2, zIndex: 1000, display: 'grid', placeItems: 'center', cursor: 'pointer' }}>
-                <SkautLogo size={onlySmallScreen ? 0.5 : onlyMediumScreen ? 0.57 : 0.65} />
+                <SkautLogo black={!isLogoColorful} size={onlySmallScreen ? 0.5 : onlyMediumScreen ? 0.57 : 0.65} />
               </Box>
               <Typography
                 variant="h6"
@@ -75,7 +77,7 @@ export const Navbar: React.FC = () => {
               </Typography>
             </Stack>
           </Link>
-          <MobileMenuModal items={menuItems} />
+          <MobileMenuModal onModalToggle={toggleLogoColorful} items={menuItems} />
           <DesktopMenuNavigation items={menuItems} />
         </Toolbar>
       </Container>
