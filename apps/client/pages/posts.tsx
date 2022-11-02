@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import { dehydrate, QueryClient, useQuery } from 'react-query'
+import { useQuery } from 'react-query'
 import { usePostsRepository } from '~/src/api/posts/PostsRepository'
 import { Loading } from '~/components/Loading/Loading'
 import { Box } from '@mui/material'

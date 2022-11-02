@@ -1,7 +1,6 @@
 import * as React from 'react'
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
-import IconButton from '@mui/material/IconButton'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 import { SkautLogo } from '../Logo/SkautLogo'
@@ -15,8 +14,6 @@ import { useScreen } from '~/src/utility/use-screen'
 import { navbarHeight } from '~/components/Navbar/NavbarHeight'
 import { useMemo } from 'react'
 import { useUser } from '~/src/api/auth/context/AuthContext'
-import { useJwtCookieStorage } from '~/src/api/auth/context/JwtCookieStorage'
-import { isServer } from '~/src/utility/isServer'
 
 const ITEMS: MenuItemType[] = [
   {

@@ -10,6 +10,7 @@ import { useUser } from '~/src/api/auth/context/AuthContext'
 interface MobileNavigationItemsProps {
     items: MenuItem[]
     onLogout: () => void
+    onRedirectButtonClick: () => void
 }
 
 const staggerVariants = {
@@ -74,13 +75,13 @@ const MenuLink = styled(Typography)(({ theme })=>({
   textAlign: 'center'
 }))
 
-export const MobileNavigationItems: React.FC<MobileNavigationItemsProps> = ({ items, onLogout }) => {
+export const MobileNavigationItems: React.FC<MobileNavigationItemsProps> = ({ items, onRedirectButtonClick, onLogout }) => {
   const user = useUser()
 
   return (
     <AnimationRoot>
       {items.map(item => (
-        <div key={item.label}>
+        <div key={item.label} onClick={onRedirectButtonClick}>
           <AnimationUl>
             <Link href={item.link} key={item.label}>
               <MenuLink>
