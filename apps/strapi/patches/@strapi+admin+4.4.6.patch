@@ -110,6 +110,736 @@ index 9621b9d..3a6d68c 100644
      </>
    );
  }
+diff --git a/node_modules/@strapi/admin/admin/src/content-manager/pages/EditView/index.js b/node_modules/@strapi/admin/admin/src/content-manager/pages/EditView/index.js
+index 9d8c0c9..201c384 100644
+--- a/node_modules/@strapi/admin/admin/src/content-manager/pages/EditView/index.js
++++ b/node_modules/@strapi/admin/admin/src/content-manager/pages/EditView/index.js
+@@ -38,15 +38,15 @@ const ctbPermissions = [{ action: 'plugin::content-type-builder.read', subject:
+
+ /* eslint-disable  react/no-array-index-key */
+ const EditView = ({
+-  allowedActions,
+-  isSingleType,
+-  goBack,
+-  layout,
+-  slug,
+-  id,
+-  origin,
+-  userPermissions,
+-}) => {
++                    allowedActions,
++                    isSingleType,
++                    goBack,
++                    layout,
++                    slug,
++                    id,
++                    origin,
++                    userPermissions,
++                  }) => {
+   const { trackUsage } = useTracking();
+   const { formatMessage } = useIntl();
+   const { createActionAllowedFields, readActionAllowedFields, updateActionAllowedFields } =
+@@ -95,20 +95,20 @@ const EditView = ({
+   return (
+     <DataManagementWrapper allLayoutData={layout} slug={slug} id={id} origin={origin}>
+       {({
+-        componentsDataStructure,
+-        contentTypeDataStructure,
+-        data,
+-        isCreatingEntry,
+-        isLoadingForData,
+-        onDelete,
+-        onDeleteSucceeded,
+-        onPost,
+-        onPublish,
+-        onPut,
+-        onUnpublish,
+-        redirectionLink,
+-        status,
+-      }) => {
++          componentsDataStructure,
++          contentTypeDataStructure,
++          data,
++          isCreatingEntry,
++          isLoadingForData,
++          onDelete,
++          onDeleteSucceeded,
++          onPost,
++          onPublish,
++          onPut,
++          onUnpublish,
++          redirectionLink,
++          status,
++        }) => {
+         return (
+           <EditViewDataManagerProvider
+             allowedActions={allowedActions}
+@@ -131,129 +131,114 @@ const EditView = ({
+             status={status}
+             updateActionAllowedFields={updateActionAllowedFields}
+           >
+-            <Main aria-busy={status !== 'resolved'}>
+-              <Header allowedActions={allowedActions} />
+-              <ContentLayout>
+-                <Grid gap={4}>
+-                  <GridItem col={9} s={12}>
+-                    <Suspense fallback={<LoadingIndicatorPage />}>
+-                      <Stack spacing={6}>
+-                        {formattedContentTypeLayout.map((row, index) => {
+-                          if (isDynamicZone(row)) {
+-                            const {
+-                              0: {
+-                                0: { name, fieldSchema, metadatas, labelAction },
+-                              },
+-                            } = row;
++            <div style={{marginLeft: '-50px', marginRight: '-50px'}}>
++              <Main aria-busy={status !== 'resolved'}>
++                <Header allowedActions={allowedActions} />
++                <ContentLayout>
++                  <Grid gap={4}>
++                    <GridItem col={9} s={12}>
++                      <Suspense fallback={<LoadingIndicatorPage />}>
++                        <Stack spacing={6}>
++                          {formattedContentTypeLayout.map((row, index) => {
++                            if (isDynamicZone(row)) {
++                              const {
++                                0: {
++                                  0: { name, fieldSchema, metadatas, labelAction },
++                                },
++                              } = row;
++
++                              return (
++                                <Box key={index}>
++                                  <Grid gap={4}>
++                                    <GridItem col={12} s={12} xs={12}>
++                                      <DynamicZone
++                                        name={name}
++                                        fieldSchema={fieldSchema}
++                                        labelAction={labelAction}
++                                        metadatas={metadatas}
++                                      />
++                                    </GridItem>
++                                  </Grid>
++                                </Box>
++                              );
++                            }
+
+                             return (
+-                              <Box key={index}>
+-                                <Grid gap={4}>
+-                                  <GridItem col={12} s={12} xs={12}>
+-                                    <DynamicZone
+-                                      name={name}
+-                                      fieldSchema={fieldSchema}
+-                                      labelAction={labelAction}
+-                                      metadatas={metadatas}
+-                                    />
+-                                  </GridItem>
+-                                </Grid>
+-                              </Box>
+-                            );
+-                          }
++                              <Box
++                                key={index}
++                                hasRadius
++                                background="neutral0"
++                                shadow="tableShadow"
++                                paddingLeft={6}
++                                paddingRight={6}
++                                paddingTop={6}
++                                paddingBottom={6}
++                                borderColor="neutral150"
++                              >
++                                <Stack spacing={6}>
++                                  {row.map((grid, gridIndex) => {
++                                    return (
++                                      <Grid gap={4} key={gridIndex}>
++                                        {grid.map(
++                                          ({ fieldSchema, labelAction, metadatas, name, size }) => {
++                                            const isComponent = fieldSchema.type === 'component';
+
+-                          return (
+-                            <Box
+-                              key={index}
+-                              hasRadius
+-                              background="neutral0"
+-                              shadow="tableShadow"
+-                              paddingLeft={6}
+-                              paddingRight={6}
+-                              paddingTop={6}
+-                              paddingBottom={6}
+-                              borderColor="neutral150"
+-                            >
+-                              <Stack spacing={6}>
+-                                {row.map((grid, gridIndex) => {
+-                                  return (
+-                                    <Grid gap={4} key={gridIndex}>
+-                                      {grid.map(
+-                                        ({ fieldSchema, labelAction, metadatas, name, size }) => {
+-                                          const isComponent = fieldSchema.type === 'component';
++                                            if (isComponent) {
++                                              const {
++                                                component,
++                                                max,
++                                                min,
++                                                repeatable = false,
++                                                required = false,
++                                              } = fieldSchema;
+
+-                                          if (isComponent) {
+-                                            const {
+-                                              component,
+-                                              max,
+-                                              min,
+-                                              repeatable = false,
+-                                              required = false,
+-                                            } = fieldSchema;
++                                              return (
++                                                <GridItem col={size} s={12} xs={12} key={component}>
++                                                  <FieldComponent
++                                                    componentUid={component}
++                                                    labelAction={labelAction}
++                                                    isRepeatable={repeatable}
++                                                    intlLabel={{
++                                                      id: metadatas.label,
++                                                      defaultMessage: metadatas.label,
++                                                    }}
++                                                    max={max}
++                                                    min={min}
++                                                    name={name}
++                                                    required={required}
++                                                  />
++                                                </GridItem>
++                                              );
++                                            }
+
+                                             return (
+-                                              <GridItem col={size} s={12} xs={12} key={component}>
+-                                                <FieldComponent
+-                                                  componentUid={component}
++                                              <GridItem col={size} key={name} s={12} xs={12}>
++                                                <Inputs
++                                                  fieldSchema={fieldSchema}
++                                                  keys={name}
+                                                   labelAction={labelAction}
+-                                                  isRepeatable={repeatable}
+-                                                  intlLabel={{
+-                                                    id: metadatas.label,
+-                                                    defaultMessage: metadatas.label,
+-                                                  }}
+-                                                  max={max}
+-                                                  min={min}
+-                                                  name={name}
+-                                                  required={required}
++                                                  metadatas={metadatas}
+                                                 />
+                                               </GridItem>
+                                             );
+                                           }
+-
+-                                          return (
+-                                            <GridItem col={size} key={name} s={12} xs={12}>
+-                                              <Inputs
+-                                                fieldSchema={fieldSchema}
+-                                                keys={name}
+-                                                labelAction={labelAction}
+-                                                metadatas={metadatas}
+-                                              />
+-                                            </GridItem>
+-                                          );
+-                                        }
+-                                      )}
+-                                    </Grid>
+-                                  );
+-                                })}
+-                              </Stack>
+-                            </Box>
+-                          );
+-                        })}
+-                      </Stack>
+-                    </Suspense>
+-                  </GridItem>
+-                  <GridItem col={3} s={12}>
+-                    <Stack spacing={2}>
+-                      <DraftAndPublishBadge />
+-                      <Box
+-                        as="aside"
+-                        aria-labelledby="additional-informations"
+-                        background="neutral0"
+-                        borderColor="neutral150"
+-                        hasRadius
+-                        paddingBottom={4}
+-                        paddingLeft={4}
+-                        paddingRight={4}
+-                        paddingTop={6}
+-                        shadow="tableShadow"
+-                      >
+-                        <Informations />
+-                        <InjectionZone area="contentManager.editView.informations" />
+-                      </Box>
+-                      {displayedRelationsLength > 0 && (
++                                        )}
++                                      </Grid>
++                                    );
++                                  })}
++                                </Stack>
++                              </Box>
++                            );
++                          })}
++                        </Stack>
++                      </Suspense>
++                    </GridItem>
++                    <GridItem col={3} s={12}>
++                      <Stack spacing={2}>
++                        <DraftAndPublishBadge />
+                         <Box
+                           as="aside"
+-                          aria-labelledby="relations-title"
++                          aria-labelledby="additional-informations"
+                           background="neutral0"
+                           borderColor="neutral150"
+                           hasRadius
+@@ -263,103 +248,121 @@ const EditView = ({
+                           paddingTop={6}
+                           shadow="tableShadow"
+                         >
+-                          <Typography variant="sigma" textColor="neutral600" id="relations-title">
+-                            {formatMessage(
+-                              {
+-                                id: getTrad('containers.Edit.relations'),
+-                                defaultMessage:
+-                                  '{number, plural, =0 {relations} one {relation} other {relations}}',
+-                              },
+-                              { number: displayedRelationsLength }
+-                            )}
+-                          </Typography>
+-                          <Box paddingTop={2} paddingBottom={6}>
+-                            <Divider />
+-                          </Box>
+-                          <Stack spacing={4}>
+-                            {relationsLayout.map(
+-                              ({ name, fieldSchema, labelAction, metadatas, queryInfos }) => {
+-                                return (
+-                                  <SelectWrapper
+-                                    {...fieldSchema}
+-                                    {...metadatas}
+-                                    key={name}
+-                                    description={metadatas.description}
+-                                    intlLabel={{
+-                                      id: metadatas.label,
+-                                      defaultMessage: metadatas.label,
+-                                    }}
+-                                    labelAction={labelAction}
+-                                    name={name}
+-                                    relationsType={fieldSchema.relationType}
+-                                    queryInfos={queryInfos}
+-                                    placeholder={
+-                                      metadatas.placeholder
+-                                        ? {
++                          <Informations />
++                          <InjectionZone area="contentManager.editView.informations" />
++                        </Box>
++                        {displayedRelationsLength > 0 && (
++                          <Box
++                            as="aside"
++                            aria-labelledby="relations-title"
++                            background="neutral0"
++                            borderColor="neutral150"
++                            hasRadius
++                            paddingBottom={4}
++                            paddingLeft={4}
++                            paddingRight={4}
++                            paddingTop={6}
++                            shadow="tableShadow"
++                          >
++                            <Typography variant="sigma" textColor="neutral600" id="relations-title">
++                              {formatMessage(
++                                {
++                                  id: getTrad('containers.Edit.relations'),
++                                  defaultMessage:
++                                    '{number, plural, =0 {relations} one {relation} other {relations}}',
++                                },
++                                { number: displayedRelationsLength }
++                              )}
++                            </Typography>
++                            <Box paddingTop={2} paddingBottom={6}>
++                              <Divider />
++                            </Box>
++                            <Stack spacing={4}>
++                              {relationsLayout.map(
++                                ({ name, fieldSchema, labelAction, metadatas, queryInfos }) => {
++                                  return (
++                                    <SelectWrapper
++                                      {...fieldSchema}
++                                      {...metadatas}
++                                      key={name}
++                                      description={metadatas.description}
++                                      intlLabel={{
++                                        id: metadatas.label,
++                                        defaultMessage: metadatas.label,
++                                      }}
++                                      labelAction={labelAction}
++                                      name={name}
++                                      relationsType={fieldSchema.relationType}
++                                      queryInfos={queryInfos}
++                                      placeholder={
++                                        metadatas.placeholder
++                                          ? {
+                                             id: metadatas.placeholder,
+                                             defaultMessage: metadatas.placeholder,
+                                           }
+-                                        : null
+-                                    }
+-                                  />
+-                                );
+-                              }
++                                          : null
++                                      }
++                                    />
++                                  );
++                                }
++                              )}
++                            </Stack>
++                          </Box>
++                        )}
++                        <Box as="aside" aria-labelledby="links">
++                          <Stack spacing={2}>
++                            <InjectionZone area="contentManager.editView.right-links" slug={slug} />
++                            {slug !== 'strapi::administrator' && (
++                              <CheckPermissions permissions={ctbPermissions}>
++                                <LinkButton
++                                  onClick={() => {
++                                    trackUsage('willEditEditLayout');
++                                  }}
++                                  size="S"
++                                  startIcon={<Pencil />}
++                                  style={{ width: '100%' }}
++                                  to={`/plugins/content-type-builder/content-types/${slug}`}
++                                  variant="secondary"
++                                >
++                                  {formatMessage({
++                                    id: getTrad('link-to-ctb'),
++                                    defaultMessage: 'Edit the model',
++                                  })}
++                                </LinkButton>
++                              </CheckPermissions>
+                             )}
+-                          </Stack>
+-                        </Box>
+-                      )}
+-                      <Box as="aside" aria-labelledby="links">
+-                        <Stack spacing={2}>
+-                          <InjectionZone area="contentManager.editView.right-links" slug={slug} />
+-                          {slug !== 'strapi::administrator' && (
+-                            <CheckPermissions permissions={ctbPermissions}>
++
++                            <CheckPermissions permissions={configurationPermissions}>
+                               <LinkButton
+-                                onClick={() => {
+-                                  trackUsage('willEditEditLayout');
+-                                }}
+                                 size="S"
+-                                startIcon={<Pencil />}
++                                startIcon={<Layer />}
+                                 style={{ width: '100%' }}
+-                                to={`/plugins/content-type-builder/content-types/${slug}`}
++                                to={configurationsURL}
+                                 variant="secondary"
+                               >
+                                 {formatMessage({
+-                                  id: getTrad('link-to-ctb'),
+-                                  defaultMessage: 'Edit the model',
++                                  id: 'app.links.configure-view',
++                                  defaultMessage: 'Configure the view',
+                                 })}
+                               </LinkButton>
+                             </CheckPermissions>
+-                          )}
+
+-                          <CheckPermissions permissions={configurationPermissions}>
+-                            <LinkButton
+-                              size="S"
+-                              startIcon={<Layer />}
+-                              style={{ width: '100%' }}
+-                              to={configurationsURL}
+-                              variant="secondary"
+-                            >
+-                              {formatMessage({
+-                                id: 'app.links.configure-view',
+-                                defaultMessage: 'Configure the view',
+-                              })}
+-                            </LinkButton>
+-                          </CheckPermissions>
++                            {allowedActions.canDelete && (
++                              <DeleteLink
++                                isCreatingEntry={isCreatingEntry}
++                                onDelete={onDelete}
++                                onDeleteSucceeded={onDeleteSucceeded}
++                              />
++                            )}
++                          </Stack>
++                        </Box>
++                      </Stack>
++                    </GridItem>
++                  </Grid>
++                </ContentLayout>
++              </Main>
++            </div>
+
+-                          {allowedActions.canDelete && (
+-                            <DeleteLink
+-                              isCreatingEntry={isCreatingEntry}
+-                              onDelete={onDelete}
+-                              onDeleteSucceeded={onDeleteSucceeded}
+-                            />
+-                          )}
+-                        </Stack>
+-                      </Box>
+-                    </Stack>
+-                  </GridItem>
+-                </Grid>
+-              </ContentLayout>
+-            </Main>
+           </EditViewDataManagerProvider>
+         );
+       }}
+diff --git a/node_modules/@strapi/admin/admin/src/content-manager/pages/ListView/index.js b/node_modules/@strapi/admin/admin/src/content-manager/pages/ListView/index.js
+index bb65f3c..1bdcc61 100644
+--- a/node_modules/@strapi/admin/admin/src/content-manager/pages/ListView/index.js
++++ b/node_modules/@strapi/admin/admin/src/content-manager/pages/ListView/index.js
+@@ -9,6 +9,7 @@ import { useHistory, useLocation, Link as ReactRouterLink } from 'react-router-d
+ import get from 'lodash/get';
+ import { stringify } from 'qs';
+ import axios from 'axios';
++import { isMobile } from './../../../pages/Admin'
+
+ import {
+   NoPermissions,
+@@ -60,17 +61,17 @@ const ConfigureLayoutBox = styled(Box)`
+ `;
+
+ function ListView({
+-  canCreate,
+-  canDelete,
+-  canRead,
+-  data,
+-  getData,
+-  getDataSucceeded,
+-  isLoading,
+-  layout,
+-  pagination,
+-  slug,
+-}) {
++                    canCreate,
++                    canDelete,
++                    canRead,
++                    data,
++                    getData,
++                    getDataSucceeded,
++                    isLoading,
++                    layout,
++                    pagination,
++                    slug,
++                  }) {
+   const { total } = pagination;
+   const {
+     contentType: {
+@@ -235,12 +236,12 @@ function ListView({
+
+   const subtitle = canRead
+     ? formatMessage(
+-        {
+-          id: getTrad('pages.ListView.header-subtitle'),
+-          defaultMessage: '{number, plural, =0 {# entries} one {# entry} other {# entries}} found',
+-        },
+-        { number: total }
+-      )
++      {
++        id: getTrad('pages.ListView.header-subtitle'),
++        defaultMessage: '{number, plural, =0 {# entries} one {# entry} other {# entries}} found',
++      },
++      { number: total }
++    )
+     : null;
+
+   const getCreateAction = (props) =>
+@@ -268,92 +269,94 @@ function ListView({
+     ) : null;
+
+   return (
+-    <Main aria-busy={isLoading}>
+-      <HeaderLayout
+-        primaryAction={getCreateAction()}
+-        subtitle={subtitle}
+-        title={headerLayoutTitle}
+-        navigationAction={
+-          <Link startIcon={<ArrowLeft />} to="/content-manager/">
+-            {formatMessage({
+-              id: 'global.back',
+-              defaultMessage: 'Back',
+-            })}
+-          </Link>
+-        }
+-      />
+-      {!canRead && (
+-        <ActionLayout endActions={<InjectionZone area="contentManager.listView.actions" />} />
+-      )}
+-      {canRead && (
+-        <ActionLayout
+-          endActions={
+-            <>
+-              <InjectionZone area="contentManager.listView.actions" />
+-              <FieldPicker layout={layout} />
+-              <CheckPermissions permissions={cmPermissions.collectionTypesConfigurations}>
+-                <ConfigureLayoutBox paddingTop={1} paddingBottom={1}>
+-                  <IconButton
+-                    onClick={() => {
+-                      trackUsage('willEditListLayout');
+-                    }}
+-                    forwardedAs={ReactRouterLink}
+-                    to={{ pathname: `${slug}/configurations/list`, search: pluginsQueryParams }}
+-                    icon={<Cog />}
+-                    label={formatMessage({
+-                      id: 'app.links.configure-view',
+-                      defaultMessage: 'Configure the view',
++    <div style={ isMobile() ? {marginLeft: '-50px', marginRight: '-50px'} : {}}>
++      <Main aria-busy={isLoading}>
++        <HeaderLayout
++          primaryAction={getCreateAction()}
++          subtitle={subtitle}
++          title={headerLayoutTitle}
++          navigationAction={
++            <Link startIcon={<ArrowLeft />} to="/content-manager/">
++              {formatMessage({
++                id: 'global.back',
++                defaultMessage: 'Back',
++              })}
++            </Link>
++          }
++        />
++        {!canRead && (
++          <ActionLayout endActions={<InjectionZone area="contentManager.listView.actions" />} />
++        )}
++        {canRead && (
++          <ActionLayout
++            endActions={
++              <>
++                <InjectionZone area="contentManager.listView.actions" />
++                <FieldPicker layout={layout} />
++                <CheckPermissions permissions={cmPermissions.collectionTypesConfigurations}>
++                  <ConfigureLayoutBox paddingTop={1} paddingBottom={1}>
++                    <IconButton
++                      onClick={() => {
++                        trackUsage('willEditListLayout');
++                      }}
++                      forwardedAs={ReactRouterLink}
++                      to={{ pathname: `${slug}/configurations/list`, search: pluginsQueryParams }}
++                      icon={<Cog />}
++                      label={formatMessage({
++                        id: 'app.links.configure-view',
++                        defaultMessage: 'Configure the view',
++                      })}
++                    />
++                  </ConfigureLayoutBox>
++                </CheckPermissions>
++              </>
++            }
++            startActions={
++              <>
++                {isSearchable && (
++                  <SearchURLQuery
++                    label={formatMessage(
++                      { id: 'app.component.search.label', defaultMessage: 'Search for {target}' },
++                      { target: headerLayoutTitle }
++                    )}
++                    placeholder={formatMessage({
++                      id: 'global.search',
++                      defaultMessage: 'Search',
+                     })}
++                    trackedEvent="didSearch"
+                   />
+-                </ConfigureLayoutBox>
+-              </CheckPermissions>
+-            </>
+-          }
+-          startActions={
++                )}
++                {isFilterable && (
++                  <AttributeFilter contentType={contentType} slug={slug} metadatas={metadatas} />
++                )}
++              </>
++            }
++          />
++        )}
++        <ContentLayout>
++          {canRead ? (
+             <>
+-              {isSearchable && (
+-                <SearchURLQuery
+-                  label={formatMessage(
+-                    { id: 'app.component.search.label', defaultMessage: 'Search for {target}' },
+-                    { target: headerLayoutTitle }
+-                  )}
+-                  placeholder={formatMessage({
+-                    id: 'global.search',
+-                    defaultMessage: 'Search',
+-                  })}
+-                  trackedEvent="didSearch"
+-                />
+-              )}
+-              {isFilterable && (
+-                <AttributeFilter contentType={contentType} slug={slug} metadatas={metadatas} />
+-              )}
++              <DynamicTable
++                canCreate={canCreate}
++                canDelete={canDelete}
++                contentTypeName={headerLayoutTitle}
++                onConfirmDeleteAll={handleConfirmDeleteAllData}
++                onConfirmDelete={handleConfirmDeleteData}
++                isBulkable={isBulkable}
++                isLoading={isLoading}
++                // FIXME: remove the layout props drilling
++                layout={layout}
++                rows={data}
++                action={getCreateAction({ variant: 'secondary' })}
++              />
++              <PaginationFooter pagination={{ pageCount: pagination?.pageCount || 1 }} />
+             </>
+-          }
+-        />
+-      )}
+-      <ContentLayout>
+-        {canRead ? (
+-          <>
+-            <DynamicTable
+-              canCreate={canCreate}
+-              canDelete={canDelete}
+-              contentTypeName={headerLayoutTitle}
+-              onConfirmDeleteAll={handleConfirmDeleteAllData}
+-              onConfirmDelete={handleConfirmDeleteData}
+-              isBulkable={isBulkable}
+-              isLoading={isLoading}
+-              // FIXME: remove the layout props drilling
+-              layout={layout}
+-              rows={data}
+-              action={getCreateAction({ variant: 'secondary' })}
+-            />
+-            <PaginationFooter pagination={{ pageCount: pagination?.pageCount || 1 }} />
+-          </>
+-        ) : (
+-          <NoPermissions />
+-        )}
+-      </ContentLayout>
+-    </Main>
++          ) : (
++            <NoPermissions />
++          )}
++        </ContentLayout>
++      </Main>
++    </div>
+   );
+ }
+
 diff --git a/node_modules/@strapi/admin/admin/src/pages/Admin/index.js b/node_modules/@strapi/admin/admin/src/pages/Admin/index.js
 index 13676c4..4089cd8 100644
 --- a/node_modules/@strapi/admin/admin/src/pages/Admin/index.js
