@@ -8,7 +8,7 @@ text: string
 
 export const AboutUs: React.FC<AboutUsProps> = ({ text }) => {
   const theme = useTheme()
-  const { onlyMediumScreen } = useScreen()
+  const { onlySmallScreen, onlyMediumScreen } = useScreen()
 
   return (
     <Box sx={{
@@ -23,17 +23,19 @@ export const AboutUs: React.FC<AboutUsProps> = ({ text }) => {
       padding: '60px',
     }}>
       <Stack m={'auto'} maxWidth={onlyMediumScreen ? 'auto' : '60%'} flexDirection={onlyMediumScreen ? 'column' : 'row'} gap={'40px'}>
-        <Stack justifyContent="center">
-          <Typography variant={'h2'}>
-            O&#160;nás
-          </Typography>
-        </Stack>
-        <Divider
-          sx={{
-            bgcolor: 'white',
-          }}
-          flexItem orientation={onlyMediumScreen ? 'horizontal' : 'vertical'}
-        />
+        {!onlySmallScreen && <>
+          <Stack justifyContent="center">
+            <Typography variant={'h2'}>
+              O&#160;nás
+            </Typography>
+          </Stack>
+          <Divider
+            sx={{
+              bgcolor: 'white',
+            }}
+            flexItem orientation={onlyMediumScreen ? 'horizontal' : 'vertical'}
+          />
+        </>}
         <div>{text}</div>
       </Stack>
     </Box>
