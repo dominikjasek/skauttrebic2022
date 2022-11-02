@@ -2,7 +2,7 @@ import React, { useMemo } from 'react'
 import { dehydrate, QueryClient, useQuery } from 'react-query'
 import { usePostsRepository } from '~/src/api/posts/PostsRepository'
 import { Loading } from '~/components/Loading/Loading'
-import { Box } from '@mui/material'
+import { Box, Container } from '@mui/material'
 import { PostBox } from '~/components/Posts/PostBox'
 import { NextPage } from 'next'
 
@@ -20,11 +20,14 @@ export const Posts: NextPage = () => {
   }
 
   return (
-    <Box>
-      {posts.map(post => (
-        <PostBox key={post.id} post={post} />
-      ))}
-    </Box>
+    <Container >
+
+      <Box>
+        {posts.map(post => (
+          <PostBox key={post.id} post={post} />
+        ))}
+      </Box>
+    </Container>
   )
 }
 
