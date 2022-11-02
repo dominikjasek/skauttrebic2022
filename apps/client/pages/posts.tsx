@@ -28,7 +28,7 @@ export const Posts: NextPage = () => {
   )
 }
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const postsRepository = usePostsRepository()
   const queryClient = new QueryClient()
   await queryClient.prefetchQuery('posts', postsRepository.getPosts)
@@ -37,6 +37,7 @@ export const getServerSideProps = async () => {
     props: {
       dehydratedState: dehydrate(queryClient),
     },
+    revalidate: 30,
   }
 }
 
