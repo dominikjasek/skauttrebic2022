@@ -1,5 +1,5 @@
 diff --git a/node_modules/@strapi/admin/admin/src/components/LeftMenu/index.js b/node_modules/@strapi/admin/admin/src/components/LeftMenu/index.js
-index 23b936b..946ebef 100644
+index 23b936b..8042d01 100644
 --- a/node_modules/@strapi/admin/admin/src/components/LeftMenu/index.js
 +++ b/node_modules/@strapi/admin/admin/src/components/LeftMenu/index.js
 @@ -39,7 +39,7 @@ const LinkUser = styled(RouterNavLink)`
@@ -11,15 +11,22 @@ index 23b936b..946ebef 100644
      text-decoration: none;
    }
 
-@@ -50,7 +50,7 @@ const LinkUser = styled(RouterNavLink)`
+@@ -50,13 +50,13 @@ const LinkUser = styled(RouterNavLink)`
    }
  `;
 
 -const LeftMenu = ({ generalSectionLinks, pluginsSectionLinks }) => {
-+const LeftMenu = ({ generalSectionLinks, pluginsSectionLinks, onToggle }) => {
++const LeftMenu = ({ generalSectionLinks, pluginsSectionLinks, initCondensedState, onToggle }) => {
    const buttonRef = useRef();
    const [userLinksVisible, setUserLinksVisible] = useState(false);
    const {
+     logos: { menu },
+   } = useConfigurations();
+-  const [condensed, setCondensed] = usePersistentState('navbar-condensed', false);
++  const [condensed, setCondensed] = usePersistentState('navbar-condensed', initCondensedState);
+   const { userDisplayName } = useAppInfos();
+   const { formatMessage } = useIntl();
+
 @@ -87,6 +87,13 @@ const LeftMenu = ({ generalSectionLinks, pluginsSectionLinks }) => {
      defaultMessage: 'Strapi Dashboard',
    });
@@ -60,10 +67,14 @@ index 23b936b..946ebef 100644
      </MainNav>
    );
 diff --git a/node_modules/@strapi/admin/admin/src/content-manager/pages/App/index.js b/node_modules/@strapi/admin/admin/src/content-manager/pages/App/index.js
-index 9621b9d..5c2a332 100644
+index 9621b9d..3a6d68c 100644
 --- a/node_modules/@strapi/admin/admin/src/content-manager/pages/App/index.js
 +++ b/node_modules/@strapi/admin/admin/src/content-manager/pages/App/index.js
-@@ -25,7 +25,7 @@ import useModels from './useModels';
+@@ -22,10 +22,11 @@ import NoPermissions from '../NoPermissions';
+ import SingleTypeRecursivePath from '../SingleTypeRecursivePath';
+ import LeftMenu from './LeftMenu';
+ import useModels from './useModels';
++import {isMobile} from "./../../../pages/Admin";
 
  const cmPermissions = permissions.contentManager;
 
@@ -72,19 +83,16 @@ index 9621b9d..5c2a332 100644
    const contentTypeMatch = useRouteMatch(`/content-manager/:kind/:uid`);
    const { status, collectionTypeLinks, singleTypeLinks, models, refetchData } = useModels();
    const authorisedModels = sortBy([...collectionTypeLinks, ...singleTypeLinks], (model) =>
-@@ -83,8 +83,10 @@ const App = () => {
-     );
+@@ -84,7 +85,7 @@ const App = () => {
    }
 
-+  const isMobile = window.innerWidth < 750
-+
    return (
 -    <Layout sideNav={<LeftMenu />}>
-+    <Layout sideNav={isMobile ? isLeftMenuOpen ? <LeftMenu /> : <></> : <LeftMenu />}>
++    <Layout sideNav={isMobile() ? isLeftMenuOpen ? <LeftMenu /> : <></> : <LeftMenu />}>
        <DragLayer />
        <ModelsContext.Provider value={{ refetchData }}>
          <Switch>
-@@ -114,7 +116,7 @@ const App = () => {
+@@ -114,7 +115,7 @@ const App = () => {
 
  export { App };
 
@@ -93,7 +101,7 @@ index 9621b9d..5c2a332 100644
    const { formatMessage } = useIntl();
 
    return (
-@@ -122,7 +124,7 @@ export default function () {
+@@ -122,7 +123,7 @@ export default function () {
        <Helmet
          title={formatMessage({ id: getTrad('plugin.name'), defaultMessage: 'Content Manager' })}
        />
@@ -103,7 +111,7 @@ index 9621b9d..5c2a332 100644
    );
  }
 diff --git a/node_modules/@strapi/admin/admin/src/pages/Admin/index.js b/node_modules/@strapi/admin/admin/src/pages/Admin/index.js
-index 13676c4..60f9292 100644
+index 13676c4..4089cd8 100644
 --- a/node_modules/@strapi/admin/admin/src/pages/Admin/index.js
 +++ b/node_modules/@strapi/admin/admin/src/pages/Admin/index.js
 @@ -4,7 +4,7 @@
@@ -115,23 +123,30 @@ index 13676c4..60f9292 100644
  import { Switch, Route } from 'react-router-dom';
  import { useTracking, LoadingIndicatorPage, useStrapiApp } from '@strapi/helper-plugin';
  import { useDispatch, useSelector } from 'react-redux';
-@@ -65,6 +65,7 @@ const Admin = () => {
+@@ -61,10 +61,13 @@ const useTrackUsage = () => {
+   }, [appStatus]);
+ };
+
++export const isMobile = () => window.innerWidth < 700
++
+ const Admin = () => {
    useTrackUsage();
    const { isLoading, generalSectionLinks, pluginsSectionLinks } = useMenu();
    const { menu } = useStrapiApp();
-+  const [isLeftMenuOpen, setIsLeftMenuOpen] = useState(false)
++  const [isLeftMenuOpen, setIsLeftMenuOpen] = useState(!isMobile())
 
    const routes = useMemo(() => {
      return menu
-@@ -83,6 +84,7 @@ const Admin = () => {
+@@ -83,6 +86,8 @@ const Admin = () => {
            <LeftMenu
              generalSectionLinks={generalSectionLinks}
              pluginsSectionLinks={pluginsSectionLinks}
++            initCondensedState={!isLeftMenuOpen}
 +            onToggle={setIsLeftMenuOpen}
            />
          }
        >
-@@ -90,7 +92,7 @@ const Admin = () => {
+@@ -90,7 +95,7 @@ const Admin = () => {
            <Switch>
              <Route path="/" component={HomePage} exact />
              <Route path="/me" component={ProfilePage} exact />
