@@ -12,10 +12,10 @@
     "cs-export": "yarn cs e -y",
     "dev": "strapi develop",
     "start": "strapi start",
-    "build": "yarn translate && strapi build",
+    "build": "strapi build",
     "strapi": "strapi",
     "lint": "eslint",
-    "postinstall": "yarn patch-package"
+    "postinstall": "yarn patch-package && yarn translate"
   },
   "imports": {
     "#config/*": "./config/*",

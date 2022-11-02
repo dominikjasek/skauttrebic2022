@@ -1,0 +1,142 @@
+diff --git a/node_modules/@strapi/admin/admin/src/components/LeftMenu/index.js b/node_modules/@strapi/admin/admin/src/components/LeftMenu/index.js
+index 23b936b..946ebef 100644
+--- a/node_modules/@strapi/admin/admin/src/components/LeftMenu/index.js
++++ b/node_modules/@strapi/admin/admin/src/components/LeftMenu/index.js
+@@ -39,7 +39,7 @@ const LinkUser = styled(RouterNavLink)`
+
+   &:hover {
+     background: ${({ theme, logout }) =>
+-      logout ? theme.colors.danger100 : theme.colors.primary100};
++  logout ? theme.colors.danger100 : theme.colors.primary100};
+     text-decoration: none;
+   }
+
+@@ -50,7 +50,7 @@ const LinkUser = styled(RouterNavLink)`
+   }
+ `;
+
+-const LeftMenu = ({ generalSectionLinks, pluginsSectionLinks }) => {
++const LeftMenu = ({ generalSectionLinks, pluginsSectionLinks, onToggle }) => {
+   const buttonRef = useRef();
+   const [userLinksVisible, setUserLinksVisible] = useState(false);
+   const {
+@@ -87,6 +87,13 @@ const LeftMenu = ({ generalSectionLinks, pluginsSectionLinks }) => {
+     defaultMessage: 'Strapi Dashboard',
+   });
+
++  const toggleSideBar = () => {
++    setCondensed((s) => {
++      onToggle(s)
++      return !s
++    })
++  }
++
+   return (
+     <MainNav condensed={condensed}>
+       <NavBrand
+@@ -201,16 +208,17 @@ const LeftMenu = ({ generalSectionLinks, pluginsSectionLinks }) => {
+         </LinkUserWrapper>
+       )}
+
+-      <NavCondense onClick={() => setCondensed((s) => !s)}>
++      <NavCondense onClick={() => toggleSideBar()}>
++        <span>Zavřít</span>
+         {condensed
+           ? formatMessage({
+-              id: 'app.components.LeftMenu.expand',
+-              defaultMessage: 'Expand the navbar',
+-            })
++            id: 'app.components.LeftMenu.expand',
++            defaultMessage: 'Expand the navbar',
++          })
+           : formatMessage({
+-              id: 'app.components.LeftMenu.collapse',
+-              defaultMessage: 'Collapse the navbar',
+-            })}
++            id: 'app.components.LeftMenu.collapse',
++            defaultMessage: 'Collapse the navbar',
++          })}
+       </NavCondense>
+     </MainNav>
+   );
+diff --git a/node_modules/@strapi/admin/admin/src/content-manager/pages/App/index.js b/node_modules/@strapi/admin/admin/src/content-manager/pages/App/index.js
+index 9621b9d..5c2a332 100644
+--- a/node_modules/@strapi/admin/admin/src/content-manager/pages/App/index.js
++++ b/node_modules/@strapi/admin/admin/src/content-manager/pages/App/index.js
+@@ -25,7 +25,7 @@ import useModels from './useModels';
+
+ const cmPermissions = permissions.contentManager;
+
+-const App = () => {
++const App = ({isLeftMenuOpen}) => {
+   const contentTypeMatch = useRouteMatch(`/content-manager/:kind/:uid`);
+   const { status, collectionTypeLinks, singleTypeLinks, models, refetchData } = useModels();
+   const authorisedModels = sortBy([...collectionTypeLinks, ...singleTypeLinks], (model) =>
+@@ -83,8 +83,10 @@ const App = () => {
+     );
+   }
+
++  const isMobile = window.innerWidth < 750
++
+   return (
+-    <Layout sideNav={<LeftMenu />}>
++    <Layout sideNav={isMobile ? isLeftMenuOpen ? <LeftMenu /> : <></> : <LeftMenu />}>
+       <DragLayer />
+       <ModelsContext.Provider value={{ refetchData }}>
+         <Switch>
+@@ -114,7 +116,7 @@ const App = () => {
+
+ export { App };
+
+-export default function () {
++export default function (props) {
+   const { formatMessage } = useIntl();
+
+   return (
+@@ -122,7 +124,7 @@ export default function () {
+       <Helmet
+         title={formatMessage({ id: getTrad('plugin.name'), defaultMessage: 'Content Manager' })}
+       />
+-      <App />
++      <App {...props} />
+     </>
+   );
+ }
+diff --git a/node_modules/@strapi/admin/admin/src/pages/Admin/index.js b/node_modules/@strapi/admin/admin/src/pages/Admin/index.js
+index 13676c4..60f9292 100644
+--- a/node_modules/@strapi/admin/admin/src/pages/Admin/index.js
++++ b/node_modules/@strapi/admin/admin/src/pages/Admin/index.js
+@@ -4,7 +4,7 @@
+  *
+  */
+
+-import React, { Suspense, useEffect, useMemo, lazy } from 'react';
++import React, { Suspense, useEffect, useMemo, useState, lazy } from 'react';
+ import { Switch, Route } from 'react-router-dom';
+ import { useTracking, LoadingIndicatorPage, useStrapiApp } from '@strapi/helper-plugin';
+ import { useDispatch, useSelector } from 'react-redux';
+@@ -65,6 +65,7 @@ const Admin = () => {
+   useTrackUsage();
+   const { isLoading, generalSectionLinks, pluginsSectionLinks } = useMenu();
+   const { menu } = useStrapiApp();
++  const [isLeftMenuOpen, setIsLeftMenuOpen] = useState(false)
+
+   const routes = useMemo(() => {
+     return menu
+@@ -83,6 +84,7 @@ const Admin = () => {
+           <LeftMenu
+             generalSectionLinks={generalSectionLinks}
+             pluginsSectionLinks={pluginsSectionLinks}
++            onToggle={setIsLeftMenuOpen}
+           />
+         }
+       >
+@@ -90,7 +92,7 @@ const Admin = () => {
+           <Switch>
+             <Route path="/" component={HomePage} exact />
+             <Route path="/me" component={ProfilePage} exact />
+-            <Route path="/content-manager" component={CM} />
++            <Route path="/content-manager" ><CM isLeftMenuOpen={isLeftMenuOpen} /></Route>
+             {routes}
+             <Route path="/settings/:settingId" component={SettingsPage} />
+             <Route path="/settings" component={SettingsPage} exact />
