@@ -27,6 +27,10 @@
       "relation": "manyToMany",
       "target": "api::post.post",
       "mappedBy": "troops"
+    },
+    "color": {
+      "type": "customField",
+      "customField": "plugin::color-picker.color"
     }
   }
 }

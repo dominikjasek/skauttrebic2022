@@ -3,6 +3,7 @@ query ListTroops {
         data {
             attributes {
                 name
+                color
             }
             id
         }

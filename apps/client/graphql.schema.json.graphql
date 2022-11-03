@@ -364,6 +364,7 @@ type TotemEntityResponse {
 }
 
 type Troop {
+    color: String
     createdAt: DateTime
     name: String!
     posts(filters: PostFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): PostRelationResponseCollection
@@ -1015,6 +1016,7 @@ input TotemInput {
 
 input TroopFiltersInput {
     and: [TroopFiltersInput]
+    color: StringFilterInput
     createdAt: DateTimeFilterInput
     id: IDFilterInput
     name: StringFilterInput
@@ -1026,6 +1028,7 @@ input TroopFiltersInput {
 }
 
 input TroopInput {
+    color: String
     name: String
     posts: [Id]
     subscribed_users: [Id]

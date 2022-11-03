@@ -45,7 +45,7 @@ interface PostsResponse {
 }
 
 interface PostsRequest {
-  troopId?: number
+  troopIds?: number[]
   pagination: {
     page: number
     pageSize: number
@@ -55,10 +55,10 @@ interface PostsRequest {
 class PostsRepository {
   constructor(private readonly fetch: IApiCall) {}
 
-  getPosts = async ( { troopId, pagination }: PostsRequest): Promise<PostsResponse> => {
+  getPosts = async ( { troopIds, pagination }: PostsRequest): Promise<PostsResponse> => {
     let filterString = ''
-    if (troopId) {
-      filterString = `&filters[troops][id][$eq]=${troopId}`
+    if (troopIds?.length) {
+      filterString = troopIds.reduce((prev, curr, i)=> `${prev}&filters[troops][id][$in][${i}]=${curr}`, '')
     }
 
     let paginationString = ''

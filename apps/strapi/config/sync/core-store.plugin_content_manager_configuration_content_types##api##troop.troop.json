@@ -64,6 +64,20 @@
           "sortable": false
         }
       },
+      "color": {
+        "edit": {
+          "label": "Barva",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "color",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -98,6 +112,10 @@
         [
           {
             "name": "name",
+            "size": 6
+          },
+          {
+            "name": "color",
             "size": 6
           }
         ]

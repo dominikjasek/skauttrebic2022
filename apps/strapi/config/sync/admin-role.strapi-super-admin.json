@@ -223,7 +223,8 @@
         "fields": [
           "name",
           "subscribed_users",
-          "posts"
+          "posts",
+          "color"
         ]
       },
       "conditions": []
@@ -241,7 +242,8 @@
         "fields": [
           "name",
           "subscribed_users",
-          "posts"
+          "posts",
+          "color"
         ]
       },
       "conditions": []
@@ -253,7 +255,8 @@
         "fields": [
           "name",
           "subscribed_users",
-          "posts"
+          "posts",
+          "color"
         ]
       },
       "conditions": []
