@@ -111,10 +111,17 @@ index 9621b9d..3a6d68c 100644
    );
  }
 diff --git a/node_modules/@strapi/admin/admin/src/content-manager/pages/EditView/index.js b/node_modules/@strapi/admin/admin/src/content-manager/pages/EditView/index.js
-index 9d8c0c9..201c384 100644
+index 9d8c0c9..021b0b7 100644
 --- a/node_modules/@strapi/admin/admin/src/content-manager/pages/EditView/index.js
 +++ b/node_modules/@strapi/admin/admin/src/content-manager/pages/EditView/index.js
-@@ -38,15 +38,15 @@ const ctbPermissions = [{ action: 'plugin::content-type-builder.read', subject:
+@@ -32,21 +32,22 @@ import Informations from './Informations';
+ import Header from './Header';
+ import { createAttributesLayout, getFieldsActionMatchingPermissions } from './utils';
+ import DeleteLink from './DeleteLink';
++import { isMobile } from './../../../pages/Admin'
+
+ const cmPermissions = permissions.contentManager;
+ const ctbPermissions = [{ action: 'plugin::content-type-builder.read', subject: null }];
 
  /* eslint-disable  react/no-array-index-key */
  const EditView = ({
@@ -139,7 +146,7 @@ index 9d8c0c9..201c384 100644
    const { trackUsage } = useTracking();
    const { formatMessage } = useIntl();
    const { createActionAllowedFields, readActionAllowedFields, updateActionAllowedFields } =
-@@ -95,20 +95,20 @@ const EditView = ({
+@@ -95,20 +96,20 @@ const EditView = ({
    return (
      <DataManagementWrapper allLayoutData={layout} slug={slug} id={id} origin={origin}>
        {({
@@ -174,7 +181,7 @@ index 9d8c0c9..201c384 100644
          return (
            <EditViewDataManagerProvider
              allowedActions={allowedActions}
-@@ -131,129 +131,114 @@ const EditView = ({
+@@ -131,129 +132,114 @@ const EditView = ({
              status={status}
              updateActionAllowedFields={updateActionAllowedFields}
            >
@@ -192,7 +199,7 @@ index 9d8c0c9..201c384 100644
 -                                0: { name, fieldSchema, metadatas, labelAction },
 -                              },
 -                            } = row;
-+            <div style={{marginLeft: '-50px', marginRight: '-50px'}}>
++            <div style={ isMobile() ? {marginLeft: '-50px', marginRight: '-50px'} : {}}>
 +              <Main aria-busy={status !== 'resolved'}>
 +                <Header allowedActions={allowedActions} />
 +                <ContentLayout>
@@ -399,7 +406,7 @@ index 9d8c0c9..201c384 100644
                            background="neutral0"
                            borderColor="neutral150"
                            hasRadius
-@@ -263,103 +248,121 @@ const EditView = ({
+@@ -263,103 +249,121 @@ const EditView = ({
                            paddingTop={6}
                            shadow="tableShadow"
                          >
