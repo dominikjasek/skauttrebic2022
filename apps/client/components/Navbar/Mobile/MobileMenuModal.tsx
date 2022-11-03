@@ -46,6 +46,11 @@ export const MobileMenuModal: React.FC<MobileMenuModalProps> = (props) => {
   const [isOpen, toggleOpen] = useCycle(false, true)
   const containerRef = useRef(null)
 
+  const toggleModal = () => {
+    toggleOpen()
+    props.onModalToggle()
+  }
+
   return (
     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, justifyContent: 'flex-end' }}>
       <motion.nav
@@ -67,13 +72,10 @@ export const MobileMenuModal: React.FC<MobileMenuModalProps> = (props) => {
           }}
           variants={sidebar}
         >
-          <MobileNavigationItems onRedirectButtonClick={toggleOpen} onLogout={toggleOpen} items={props.items} />
+          <MobileNavigationItems onRedirectButtonClick={toggleModal} onLogout={toggleOpen} items={props.items} />
         </Stack>
         <Box pr={1.4}>
-          <MenuToggle toggled={isOpen} toggle={() => {
-            toggleOpen()
-            props.onModalToggle()
-          }} />
+          <MenuToggle toggled={isOpen} toggle={toggleModal} />
         </Box>
       </motion.nav>
     </Box>
