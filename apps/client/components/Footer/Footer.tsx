@@ -5,7 +5,7 @@ const Dot = () => {
   return <span style={{ padding: '0px 10px' }}>•</span>
 }
 
-export const FOOTER_HEIGHT = '60px'
+export const FOOTER_HEIGHT_PX = '60px'
 
 export const Footer: React.FC = () => {
   const theme = useTheme()
@@ -14,7 +14,7 @@ export const Footer: React.FC = () => {
     <footer style={{
       color: theme.palette.grey[800],
       width: '100%',
-      height: FOOTER_HEIGHT,
+      height: FOOTER_HEIGHT_PX,
       padding: '10px',
       display: 'flex',
       alignItems: 'center',

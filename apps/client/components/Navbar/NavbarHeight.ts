@@ -1,9 +1,3 @@
-export const navbarHeight = {
-  xs: 58,
-  md: 66
-}
+const navbarHeight = 58
 
-export const navbarHeightPx = {
-  xs: `${navbarHeight.xs}px`,
-  md: `${navbarHeight.md}px`
-}
+export const navbarHeightPx = `${navbarHeight}px`

@@ -6,34 +6,35 @@ import { MenuItem } from '../Navbar.interface'
 import { MenuToggle } from '~/components/Navbar/Mobile/MenuToggler'
 import { MobileNavigationItems } from '~/components/Navbar/Mobile/MobileNavigationItems'
 import { useLocation } from 'react-use'
+import { useScreen } from '~/src/utility/use-screen'
 
 interface MobileMenuModalProps {
     items: MenuItem[]
     onModalToggle: () => void
 }
 
-const sidebar = {
-  open: () => ({
-    clipPath: 'circle(1500px at calc(100% - 35px) 32px)',
-    transition: {
-      type: 'spring',
-      stiffness: 70,
-      restDelta: 0.5
-    }
-  }),
-  closed: {
-    clipPath: 'circle(22px at calc(100% - 35px) 32px)',
-    transition: {
-      delay: 0.2,
-      type: 'spring',
-      stiffness: 500,
-      damping: 40
-    }
-  }
-}
-
 export const MobileMenuModal: React.FC<MobileMenuModalProps> = (props) => {
   const theme = useTheme()
+
+  const sidebar = {
+    open: {
+      clipPath: 'circle(1500px at calc(100% - 35px) 28px)',
+      transition: {
+        type: 'spring',
+        stiffness: 70,
+        restDelta: 0.5
+      }
+    },
+    closed: {
+      clipPath: 'circle(22px at calc(100% - 35px) 28px)',
+      transition: {
+        delay: 0.2,
+        type: 'spring',
+        stiffness: 500,
+        damping: 40
+      }
+    }
+  }
 
   const { pathname } = useLocation()
   useEffect(() => {

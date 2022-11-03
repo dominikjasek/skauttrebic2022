@@ -11,8 +11,8 @@ import Link from 'next/link'
 import { DesktopMenuNavigation } from '~/components/Navbar/Desktop/DesktopMenuNavigation'
 import Routes from '~/config/routes'
 import { useScreen } from '~/src/utility/use-screen'
-import { navbarHeight } from '~/components/Navbar/NavbarHeight'
-import { useMemo, useState } from 'react'
+import { navbarHeightPx } from '~/components/Navbar/NavbarHeight'
+import { useMemo } from 'react'
 import { useUser } from '~/src/api/auth/context/AuthContext'
 import { useCycle } from 'framer-motion'
 
@@ -48,15 +48,15 @@ export const Navbar: React.FC = () => {
     return itemsCpy
   }, [user])
 
-  const { onlyMediumScreen, onlySmallScreen } = useScreen()
+  const { onlySmallScreen } = useScreen()
   return (
-    <AppBar position="fixed" sx={{ backgroundColor: theme.palette.secondary.main, height: { xs: `${navbarHeight.xs}px`, sm: `${navbarHeight.md}px` } }}>
+    <AppBar position="fixed" sx={{ backgroundColor: theme.palette.secondary.main, height: navbarHeightPx }}>
       <Container maxWidth="xl" disableGutters>
-        <Toolbar disableGutters>
+        <Toolbar disableGutters sx={{ height: '100%', maxHeight: '100%' }}>
           <Link href={Routes.home}>
             <Stack direction={'row'} alignItems={'center'} justifyContent={'center'}>
               <Box sx={{ color: theme.palette.grey['900'], p: 0, pl: 2, zIndex: 1000, display: 'grid', placeItems: 'center', cursor: 'pointer' }}>
-                <SkautLogo black={!isLogoColorful} size={onlySmallScreen ? 0.5 : onlyMediumScreen ? 0.57 : 0.65} />
+                <SkautLogo black={!isLogoColorful} size={0.5} />
               </Box>
               <Typography
                 variant="h6"

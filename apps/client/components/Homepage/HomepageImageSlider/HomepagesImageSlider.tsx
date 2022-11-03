@@ -8,7 +8,7 @@ const SLIDER_AUTOMATIC_CHANGE = 70000 //milliseconds
 
 const ImageSliderWrapper = styled(Box)(({ theme })=>({
   width: '100vw',
-  height: `calc(100vh - ${navbarHeightPx.md})`,
+  height: `calc(100vh - ${navbarHeightPx})`,
   position: 'relative',
   left: '50%',
   right: '50%',
