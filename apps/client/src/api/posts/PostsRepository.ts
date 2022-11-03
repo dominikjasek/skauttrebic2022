@@ -57,9 +57,21 @@ class PostsRepository {
 
   getPosts = async ( { troopIds, pagination }: PostsRequest): Promise<PostsResponse> => {
     let filterString = ''
-    if (troopIds?.length) {
-      filterString = troopIds.reduce((prev, curr, i)=> `${prev}&filters[troops][id][$in][${i}]=${curr}`, '')
+    if (!troopIds?.length) {
+      return {
+        data: [],
+        meta: {
+          pagination: {
+            page: pagination.page,
+            pageSize: pagination.pageSize,
+            pageCount: 0,
+            total: 0
+          }
+        }
+      }
     }
+
+    filterString = troopIds.reduce((prev, curr, i) => `${prev}&filters[troops][id][$in][${i}]=${curr}`, '')
 
     let paginationString = ''
     if (pagination) {
