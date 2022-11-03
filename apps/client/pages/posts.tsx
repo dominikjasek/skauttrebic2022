@@ -16,18 +16,18 @@ export const Posts: NextPage = () => {
   const router = useRouter()
   const { query } = router
   const troopId = query.troopId ? Number(query.troopId) : undefined
-  const pageFromQuery = query.page ? Number(query.page) : null
+  const pageFromQuery = query.page ? Number(query.page) : 1
 
-  const [page, setPage] = useState<number | null>(null)
+  const [page, setPage] = useState(pageFromQuery)
   useEffect(() => {
     setPage(pageFromQuery)
   }, [pageFromQuery])
 
-  const { data: postsData, isLoading: isPostsLoading } = useQuery(['posts', page], () => postsRepository.getPosts({ troopId, pagination: { page: page as number, pageSize: POSTS_PER_PAGE } }), { enabled: router.isReady && page !== null })
+  const { data: postsData, isLoading: isPostsLoading } = useQuery(['posts', page], () => postsRepository.getPosts({ troopId, pagination: { page: page, pageSize: POSTS_PER_PAGE } }), { enabled: router.isReady })
   const { data: troopsData, isLoading: isTroopsLoading } = useQuery('troops', troopsRepository.getTroops)
   const posts = useMemo(() => postsData?.data, [postsData])
 
-  if (!router.isReady || page === null || isPostsLoading || isTroopsLoading) {
+  if (!router.isReady || isPostsLoading || isTroopsLoading) {
     return <Loading />
   }
 
