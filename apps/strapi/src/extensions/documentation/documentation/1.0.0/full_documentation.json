@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2022-11-03T09:28:26.133Z"
+    "x-generation-date": "2022-11-03T20:04:28.368Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -2785,6 +2785,9 @@
               "schedule_publish_at": {
                 "type": "string",
                 "format": "date-time"
+              },
+              "public": {
+                "type": "boolean"
               }
             }
           }
@@ -4619,6 +4622,9 @@
                                                           "type": "string",
                                                           "format": "date-time"
                                                         },
+                                                        "public": {
+                                                          "type": "boolean"
+                                                        },
                                                         "createdAt": {
                                                           "type": "string",
                                                           "format": "date-time"
@@ -4816,6 +4822,9 @@
               "schedule_publish_at": {
                 "type": "string",
                 "format": "date-time"
+              },
+              "public": {
+                "type": "boolean"
               },
               "createdAt": {
                 "type": "string",
@@ -6696,6 +6705,9 @@
                                                           "type": "string",
                                                           "format": "date-time"
                                                         },
+                                                        "public": {
+                                                          "type": "boolean"
+                                                        },
                                                         "createdAt": {
                                                           "type": "string",
                                                           "format": "date-time"
@@ -6893,6 +6905,9 @@
               "schedule_publish_at": {
                 "type": "string",
                 "format": "date-time"
+              },
+              "public": {
+                "type": "boolean"
               },
               "createdAt": {
                 "type": "string",
@@ -8806,6 +8821,9 @@
                                                           "type": "string",
                                                           "format": "date-time"
                                                         },
+                                                        "public": {
+                                                          "type": "boolean"
+                                                        },
                                                         "createdAt": {
                                                           "type": "string",
                                                           "format": "date-time"
@@ -9003,6 +9021,9 @@
               "schedule_publish_at": {
                 "type": "string",
                 "format": "date-time"
+              },
+              "public": {
+                "type": "boolean"
               },
               "createdAt": {
                 "type": "string",
@@ -10883,6 +10904,9 @@
                                                           "type": "string",
                                                           "format": "date-time"
                                                         },
+                                                        "public": {
+                                                          "type": "boolean"
+                                                        },
                                                         "createdAt": {
                                                           "type": "string",
                                                           "format": "date-time"
@@ -11080,6 +11104,9 @@
               "schedule_publish_at": {
                 "type": "string",
                 "format": "date-time"
+              },
+              "public": {
+                "type": "boolean"
               },
               "createdAt": {
                 "type": "string",
@@ -14025,6 +14052,9 @@
                                                     "type": "string",
                                                     "format": "date-time"
                                                   },
+                                                  "public": {
+                                                    "type": "boolean"
+                                                  },
                                                   "createdAt": {
                                                     "type": "string",
                                                     "format": "date-time"
@@ -16705,6 +16735,9 @@
                                                           "type": "string",
                                                           "format": "date-time"
                                                         },
+                                                        "public": {
+                                                          "type": "boolean"
+                                                        },
                                                         "createdAt": {
                                                           "type": "string",
                                                           "format": "date-time"
@@ -18149,6 +18182,9 @@
                                                         "schedule_publish_at": {
                                                           "type": "string",
                                                           "format": "date-time"
+                                                        },
+                                                        "public": {
+                                                          "type": "boolean"
                                                         },
                                                         "createdAt": {
                                                           "type": "string",
@@ -19628,6 +19664,9 @@
                                                           "type": "string",
                                                           "format": "date-time"
                                                         },
+                                                        "public": {
+                                                          "type": "boolean"
+                                                        },
                                                         "createdAt": {
                                                           "type": "string",
                                                           "format": "date-time"
@@ -21072,6 +21111,9 @@
                                                         "schedule_publish_at": {
                                                           "type": "string",
                                                           "format": "date-time"
+                                                        },
+                                                        "public": {
+                                                          "type": "boolean"
                                                         },
                                                         "createdAt": {
                                                           "type": "string",
@@ -27624,6 +27666,9 @@
                                                                       "type": "string",
                                                                       "format": "date-time"
                                                                     },
+                                                                    "public": {
+                                                                      "type": "boolean"
+                                                                    },
                                                                     "createdAt": {
                                                                       "type": "string",
                                                                       "format": "date-time"
@@ -29042,6 +29087,9 @@
                                                                     "schedule_publish_at": {
                                                                       "type": "string",
                                                                       "format": "date-time"
+                                                                    },
+                                                                    "public": {
+                                                                      "type": "boolean"
                                                                     },
                                                                     "createdAt": {
                                                                       "type": "string",
@@ -30495,6 +30543,9 @@
                                                                       "type": "string",
                                                                       "format": "date-time"
                                                                     },
+                                                                    "public": {
+                                                                      "type": "boolean"
+                                                                    },
                                                                     "createdAt": {
                                                                       "type": "string",
                                                                       "format": "date-time"
@@ -31914,6 +31965,9 @@
                                                                       "type": "string",
                                                                       "format": "date-time"
                                                                     },
+                                                                    "public": {
+                                                                      "type": "boolean"
+                                                                    },
                                                                     "createdAt": {
                                                                       "type": "string",
                                                                       "format": "date-time"
@@ -33104,6 +33158,9 @@
                                                                                   "schedule_publish_at": {
                                                                                     "type": "string",
                                                                                     "format": "date-time"
+                                                                                  },
+                                                                                  "public": {
+                                                                                    "type": "boolean"
                                                                                   },
                                                                                   "createdAt": {
                                                                                     "type": "string",
@@ -34552,6 +34609,9 @@
                                                                                   "schedule_publish_at": {
                                                                                     "type": "string",
                                                                                     "format": "date-time"
+                                                                                  },
+                                                                                  "public": {
+                                                                                    "type": "boolean"
                                                                                   },
                                                                                   "createdAt": {
                                                                                     "type": "string",
@@ -36034,6 +36094,9 @@
                                                                                     "type": "string",
                                                                                     "format": "date-time"
                                                                                   },
+                                                                                  "public": {
+                                                                                    "type": "boolean"
+                                                                                  },
                                                                                   "createdAt": {
                                                                                     "type": "string",
                                                                                     "format": "date-time"
@@ -37481,6 +37544,9 @@
                                                                                   "schedule_publish_at": {
                                                                                     "type": "string",
                                                                                     "format": "date-time"
+                                                                                  },
+                                                                                  "public": {
+                                                                                    "type": "boolean"
                                                                                   },
                                                                                   "createdAt": {
                                                                                     "type": "string",
@@ -39340,6 +39406,9 @@
                                                                       "type": "string",
                                                                       "format": "date-time"
                                                                     },
+                                                                    "public": {
+                                                                      "type": "boolean"
+                                                                    },
                                                                     "createdAt": {
                                                                       "type": "string",
                                                                       "format": "date-time"
@@ -40823,6 +40892,9 @@
                                                                     "schedule_publish_at": {
                                                                       "type": "string",
                                                                       "format": "date-time"
+                                                                    },
+                                                                    "public": {
+                                                                      "type": "boolean"
                                                                     },
                                                                     "createdAt": {
                                                                       "type": "string",
@@ -42341,6 +42413,9 @@
                                                                       "type": "string",
                                                                       "format": "date-time"
                                                                     },
+                                                                    "public": {
+                                                                      "type": "boolean"
+                                                                    },
                                                                     "createdAt": {
                                                                       "type": "string",
                                                                       "format": "date-time"
@@ -43824,6 +43899,9 @@
                                                                     "schedule_publish_at": {
                                                                       "type": "string",
                                                                       "format": "date-time"
+                                                                    },
+                                                                    "public": {
+                                                                      "type": "boolean"
                                                                     },
                                                                     "createdAt": {
                                                                       "type": "string",

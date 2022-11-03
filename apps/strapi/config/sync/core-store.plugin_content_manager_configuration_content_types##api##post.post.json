@@ -107,6 +107,20 @@
           "sortable": true
         }
       },
+      "public": {
+        "edit": {
+          "label": "Veřejný",
+          "description": "Příspevěk se zobrazí i nepřihlášným uživatelům",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "Veřejný",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -153,6 +167,12 @@
         [
           {
             "name": "files",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "public",
             "size": 6
           },
           {

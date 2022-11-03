@@ -46,6 +46,10 @@
     },
     "schedule_publish_at": {
       "type": "datetime"
+    },
+    "public": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

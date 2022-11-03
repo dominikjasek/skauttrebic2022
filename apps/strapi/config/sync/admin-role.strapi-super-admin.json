@@ -73,7 +73,8 @@
           "files",
           "troops",
           "user_likes",
-          "schedule_publish_at"
+          "schedule_publish_at",
+          "public"
         ]
       },
       "conditions": []
@@ -100,7 +101,8 @@
           "files",
           "troops",
           "user_likes",
-          "schedule_publish_at"
+          "schedule_publish_at",
+          "public"
         ]
       },
       "conditions": []
@@ -115,7 +117,8 @@
           "files",
           "troops",
           "user_likes",
-          "schedule_publish_at"
+          "schedule_publish_at",
+          "public"
         ]
       },
       "conditions": []
