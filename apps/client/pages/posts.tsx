@@ -5,13 +5,18 @@ import { Loading } from '~/components/Loading/Loading'
 import { Box, Container } from '@mui/material'
 import { PostBox } from '~/components/Posts/PostBox'
 import { NextPage } from 'next'
+import { useTroopsRepository } from '~/src/api/troops/TroopsReposiotry'
 
 export const Posts: NextPage = () => {
   const postsRepository = usePostsRepository()
-  const { data, isLoading } = useQuery('posts', postsRepository.getPosts)
-  const posts = useMemo(() => data?.data, [data])
+  const troopsRepository = useTroopsRepository()
 
-  if (isLoading) {
+  const { data: postsData, isLoading: isPostsLoading } = useQuery('posts', postsRepository.getPosts)
+  const { data: troopsDaata, isLoading: isTroopsLoading } = useQuery('troops', troopsRepository.getTroops)
+  const posts = useMemo(() => postsData?.data, [postsData])
+  console.log('troopsDaata', troopsDaata)
+
+  if (isPostsLoading || isTroopsLoading) {
     return <Loading />
   }
 
@@ -33,8 +38,11 @@ export const Posts: NextPage = () => {
 
 export const getStaticProps = async () => {
   const postsRepository = usePostsRepository()
+  const troopsRepository = useTroopsRepository()
+
   const queryClient = new QueryClient()
-  await queryClient.prefetchQuery('posts', postsRepository.getPosts)
+
+  await Promise.all([queryClient.prefetchQuery('posts', postsRepository.getPosts), queryClient.prefetchQuery('troops', troopsRepository.getTroops) ])
 
   return {
     props: {

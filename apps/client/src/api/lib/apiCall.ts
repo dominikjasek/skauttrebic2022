@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { JwtCookieStorage } from '~/src/api/auth/context/JwtCookieStorage'
 
-const initializeApiCall = () => {
+export const useApiCall = () => {
   const apiCall = axios.create({
     baseURL: process.env.API_URL,
     headers: {},
@@ -21,6 +21,4 @@ const initializeApiCall = () => {
   return apiCall
 }
 
-export const apiCall = initializeApiCall()
-
-export type IApiCall = typeof apiCall
+export type IApiCall = ReturnType<typeof useApiCall>

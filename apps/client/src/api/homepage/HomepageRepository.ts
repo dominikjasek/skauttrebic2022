@@ -1,12 +1,16 @@
-import { graphqlRequestClient } from '~/src/api/lib/graphqlRequestClient'
+import { useGraphqlRequestClient } from '~/src/api/lib/graphqlRequestClient'
 import { HomepageDocument } from '../gql/graphql'
+import { GraphQLClient } from 'graphql-request'
 
 class HomepageRepository {
-  async fetchHomePageData() {
-    return await graphqlRequestClient.request(HomepageDocument)
+  constructor(private readonly graphqlRequestClient: GraphQLClient) {}
+
+  fetchHomePageData = async () => {
+    return await this.graphqlRequestClient.request(HomepageDocument)
   }
 }
 
 export const useHomePageRepository = () => {
-  return new HomepageRepository()
+  const graphqlClient = useGraphqlRequestClient()
+  return new HomepageRepository(graphqlClient)
 }

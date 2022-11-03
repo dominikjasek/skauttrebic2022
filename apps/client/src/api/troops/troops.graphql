@@ -1,0 +1,11 @@
+query ListTroops {
+    troops {
+        data {
+            attributes {
+                name
+            }
+            id
+        }
+    }
+}
+

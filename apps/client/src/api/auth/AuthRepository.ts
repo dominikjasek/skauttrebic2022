@@ -1,4 +1,4 @@
-import { IApiCall, apiCall } from '~/src/api/lib/apiCall'
+import { IApiCall, useApiCall } from '~/src/api/lib/apiCall'
 
 interface ConfirmRegistrationRequest {
   password: string
@@ -67,5 +67,6 @@ export class AuthRepository {
 }
 
 export const useAuthRepository = () => {
+  const apiCall = useApiCall()
   return new AuthRepository(apiCall)
 }

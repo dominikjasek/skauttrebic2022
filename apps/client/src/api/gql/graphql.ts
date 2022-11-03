@@ -352,12 +352,6 @@ export enum Enum_Topbar_Type {
   Upozorneni = 'upozorneni'
 }
 
-export enum Enum_Userspermissionsuser_Position {
-  Clen = 'clen',
-  Rodic = 'rodic',
-  Vedouci = 'vedouci'
-}
-
 export type EmailDesignerEmailTemplate = {
   __typename?: 'EmailDesignerEmailTemplate';
   bodyHtml?: Maybe<Scalars['String']>;
@@ -1634,13 +1628,11 @@ export type UsersPermissionsUser = {
   email: Scalars['String'];
   firstName: Scalars['String'];
   lastName: Scalars['String'];
-  position?: Maybe<Enum_Userspermissionsuser_Position>;
   post_likes?: Maybe<PostRelationResponseCollection>;
   provider?: Maybe<Scalars['String']>;
   role?: Maybe<UsersPermissionsRoleEntityResponse>;
   subscribing_troops?: Maybe<TroopRelationResponseCollection>;
   updatedAt?: Maybe<Scalars['DateTime']>;
-  username: Scalars['String'];
 };
 
 
@@ -1688,7 +1680,6 @@ export type UsersPermissionsUserFiltersInput = {
   not?: InputMaybe<UsersPermissionsUserFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<UsersPermissionsUserFiltersInput>>>;
   password?: InputMaybe<StringFilterInput>;
-  position?: InputMaybe<StringFilterInput>;
   post_likes?: InputMaybe<PostFiltersInput>;
   provider?: InputMaybe<StringFilterInput>;
   resetPasswordToken?: InputMaybe<StringFilterInput>;
@@ -1706,7 +1697,6 @@ export type UsersPermissionsUserInput = {
   firstName?: InputMaybe<Scalars['String']>;
   lastName?: InputMaybe<Scalars['String']>;
   password?: InputMaybe<Scalars['String']>;
-  position?: InputMaybe<Enum_Userspermissionsuser_Position>;
   post_likes?: InputMaybe<Array<InputMaybe<Scalars['Id']>>>;
   provider?: InputMaybe<Scalars['String']>;
   resetPasswordToken?: InputMaybe<Scalars['String']>;
@@ -1725,5 +1715,11 @@ export type HomepageQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type HomepageQuery = { __typename?: 'Query', homepage?: { __typename?: 'HomepageEntityResponse', data?: { __typename?: 'HomepageEntity', attributes?: { __typename?: 'Homepage', about: string, images?: Array<{ __typename?: 'ComponentHomepageHomeImage', id: any, text?: string | null, background_color?: string | null, text_color?: string | null, photo: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, formats?: any | null } | null } | null } } | null> | null, troops?: Array<{ __typename?: 'ComponentHomepageTroop', title: string, age_gender_information: string, description: string, id: any, logo: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, formats?: any | null } | null } | null } } | null> | null } | null } | null } | null };
 
+export type ListTroopsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ListTroopsQuery = { __typename?: 'Query', troops?: { __typename?: 'TroopEntityResponseCollection', data: Array<{ __typename?: 'TroopEntity', id?: any | null, attributes?: { __typename?: 'Troop', name: string } | null }> } | null };
+
 
 export const HomepageDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Homepage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"homepage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"images"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"photo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"formats"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"text"}},{"kind":"Field","name":{"kind":"Name","value":"background_color"}},{"kind":"Field","name":{"kind":"Name","value":"text_color"}}]}},{"kind":"Field","name":{"kind":"Name","value":"about"}},{"kind":"Field","name":{"kind":"Name","value":"troops"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"age_gender_information"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"logo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"formats"}}]}}]}}]}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<HomepageQuery, HomepageQueryVariables>;
+export const ListTroopsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"ListTroops"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"troops"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}}]}},{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]}}]} as unknown as DocumentNode<ListTroopsQuery, ListTroopsQueryVariables>;

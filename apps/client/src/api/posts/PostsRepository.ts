@@ -1,4 +1,4 @@
-import { apiCall, IApiCall } from '~/src/api/lib/apiCall'
+import { useApiCall, IApiCall } from '~/src/api/lib/apiCall'
 import { TroopEntity, UploadFileEntity } from '~/src/api/gql/graphql'
 
 export interface StrapiUser {
@@ -54,5 +54,6 @@ class PostsRepository {
 }
 
 export const usePostsRepository = () => {
+  const apiCall = useApiCall()
   return new PostsRepository(apiCall)
 }
