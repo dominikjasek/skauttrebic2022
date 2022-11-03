@@ -70,5 +70,5 @@ body::after {
 }
 
 .MuiToolbar-root {
-  min-height: 56px;
+  min-height: 56px !important;
 }
