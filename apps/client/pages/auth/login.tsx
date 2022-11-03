@@ -1,5 +1,5 @@
 import React from 'react'
-import { Alert, Container, Stack, TextField, Typography, useTheme } from '@mui/material'
+import { Alert, Container, Stack, TextField, Typography } from '@mui/material'
 import { useMutation } from 'react-query'
 import { LoginRequest, useAuthRepository } from '~/src/api/auth/AuthRepository'
 import { useForm } from 'react-hook-form'

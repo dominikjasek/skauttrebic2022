@@ -1,11 +1,7 @@
 import React from 'react'
 import { Chip } from '@mui/material'
 
-interface CommentsChipProps {
-
-}
-
-export const CommentsChip: React.FC<CommentsChipProps> = (props) => {
+export const CommentsChip: React.FC = () => {
   return (
     <Chip label={0}></Chip>
   )

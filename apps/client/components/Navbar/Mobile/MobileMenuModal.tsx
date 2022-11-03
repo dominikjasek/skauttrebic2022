@@ -6,7 +6,6 @@ import { MenuItem } from '../Navbar.interface'
 import { MenuToggle } from '~/components/Navbar/Mobile/MenuToggler'
 import { MobileNavigationItems } from '~/components/Navbar/Mobile/MobileNavigationItems'
 import { useLocation } from 'react-use'
-import { useScreen } from '~/src/utility/use-screen'
 
 interface MobileMenuModalProps {
     items: MenuItem[]

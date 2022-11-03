@@ -23,8 +23,8 @@ export const Posts: NextPage = () => {
     setPage(pageFromQuery)
   }, [pageFromQuery])
 
-  const { data: postsData, isLoading: isPostsLoading, isFetched } = useQuery(['posts', page], () => postsRepository.getPosts({ troopId, pagination: { page: page as number, pageSize: POSTS_PER_PAGE } }), { enabled: router.isReady && page !== null })
-  const { data: troopsDaata, isLoading: isTroopsLoading } = useQuery('troops', troopsRepository.getTroops)
+  const { data: postsData, isLoading: isPostsLoading } = useQuery(['posts', page], () => postsRepository.getPosts({ troopId, pagination: { page: page as number, pageSize: POSTS_PER_PAGE } }), { enabled: router.isReady && page !== null })
+  const { data: troopsData, isLoading: isTroopsLoading } = useQuery('troops', troopsRepository.getTroops)
   const posts = useMemo(() => postsData?.data, [postsData])
 
   if (!router.isReady || page === null || isPostsLoading || isTroopsLoading) {

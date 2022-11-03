@@ -33,7 +33,7 @@ export const HomepageImageSlider: React.FC<HomepageImageSliderProps> = ({ images
         loop={true}
         interval={SLIDER_AUTOMATIC_CHANGE}
       >
-        {images.map((image, i) => (
+        {images.map((image) => (
           <Box
             onDragStart={(event) => {
               event.preventDefault()
