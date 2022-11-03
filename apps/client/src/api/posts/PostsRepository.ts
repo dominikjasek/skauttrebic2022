@@ -44,11 +44,29 @@ interface PostsResponse {
   meta: Metadata
 }
 
+interface PostsRequest {
+  troopId?: number
+  pagination: {
+    page: number
+    pageSize: number
+  }
+}
+
 class PostsRepository {
   constructor(private readonly fetch: IApiCall) {}
 
-  getPosts = async (): Promise<PostsResponse> => {
-    return (await this.fetch('/posts?populate=*')).data as PostsResponse
+  getPosts = async ( { troopId, pagination }: PostsRequest): Promise<PostsResponse> => {
+    let filterString = ''
+    if (troopId) {
+      filterString = `&filters[troops][id][$eq]=${troopId}`
+    }
+
+    let paginationString = ''
+    if (pagination) {
+      paginationString = `&pagination[page]=${pagination.page}&pagination[pageSize]=${pagination.pageSize}`
+    }
+
+    return (await this.fetch(`/posts?populate=*${filterString}${paginationString}`)).data as PostsResponse
   }
 
 }
