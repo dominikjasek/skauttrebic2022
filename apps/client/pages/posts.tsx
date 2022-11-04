@@ -66,7 +66,7 @@ export const Posts: NextPage = () => {
             </Box>
           ))}
           <Stack sx={{ mt: 2 }} alignItems={'center'}>
-            <Pagination page={page} onChange={(_e, newPage) => {
+            <Pagination sx={{ mb: 3 }} page={page} onChange={(_e, newPage) => {
               if (newPage === page) return
               setQueryParameters({ newPage })
             }} count={10} color="primary" />

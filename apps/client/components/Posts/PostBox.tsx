@@ -31,7 +31,8 @@ export const PostBox: React.FC<PostBoxProps> = ({ post }) => {
   const data = post.attributes
 
   const isRestrictedPost = useMemo(() => data.title === null, [data.title])
-  const title = isRestrictedPost ? useMemo(() => generateRandomTitle(), []) : data.title
+  const randomTitle = useMemo(() => generateRandomTitle(), [])
+  const title = useMemo(() => isRestrictedPost ? randomTitle : data.title, [isRestrictedPost])
 
   const authorizedCardProps: any = {
     whileHover: { scale: 1.005 },
@@ -56,7 +57,7 @@ export const PostBox: React.FC<PostBoxProps> = ({ post }) => {
           <Box position={'relative'}>
             <Stack sx={{
               flexDirection: { xs: 'column', sm: 'row' },
-              filter: isRestrictedPost ? 'blur(5px)' : 'none'
+              filter: isRestrictedPost ? 'blur(7px)' : 'none'
             }}
             alignItems={'center'}
             justifyContent={'space-between'}
@@ -101,7 +102,7 @@ export const PostBox: React.FC<PostBoxProps> = ({ post }) => {
                 position={'absolute'}
               >
                 <LockPersonIcon />
-                <Typography color={theme.palette.grey[800]}>Obsah se zobrazí po přihlášení</Typography>
+                <Typography color={theme.palette.grey[800]} fontWeight={600}>Obsah se zobrazí po přihlášení</Typography>
               </Stack>
             }
           </Box>

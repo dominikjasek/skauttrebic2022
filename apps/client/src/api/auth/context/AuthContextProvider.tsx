@@ -2,10 +2,12 @@ import React, { PropsWithChildren, useEffect, useState } from 'react'
 import { useJwtCookieStorage } from '~/src/api/auth/context/JwtCookieStorage'
 import { AuthContext, IAuth } from '~/src/api/auth/context/AuthContext'
 import { useAuthRepository } from '~/src/api/auth/AuthRepository'
+import { useQueryClient } from 'react-query'
 
 export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const jwtCookieStorage = useJwtCookieStorage()
   const authRepository = useAuthRepository()
+  const queryclient = useQueryClient()
 
   const [auth, setAuth] = useState<IAuth | null>({ jwt: jwtCookieStorage.get() })
 
@@ -32,8 +34,10 @@ export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
     if (auth?.jwt) {
       reloadUserInfo(auth.jwt)
     } else {
+      console.log('clearUserInfo')
       clearUserInfo()
     }
+    queryclient.invalidateQueries()
   }, [auth?.jwt])
 
   return (
