@@ -36,7 +36,14 @@ export const PostsFilter: React.FC<PostsFilterProps> = ({ troops, selectedTroopI
   }
 
   return (
-    <Card sx={{ p: 2, mr: { xs: 0, md: 2 }, mb: 2 }}>
+    <Card sx={{
+      p: 2,
+      mr: { xs: 0, md: 2 },
+      mb: 2,
+      boxShadow: 1,
+      '&:hover': {
+        boxShadow: 3
+      } }}>
       <Stack direction={'row'}>
         <Typography sx={{ display: 'flex', alignItems: 'center', ml: 1, mr: 2 }} variant={'h5'}>Filtr</Typography>
         {isMobileScreen && <ExpandMore
