@@ -6,6 +6,8 @@ import { AuthorLabel } from '~/components/Posts/Chips/AuthorLabel'
 import { DateLabel } from '~/components/Posts/Chips/DateLabel'
 import LockPersonIcon from '@mui/icons-material/LockPerson'
 import { motion, MotionProps } from 'framer-motion'
+import Link from 'next/link'
+import Routes from '~/config/routes'
 
 interface PostBoxProps {
     post: Post
@@ -28,10 +30,10 @@ export const PostBox: React.FC<PostBoxProps> = ({ post }) => {
 
   const data = post.attributes
 
-  const isPostProtected = useMemo(() => data.title === null, [data.title])
-  const title = isPostProtected ? useMemo(() => generateRandomTitle(), []) : data.title
+  const isRestrictedPost = useMemo(() => data.title === null, [data.title])
+  const title = isRestrictedPost ? useMemo(() => generateRandomTitle(), []) : data.title
 
-  const authorizedCardProps: Partial<MotionProps & BoxProps> = {
+  const authorizedCardProps: any = {
     whileHover: { scale: 1.005 },
     whileTap: { scale: 0.99 },
     sx: {
@@ -39,72 +41,74 @@ export const PostBox: React.FC<PostBoxProps> = ({ post }) => {
         boxShadow: 5
       }
     }
-  }
+  } as MotionProps & BoxProps
 
   return (
-    // @ts-ignore
-    <Card
-      component={motion.div}
-      {...(isPostProtected ? {} : authorizedCardProps)}
-      sx={{
-        cursor: 'pointer'
-      }}
-    >
-      <CardContent>
-        <Box position={'relative'}>
-          <Stack sx={{
-            flexDirection: { xs: 'column', sm: 'row' },
-            filter: isPostProtected ? 'blur(5px)' : 'none'
-          }}
-          alignItems={'center'}
-          justifyContent={'space-between'}
-          spacing={1}
-          >
-            <Stack sx={{ }} alignItems={'flex-start'} justifyContent={'center'} flex={3}>
-              <Typography sx={{
-                mb: 1,
-                textShadow: isPostProtected ? '0 0 15px black' : 'none',
-                color: isPostProtected ? 'transparent' : 'initial'
-              }}
-              variant="h3"
-              >
-                {title}
-              </Typography>
-              <Stack direction={'row'} spacing={0.5}>
-                <AuthorLabel author={data.createdBy.data} />
-                <DateLabel date={data.createdAt} />
+    <Link href={isRestrictedPost ? Routes.login : `${Routes.posts}/${post.id}`}>
+      <Card
+        component={motion.div}
+        {...(isRestrictedPost ? {} : authorizedCardProps)}
+        sx={{
+          cursor: 'pointer'
+        }}
+      >
+        <CardContent>
+          <Box position={'relative'}>
+            <Stack sx={{
+              flexDirection: { xs: 'column', sm: 'row' },
+              filter: isRestrictedPost ? 'blur(5px)' : 'none'
+            }}
+            alignItems={'center'}
+            justifyContent={'space-between'}
+            spacing={1}
+            >
+              <Stack sx={{ }} alignItems={'flex-start'} justifyContent={'center'} flex={3}>
+                <Typography sx={{
+                  mb: 1,
+                  textShadow: isRestrictedPost ? '0 0 15px black' : 'none',
+                  color: isRestrictedPost ? 'transparent' : 'initial'
+                }}
+                variant="h3"
+                >
+                  {title}
+                </Typography>
+                <Stack direction={'row'} spacing={0.5}>
+                  <AuthorLabel author={data.createdBy.data} />
+                  <DateLabel date={data.createdAt} />
+                </Stack>
+              </Stack>
+              <Stack direction={'row'} alignItems={'center'} justifyContent={'flex-end'} flex={2} flexWrap={'wrap'}>
+                {data.troops.data.map(troop => (
+                  <Box key={troop.id} pr={0.5} pt={0.5} display={'inline'}>
+                    <TroopChip troop={troop} />
+                  </Box>
+                ))}
               </Stack>
             </Stack>
-            <Stack direction={'row'} alignItems={'center'} justifyContent={'flex-end'} flex={2} flexWrap={'wrap'}>
-              {data.troops.data.map(troop => (
-                <Box key={troop.id} pr={0.5} pt={0.5} display={'inline'}>
-                  <TroopChip troop={troop} />
-                </Box>
-              ))}
-            </Stack>
-          </Stack>
-          {
-            isPostProtected &&
-            <Stack
-              sx={{
-                left: '50%',
-                top: '50%',
-                transform: 'translate(-50%, -40%)',
-                color: theme.palette.grey[600]
-              }}
-              direction={'column'}
-              justifyContent={'center'}
-              alignItems={'center'}
-              spacing={1}
-              position={'absolute'}
-            >
-              <LockPersonIcon />
-              <Typography color={theme.palette.grey[800]}>Obsah se zobrazí po přihlášení</Typography>
-            </Stack>
-          }
-        </Box>
+            {
+              isRestrictedPost &&
+              <Stack
+                sx={{
+                  left: '50%',
+                  top: '50%',
+                  transform: 'translate(-50%, -40%)',
+                  color: theme.palette.grey[600]
+                }}
+                direction={'column'}
+                justifyContent={'center'}
+                alignItems={'center'}
+                spacing={1}
+                position={'absolute'}
+              >
+                <LockPersonIcon />
+                <Typography color={theme.palette.grey[800]}>Obsah se zobrazí po přihlášení</Typography>
+              </Stack>
+            }
+          </Box>
 
-      </CardContent>
-    </Card>
+        </CardContent>
+      </Card>
+    </Link>
+
   )
 }
