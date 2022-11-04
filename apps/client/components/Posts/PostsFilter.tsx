@@ -27,7 +27,6 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 
 export const PostsFilter: React.FC<PostsFilterProps> = ({ troops, selectedTroopIds, onTroopsChanged }) => {
   const { isMobileScreen } = useScreen()
-  console.log('isMobileScreen', isMobileScreen)
 
   const [expanded, setExpanded] = useState(false)
 

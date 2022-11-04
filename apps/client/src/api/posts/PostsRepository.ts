@@ -24,6 +24,7 @@ export interface Post {
     createdAt: string
     updatedAt: string
     publishedAt: string
+    public: boolean
     createdBy: { data: StrapiUser }
     updatedBy: { data: StrapiUser }
   }
