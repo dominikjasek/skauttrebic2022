@@ -5,10 +5,11 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 
 interface AuthorProps {
     author: StrapiUser
+    size?: 'small' | 'medium'
 }
 
-export const AuthorLabel: React.FC<AuthorProps> = ({ author }) => {
+export const AuthorLabel: React.FC<AuthorProps> = ({ author, size = 'small' }) => {
   return (
-    <Chip size={'small'} icon={<AccountCircleIcon />} label={<Typography>{`${author.attributes.firstname} ${author.attributes.lastname}` + (author.attributes.username ? ` (${author.attributes.username})` : '')}</Typography>} />
+    <Chip size={size} icon={<AccountCircleIcon />} label={<Typography>{`${author.attributes.firstname} ${author.attributes.lastname}` + (author.attributes.username ? ` (${author.attributes.username})` : '')}</Typography>} />
   )
 }
