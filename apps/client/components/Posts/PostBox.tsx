@@ -38,8 +38,9 @@ export const PostBox: React.FC<PostBoxProps> = ({ post }) => {
     whileHover: { scale: 1.005 },
     whileTap: { scale: 0.99 },
     sx: {
+      boxShadow: 4,
       '&:hover': {
-        boxShadow: 5
+        boxShadow: 8
       }
     }
   } as MotionProps & BoxProps
@@ -49,15 +50,12 @@ export const PostBox: React.FC<PostBoxProps> = ({ post }) => {
       <Card
         component={motion.div}
         {...(isRestrictedPost ? {} : authorizedCardProps)}
-        sx={{
-          cursor: 'pointer'
-        }}
       >
         <CardContent>
           <Box position={'relative'}>
             <Stack sx={{
               flexDirection: { xs: 'column', sm: 'row' },
-              filter: isRestrictedPost ? 'blur(7px)' : 'none'
+              filter: isRestrictedPost ? 'blur(30px)' : 'none'
             }}
             alignItems={'center'}
             justifyContent={'space-between'}
@@ -106,7 +104,6 @@ export const PostBox: React.FC<PostBoxProps> = ({ post }) => {
               </Stack>
             }
           </Box>
-
         </CardContent>
       </Card>
     </Link>

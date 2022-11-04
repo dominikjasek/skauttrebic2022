@@ -12,7 +12,7 @@ import { useQueryParam } from '~/src/utility/use-query-param'
 
 const POSTS_PER_PAGE = 6
 
-export const Posts: NextPage = () => {
+export const Index: NextPage = () => {
   const router = useRouter()
   const postsRepository = usePostsRepository()
   const troopsRepository = useTroopsRepository()
@@ -77,4 +77,4 @@ export const Posts: NextPage = () => {
   )
 }
 
-export default Posts
+export default Index
