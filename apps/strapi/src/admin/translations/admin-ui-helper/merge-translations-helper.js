@@ -2,11 +2,8 @@
 // Copy the result to cs.json in the directory above
 
 // run with `node merge-translations-admin-ui-helper.js`
-// eslint-disable-next-line @typescript-eslint/no-var-requires,no-undef
 const translator = require('@parvineyvazov/json-translator');
-// eslint-disable-next-line @typescript-eslint/no-var-requires,no-undef
 const en = require('../../../../.cache/admin/src/translations/en.json')
-// eslint-disable-next-line @typescript-eslint/no-var-requires,no-undef
 const cs = require('../../../../.cache/admin/src/translations/cs.json')
 
 const run = async () => {

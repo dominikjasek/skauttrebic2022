@@ -1,4 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+
 import { sendEmailToNewUser } from '../email/use-cases/sendEmailToNewUser';
 
 const crypto = require('crypto')

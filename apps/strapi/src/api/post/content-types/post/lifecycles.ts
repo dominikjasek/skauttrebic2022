@@ -1,5 +1,5 @@
 import { sendEmailsToSubscribersOnPostPublished } from '../../../../extensions/email/use-cases/sendEmailsToSubscribersOnPostPublished';
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+
 const { ForbiddenError } = require('@strapi/utils').errors;
 import { AfterXXXEvent, Post } from './interfaces';
 

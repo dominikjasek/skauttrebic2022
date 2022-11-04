@@ -1,8 +1,9 @@
 'use strict';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { getAbsoluteAdminUrl } = require('@strapi/utils');
-const { sendEmailToNewStrapiUser } = require('apps/strapi/src/extensions/email/use-cases/sendEmailToNewStrapiUser');
+const sendEmailToNewStrapiUser = require('./../../../extensions/email/use-cases/sendEmailToNewStrapiUser');
+
+const SUPER_ADMIN_ROLE_ID = 1
 
 module.exports = async ({ strapi }) => {
   // bootstrap phase
@@ -11,7 +12,6 @@ module.exports = async ({ strapi }) => {
 
     async beforeCreate(event) {
       // Do not allow to create super admin user
-      const SUPER_ADMIN_ROLE_ID = 1
       if (event.params.data.roles.includes(SUPER_ADMIN_ROLE_ID)) {
         const isAllowedToCreateSuperAdmin = process.env.ALLOW_CREATE_SUPER_ADMIN_STRAPI_USER === '1' || process.env.ALLOW_CREATE_SUPER_ADMIN_STRAPI_USER === 'true'
         if (!isAllowedToCreateSuperAdmin) {
@@ -25,12 +25,12 @@ module.exports = async ({ strapi }) => {
 
     async afterCreate({ result }) {
       // Send email to new strapi user
-      const { registrationToken } = result;
+      const { registrationToken, email } = result;
       if (!registrationToken) return;
 
       const inviteLink = `${getAbsoluteAdminUrl(strapi.config)}/auth/register?registrationToken=${registrationToken}`;
 
-      await sendEmailToNewStrapiUser({ to: result.to, inviteLink })
+      await sendEmailToNewStrapiUser({ to: email, inviteLink })
     },
   });
 };

@@ -1,6 +1,8 @@
-import { EMAIL_TEMPLATE } from '../templates/emailTemplates';
+/* eslint-disable no-undef */
 
-export const sendEmailToNewStrapiUser = async (options: {to: string, inviteLink: string}) => {
+const EMAIL_TEMPLATE = require('../templates/emailTemplates.ts')
+
+module.exports = async (options) => {
   strapi.log.info(`sending invitation email for new strapi user with email: ${options.to}`)
   try {
     await strapi
@@ -9,11 +11,10 @@ export const sendEmailToNewStrapiUser = async (options: {to: string, inviteLink:
       .sendTemplatedEmail({ to: options.to },
         { templateReferenceId: EMAIL_TEMPLATE.STRAPI_USER_CREATE },
         {
-          // this object must include all variables you're using in your email template
           inviteLink: options.inviteLink,
         }
       );
   } catch (err) {
     strapi.log.debug('📺 Failed to send email: ', err);
   }
-}
+};

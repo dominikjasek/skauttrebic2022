@@ -1,4 +1,6 @@
-import { EMAIL_TEMPLATE } from '../templates/emailTemplates';
+// import EMAIL_TEMPLATE from '../templates/emailTemplates';
+
+const EMAIL_TEMPLATE = require('../templates/emailTemplates')
 
 export const sendEmailToNewUser = async (options: {to: string, link: string}) => {
   strapi.log.info(`sending invitation email to new user with email: ${options.to}`)

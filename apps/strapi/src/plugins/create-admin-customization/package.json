@@ -1,9 +1,9 @@
 {
-  "name": "strapi-plugin-invite-email",
+  "name": "create-admin-customization",
   "version": "1.0.1",
   "description": "Zajistí nastavení výchozího jazyka češtiny, nepovolí vytvoři super-admin usera a zajistí odeslání emailu pro nově pozvané administrátory webu",
   "strapi": {
-    "name": "strapi-plugin-invite-email",
+    "name": "create-admin-customization",
     "description": "Zajistí nastavení výchozího jazyka češtiny, nepovolí vytvoři super-admin usera a zajistí odeslání emailu pro nově pozvané administrátory webu",
     "kind": "plugin",
     "displayName": "Admin Invite Email"
@@ -12,19 +12,8 @@
   "author": {
     "name": "Dominik Jašek"
   },
-  "maintainers": [
-    {
-      "name": "Dominik Jašek"
-    }
-  ],
   "engines": {
     "node": "14.20.0",
     "npm": ">=6.0.0"
-  },
-  "license": "MIT",
-  "homepage": "https://github.com/arellaTV/strapi-plugin-invite-email",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/arellaTV/strapi-plugin-invite-email.git"
   }
 }

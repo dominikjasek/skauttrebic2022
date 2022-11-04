@@ -1,5 +1,7 @@
 import { Post, Troop } from '../../../api/post/content-types/post/interfaces';
-import { EMAIL_TEMPLATE } from '../templates/emailTemplates';
+// import EMAIL_TEMPLATE from '../templates/emailTemplates';
+
+const EMAIL_TEMPLATE = require('../templates/emailTemplates')
 
 export const sendEmailsToSubscribersOnPostPublished = async (postData: Post) => {
   // I need to fetch post once again because in case of cron, we dont receive here troops attribute inside postData

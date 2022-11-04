@@ -39,5 +39,4 @@ const routes = [
   }
 ]
 
-// eslint-disable-next-line no-undef
 module.exports = { routes, Routes }

@@ -44,7 +44,7 @@ module.exports = ({ env }) => ({
     },
   },
 
-  'create-admin-user-invite-email': {
+  'create-admin-customization': {
     enabled: true,
     resolve: './src/plugins/create-admin-customization'
   },
