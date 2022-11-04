@@ -3,6 +3,7 @@ const Routes = {
   confirmRegistration: '/potvrzeni-registrace',
   login: '/prihlasit-se',
   posts: '/aktuality',
+  post: '/aktuality/:postId*',
   clubRoom: '/klubovna',
   photos: '/fotografie',
   contact: '/kontakt',
@@ -24,6 +25,10 @@ const routes = [
   {
     source: Routes.posts,
     destination: '/posts'
+  },
+  {
+    source: Routes.post,
+    destination: '/posts/:postId*'
   },
   {
     source: Routes.clubRoom,

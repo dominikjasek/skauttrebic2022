@@ -53,6 +53,11 @@ interface PostsRequest {
   }
 }
 
+interface PostResponse {
+  data: Post
+  meta: Metadata
+}
+
 class PostsRepository {
   constructor(private readonly fetch: IApiCall) {}
 
@@ -84,6 +89,10 @@ class PostsRepository {
     }
 
     return (await this.fetch(`/posts?populate=*${filterString}${paginationString}`)).data as PostsResponse
+  }
+
+  getPost = async (postId: number) => {
+    return (await this.fetch(`/posts/${postId}?populate=*`)).data as PostResponse
   }
 
 }

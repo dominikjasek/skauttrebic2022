@@ -18,6 +18,7 @@ export const Index: NextPage = () => {
   const troopsRepository = useTroopsRepository()
 
   const troopsFromQuery = useQueryParam('troops') as string | null
+  console.log('troopsFromQuery', troopsFromQuery)
   const selectedTroopIds = troopsFromQuery ? troopsFromQuery.split(',').map(Number) : []
 
   const pageFromQuery = useQueryParam('page')
@@ -54,7 +55,7 @@ export const Index: NextPage = () => {
   }
 
   return (
-    <Container sx={{ pt: '30px' }}>
+    <Container maxWidth={'lg'} sx={{ pt: '30px' }}>
       <Stack sx={{ flexDirection: { xs: 'column', md: 'row' } }} >
         <Box flex={1}>
           <PostsFilter troops={troops} selectedTroopIds={selectedTroopIds} onTroopsChanged={(newTroopIds: number[]) => setQueryParameters({ newTroopIds })} />

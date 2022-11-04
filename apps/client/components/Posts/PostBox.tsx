@@ -39,6 +39,7 @@ export const PostBox: React.FC<PostBoxProps> = ({ post }) => {
     whileTap: { scale: 0.99 },
     sx: {
       boxShadow: 4,
+      cursor: 'pointer',
       '&:hover': {
         boxShadow: 8
       }

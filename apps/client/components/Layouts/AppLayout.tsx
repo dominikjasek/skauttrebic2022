@@ -12,7 +12,7 @@ export const AppLayout: React.FC<PropsWithChildren> = ({ children }) => {
       <Box component="main" sx={{
         marginTop: navbarHeightPx,
       }}>
-        <Container maxWidth="xl" sx={{ minHeight: `calc(100vh - ${navbarHeightPx} - ${FOOTER_HEIGHT_PX})` }}>
+        <Container maxWidth="lg" sx={{ minHeight: `calc(100vh - ${navbarHeightPx} - ${FOOTER_HEIGHT_PX})` }}>
           {children}
         </Container>
       </Box>
