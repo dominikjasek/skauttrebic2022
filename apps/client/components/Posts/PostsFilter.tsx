@@ -1,6 +1,6 @@
 import React from 'react'
 import { TroopEntity } from '~/src/api/gql/graphql'
-import { Box, Checkbox, Typography } from '@mui/material'
+import { Box, Card, Checkbox, Typography } from '@mui/material'
 
 interface PostsFilterProps {
     troops: TroopEntity[]
@@ -10,14 +10,13 @@ interface PostsFilterProps {
 
 export const PostsFilter: React.FC<PostsFilterProps> = ({ troops, selectedTroopIds, onTroopsChanged }) => {
   return (
-    <Box>
-      <Typography mb={2} variant={'h5'}>Filtr</Typography>
+    <Card sx={{ p: 2, mr: 2 }}>
+      <Typography ml={1} mr={2} variant={'h5'}>Filtr</Typography>
       {troops.map(troop => {
         const color = troop.attributes?.color ?? 'primary'
         return(
           <Box key={troop.id}>
             <Typography>
-              {troop.attributes?.name}
               <Checkbox onChange={(_e, newValue) => {
                 if (newValue) {
                   onTroopsChanged([...selectedTroopIds, troop.id])
@@ -28,10 +27,11 @@ export const PostsFilter: React.FC<PostsFilterProps> = ({ troops, selectedTroopI
               checked={selectedTroopIds.includes(troop.id)}
               sx={{ color, '&.Mui-checked': { color } }}
               />
+              <Typography component={'span'} sx={{ verticalAlign: 'middle' }}>{troop.attributes?.name}</Typography>
             </Typography>
           </Box>
         )}
       )}
-    </Box>
+    </Card>
   )
 }

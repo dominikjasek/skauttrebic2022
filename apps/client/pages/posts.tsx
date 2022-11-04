@@ -8,11 +8,9 @@ import { NextPage } from 'next'
 import { useTroopsRepository } from '~/src/api/troops/TroopsReposiotry'
 import { useRouter } from 'next/router'
 import { PostsFilter } from '~/components/Posts/PostsFilter'
-import { useLocation } from 'react-use'
 import { useQueryParam } from '~/src/utility/use-query-param'
-import { PostBoxSkeleton } from '~/components/Posts/PostBoxSkeleton'
 
-const POSTS_PER_PAGE = 8
+const POSTS_PER_PAGE = 6
 
 export const Posts: NextPage = () => {
   const router = useRouter()
@@ -48,11 +46,8 @@ export const Posts: NextPage = () => {
   const posts = useMemo(() => postsData?.data, [postsData])
   const troops = useMemo(() => troopsData?.troops?.data, [troopsData])
 
-  if (isTroopsLoading || isPostsLoading) {
+  if (isTroopsLoading) {
     return <Loading />
-  }
-  if (!posts) {
-    throw new Error('Posts were not loaded successfully')
   }
   if (!troops) {
     throw new Error('Troops were not loaded successfully')
@@ -65,14 +60,17 @@ export const Posts: NextPage = () => {
           <PostsFilter troops={troops} selectedTroopIds={selectedTroopIds} onTroopsChanged={(newTroopIds: number[]) => setQueryParameters({ newTroopIds })} />
         </Box>
         <Box flex={3}>
-          {isPostsLoading && Array(POSTS_PER_PAGE).map((i) => <PostBoxSkeleton key={i} />)}
           {posts && posts.map(post => (
-            <PostBox key={post.id} post={post} />
+            <Box key={post.id} mb={2}>
+              <PostBox post={post} />
+            </Box>
           ))}
-          <Pagination page={page} onChange={(_e, newPage) => {
-            if (newPage === page) return
-            setQueryParameters({ newPage })
-          }} count={10} color="primary" />
+          <Stack sx={{ mt: 2 }} alignItems={'center'}>
+            <Pagination page={page} onChange={(_e, newPage) => {
+              if (newPage === page) return
+              setQueryParameters({ newPage })
+            }} count={10} color="primary" />
+          </Stack>
         </Box>
       </Stack>
     </Container>
