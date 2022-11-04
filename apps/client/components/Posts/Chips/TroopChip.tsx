@@ -8,6 +8,6 @@ interface TroopChipProps {
 
 export const TroopChip: React.FC<TroopChipProps> = ({ troop }) => {
   return (
-    <Chip label={troop.attributes?.name} />
+    <Chip sx={{ backgroundColor: troop.attributes?.color ?? 'primary', color: 'white' }} label={troop.attributes?.name.toLowerCase()} />
   )
 }

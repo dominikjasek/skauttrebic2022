@@ -10,6 +10,7 @@ export const useScreen = () => {
   return {
     onlySmallScreen,
     onlyMediumScreen,
-    onlyLargeScreen
+    onlyLargeScreen,
+    isMobileScreen: onlySmallScreen || onlyMediumScreen
   }
 }

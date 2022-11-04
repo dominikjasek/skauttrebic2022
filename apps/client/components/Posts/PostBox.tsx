@@ -1,9 +1,9 @@
 import React from 'react'
 import { Post } from '~/src/api/posts/PostsRepository'
-import { Box, Card, CardContent, Typography } from '@mui/material'
+import { Box, Card, CardContent, Stack, Typography } from '@mui/material'
 import { TroopChip } from '~/components/Posts/Chips/TroopChip'
-import { AuthorChip } from '~/components/Posts/Chips/AuthorChip'
-import { DateChip } from '~/components/Posts/Chips/DateChip'
+import { AuthorLabel } from '~/components/Posts/Chips/AuthorLabel'
+import { DateLabel } from '~/components/Posts/Chips/DateLabel'
 
 interface PostBoxProps {
     post: Post
@@ -15,16 +15,24 @@ export const PostBox: React.FC<PostBoxProps> = ({ post }) => {
   return (
     <Card>
       <CardContent>
-        <Typography variant="h3">
-          {data.title}
-        </Typography>
-        <Box>
-          <AuthorChip author={data.createdBy.data} />
-          <DateChip date={data.createdAt} />
-          {data.troops.data.map(troop => (
-            <TroopChip key={troop.id} troop={troop} />
-          ))}
-        </Box>
+        <Stack sx={{ flexDirection: { xs: 'column', sm: 'row' } }} alignItems={'center'} justifyContent={'space-between'} spacing={1}>
+          <Stack alignItems={'flex-start'} justifyContent={'center'} flex={3}>
+            <Typography sx={{ mb: 1 }} variant="h3" >
+              {data.title}
+            </Typography>
+            <Stack direction={'row'} spacing={0.5}>
+              <AuthorLabel author={data.createdBy.data} />
+              <DateLabel date={data.createdAt} />
+            </Stack>
+          </Stack>
+          <Stack direction={'row'} alignItems={'center'} justifyContent={'flex-end'} flex={2} flexWrap={'wrap'}>
+            {data.troops.data.map(troop => (
+              <Box key={troop.id} pr={0.5} pt={0.5} display={'inline'}>
+                <TroopChip troop={troop} />
+              </Box>
+            ))}
+          </Stack>
+        </Stack>
       </CardContent>
     </Card>
   )

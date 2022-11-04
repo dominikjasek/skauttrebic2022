@@ -34,7 +34,7 @@ export const Posts: NextPage = () => {
     router.push(`${location.pathname}?${queryString}`)
   }, [selectedTroopIds, page])
 
-  const { data: postsData, isLoading: isPostsLoading } = useQuery(['posts', { selectedTroopIds, page }], () => postsRepository.getPosts({
+  const { data: postsData } = useQuery(['posts', { selectedTroopIds, page }], () => postsRepository.getPosts({
     troopIds: selectedTroopIds,
     pagination: {
       page,
@@ -55,7 +55,7 @@ export const Posts: NextPage = () => {
 
   return (
     <Container sx={{ pt: '30px' }}>
-      <Stack direction={'row'}>
+      <Stack sx={{ flexDirection: { xs: 'column', md: 'row' } }} >
         <Box flex={1}>
           <PostsFilter troops={troops} selectedTroopIds={selectedTroopIds} onTroopsChanged={(newTroopIds: number[]) => setQueryParameters({ newTroopIds })} />
         </Box>
