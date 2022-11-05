@@ -1,5 +1,7 @@
 import { useApiCall, IApiCall } from '~/src/api/lib/apiCall'
-import { TroopEntity, UploadFileEntity } from '~/src/api/gql/graphql'
+import { GetCommentsDocument, TroopEntity, UploadFileEntity } from '~/src/api/gql/graphql'
+import { GraphQLClient } from 'graphql-request'
+import { useGraphqlRequestClient } from '~/src/api/lib/graphqlRequestClient'
 
 export interface StrapiUser {
   attributes: {
@@ -18,8 +20,8 @@ export interface Post {
   attributes: {
     title: string
     content: string
-    files: { data: UploadFileEntity[] }
-    troops: { data: TroopEntity[] }
+    files: { data: UploadFileEntity[] | null }
+    troops: { data: TroopEntity[] | null }
     schedule_publish_at: string | null
     createdAt: string
     updatedAt: string
@@ -59,25 +61,13 @@ interface PostResponse {
 }
 
 class PostsRepository {
-  constructor(private readonly fetch: IApiCall) {}
+  constructor(
+      private readonly fetch: IApiCall,
+      private readonly graphqlRequestClient: GraphQLClient
+  ) {}
 
   getPosts = async ( { troopIds, pagination }: PostsRequest): Promise<PostsResponse> => {
     let filterString = ''
-
-    // Empty troopIds returns empty response
-    // if (!troopIds?.length) {
-    //   return {
-    //     data: [],
-    //     meta: {
-    //       pagination: {
-    //         page: pagination.page,
-    //         pageSize: pagination.pageSize,
-    //         pageCount: 0,
-    //         total: 0
-    //       }
-    //     }
-    //   }
-    // }
 
     if (troopIds?.length) {
       filterString = troopIds?.reduce((prev, curr, i) => `${prev}&filters[troops][id][$in][${i}]=${curr}`, '')
@@ -95,9 +85,15 @@ class PostsRepository {
     return (await this.fetch(`/posts/${postId}?populate=*`)).data as PostResponse
   }
 
+  getCommentsForPost = async (postId: number) => {
+    return await this.graphqlRequestClient.request(GetCommentsDocument, { postId: `api::post.post:${postId}` })
+  }
+
 }
 
 export const usePostsRepository = () => {
   const apiCall = useApiCall()
-  return new PostsRepository(apiCall)
+  const graphqlClient = useGraphqlRequestClient()
+
+  return new PostsRepository(apiCall, graphqlClient)
 }

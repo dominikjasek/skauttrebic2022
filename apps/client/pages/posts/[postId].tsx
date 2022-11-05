@@ -16,12 +16,16 @@ export const PostIdPage: NextPage = () => {
 
   const postId = useQueryParam('postId') as string | null
   const { data: post, isLoading, isFetched } = useQuery(['post', postId], () => postsRepository.getPost(Number(postId)), { enabled: router.isReady })
+  const { data: comments, isLoading: isCommentsLoading } = useQuery(['comments', postId], () => postsRepository.getCommentsForPost(Number(postId)), { enabled: router.isReady })
 
-  if (!isFetched || isLoading) return <Loading />
+  if (!isFetched || isLoading || isCommentsLoading) return <Loading />
 
   if (!post) {
     throw new Error('Post was not fetched successfully')
   }
+
+  console.log('comments', comments)
+
   return (
     <Container maxWidth={'lg'} sx={{ pt: '30px' }}>
       <Typography variant={'h3'} fontSize={'2.7rem'}>{post.data.attributes.title}</Typography>
