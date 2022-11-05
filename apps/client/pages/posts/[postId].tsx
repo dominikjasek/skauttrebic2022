@@ -36,11 +36,11 @@ export const PostIdPage: NextPage = () => {
       <Divider sx={{ my: 1 }}></Divider>
       <Typography dangerouslySetInnerHTML={{ __html: post.data.attributes.content }}></Typography>
       <Divider sx={{ my: 1 }}></Divider>
-      { post.data.attributes.files.data?.length &&
+      { post.data.attributes.files?.data?.length &&
         <Box>
           <Typography sx={{ mb: 1 }} variant={'h4'} fontSize={'1.8rem'}>Soubory ke stažení</Typography>
           {
-            post.data.attributes.files.data.map((file, i) => {
+            post.data.attributes.files?.data.map((file, i) => {
               if (file.attributes?.url) {
                 return (
                   <Stack key={i} direction={'row'} justifyContent={'flexstart'} alignItems='center' spacing={1}>

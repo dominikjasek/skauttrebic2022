@@ -58,7 +58,7 @@ export const Index: NextPage = () => {
     <Container maxWidth={'lg'} sx={{ pt: '30px' }}>
       <Stack sx={{ flexDirection: { xs: 'column', md: 'row' } }} >
         <Box flex={1}>
-          <PostsFilter troops={troops} selectedTroopIds={selectedTroopIds} onTroopsChanged={(newTroopIds: number[]) => setQueryParameters({ newTroopIds })} />
+          <PostsFilter troops={troops} selectedTroopIds={selectedTroopIds} onTroopsChanged={(newTroopIds: number[]) => setQueryParameters({ newTroopIds, newPage: 1 })} />
         </Box>
         <Box flex={3}>
           {posts && posts.map(post => (
