@@ -78,7 +78,7 @@ export const PostBox: React.FC<PostBoxProps> = ({ post }) => {
                 </Stack>
               </Stack>
               <Stack direction={'row'} alignItems={'center'} justifyContent={'flex-end'} flex={2} flexWrap={'wrap'}>
-                {data.troops.data.map(troop => (
+                {data.troops.data?.map(troop => (
                   <Box key={troop.id} pr={0.5} pt={0.5} display={'inline'}>
                     <TroopChip troop={troop} />
                   </Box>
