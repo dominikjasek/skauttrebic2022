@@ -1,6 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { TroopEntity } from '~/src/api/gql/graphql'
-import { Box, Card, Checkbox, Collapse, IconButton, IconButtonProps, Stack, styled, Typography } from '@mui/material'
+import {
+  Accordion, AccordionDetails, AccordionSummary,
+  Box,
+  Card,
+  Checkbox,
+  Collapse,
+  IconButton,
+  IconButtonProps,
+  Stack,
+  styled,
+  Typography
+} from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { useScreen } from '~/src/utility/use-screen'
 
@@ -28,56 +39,55 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 export const PostsFilter: React.FC<PostsFilterProps> = ({ troops, selectedTroopIds, onTroopsChanged }) => {
   const { isMobileScreen } = useScreen()
 
-  const [expanded, setExpanded] = useState(false)
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded)
-  }
-
   return (
-    <Card sx={{
-      p: 2,
-      mr: { xs: 0, md: 2 },
-      mb: 2,
-      boxShadow: 1,
-      '&:hover': {
-        boxShadow: 3
-      } }}>
-      <Stack direction={'row'}>
-        <Typography sx={{ display: 'flex', alignItems: 'center', ml: 1, mr: 2 }} variant={'h5'}>Filtr</Typography>
-        {isMobileScreen && <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
+    <Box
+      sx={{
+        mr: { xs: 0, md: 2 },
+        mb: 2
+      }}
+    >
+
+      <Accordion
+        defaultExpanded={!isMobileScreen}
+        sx={{
+          boxShadow: 1,
+          '&:hover': {
+            boxShadow: 3
+          }
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
         >
-          <ExpandMoreIcon />
-        </ExpandMore>}
+          <Typography sx={{ display: 'flex', alignItems: 'center', ml: 1, mr: 2 }} variant={'h5'}>Filtr</Typography>
 
-      </Stack>
-      <Collapse in={expanded || !isMobileScreen} timeout="auto" unmountOnExit>
-        {troops.map(troop => {
-          const color = troop.attributes?.color ?? 'primary'
-          return (
-            <Box key={troop.id}>
-              <Typography>
-                <Checkbox onChange={(_e, newValue) => {
-                  if (newValue) {
-                    onTroopsChanged([...selectedTroopIds, troop.id])
-                  } else (
-                    onTroopsChanged([...selectedTroopIds].filter(v => v !== troop.id))
-                  )
-                }}
-                checked={selectedTroopIds.includes(troop.id)}
-                sx={{ color, '&.Mui-checked': { color } }}
-                />
-                <Typography component={'span'} sx={{ verticalAlign: 'middle' }}>{troop.attributes?.name}</Typography>
-              </Typography>
-            </Box>
+        </AccordionSummary>
+        <AccordionDetails>
+          {troops.map(troop => {
+            const color = troop.attributes?.color ?? 'primary'
+            return (
+              <Box key={troop.id}>
+                <Typography>
+                  <Checkbox onChange={(_e, newValue) => {
+                    if (newValue) {
+                      onTroopsChanged([...selectedTroopIds, troop.id])
+                    } else (
+                      onTroopsChanged([...selectedTroopIds].filter(v => v !== troop.id))
+                    )
+                  }}
+                  checked={selectedTroopIds.includes(troop.id)}
+                  sx={{ color, '&.Mui-checked': { color } }}
+                  />
+                  <Typography component={'span'} sx={{ verticalAlign: 'middle' }}>{troop.attributes?.name}</Typography>
+                </Typography>
+              </Box>
+            )}
           )}
-        )}
-      </Collapse>
+        </AccordionDetails>
+      </Accordion>
+    </Box>
 
-    </Card>
   )
 }
