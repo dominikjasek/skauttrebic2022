@@ -1,5 +1,5 @@
-query GetComments($postId: String!) {
-    findAllFlat(relation: $postId, pagination: {pageSize: 1000}) {
+query GetComments($relation: String!) {
+    findAllFlat(relation: $relation, pagination: {pageSize: 1000}) {
         data {
             id
             content

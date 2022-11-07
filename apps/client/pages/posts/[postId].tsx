@@ -14,15 +14,24 @@ import { NewComment } from '~/components/Posts/Comments/NewComment'
 
 export const PostIdPage: NextPage = () => {
   const router = useRouter()
-  const { getPost, getComments, createComment } = usePostsRepository()
+  const { getPost, getComments, createComment, deleteComment } = usePostsRepository()
   const queryClient = useQueryClient()
 
   const postId = useQueryParam('postId') as string | null
+
+  const invalidateData = async () => {
+    await Promise.all([queryClient.invalidateQueries(['post', postId]), queryClient.invalidateQueries(['comments', postId])])
+  }
+
   const { data: post, isLoading, isFetched } = useQuery(['post', postId], () => getPost(Number(postId)), { enabled: router.isReady })
   const { data: comments, isLoading: isCommentsLoading } = useQuery(['comments', postId], () => getComments(Number(postId)), { enabled: router.isReady })
   const { mutateAsync: submitCreateComment, isLoading: isCommentSubmitLoading } = useMutation(['create-comment', postId], async (content: string) => {
     await createComment(Number(postId), content)
-    await Promise.all([queryClient.invalidateQueries(['post', postId]), queryClient.invalidateQueries(['comments', postId])])
+    await invalidateData()
+  })
+  const { mutateAsync: submitDeleteComment } = useMutation(['create-comment', postId], async (commentId: number) => {
+    await deleteComment(Number(postId), commentId)
+    await invalidateData()
   })
 
   if (!isFetched || isLoading || isCommentsLoading) return <Loading />
@@ -40,14 +49,14 @@ export const PostIdPage: NextPage = () => {
       </Stack>
       <Divider sx={{ my: 2 }}></Divider>
       <Typography dangerouslySetInnerHTML={{ __html: post.data.attributes.content }}></Typography>
-      <Divider sx={{ my: 2 }}></Divider>
       { post.data.attributes.files?.data?.length &&
+      <>
         <Attachments files={post.data.attributes.files.data} />
+      </>
       }
-      <Divider sx={{ mt: 2, mb: 6 }}></Divider>
       {
         comments &&
-        <Comments comments={comments.findAllFlat} />
+        <Comments onDeleteClick={submitDeleteComment} comments={comments.findAllFlat} />
       }
       <NewComment isCommentSubmitLoading={isCommentSubmitLoading} onSubmit={submitCreateComment} />
     </Container>

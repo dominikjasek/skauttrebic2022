@@ -1,35 +1,56 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { GetCommentsQuery } from '~/src/api/gql/graphql'
-import { Avatar, Box, Card, Grid, Paper, Stack, Typography } from '@mui/material'
-import { AuthorLabel } from '~/components/Posts/Chips/AuthorLabel'
+import { Box, Card, CardHeader, Divider, Grid, IconButton, Typography } from '@mui/material'
 import { DateLabel } from '~/components/Posts/Chips/DateLabel'
 import { PersonAvatar } from '~/components/Avatar/PersonAvatar'
+import DeleteIcon from '@mui/icons-material/Delete'
+import ConfirmDialog, { confirmDialog } from '~/components/Dialog/ConfirmDialog'
 
 interface CommentsProps {
     comments: GetCommentsQuery['findAllFlat']
+    onDeleteClick: (commentId: number) => void
 }
 
-export const Comments: React.FC<CommentsProps> = ({ comments }) => {
+export const Comments: React.FC<CommentsProps> = ({ comments, onDeleteClick }) => {
+  const nonBlockedComments = useMemo(() => comments?.data?.filter(comment => comment?.blocked === false), [comments])
+
+  if (nonBlockedComments?.length === 0) {
+    return <></>
+  }
+
   return (
     <Box mb={2}>
+      <Divider sx={{ mt: 2, mb: 6 }}></Divider>
       <Typography sx={{ mb: 1 }} variant={'h4'} fontSize={'1.8rem'}>Komentáře</Typography>
       {
         comments?.data?.filter(comment => comment?.blocked === false).map((comment) => {
           if (comment) {
             return (
               <Card key={comment.id} sx={{ px: 2, my: 2, py: 2 }}>
-                <Grid container wrap="nowrap" spacing={2}>
-                  <Grid item>
+                <CardHeader
+                  avatar={
                     <PersonAvatar fullName={comment.author!.name} />
-                  </Grid>
+                  }
+                  action={
+                    <IconButton onClick={() => {
+                      confirmDialog('Opravdu chcete smazat tento kometář?', () => {
+                        onDeleteClick(comment.id)
+                      })
+                    }
+                    } aria-label="settings">
+                      <DeleteIcon />
+                    </IconButton>
+                  }
+                  title={comment.author?.name}
+                  subheader={
+                    <DateLabel date={comment.createdAt!} />
+                  }
+                />
+                <Grid container wrap="nowrap" spacing={2}>
                   <Grid justifyContent="left" item xs zeroMinWidth>
-                    <h4 style={{ margin: 0, textAlign: 'left' }}>{comment.author?.name}</h4>
-                    <span style={{ textAlign: 'left', color: 'gray' }}>
-                      <DateLabel date={comment.createdAt!} />
-                    </span>
-                    <p style={{ textAlign: 'left', marginBottom: 0 }}>
+                    <Typography mx={3}>
                       {comment.content}
-                    </p>
+                    </Typography>
                   </Grid>
                 </Grid>
               </Card>
@@ -37,6 +58,7 @@ export const Comments: React.FC<CommentsProps> = ({ comments }) => {
           }
         })
       }
+      <ConfirmDialog />
     </Box>
   )
 }

@@ -1,0 +1,11 @@
+mutation DeleteComment($relation: String!, $id: Id!) {
+    removeComment(
+        input: {
+            id: $id
+            relation: $relation
+        }
+    ) {
+        id
+        removed
+    }
+}

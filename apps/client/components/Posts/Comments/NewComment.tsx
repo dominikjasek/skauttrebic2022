@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Stack, TextField, Typography } from '@mui/material'
+import { Divider, Stack, TextField, Typography } from '@mui/material'
 import { useForm } from 'react-hook-form'
 import { LoadingButton } from '@mui/lab'
 import { useUser } from '~/src/api/auth/context/AuthContext'
@@ -16,8 +16,9 @@ export const NewComment: React.FC<NewCommentProps> = ({ onSubmit, isCommentSubmi
   return (
     <>
       { user &&
-        <Stack sx={{ mb: 2 }}>
-          <Typography variant={'h5'}>Nový komentář</Typography>
+        <Stack sx={{ mt: 6, mb: 2 }}>
+          <Divider sx={{ my: 2 }}></Divider>
+          <Typography variant={'h5'} fontSize={'1.5rem'}>Nový komentář</Typography>
           <form noValidate onSubmit={handleSubmit((data) => onSubmit(data.content))}>
 
             <TextField

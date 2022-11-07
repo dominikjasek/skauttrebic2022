@@ -1,7 +1,7 @@
-mutation CreateComment($postId: String!, $content: String!) {
+mutation CreateComment($relation: String!, $content: String!) {
     createComment(
         input: {
-            relation: $postId
+            relation: $relation
             content: $content
         }
     ) {

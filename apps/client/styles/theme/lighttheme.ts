@@ -24,6 +24,9 @@ const lightTheme = createTheme({
       main: '#F49E00',
       light: '#F9B200'
     },
+    warning: {
+      main: '#d30606'
+    }
   },
 })
 
