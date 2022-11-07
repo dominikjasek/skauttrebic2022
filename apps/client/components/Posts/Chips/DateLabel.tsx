@@ -9,7 +9,7 @@ interface DateProps {
 export const DateLabel: React.FC<DateProps> = ({ date }) => {
   const formattedDate = useMemo(() => {
     const dateObj = new Date(date)
-    const formattedDate = dateObj.toLocaleDateString('cs-CZ', { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' }).split(' ').splice(1).join(' ')
+    const formattedDate = dateObj.toLocaleDateString('cs-CZ', { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric' }).split(' ').splice(1).join(' ')
     return formattedDate
   }
   , [date])

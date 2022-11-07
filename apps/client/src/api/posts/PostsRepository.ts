@@ -1,5 +1,5 @@
 import { useApiCall, IApiCall } from '~/src/api/lib/apiCall'
-import { GetCommentsDocument, TroopEntity, UploadFileEntity } from '~/src/api/gql/graphql'
+import { CreateCommentDocument, GetCommentsDocument, TroopEntity, UploadFileEntity } from '~/src/api/gql/graphql'
 import { GraphQLClient } from 'graphql-request'
 import { useGraphqlRequestClient } from '~/src/api/lib/graphqlRequestClient'
 
@@ -85,9 +85,12 @@ class PostsRepository {
     return (await this.fetch(`/posts/${postId}?populate=*`)).data as PostResponse
   }
 
-  getCommentsForPost = async (postId: number) => {
-    // return (await this.fetch(`/comment-manager/comments/${postId}/flat`)).data as any
+  getComments = async (postId: number) => {
     return await this.graphqlRequestClient.request(GetCommentsDocument, { postId: `api::post.post:${postId}` })
+  }
+
+  createComment = async (postId: number, commentContent: string) => {
+    return await this.graphqlRequestClient.request(CreateCommentDocument, { postId: `api::post.post:${postId}`, content: commentContent })
   }
 
 }

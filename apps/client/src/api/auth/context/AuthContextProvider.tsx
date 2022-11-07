@@ -34,7 +34,6 @@ export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
     if (auth?.jwt) {
       reloadUserInfo(auth.jwt)
     } else {
-      console.log('clearUserInfo')
       clearUserInfo()
     }
     queryclient.invalidateQueries()

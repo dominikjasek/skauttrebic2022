@@ -1,0 +1,10 @@
+mutation CreateComment($postId: String!, $content: String!) {
+    createComment(
+        input: {
+            relation: $postId
+            content: $content
+        }
+    ) {
+        id
+    }
+}

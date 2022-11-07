@@ -17,7 +17,7 @@ export const Comments: React.FC<CommentsProps> = ({ comments }) => {
         comments?.data?.filter(comment => comment?.blocked === false).map((comment) => {
           if (comment) {
             return (
-              <Card key={comment.id} sx={{ px: 2, py: 2 }}>
+              <Card key={comment.id} sx={{ px: 2, my: 2, py: 2 }}>
                 <Grid container wrap="nowrap" spacing={2}>
                   <Grid item>
                     <PersonAvatar fullName={comment.author!.name} />

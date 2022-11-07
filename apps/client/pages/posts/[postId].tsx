@@ -2,7 +2,7 @@ import React from 'react'
 import { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { Container, Divider, Stack, Typography } from '@mui/material'
-import { useQuery } from 'react-query'
+import { useMutation, useQuery, useQueryClient } from 'react-query'
 import { useQueryParam } from '~/src/utility/use-query-param'
 import { usePostsRepository } from '~/src/api/posts/PostsRepository'
 import { Loading } from '~/components/Loading/Loading'
@@ -10,14 +10,20 @@ import { AuthorLabel } from '~/components/Posts/Chips/AuthorLabel'
 import { DateLabel } from '~/components/Posts/Chips/DateLabel'
 import { Comments } from '~/components/Posts/Comments/Comments'
 import { Attachments } from '~/components/Posts/Attachments'
+import { NewComment } from '~/components/Posts/Comments/NewComment'
 
 export const PostIdPage: NextPage = () => {
   const router = useRouter()
-  const postsRepository = usePostsRepository()
+  const { getPost, getComments, createComment } = usePostsRepository()
+  const queryClient = useQueryClient()
 
   const postId = useQueryParam('postId') as string | null
-  const { data: post, isLoading, isFetched } = useQuery(['post', postId], () => postsRepository.getPost(Number(postId)), { enabled: router.isReady })
-  const { data: comments, isLoading: isCommentsLoading } = useQuery(['comments', postId], () => postsRepository.getCommentsForPost(Number(postId)), { enabled: router.isReady })
+  const { data: post, isLoading, isFetched } = useQuery(['post', postId], () => getPost(Number(postId)), { enabled: router.isReady })
+  const { data: comments, isLoading: isCommentsLoading } = useQuery(['comments', postId], () => getComments(Number(postId)), { enabled: router.isReady })
+  const { mutateAsync: submitCreateComment, isLoading: isCommentSubmitLoading } = useMutation(['create-comment', postId], async (content: string) => {
+    await createComment(Number(postId), content)
+    await Promise.all([queryClient.invalidateQueries(['post', postId]), queryClient.invalidateQueries(['comments', postId])])
+  })
 
   if (!isFetched || isLoading || isCommentsLoading) return <Loading />
 
@@ -38,11 +44,12 @@ export const PostIdPage: NextPage = () => {
       { post.data.attributes.files?.data?.length &&
         <Attachments files={post.data.attributes.files.data} />
       }
-      <Divider sx={{ my: 2 }}></Divider>
+      <Divider sx={{ mt: 2, mb: 6 }}></Divider>
       {
         comments &&
         <Comments comments={comments.findAllFlat} />
       }
+      <NewComment isCommentSubmitLoading={isCommentSubmitLoading} onSubmit={submitCreateComment} />
     </Container>
   )
 }
