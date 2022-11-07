@@ -73,7 +73,7 @@ export const PostBox: React.FC<PostBoxProps> = ({ post }) => {
                   {title}
                 </Typography>
                 <Stack direction={'row'} spacing={0.5}>
-                  <AuthorLabel author={data.createdBy.data} />
+                  <AuthorLabel {...data.createdBy.data.attributes} />
                   <DateLabel date={data.createdAt} />
                 </Stack>
               </Stack>

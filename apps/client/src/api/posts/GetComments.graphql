@@ -1,18 +1,16 @@
 query GetComments($postId: String!) {
-    findAllInHierarchy(relation: $postId) {
-        id
-        content
-#        blocked
-#        children {
-#            id
-#            content
-#        }
-#        threadOf {
-#            id
-#        }
-#        author {
-#            id
-#            name
-#        }
+    findAllFlat(relation: $postId) {
+        data {
+            id
+            content
+            blocked
+            author {
+                id
+                name
+                email
+                avatar
+            }
+            createdAt
+        }
     }
 }

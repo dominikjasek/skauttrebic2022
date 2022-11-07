@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import React, { useCallback, useMemo } from 'react'
 import { useQuery } from 'react-query'
 import { usePostsRepository } from '~/src/api/posts/PostsRepository'
 import { Loading } from '~/components/Loading/Loading'
@@ -18,7 +18,6 @@ export const Index: NextPage = () => {
   const troopsRepository = useTroopsRepository()
 
   const troopsFromQuery = useQueryParam('troops') as string | null
-  console.log('troopsFromQuery', troopsFromQuery)
   const selectedTroopIds = troopsFromQuery ? troopsFromQuery.split(',').map(Number) : []
 
   const pageFromQuery = useQueryParam('page')

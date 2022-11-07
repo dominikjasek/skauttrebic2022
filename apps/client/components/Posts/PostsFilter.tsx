@@ -1,14 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { TroopEntity } from '~/src/api/gql/graphql'
 import {
   Accordion, AccordionDetails, AccordionSummary,
   Box,
-  Card,
   Checkbox,
-  Collapse,
   IconButton,
   IconButtonProps,
-  Stack,
   styled,
   Typography
 } from '@mui/material'

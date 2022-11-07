@@ -86,6 +86,7 @@ class PostsRepository {
   }
 
   getCommentsForPost = async (postId: number) => {
+    // return (await this.fetch(`/comment-manager/comments/${postId}/flat`)).data as any
     return await this.graphqlRequestClient.request(GetCommentsDocument, { postId: `api::post.post:${postId}` })
   }
 

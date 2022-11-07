@@ -1,0 +1,21 @@
+diff --git a/node_modules/strapi-plugin-comments/server/services/utils/functions.js b/node_modules/strapi-plugin-comments/server/services/utils/functions.js
+index 93b07d9..0c4e5f9 100644
+--- a/node_modules/strapi-plugin-comments/server/services/utils/functions.js
++++ b/node_modules/strapi-plugin-comments/server/services/utils/functions.js
+@@ -67,13 +67,15 @@ exports.convertContentTypeNameToSlug = convertContentTypeNameToSlug;
+ const buildAuthorModel = (item, fieldsToPopulate = []) => {
+     const { authorUser, authorId, authorName, authorEmail, authorAvatar, ...rest } = item;
+     let author = {};
++
+     if (authorUser) {
++        const authorFullName = `${authorUser.firstName} ${authorUser.lastName}`
+         author = fieldsToPopulate.reduce((prev, curr) => ({
+             ...prev,
+             [curr]: authorUser[curr],
+         }), {
+             id: authorUser.id,
+-            name: authorUser.username,
++            name: authorFullName,
+             email: authorUser.email,
+             avatar: (0, lodash_1.isString)(authorUser.avatar) || (0, lodash_1.isObject)(authorUser.avatar)
+                 ? authorUser.avatar
