@@ -1,12 +1,10 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 import { Box, Button, Container, Link, Stack, Typography } from '@mui/material'
 import { useUser } from '~/src/api/auth/context/AuthContext'
 import { useRouter } from 'next/router'
 import Routes from '~/config/routes'
-import { GetServerSideProps } from 'next'
-import { ParsedUrlQuery } from 'querystring'
-import { isServer } from '~/src/utility/isServer'
 import { Loading } from '~/components/Loading/Loading'
+import dynamic from 'next/dynamic'
 
 interface PhotoLink {
     name: string
@@ -36,11 +34,11 @@ const photoLinks: PhotoLink[] = [
   }
 ]
 
-export const Photos: React.FC = () => {
+export const Photos = dynamic(() => Promise.resolve<React.FC>(() => {
   const user = useUser()
   const router = useRouter()
 
-  if (!user && !isServer()) {
+  if (!user) {
     router.push(Routes.login)
     return <Loading />
   }
@@ -63,14 +61,10 @@ export const Photos: React.FC = () => {
       </Box>
     </Container>
   )
-}
+}),
+{
+  ssr: false
+})
 
 export default Photos
 
-export const getServerSideProps: GetServerSideProps<{query: ParsedUrlQuery}> = async (context) => {
-  // The query params are set on `context.query`
-  const { query } = context
-  return {
-    props: { query }
-  }
-}
