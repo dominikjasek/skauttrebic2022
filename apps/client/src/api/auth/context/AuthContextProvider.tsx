@@ -2,7 +2,8 @@ import React, { PropsWithChildren, useEffect, useState } from 'react'
 import { useJwtCookieStorage } from '~/src/api/auth/context/JwtCookieStorage'
 import { AuthContext, IAuth } from '~/src/api/auth/context/AuthContext'
 import { useAuthRepository } from '~/src/api/auth/AuthRepository'
-import { useQueryClient } from 'react-query'
+import { useQuery, useQueryClient } from 'react-query'
+import { Loading } from '~/components/Loading/Loading'
 
 export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const jwtCookieStorage = useJwtCookieStorage()
@@ -10,20 +11,21 @@ export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const queryclient = useQueryClient()
 
   const [auth, setAuth] = useState<IAuth | null>({ jwt: jwtCookieStorage.get() })
-
-  const reloadUserInfo = async (jwt: string) => {
-    jwtCookieStorage.set(jwt)
-    const response = await authRepository.getUserInfo()
-    setAuth({
-      user: {
-        firstName: response.firstName,
-        lastName: response.lastName,
-        email: response.email,
-        id: response.id
-      },
-      jwt: jwt
-    })
-  }
+  const { refetch: reloadUserInfo, isLoading } = useQuery('user', async () => {
+    const jwt = jwtCookieStorage.get()
+    if (jwt) {
+      const response = await authRepository.getUserInfo()
+      setAuth({
+        user: {
+          firstName: response.firstName,
+          lastName: response.lastName,
+          email: response.email,
+          id: response.id
+        },
+        jwt
+      })
+    }
+  })
 
   const clearUserInfo = () => {
     setAuth(null)
@@ -32,12 +34,17 @@ export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
 
   useEffect(() => {
     if (auth?.jwt) {
-      reloadUserInfo(auth.jwt)
+      jwtCookieStorage.set(auth.jwt)
+      reloadUserInfo()
     } else {
       clearUserInfo()
     }
     queryclient.invalidateQueries()
   }, [auth?.jwt])
+
+  if (isLoading) {
+    return <Loading />
+  }
 
   return (
     <AuthContext.Provider

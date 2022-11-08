@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react'
+import { createContext, useContext, useMemo } from 'react'
 
 interface IUser {
     firstName: string
@@ -23,5 +23,5 @@ export const useAuth = () => {
 
 export const useUser = () => {
   const auth = useAuth()
-  return auth?.auth?.user ?? null
+  return useMemo(() => auth?.auth?.user ?? null, [auth])
 }
