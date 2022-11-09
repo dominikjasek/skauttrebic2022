@@ -11,6 +11,7 @@ import { DateLabel } from '~/components/Posts/Chips/DateLabel'
 import { Comments } from '~/components/Posts/Comments/Comments'
 import { Attachments } from '~/components/Posts/Attachments'
 import { NewComment } from '~/components/Posts/Comments/NewComment'
+import { Html } from '~/components/Html/Html'
 
 export const PostIdPage: NextPage = () => {
   const router = useRouter()
@@ -48,7 +49,7 @@ export const PostIdPage: NextPage = () => {
         <DateLabel date={post.data.attributes.createdAt}></DateLabel>
       </Stack>
       <Divider sx={{ my: 2 }}></Divider>
-      <Typography dangerouslySetInnerHTML={{ __html: post.data.attributes.content }}></Typography>
+      <Html html={ post.data.attributes.content } />
       { post.data.attributes.files?.data?.length &&
       <>
         <Attachments files={post.data.attributes.files.data} />

@@ -4,6 +4,7 @@ import { ThemeProvider, CssBaseline } from '@mui/material'
 import { Hydrate,QueryClient,QueryClientProvider } from 'react-query'
 
 import '../styles/globals.css'
+import '../styles/ckeditor-output.css'
 import lightTheme from '../styles/theme/lighttheme'
 import * as React from 'react'
 import { useRef } from 'react'

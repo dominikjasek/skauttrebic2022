@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "clubrooms",
+  "info": {
+    "singularName": "clubroom",
+    "pluralName": "clubrooms",
+    "displayName": "Klubovna"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "richtext"
+    }
+  }
+}

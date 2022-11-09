@@ -2211,6 +2211,82 @@
       "collectionName": "i18n_locale",
       "globalId": "I18NLocale"
     },
+    "api::clubroom.clubroom": {
+      "kind": "singleType",
+      "collectionName": "clubrooms",
+      "info": {
+        "singularName": "clubroom",
+        "pluralName": "clubrooms",
+        "displayName": "Klubovna"
+      },
+      "options": {
+        "draftAndPublish": false
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "title": {
+          "type": "string"
+        },
+        "content": {
+          "type": "richtext"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "clubrooms",
+        "info": {
+          "singularName": "clubroom",
+          "pluralName": "clubrooms",
+          "displayName": "Klubovna"
+        },
+        "options": {
+          "draftAndPublish": false
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "title": {
+            "type": "string"
+          },
+          "content": {
+            "type": "richtext"
+          }
+        },
+        "kind": "singleType"
+      },
+      "modelType": "contentType",
+      "modelName": "clubroom",
+      "connection": "default",
+      "uid": "api::clubroom.clubroom",
+      "apiName": "clubroom",
+      "globalId": "Clubroom",
+      "actions": {},
+      "lifecycles": {}
+    },
     "api::homepage.homepage": {
       "kind": "singleType",
       "collectionName": "homepages",

@@ -4,6 +4,9 @@
   "type": "public",
   "permissions": [
     {
+      "action": "api::clubroom.clubroom.find"
+    },
+    {
       "action": "api::confirm-registration.confirm-registration.confirmRegistration"
     },
     {

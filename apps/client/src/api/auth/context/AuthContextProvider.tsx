@@ -11,7 +11,7 @@ export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const queryclient = useQueryClient()
 
   const [auth, setAuth] = useState<IAuth | null>({ jwt: jwtCookieStorage.get() })
-  const { refetch: reloadUserInfo, isLoading } = useQuery('user', async () => {
+  const { refetch: reloadUserInfo } = useQuery('user', async () => {
     const jwt = jwtCookieStorage.get()
     if (jwt) {
       const response = await authRepository.getUserInfo()
@@ -41,10 +41,6 @@ export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
     }
     queryclient.invalidateQueries()
   }, [auth?.jwt])
-
-  if (isLoading) {
-    return <Loading />
-  }
 
   return (
     <AuthContext.Provider

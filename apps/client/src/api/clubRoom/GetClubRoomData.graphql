@@ -1,0 +1,10 @@
+query GetClubroomData {
+    clubroom {
+        data {
+            attributes {
+                title
+                content
+            }
+        }
+    }
+}

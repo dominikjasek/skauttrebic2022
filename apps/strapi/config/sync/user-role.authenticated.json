@@ -4,6 +4,9 @@
   "type": "authenticated",
   "permissions": [
     {
+      "action": "api::clubroom.clubroom.find"
+    },
+    {
       "action": "api::homepage.homepage.find"
     },
     {

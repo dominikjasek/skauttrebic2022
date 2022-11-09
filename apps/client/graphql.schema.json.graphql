@@ -5,7 +5,23 @@ schema {
     mutation: Mutation
 }
 
-union GenericMorph = CommentsComment | CommentsCommentReport | ComponentHomepageHomeImage | ComponentHomepageTroop | ComponentTotemLegend | ComponentTotemTotemComment | EmailDesignerEmailTemplate | Homepage | I18NLocale | Post | TopBar | Totem | Troop | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser
+union GenericMorph = Clubroom | CommentsComment | CommentsCommentReport | ComponentHomepageHomeImage | ComponentHomepageTroop | ComponentTotemLegend | ComponentTotemTotemComment | EmailDesignerEmailTemplate | Homepage | I18NLocale | Post | TopBar | Totem | Troop | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser
+
+type Clubroom {
+    content: String
+    createdAt: DateTime
+    title: String
+    updatedAt: DateTime
+}
+
+type ClubroomEntity {
+    attributes: Clubroom
+    id: Id
+}
+
+type ClubroomEntityResponse {
+    data: ClubroomEntity
+}
 
 type CommentAuthor {
     avatar: String
@@ -196,6 +212,7 @@ type Mutation {
     createUsersPermissionsRole(data: UsersPermissionsRoleInput!): UsersPermissionsCreateRolePayload
     "Create a new user"
     createUsersPermissionsUser(data: UsersPermissionsUserInput!): UsersPermissionsUserEntityResponse!
+    deleteClubroom: ClubroomEntityResponse
     deleteEmailDesignerEmailTemplate(id: ID!): EmailDesignerEmailTemplateEntityResponse
     deleteHomepage: HomepageEntityResponse
     deletePost(id: ID!): PostEntityResponse
@@ -220,6 +237,7 @@ type Mutation {
     removeFile(id: ID!): UploadFileEntityResponse
     "Reset user password. Confirm with a code (resetToken from forgotPassword)"
     resetPassword(code: String!, password: String!, passwordConfirmation: String!): UsersPermissionsLoginPayload
+    updateClubroom(data: ClubroomInput!): ClubroomEntityResponse
     updateComment(input: UpdateComment!): CommentSingle!
     updateEmailDesignerEmailTemplate(data: EmailDesignerEmailTemplateInput!, id: ID!): EmailDesignerEmailTemplateEntityResponse
     updateFileInfo(id: ID!, info: FileInfoInput): UploadFileEntityResponse!
@@ -248,6 +266,7 @@ type Post {
     content: String!
     createdAt: DateTime
     files(filters: UploadFileFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UploadFileRelationResponseCollection
+    public: Boolean
     publishedAt: DateTime
     schedule_publish_at: DateTime
     title: String!
@@ -275,6 +294,7 @@ type PostRelationResponseCollection {
 }
 
 type Query {
+    clubroom: ClubroomEntityResponse
     emailDesignerEmailTemplate(id: ID): EmailDesignerEmailTemplateEntityResponse
     emailDesignerEmailTemplates(filters: EmailDesignerEmailTemplateFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): EmailDesignerEmailTemplateEntityResponseCollection
     findAllFlat(filters: CommentFiltersInput, pagination: PaginationArg = {}, relation: String!, sort: [String] = []): ResponseFindAll
@@ -625,6 +645,11 @@ input BooleanFilterInput {
     startsWith: Boolean
 }
 
+input ClubroomInput {
+    content: String
+    title: String
+}
+
 input CommentFiltersInput {
     and: [CommentFiltersInput]
     approvalStatus: StringFilterInput
@@ -955,6 +980,7 @@ input PostFiltersInput {
     id: IDFilterInput
     not: PostFiltersInput
     or: [PostFiltersInput]
+    public: BooleanFilterInput
     publishedAt: DateTimeFilterInput
     schedule_publish_at: DateTimeFilterInput
     title: StringFilterInput
@@ -966,6 +992,7 @@ input PostFiltersInput {
 input PostInput {
     content: String
     files: [Id]
+    public: Boolean
     publishedAt: DateTime
     schedule_publish_at: DateTime
     title: String
