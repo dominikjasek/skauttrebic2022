@@ -17,7 +17,7 @@ export const Clubroom: NextPage = () => {
   return (
     <Container>
       <Box pt={2}>
-        <Html html={ data!.clubroom!.data!.attributes!.content ?? '' } />
+        <Html html={ data?.clubroom?.data?.attributes?.content ?? '' } />
       </Box>
     </Container>
   )
