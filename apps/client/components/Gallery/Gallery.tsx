@@ -8,6 +8,7 @@ export interface PhotoProp {
   width: number
   height: number
   formats: any
+  caption: string
 }
 
 interface GalleryProps {
@@ -16,9 +17,8 @@ interface GalleryProps {
 }
 
 export const PhotoGallery: FC<GalleryProps> = (props) => {
-
   return (
-    <Gallery>
+    <Gallery withCaption>
       {
         props.photos.map((photo,i) => (
           <Item
@@ -27,6 +27,7 @@ export const PhotoGallery: FC<GalleryProps> = (props) => {
             thumbnail={photo.formats?.thumbnail?.url}
             width={photo.formats?.large.width}
             height={photo.formats?.large.height}
+            caption={photo.caption}
           >
             {({ ref, open }) => (
               <img ref={ref as any} onClick={open} src={photo.formats?.thumbnail?.url} style={{ margin: 2 }} />
