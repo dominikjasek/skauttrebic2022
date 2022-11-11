@@ -10,6 +10,7 @@ union GenericMorph = Clubroom | CommentsComment | CommentsCommentReport | Compon
 type Clubroom {
     content: String
     createdAt: DateTime
+    photos(filters: UploadFileFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UploadFileRelationResponseCollection
     title: String
     updatedAt: DateTime
 }
@@ -647,6 +648,7 @@ input BooleanFilterInput {
 
 input ClubroomInput {
     content: String
+    photos: [Id]
     title: String
 }
 

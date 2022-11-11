@@ -5,6 +5,48 @@
   "permissions": [
     {
       "action": "plugin::content-manager.explorer.create",
+      "subject": "api::clubroom.clubroom",
+      "properties": {
+        "fields": [
+          "title",
+          "content",
+          "photos"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::clubroom.clubroom",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::clubroom.clubroom",
+      "properties": {
+        "fields": [
+          "title",
+          "content",
+          "photos"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::clubroom.clubroom",
+      "properties": {
+        "fields": [
+          "title",
+          "content",
+          "photos"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
       "subject": "api::homepage.homepage",
       "properties": {
         "fields": [

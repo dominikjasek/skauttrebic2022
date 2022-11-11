@@ -4,6 +4,20 @@ query GetClubroomData {
             attributes {
                 title
                 content
+                photos {
+                    data {
+                        attributes {
+                           name
+                            previewUrl
+                            url
+                            formats
+                            caption
+                            width
+                            height
+                        }
+                        id
+                    }
+                }
             }
         }
     }

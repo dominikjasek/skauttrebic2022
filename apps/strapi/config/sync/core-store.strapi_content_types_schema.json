@@ -2217,7 +2217,8 @@
       "info": {
         "singularName": "clubroom",
         "pluralName": "clubrooms",
-        "displayName": "Klubovna"
+        "displayName": "Klubovna",
+        "description": ""
       },
       "options": {
         "draftAndPublish": false
@@ -2229,6 +2230,13 @@
         },
         "content": {
           "type": "richtext"
+        },
+        "photos": {
+          "allowedTypes": [
+            "images"
+          ],
+          "type": "media",
+          "multiple": true
         },
         "createdAt": {
           "type": "datetime"
@@ -2262,7 +2270,8 @@
         "info": {
           "singularName": "clubroom",
           "pluralName": "clubrooms",
-          "displayName": "Klubovna"
+          "displayName": "Klubovna",
+          "description": ""
         },
         "options": {
           "draftAndPublish": false
@@ -2274,6 +2283,13 @@
           },
           "content": {
             "type": "richtext"
+          },
+          "photos": {
+            "allowedTypes": [
+              "images"
+            ],
+            "type": "media",
+            "multiple": true
           }
         },
         "kind": "singleType"

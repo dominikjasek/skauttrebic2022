@@ -4,7 +4,8 @@
   "info": {
     "singularName": "clubroom",
     "pluralName": "clubrooms",
-    "displayName": "Klubovna"
+    "displayName": "Klubovna",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -16,6 +17,13 @@
     },
     "content": {
       "type": "richtext"
+    },
+    "photos": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }

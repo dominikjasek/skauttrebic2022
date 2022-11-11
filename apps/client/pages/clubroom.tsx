@@ -3,8 +3,9 @@ import { NextPage } from 'next'
 import { dehydrate, QueryClient, useQuery } from 'react-query'
 import { useClubRoomRepository } from '~/src/api/clubRoom/ClubroomRepository'
 import { Loading } from '~/components/Loading/Loading'
-import { Box, Container, Typography } from '@mui/material'
+import { Box, Container } from '@mui/material'
 import { Html } from '~/components/Html/Html'
+import { PhotoGallery, PhotoProp } from '~/components/Gallery/Gallery'
 
 export const Clubroom: NextPage = () => {
   const clubRoomRepository = useClubRoomRepository()
@@ -14,11 +15,17 @@ export const Clubroom: NextPage = () => {
     return <Loading />
   }
 
+  console.log('data?.clubroom?.data?.attributes?.photos?.data', data?.clubroom?.data?.attributes?.photos?.data)
+
   return (
     <Container>
       <Box pt={2}>
         <Html html={ data?.clubroom?.data?.attributes?.content ?? '' } />
       </Box>
+      {
+        data?.clubroom?.data?.attributes?.photos?.data &&
+        <PhotoGallery photos={data.clubroom.data.attributes.photos.data.map(d => d.attributes as PhotoProp)} galleryId={'clubroom-photo-gallery'} />
+      }
     </Container>
   )
 }
