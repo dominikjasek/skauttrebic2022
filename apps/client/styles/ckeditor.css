@@ -1,4 +1,10 @@
-:root {
+/*
+ * CKEditor 5 (v35.3.0) content styles.
+ * Generated on Tue, 08 Nov 2022 15:19:15 GMT.
+ * For more information, check out https://ckeditor.com/docs/ckeditor5/latest/installation/advanced/content-styles.html
+ */
+
+.ck-content {
     --ck-color-image-caption-background: hsl(0, 0%, 97%);
     --ck-color-image-caption-text: hsl(0, 0%, 20%);
     --ck-color-mention-background: hsla(341, 100%, 30%, 0.1);
@@ -14,10 +20,6 @@
     --ck-image-style-spacing: 1.5em;
     --ck-inline-image-style-spacing: calc(var(--ck-image-style-spacing) / 2);
     --ck-todo-list-checkmark-size: 16px;
-}
-
-.ck-content img {
-    width: 100%;
 }
 
 /* ckeditor5-basic-styles/theme/code.css */
@@ -58,7 +60,7 @@
     font-size: 1.8em;
 }
 /* ckeditor5-image/theme/imagecaption.css */
-.ck-content .image > figcaption {
+.ck-content img > figcaption {
     display: table-caption;
     caption-side: bottom;
     word-break: break-word;
@@ -103,11 +105,10 @@
     min-width: 50px;
 }
 /* ckeditor5-image/theme/image.css */
-.ck-content .image img {
+.ck-content img {
     display: block;
     margin: 0 auto;
     max-width: 100%;
-    min-width: 100%;
 }
 /* ckeditor5-image/theme/image.css */
 .ck-content .image-inline {
@@ -193,17 +194,17 @@
     margin-left: var(--ck-inline-image-style-spacing);
 }
 /* ckeditor5-image/theme/imageresize.css */
-.ck-content .image.image_resized {
+.ck-content .image_resized {
     max-width: 100%;
     display: block;
     box-sizing: border-box;
 }
 /* ckeditor5-image/theme/imageresize.css */
-.ck-content .image.image_resized img {
+.ck-content .image_resized img {
     width: 100%;
 }
 /* ckeditor5-image/theme/imageresize.css */
-.ck-content .image.image_resized > figcaption {
+.ck-content .image_resized > figcaption {
     display: block;
 }
 /* ckeditor5-language/theme/language.css */
