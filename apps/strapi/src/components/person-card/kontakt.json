@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_person_card_kontakts",
+  "info": {
+    "displayName": "Kontakt",
+    "icon": "address-card",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "nickname": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "about": {
+      "type": "richtext"
+    }
+  }
+}

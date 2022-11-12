@@ -2303,6 +2303,84 @@
       "actions": {},
       "lifecycles": {}
     },
+    "api::contact.contact": {
+      "kind": "singleType",
+      "collectionName": "contacts",
+      "info": {
+        "singularName": "contact",
+        "pluralName": "contacts",
+        "displayName": "Kontakty",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": false
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "contactCards": {
+          "displayName": "Kontakt",
+          "type": "component",
+          "repeatable": true,
+          "component": "person-card.kontakt"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "contacts",
+        "info": {
+          "singularName": "contact",
+          "pluralName": "contacts",
+          "displayName": "Kontakty",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": false
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "contactCards": {
+            "displayName": "Kontakt",
+            "type": "component",
+            "repeatable": true,
+            "component": "person-card.kontakt"
+          }
+        },
+        "kind": "singleType"
+      },
+      "modelType": "contentType",
+      "modelName": "contact",
+      "connection": "default",
+      "uid": "api::contact.contact",
+      "apiName": "contact",
+      "globalId": "Contact",
+      "actions": {},
+      "lifecycles": {}
+    },
     "api::homepage.homepage": {
       "kind": "singleType",
       "collectionName": "homepages",

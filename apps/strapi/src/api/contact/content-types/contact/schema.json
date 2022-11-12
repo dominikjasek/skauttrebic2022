@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "contacts",
+  "info": {
+    "singularName": "contact",
+    "pluralName": "contacts",
+    "displayName": "Kontakty",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "contactCards": {
+      "displayName": "Kontakt",
+      "type": "component",
+      "repeatable": true,
+      "component": "person-card.kontakt"
+    }
+  }
+}

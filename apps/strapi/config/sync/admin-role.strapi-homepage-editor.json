@@ -1,5 +1,5 @@
 {
-  "name": "Editor úvodní stránku",
+  "name": "Editor úvodní stránky",
   "code": "strapi-homepage-editor",
   "description": "Může editovat úvodní stránku.",
   "permissions": [
@@ -8,14 +8,14 @@
       "subject": "api::homepage.homepage",
       "properties": {
         "fields": [
-          "images.text",
-          "images.photo",
+          "about",
           "images.background_color",
-          "troops.title",
-          "troops.description",
+          "images.photo",
+          "images.text",
           "troops.age_gender_information",
+          "troops.description",
           "troops.logo",
-          "about"
+          "troops.title"
         ]
       },
       "conditions": []
@@ -31,14 +31,14 @@
       "subject": "api::homepage.homepage",
       "properties": {
         "fields": [
-          "images.text",
-          "images.photo",
+          "about",
           "images.background_color",
-          "troops.title",
-          "troops.description",
+          "images.photo",
+          "images.text",
           "troops.age_gender_information",
+          "troops.description",
           "troops.logo",
-          "about"
+          "troops.title"
         ]
       },
       "conditions": []
@@ -48,14 +48,14 @@
       "subject": "api::homepage.homepage",
       "properties": {
         "fields": [
-          "images.text",
-          "images.photo",
+          "about",
           "images.background_color",
-          "troops.title",
-          "troops.description",
+          "images.photo",
+          "images.text",
           "troops.age_gender_information",
+          "troops.description",
           "troops.logo",
-          "about"
+          "troops.title"
         ]
       },
       "conditions": []
