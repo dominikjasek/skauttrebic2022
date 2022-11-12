@@ -7,6 +7,9 @@
       "action": "api::clubroom.clubroom.find"
     },
     {
+      "action": "api::contact.contact.find"
+    },
+    {
       "action": "api::homepage.homepage.find"
     },
     {

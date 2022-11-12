@@ -1,0 +1,58 @@
+{
+  "name": "Editor karet kontaktů",
+  "code": "strapi-contact-cards-editor",
+  "description": "Může editovat karty kontaktů.",
+  "permissions": [
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::contact.contact",
+      "properties": {
+        "fields": [
+          "contactCards.name",
+          "contactCards.nickname",
+          "contactCards.role",
+          "contactCards.phone",
+          "contactCards.email",
+          "contactCards.about"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::contact.contact",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::contact.contact",
+      "properties": {
+        "fields": [
+          "contactCards.name",
+          "contactCards.nickname",
+          "contactCards.role",
+          "contactCards.phone",
+          "contactCards.email",
+          "contactCards.about"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::contact.contact",
+      "properties": {
+        "fields": [
+          "contactCards.name",
+          "contactCards.nickname",
+          "contactCards.role",
+          "contactCards.phone",
+          "contactCards.email",
+          "contactCards.about"
+        ]
+      },
+      "conditions": []
+    }
+  ]
+}

@@ -13,6 +13,9 @@
       "action": "api::confirm-registration.confirm-registration.validate"
     },
     {
+      "action": "api::contact.contact.find"
+    },
+    {
       "action": "api::homepage.homepage.find"
     },
     {
