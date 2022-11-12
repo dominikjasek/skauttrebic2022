@@ -6,7 +6,7 @@ const Routes = {
   post: '/aktuality/:postId*',
   clubRoom: '/klubovna',
   photos: '/fotografie',
-  contact: '/kontakt',
+  contacts: '/kontakty',
 }
 
 const routes = [
@@ -39,8 +39,8 @@ const routes = [
     destination: '/photos',
   },
   {
-    source: Routes.contact,
-    destination: '/contact'
+    source: Routes.contacts,
+    destination: '/contacts'
   }
 ]
 

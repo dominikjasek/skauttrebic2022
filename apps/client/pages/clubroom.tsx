@@ -15,8 +15,6 @@ export const Clubroom: NextPage = () => {
     return <Loading />
   }
 
-  console.log('data?.clubroom?.data?.attributes?.photos?.data', data?.clubroom?.data?.attributes?.photos?.data)
-
   return (
     <Container>
       <Box pt={2}>

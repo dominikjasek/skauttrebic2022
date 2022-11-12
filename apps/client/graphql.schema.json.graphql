@@ -5,7 +5,7 @@ schema {
     mutation: Mutation
 }
 
-union GenericMorph = Clubroom | CommentsComment | CommentsCommentReport | ComponentHomepageHomeImage | ComponentHomepageTroop | ComponentTotemLegend | ComponentTotemTotemComment | EmailDesignerEmailTemplate | Homepage | I18NLocale | Post | TopBar | Totem | Troop | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser
+union GenericMorph = Clubroom | CommentsComment | CommentsCommentReport | ComponentHomepageHomeImage | ComponentHomepageTroop | ComponentPersonCardKontakt | ComponentTotemLegend | ComponentTotemTotemComment | Contact | EmailDesignerEmailTemplate | Homepage | I18NLocale | Post | TopBar | Totem | Troop | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser
 
 type Clubroom {
     content: String
@@ -120,6 +120,16 @@ type ComponentHomepageTroop {
     title: String!
 }
 
+type ComponentPersonCardKontakt {
+    about: String
+    email: String
+    id: Id!
+    name: String!
+    nickname: String
+    phone: String
+    role: String!
+}
+
 type ComponentTotemLegend {
     audio: UploadFileEntityResponse!
     id: Id!
@@ -132,6 +142,21 @@ type ComponentTotemTotemComment {
     id: Id!
     name: String
     text: String!
+}
+
+type Contact {
+    contactCards(filters: ComponentPersonCardKontaktFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentPersonCardKontakt]
+    createdAt: DateTime
+    updatedAt: DateTime
+}
+
+type ContactEntity {
+    attributes: Contact
+    id: Id
+}
+
+type ContactEntityResponse {
+    data: ContactEntity
 }
 
 type EmailDesignerEmailTemplate {
@@ -214,6 +239,7 @@ type Mutation {
     "Create a new user"
     createUsersPermissionsUser(data: UsersPermissionsUserInput!): UsersPermissionsUserEntityResponse!
     deleteClubroom: ClubroomEntityResponse
+    deleteContact: ContactEntityResponse
     deleteEmailDesignerEmailTemplate(id: ID!): EmailDesignerEmailTemplateEntityResponse
     deleteHomepage: HomepageEntityResponse
     deletePost(id: ID!): PostEntityResponse
@@ -240,6 +266,7 @@ type Mutation {
     resetPassword(code: String!, password: String!, passwordConfirmation: String!): UsersPermissionsLoginPayload
     updateClubroom(data: ClubroomInput!): ClubroomEntityResponse
     updateComment(input: UpdateComment!): CommentSingle!
+    updateContact(data: ContactInput!): ContactEntityResponse
     updateEmailDesignerEmailTemplate(data: EmailDesignerEmailTemplateInput!, id: ID!): EmailDesignerEmailTemplateEntityResponse
     updateFileInfo(id: ID!, info: FileInfoInput): UploadFileEntityResponse!
     updateHomepage(data: HomepageInput!): HomepageEntityResponse
@@ -296,6 +323,7 @@ type PostRelationResponseCollection {
 
 type Query {
     clubroom: ClubroomEntityResponse
+    contact: ContactEntityResponse
     emailDesignerEmailTemplate(id: ID): EmailDesignerEmailTemplateEntityResponse
     emailDesignerEmailTemplates(filters: EmailDesignerEmailTemplateFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): EmailDesignerEmailTemplateEntityResponseCollection
     findAllFlat(filters: CommentFiltersInput, pagination: PaginationArg = {}, relation: String!, sort: [String] = []): ResponseFindAll
@@ -742,6 +770,28 @@ input ComponentHomepageTroopInput {
     title: String
 }
 
+input ComponentPersonCardKontaktFiltersInput {
+    about: StringFilterInput
+    and: [ComponentPersonCardKontaktFiltersInput]
+    email: StringFilterInput
+    name: StringFilterInput
+    nickname: StringFilterInput
+    not: ComponentPersonCardKontaktFiltersInput
+    or: [ComponentPersonCardKontaktFiltersInput]
+    phone: StringFilterInput
+    role: StringFilterInput
+}
+
+input ComponentPersonCardKontaktInput {
+    about: String
+    email: String
+    id: Id
+    name: String
+    nickname: String
+    phone: String
+    role: String
+}
+
 input ComponentTotemLegendFiltersInput {
     and: [ComponentTotemLegendFiltersInput]
     not: ComponentTotemLegendFiltersInput
@@ -770,6 +820,10 @@ input ComponentTotemTotemCommentInput {
     id: Id
     name: String
     text: String
+}
+
+input ContactInput {
+    contactCards: [ComponentPersonCardKontaktInput]
 }
 
 input CreateComment {

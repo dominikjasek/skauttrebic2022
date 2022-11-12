@@ -29,8 +29,8 @@ const ITEMS: MenuItemType[] = [
     link: Routes.clubRoom
   },
   {
-    label: 'Kontakt',
-    link: Routes.contact
+    label: 'Kontakty',
+    link: Routes.contacts
   }
 ]
 

@@ -283,6 +283,39 @@ export type ComponentHomepageTroopInput = {
   title?: InputMaybe<Scalars['String']>;
 };
 
+export type ComponentPersonCardKontakt = {
+  __typename?: 'ComponentPersonCardKontakt';
+  about?: Maybe<Scalars['String']>;
+  email?: Maybe<Scalars['String']>;
+  id: Scalars['Id'];
+  name: Scalars['String'];
+  nickname?: Maybe<Scalars['String']>;
+  phone?: Maybe<Scalars['String']>;
+  role: Scalars['String'];
+};
+
+export type ComponentPersonCardKontaktFiltersInput = {
+  about?: InputMaybe<StringFilterInput>;
+  and?: InputMaybe<Array<InputMaybe<ComponentPersonCardKontaktFiltersInput>>>;
+  email?: InputMaybe<StringFilterInput>;
+  name?: InputMaybe<StringFilterInput>;
+  nickname?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ComponentPersonCardKontaktFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentPersonCardKontaktFiltersInput>>>;
+  phone?: InputMaybe<StringFilterInput>;
+  role?: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentPersonCardKontaktInput = {
+  about?: InputMaybe<Scalars['String']>;
+  email?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['Id']>;
+  name?: InputMaybe<Scalars['String']>;
+  nickname?: InputMaybe<Scalars['String']>;
+  phone?: InputMaybe<Scalars['String']>;
+  role?: InputMaybe<Scalars['String']>;
+};
+
 export type ComponentTotemLegend = {
   __typename?: 'ComponentTotemLegend';
   audio: UploadFileEntityResponse;
@@ -327,6 +360,35 @@ export type ComponentTotemTotemCommentInput = {
   id?: InputMaybe<Scalars['Id']>;
   name?: InputMaybe<Scalars['String']>;
   text?: InputMaybe<Scalars['String']>;
+};
+
+export type Contact = {
+  __typename?: 'Contact';
+  contactCards?: Maybe<Array<Maybe<ComponentPersonCardKontakt>>>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+
+export type ContactContactCardsArgs = {
+  filters?: InputMaybe<ComponentPersonCardKontaktFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type ContactEntity = {
+  __typename?: 'ContactEntity';
+  attributes?: Maybe<Contact>;
+  id?: Maybe<Scalars['Id']>;
+};
+
+export type ContactEntityResponse = {
+  __typename?: 'ContactEntityResponse';
+  data?: Maybe<ContactEntity>;
+};
+
+export type ContactInput = {
+  contactCards?: InputMaybe<Array<InputMaybe<ComponentPersonCardKontaktInput>>>;
 };
 
 export type CreateComment = {
@@ -474,7 +536,7 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']>;
 };
 
-export type GenericMorph = Clubroom | CommentsComment | CommentsCommentReport | ComponentHomepageHomeImage | ComponentHomepageTroop | ComponentTotemLegend | ComponentTotemTotemComment | EmailDesignerEmailTemplate | Homepage | I18NLocale | Post | TopBar | Totem | Troop | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = Clubroom | CommentsComment | CommentsCommentReport | ComponentHomepageHomeImage | ComponentHomepageTroop | ComponentPersonCardKontakt | ComponentTotemLegend | ComponentTotemTotemComment | Contact | EmailDesignerEmailTemplate | Homepage | I18NLocale | Post | TopBar | Totem | Troop | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type Homepage = {
   __typename?: 'Homepage';
@@ -644,6 +706,7 @@ export type Mutation = {
   /** Create a new user */
   createUsersPermissionsUser: UsersPermissionsUserEntityResponse;
   deleteClubroom?: Maybe<ClubroomEntityResponse>;
+  deleteContact?: Maybe<ContactEntityResponse>;
   deleteEmailDesignerEmailTemplate?: Maybe<EmailDesignerEmailTemplateEntityResponse>;
   deleteHomepage?: Maybe<HomepageEntityResponse>;
   deletePost?: Maybe<PostEntityResponse>;
@@ -670,6 +733,7 @@ export type Mutation = {
   resetPassword?: Maybe<UsersPermissionsLoginPayload>;
   updateClubroom?: Maybe<ClubroomEntityResponse>;
   updateComment: CommentSingle;
+  updateContact?: Maybe<ContactEntityResponse>;
   updateEmailDesignerEmailTemplate?: Maybe<EmailDesignerEmailTemplateEntityResponse>;
   updateFileInfo: UploadFileEntityResponse;
   updateHomepage?: Maybe<HomepageEntityResponse>;
@@ -826,6 +890,11 @@ export type MutationUpdateClubroomArgs = {
 
 export type MutationUpdateCommentArgs = {
   input: UpdateComment;
+};
+
+
+export type MutationUpdateContactArgs = {
+  data: ContactInput;
 };
 
 
@@ -1007,6 +1076,7 @@ export enum PublicationState {
 export type Query = {
   __typename?: 'Query';
   clubroom?: Maybe<ClubroomEntityResponse>;
+  contact?: Maybe<ContactEntityResponse>;
   emailDesignerEmailTemplate?: Maybe<EmailDesignerEmailTemplateEntityResponse>;
   emailDesignerEmailTemplates?: Maybe<EmailDesignerEmailTemplateEntityResponseCollection>;
   findAllFlat?: Maybe<ResponseFindAll>;
@@ -1762,6 +1832,11 @@ export type GetClubroomDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetClubroomDataQuery = { __typename?: 'Query', clubroom?: { __typename?: 'ClubroomEntityResponse', data?: { __typename?: 'ClubroomEntity', attributes?: { __typename?: 'Clubroom', title?: string | null, content?: string | null, photos?: { __typename?: 'UploadFileRelationResponseCollection', data: Array<{ __typename?: 'UploadFileEntity', id?: any | null, attributes?: { __typename?: 'UploadFile', name: string, previewUrl?: string | null, url: string, formats?: any | null, caption?: string | null, width?: number | null, height?: number | null } | null }> } | null } | null } | null } | null };
 
+export type GetContactCardsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetContactCardsQuery = { __typename?: 'Query', contact?: { __typename?: 'ContactEntityResponse', data?: { __typename?: 'ContactEntity', id?: any | null, attributes?: { __typename?: 'Contact', contactCards?: Array<{ __typename?: 'ComponentPersonCardKontakt', id: any, name: string, email?: string | null, about?: string | null, nickname?: string | null, phone?: string | null, role: string } | null> | null } | null } | null } | null };
+
 export type HomepageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -1797,6 +1872,7 @@ export type ListTroopsQuery = { __typename?: 'Query', troops?: { __typename?: 'T
 
 
 export const GetClubroomDataDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetClubroomData"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"clubroom"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"photos"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"previewUrl"}},{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"formats"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}},{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<GetClubroomDataQuery, GetClubroomDataQueryVariables>;
+export const GetContactCardsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetContactCards"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"contact"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"contactCards"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"about"}},{"kind":"Field","name":{"kind":"Name","value":"nickname"}},{"kind":"Field","name":{"kind":"Name","value":"phone"}},{"kind":"Field","name":{"kind":"Name","value":"role"}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<GetContactCardsQuery, GetContactCardsQueryVariables>;
 export const HomepageDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Homepage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"homepage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"images"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"photo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"formats"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"text"}},{"kind":"Field","name":{"kind":"Name","value":"background_color"}},{"kind":"Field","name":{"kind":"Name","value":"text_color"}}]}},{"kind":"Field","name":{"kind":"Name","value":"about"}},{"kind":"Field","name":{"kind":"Name","value":"troops"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"age_gender_information"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"logo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"formats"}}]}}]}}]}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<HomepageQuery, HomepageQueryVariables>;
 export const CreateCommentDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"CreateComment"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"relation"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"content"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createComment"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"relation"},"value":{"kind":"Variable","name":{"kind":"Name","value":"relation"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"content"},"value":{"kind":"Variable","name":{"kind":"Name","value":"content"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]} as unknown as DocumentNode<CreateCommentMutation, CreateCommentMutationVariables>;
 export const DeleteCommentDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"DeleteComment"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"relation"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Id"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"removeComment"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"relation"},"value":{"kind":"Variable","name":{"kind":"Name","value":"relation"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"removed"}}]}}]}}]} as unknown as DocumentNode<DeleteCommentMutation, DeleteCommentMutationVariables>;

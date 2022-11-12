@@ -1,0 +1,18 @@
+query GetContactCards {
+    contact {
+        data {
+            id
+            attributes {
+                contactCards {
+                    id
+                    name
+                    email
+                    about
+                    nickname
+                    phone
+                    role
+                }
+            }
+        }
+    }
+}
