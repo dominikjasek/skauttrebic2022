@@ -5,12 +5,11 @@ import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 import { SkautLogo } from '../Logo/SkautLogo'
 import { Box, Stack, useTheme } from '@mui/material'
-import { MobileMenuModal } from './Mobile/MobileMenuModal'
+import { MobileMenuNavigation } from './Mobile/MobileMenuNavigation'
 import { MenuItem as MenuItemType } from './Navbar.interface'
 import Link from 'next/link'
 import { DesktopMenuNavigation } from '~/components/Navbar/Desktop/DesktopMenuNavigation'
 import Routes from '~/config/routes'
-import { useScreen } from '~/src/utility/use-screen'
 import { navbarHeightPx } from '~/components/Navbar/NavbarHeight'
 import { useMemo } from 'react'
 import { useUser } from '~/src/api/auth/context/AuthContext'
@@ -48,7 +47,6 @@ export const Navbar: React.FC = () => {
     return itemsCpy
   }, [user])
 
-  const { onlySmallScreen } = useScreen()
   return (
     <AppBar position="fixed" sx={{ backgroundColor: theme.palette.secondary.main, height: navbarHeightPx }}>
       <Container maxWidth="xl" disableGutters>
@@ -67,17 +65,34 @@ export const Navbar: React.FC = () => {
                 ml={2}
                 color={theme.palette.grey['900']}
                 sx={{
-                  display: 'flex',
+                  display: { xs: 'flex', md: 'none' },
                   textDecoration: 'none',
                   lineHeight: 1.4,
                   cursor: 'pointer'
                 }}
               >
-                {onlySmallScreen ? 'Skaut Třebíč' : '2. Skautské oddíly Třebíč'}
+                Skaut Třebíč
+              </Typography>
+              <Typography
+                variant="h6"
+                noWrap
+                component="a"
+                fontFamily="skautbold"
+                mr={2}
+                ml={2}
+                color={theme.palette.grey['900']}
+                sx={{
+                  display: { xs: 'none', md: 'flex' },
+                  textDecoration: 'none',
+                  lineHeight: 1.4,
+                  cursor: 'pointer'
+                }}
+              >
+                2. Skautské oddíly Třebíč
               </Typography>
             </Stack>
           </Link>
-          <MobileMenuModal onModalToggle={toggleLogoColorful} items={menuItems} />
+          <MobileMenuNavigation onModalToggle={toggleLogoColorful} items={menuItems} />
           <DesktopMenuNavigation items={menuItems} />
         </Toolbar>
       </Container>

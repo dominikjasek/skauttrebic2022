@@ -12,7 +12,7 @@ interface MobileMenuModalProps {
     onModalToggle: () => void
 }
 
-export const MobileMenuModal: React.FC<MobileMenuModalProps> = (props) => {
+export const MobileMenuNavigation: React.FC<MobileMenuModalProps> = (props) => {
   const theme = useTheme()
 
   const sidebar = {
