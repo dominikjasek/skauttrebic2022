@@ -2,7 +2,7 @@ import React from 'react'
 import { NextPage } from 'next'
 import { useContactsRepository } from '~/src/api/contacts/ContactsRepository'
 import { dehydrate, QueryClient, useQuery } from 'react-query'
-import { Box, Container, Stack } from '@mui/material'
+import { Box, Container, Stack, Typography } from '@mui/material'
 import { Loading } from '~/components/Loading/Loading'
 import { ContactCard, ContactCardPerson } from '~/components/Contact/ContactCard'
 
@@ -16,7 +16,8 @@ export const Contacts: NextPage = () => {
 
   return (
     <Container maxWidth={'lg'}>
-      <Stack pt={{ xs: 2, md: 7 }} direction={'row'} flexWrap={'wrap'} justifyContent={'space-evenly'}>
+      <Typography pt={{ xs: 2, md: 7 }} variant={'h1'} fontSize={'2rem'}>Kontakty</Typography>
+      <Stack direction={'row'} flexWrap={'wrap'} justifyContent={'space-evenly'}>
         {
           data?.contact?.data?.attributes?.contactCards &&
             data.contact.data.attributes.contactCards.map((contact, i) =>
