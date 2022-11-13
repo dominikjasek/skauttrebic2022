@@ -127,6 +127,7 @@ type ComponentPersonCardKontakt {
     name: String!
     nickname: String
     phone: String
+    photo: UploadFileEntityResponse
     role: String!
 }
 
@@ -789,6 +790,7 @@ input ComponentPersonCardKontaktInput {
     name: String
     nickname: String
     phone: String
+    photo: Id
     role: String
 }
 

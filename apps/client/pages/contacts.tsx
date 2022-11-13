@@ -6,11 +6,9 @@ import { Box, Container, Stack } from '@mui/material'
 import { Loading } from '~/components/Loading/Loading'
 import { ContactCard, ContactCardPerson } from '~/components/Contact/ContactCard'
 
-export const Contacts: NextPage = (props) => {
+export const Contacts: NextPage = () => {
   const contactsRepository = useContactsRepository()
   const { data, isLoading } = useQuery('contacts', contactsRepository.fetchContactsData)
-
-  console.log('data', data?.contact?.data)
 
   if (isLoading) {
     return <Loading />
@@ -18,12 +16,24 @@ export const Contacts: NextPage = (props) => {
 
   return (
     <Container maxWidth={'lg'}>
-      <Stack>
+      <Stack pt={{ xs: 2, md: 7 }} direction={'row'} flexWrap={'wrap'} justifyContent={'space-evenly'}>
         {
           data?.contact?.data?.attributes?.contactCards &&
-            data.contact.data.attributes.contactCards.map(contact =>
-              <Box>
-                <ContactCard person={contact as ContactCardPerson} />
+            data.contact.data.attributes.contactCards.map((contact, i) =>
+              <Box
+                key={i}
+                minWidth={345}
+                sx={{ m: 1 }}
+              >
+                {
+                  contact &&
+                    <ContactCard person={{
+                      ...contact,
+                      photo: {
+                        url: contact!.photo!.data!.attributes!.url as string
+                      }
+                    } as ContactCardPerson} />
+                }
               </Box>
             )
         }

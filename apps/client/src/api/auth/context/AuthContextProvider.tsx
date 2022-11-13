@@ -3,7 +3,6 @@ import { useJwtCookieStorage } from '~/src/api/auth/context/JwtCookieStorage'
 import { AuthContext, IAuth } from '~/src/api/auth/context/AuthContext'
 import { useAuthRepository } from '~/src/api/auth/AuthRepository'
 import { useQuery, useQueryClient } from 'react-query'
-import { Loading } from '~/components/Loading/Loading'
 
 export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const jwtCookieStorage = useJwtCookieStorage()

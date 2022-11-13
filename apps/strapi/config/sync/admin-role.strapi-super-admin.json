@@ -55,7 +55,8 @@
           "contactCards.role",
           "contactCards.phone",
           "contactCards.email",
-          "contactCards.about"
+          "contactCards.about",
+          "contactCards.photo"
         ]
       },
       "conditions": []
@@ -76,7 +77,8 @@
           "contactCards.role",
           "contactCards.phone",
           "contactCards.email",
-          "contactCards.about"
+          "contactCards.about",
+          "contactCards.photo"
         ]
       },
       "conditions": []
@@ -91,7 +93,8 @@
           "contactCards.role",
           "contactCards.phone",
           "contactCards.email",
-          "contactCards.about"
+          "contactCards.about",
+          "contactCards.photo"
         ]
       },
       "conditions": []

@@ -11,6 +11,13 @@ query GetContactCards {
                     nickname
                     phone
                     role
+                    photo {
+                        data {
+                            attributes {
+                                url
+                            }
+                        }
+                    }
                 }
             }
         }
