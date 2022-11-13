@@ -42,6 +42,12 @@ const login: React.FC = () => {
     }
   })
 
+  const isUsernameValid = (val:string) => {
+    const isEmail = isValidEmail(val)
+    const isDefaultUsername = ['člen', 'clen'].includes(val)
+    return Boolean(isEmail || isDefaultUsername)
+  }
+
   return (
     <Container sx={{ p: 6 }} maxWidth={'sm'}>
       <Typography variant={'h3'} align={'center'} mb={2}>Přihlášení</Typography>
@@ -51,14 +57,14 @@ const login: React.FC = () => {
           {Boolean(errors.form) && <Alert severity="error">{errors.form?.message as string}</Alert>}
           <TextField
             variant={'outlined'}
-            label={'Email'}
+            label={'Email nebo přihlašovací jméno'}
             type={'text'}
             error={Boolean(errors.email)}
             helperText={errors.email?.message?.toString() ?? ''}
             required
             {...register('email', {
               validate: (val: string) => {
-                return isValidEmail(val) ? true : 'Zadejte platný email'
+                return isUsernameValid(val) ? true : 'Zadejte platný email'
               }
             })}
           />
