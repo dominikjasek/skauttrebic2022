@@ -31,7 +31,7 @@ export const Contacts: NextPage = () => {
                     <ContactCard person={{
                       ...contact,
                       photo: {
-                        url: contact!.photo!.data!.attributes!.url as string
+                        url: contact?.photo?.data?.attributes?.url ?? null as string | null
                       }
                     } as ContactCardPerson} />
                 }

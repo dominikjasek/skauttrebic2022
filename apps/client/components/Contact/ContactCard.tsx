@@ -21,7 +21,7 @@ export interface ContactCardPerson {
     phone: string
     role: string
     photo: {
-        url: string
+        url: string | null
     }
 }
 
@@ -53,11 +53,14 @@ export const ContactCard: React.FC<ContactCardProps> = ({ person }) => {
 
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        component="img"
-        height="300"
-        image={person.photo.url}
-      />
+      {
+        person.photo.url &&
+          <CardMedia
+            component="img"
+            height="300"
+            image={person.photo.url}
+          />
+      }
       <CardContent sx={{ textAlign: 'center' }}>
         <Typography variant="h5" component="div">
           {person.name} { person.nickname ? `(${person.nickname})` : ''}

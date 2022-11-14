@@ -24,7 +24,7 @@ export const Homepage: React.FC<HomepageProps> = ({ homepage }) => {
 
   const troops: TroopProps[] = homepage.homepage?.data?.attributes?.troops?.filter(notEmpty).map(troop => ({
     logo: {
-      url: troop.logo.data!.attributes!.url
+      url: troop.logo.data?.attributes?.url ?? null
     },
     ageInfo: troop.age_gender_information,
     id: troop.id,
