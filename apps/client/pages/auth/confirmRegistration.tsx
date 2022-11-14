@@ -9,6 +9,7 @@ import { useMutation, useQuery } from 'react-query'
 import { Loading } from '~/components/Loading/Loading'
 import Link from 'next/link'
 import Routes from '~/config/routes'
+import { useJwtCookieStorage } from '~/src/api/auth/context/JwtCookieStorage'
 
 const confirmRegistration: React.FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({ query }) => {
   const { confirmRegistration, validateConfirmRegistration } = useAuthRepository()
@@ -26,6 +27,9 @@ const confirmRegistration: React.FC<InferGetServerSidePropsType<typeof getServer
   if (!id) {
     throw new Error('Id is missing in query parameters')
   }
+
+  const jwtCookieStorage = useJwtCookieStorage()
+  jwtCookieStorage.delete()
 
   const { isLoading, data: validationData } = useQuery('allowed-to-register', () => validateConfirmRegistration(id))
 
