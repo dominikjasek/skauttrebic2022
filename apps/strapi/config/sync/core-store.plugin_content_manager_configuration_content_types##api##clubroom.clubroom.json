@@ -50,7 +50,7 @@
       },
       "photos": {
         "edit": {
-          "label": "photos",
+          "label": "Fotky",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -92,12 +92,6 @@
       }
     },
     "layouts": {
-      "list": [
-        "id",
-        "title",
-        "createdAt",
-        "updatedAt"
-      ],
       "edit": [
         [
           {
@@ -114,11 +108,17 @@
         [
           {
             "name": "photos",
-            "size": 6
+            "size": 12
           }
         ]
       ],
-      "editRelations": []
+      "editRelations": [],
+      "list": [
+        "id",
+        "title",
+        "createdAt",
+        "updatedAt"
+      ]
     }
   },
   "type": "object",

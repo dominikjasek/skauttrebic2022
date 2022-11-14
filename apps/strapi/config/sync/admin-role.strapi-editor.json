@@ -154,6 +154,7 @@
           "role",
           "firstName",
           "lastName",
+          "nickName",
           "subscribing_troops",
           "post_likes"
         ]
@@ -181,6 +182,7 @@
           "role",
           "firstName",
           "lastName",
+          "nickName",
           "subscribing_troops",
           "post_likes"
         ]
@@ -198,6 +200,7 @@
           "blocked",
           "firstName",
           "lastName",
+          "nickName",
           "subscribing_troops"
         ]
       },

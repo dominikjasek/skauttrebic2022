@@ -66,8 +66,10 @@
       "required": true
     },
     "lastName": {
-      "type": "string",
-      "required": true
+      "type": "string"
+    },
+    "nickName": {
+      "type": "string"
     },
     "subscribing_troops": {
       "type": "relation",

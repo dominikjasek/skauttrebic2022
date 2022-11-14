@@ -2,14 +2,24 @@
 import { sendEmailToNewUser } from '../email/use-cases/sendEmailToNewUser';
 
 const crypto = require('crypto')
+const { ForbiddenError } = require('@strapi/utils').errors;
 
 import { AfterXXXEvent } from '../../api/post/content-types/post/interfaces';
 
 module.exports = (plugin) => {
   const originalCreate = plugin.controllers.contentmanageruser.create
   plugin.controllers.contentmanageruser.create = async (ctx) => {
+    if(ctx.request.body.subscribing_troops === undefined || ctx.request.body.subscribing_troops.length === 0) {
+      throw new ForbiddenError('Uživatel musí mít přirazený nějaký oddíl')
+    }
+
     ctx.request.body.username = ctx.request.body.email // we don't want to work with username, but strapi somehow requires this field required, therefore we set some value
     ctx.request.body.password = 'Abcd1234'
+
+    if (ctx.request.body.lastName === undefined) {
+      ctx.request.body.lastName = ctx.request.body.nickName ?? ''
+    }
+
     await originalCreate(ctx)
   }
 
@@ -19,7 +29,6 @@ module.exports = (plugin) => {
       models: ['plugin::users-permissions.user'],
       async afterCreate(event: AfterXXXEvent) {
         // Send email to user with reset password
-        console.log('result', event.result)
         const hash = crypto.createHash('sha256').digest('hex').toString();
 
         const user = await strapi.entityService.update('plugin::users-permissions.user', event.result.id, {

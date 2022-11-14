@@ -175,6 +175,20 @@
           "sortable": true
         }
       },
+      "nickName": {
+        "edit": {
+          "label": "Přezdívka",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "nickName",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "subscribing_troops": {
         "edit": {
           "label": "Odebírané oddíly",
@@ -248,15 +262,19 @@
         ],
         [
           {
-            "name": "email",
+            "name": "nickName",
             "size": 6
           },
           {
-            "name": "password",
+            "name": "email",
             "size": 6
           }
         ],
         [
+          {
+            "name": "password",
+            "size": 4
+          },
           {
             "name": "confirmed",
             "size": 4

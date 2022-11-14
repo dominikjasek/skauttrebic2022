@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2022-11-13T17:08:33.654Z"
+    "x-generation-date": "2022-11-14T20:15:15.366Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -9694,6 +9694,9 @@
                                           "lastName": {
                                             "type": "string"
                                           },
+                                          "nickName": {
+                                            "type": "string"
+                                          },
                                           "subscribing_troops": {
                                             "type": "object",
                                             "properties": {
@@ -11775,6 +11778,9 @@
                                             "type": "string"
                                           },
                                           "lastName": {
+                                            "type": "string"
+                                          },
+                                          "nickName": {
                                             "type": "string"
                                           },
                                           "subscribing_troops": {
@@ -13893,6 +13899,9 @@
                                           "lastName": {
                                             "type": "string"
                                           },
+                                          "nickName": {
+                                            "type": "string"
+                                          },
                                           "subscribing_troops": {
                                             "type": "object",
                                             "properties": {
@@ -15974,6 +15983,9 @@
                                             "type": "string"
                                           },
                                           "lastName": {
+                                            "type": "string"
+                                          },
+                                          "nickName": {
                                             "type": "string"
                                           },
                                           "subscribing_troops": {
@@ -19107,6 +19119,9 @@
                       "lastName": {
                         "type": "string"
                       },
+                      "nickName": {
+                        "type": "string"
+                      },
                       "subscribing_troops": {
                         "type": "object",
                         "properties": {
@@ -21790,6 +21805,9 @@
                             "lastName": {
                               "type": "string"
                             },
+                            "nickName": {
+                              "type": "string"
+                            },
                             "subscribing_troops": {
                               "type": "object",
                               "properties": {
@@ -23236,6 +23254,9 @@
                               "type": "string"
                             },
                             "lastName": {
+                              "type": "string"
+                            },
+                            "nickName": {
                               "type": "string"
                             },
                             "subscribing_troops": {
@@ -24719,6 +24740,9 @@
                             "lastName": {
                               "type": "string"
                             },
+                            "nickName": {
+                              "type": "string"
+                            },
                             "subscribing_troops": {
                               "type": "object",
                               "properties": {
@@ -26165,6 +26189,9 @@
                               "type": "string"
                             },
                             "lastName": {
+                              "type": "string"
+                            },
+                            "nickName": {
                               "type": "string"
                             },
                             "subscribing_troops": {
@@ -32721,6 +32748,9 @@
                                         "lastName": {
                                           "type": "string"
                                         },
+                                        "nickName": {
+                                          "type": "string"
+                                        },
                                         "subscribing_troops": {
                                           "type": "object",
                                           "properties": {
@@ -34141,6 +34171,9 @@
                                           "type": "string"
                                         },
                                         "lastName": {
+                                          "type": "string"
+                                        },
+                                        "nickName": {
                                           "type": "string"
                                         },
                                         "subscribing_troops": {
@@ -35598,6 +35631,9 @@
                                         "lastName": {
                                           "type": "string"
                                         },
+                                        "nickName": {
+                                          "type": "string"
+                                        },
                                         "subscribing_troops": {
                                           "type": "object",
                                           "properties": {
@@ -37020,6 +37056,9 @@
                                         "lastName": {
                                           "type": "string"
                                         },
+                                        "nickName": {
+                                          "type": "string"
+                                        },
                                         "subscribing_troops": {
                                           "type": "object",
                                           "properties": {
@@ -38212,6 +38251,9 @@
                                                         "type": "string"
                                                       },
                                                       "lastName": {
+                                                        "type": "string"
+                                                      },
+                                                      "nickName": {
                                                         "type": "string"
                                                       },
                                                       "subscribing_troops": {
@@ -39663,6 +39705,9 @@
                                                         "type": "string"
                                                       },
                                                       "lastName": {
+                                                        "type": "string"
+                                                      },
+                                                      "nickName": {
                                                         "type": "string"
                                                       },
                                                       "subscribing_troops": {
@@ -41149,6 +41194,9 @@
                                                       "lastName": {
                                                         "type": "string"
                                                       },
+                                                      "nickName": {
+                                                        "type": "string"
+                                                      },
                                                       "subscribing_troops": {
                                                         "type": "object",
                                                         "properties": {
@@ -42600,6 +42648,9 @@
                                                       "lastName": {
                                                         "type": "string"
                                                       },
+                                                      "nickName": {
+                                                        "type": "string"
+                                                      },
                                                       "subscribing_troops": {
                                                         "type": "object",
                                                         "properties": {
@@ -43935,8 +43986,7 @@
           "data": {
             "required": [
               "email",
-              "firstName",
-              "lastName"
+              "firstName"
             ],
             "type": "object",
             "properties": {
@@ -43982,6 +44032,9 @@
                 "type": "string"
               },
               "lastName": {
+                "type": "string"
+              },
+              "nickName": {
                 "type": "string"
               },
               "subscribing_troops": {
@@ -44459,6 +44512,9 @@
                                           "type": "string"
                                         },
                                         "lastName": {
+                                          "type": "string"
+                                        },
+                                        "nickName": {
                                           "type": "string"
                                         },
                                         "subscribing_troops": {
@@ -45415,6 +45471,9 @@
                 "type": "string"
               },
               "lastName": {
+                "type": "string"
+              },
+              "nickName": {
                 "type": "string"
               },
               "subscribing_troops": {
@@ -45948,6 +46007,9 @@
                                         "lastName": {
                                           "type": "string"
                                         },
+                                        "nickName": {
+                                          "type": "string"
+                                        },
                                         "subscribing_troops": {
                                           "type": "object",
                                           "properties": {
@@ -46902,6 +46964,9 @@
                 "type": "string"
               },
               "lastName": {
+                "type": "string"
+              },
+              "nickName": {
                 "type": "string"
               },
               "subscribing_troops": {
@@ -47468,6 +47533,9 @@
                                         "lastName": {
                                           "type": "string"
                                         },
+                                        "nickName": {
+                                          "type": "string"
+                                        },
                                         "subscribing_troops": {
                                           "type": "object",
                                           "properties": {
@@ -48422,6 +48490,9 @@
                 "type": "string"
               },
               "lastName": {
+                "type": "string"
+              },
+              "nickName": {
                 "type": "string"
               },
               "subscribing_troops": {
@@ -48955,6 +49026,9 @@
                                         "lastName": {
                                           "type": "string"
                                         },
+                                        "nickName": {
+                                          "type": "string"
+                                        },
                                         "subscribing_troops": {
                                           "type": "object",
                                           "properties": {
@@ -49909,6 +49983,9 @@
                 "type": "string"
               },
               "lastName": {
+                "type": "string"
+              },
+              "nickName": {
                 "type": "string"
               },
               "subscribing_troops": {

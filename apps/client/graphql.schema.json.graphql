@@ -590,7 +590,8 @@ type UsersPermissionsUser {
     createdAt: DateTime
     email: String!
     firstName: String!
-    lastName: String!
+    lastName: String
+    nickName: String
     post_likes(filters: PostFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): PostRelationResponseCollection
     provider: String
     role: UsersPermissionsRoleEntityResponse
@@ -1249,6 +1250,7 @@ input UsersPermissionsUserFiltersInput {
     firstName: StringFilterInput
     id: IDFilterInput
     lastName: StringFilterInput
+    nickName: StringFilterInput
     not: UsersPermissionsUserFiltersInput
     or: [UsersPermissionsUserFiltersInput]
     password: StringFilterInput
@@ -1268,6 +1270,7 @@ input UsersPermissionsUserInput {
     email: String
     firstName: String
     lastName: String
+    nickName: String
     password: String
     post_likes: [Id]
     provider: String

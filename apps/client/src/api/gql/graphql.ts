@@ -1746,7 +1746,8 @@ export type UsersPermissionsUser = {
   createdAt?: Maybe<Scalars['DateTime']>;
   email: Scalars['String'];
   firstName: Scalars['String'];
-  lastName: Scalars['String'];
+  lastName?: Maybe<Scalars['String']>;
+  nickName?: Maybe<Scalars['String']>;
   post_likes?: Maybe<PostRelationResponseCollection>;
   provider?: Maybe<Scalars['String']>;
   role?: Maybe<UsersPermissionsRoleEntityResponse>;
@@ -1796,6 +1797,7 @@ export type UsersPermissionsUserFiltersInput = {
   firstName?: InputMaybe<StringFilterInput>;
   id?: InputMaybe<IdFilterInput>;
   lastName?: InputMaybe<StringFilterInput>;
+  nickName?: InputMaybe<StringFilterInput>;
   not?: InputMaybe<UsersPermissionsUserFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<UsersPermissionsUserFiltersInput>>>;
   password?: InputMaybe<StringFilterInput>;
@@ -1815,6 +1817,7 @@ export type UsersPermissionsUserInput = {
   email?: InputMaybe<Scalars['String']>;
   firstName?: InputMaybe<Scalars['String']>;
   lastName?: InputMaybe<Scalars['String']>;
+  nickName?: InputMaybe<Scalars['String']>;
   password?: InputMaybe<Scalars['String']>;
   post_likes?: InputMaybe<Array<InputMaybe<Scalars['Id']>>>;
   provider?: InputMaybe<Scalars['String']>;
