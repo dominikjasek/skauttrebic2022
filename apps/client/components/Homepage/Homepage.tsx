@@ -20,7 +20,7 @@ export const Homepage: React.FC<HomepageProps> = ({ homepage }) => {
     textColor: image.text_color ?? undefined
   })) ?? []
 
-  const aboutUsText = homepage.homepage!.data!.attributes!.about
+  const aboutUsText = homepage.homepage?.data?.attributes?.about ?? ''
 
   const troops: TroopProps[] = homepage.homepage?.data?.attributes?.troops?.filter(notEmpty).map(troop => ({
     logo: {
