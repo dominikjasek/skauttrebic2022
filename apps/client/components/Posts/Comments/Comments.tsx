@@ -29,7 +29,7 @@ export const Comments: React.FC<CommentsProps> = ({ comments, onDeleteClick }) =
               <Card key={comment.id} sx={{ px: 2, my: 2, py: 2 }}>
                 <CardHeader
                   avatar={
-                    <PersonAvatar fullName={comment.author!.name} />
+                    <PersonAvatar fullName={comment.author?.name ?? 'Anonym'} />
                   }
                   action={
                     <IconButton onClick={() => {
