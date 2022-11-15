@@ -18,8 +18,7 @@ export const sendEmailsToSubscribersOnPostPublished = async (postData: Post) => 
         id: {
           $in: troopIds
         }
-      },
-      confirmed: true
+      }
     }
   })
 
