@@ -10,6 +10,7 @@ import { useAuth } from '~/src/api/auth/context/AuthContext'
 import { SimpleDialog } from '~/components/Dialog/SimpleDialog'
 import Link from 'next/link'
 import Routes from '~/config/routes'
+import { ForgetPassword } from '~/components/Auth/ForgetPassword'
 
 const login: React.FC = () => {
   const {
@@ -21,14 +22,7 @@ const login: React.FC = () => {
   const router = useRouter()
 
   const [registerDialogOpen, setRegisterDialogOpen] = React.useState(false)
-
-  const handleClickOpen = () => {
-    setRegisterDialogOpen(true)
-  }
-
-  const handleClose = () => {
-    setRegisterDialogOpen(false)
-  }
+  const [forgotPasswordOpen, setForgotPasswordOpen] = React.useState(false)
 
   const auth = useAuth()
   const { login } = useAuthRepository()
@@ -65,7 +59,7 @@ const login: React.FC = () => {
     <Container sx={{ p: 6 }} maxWidth={'sm'}>
       <Typography variant={'h3'} align={'center'} mb={2}>Přihlášení</Typography>
       <Typography align={'center'} sx={{ mb: 2 }}>Vyplňte své údaje.</Typography>
-      <form noValidate onSubmit={handleSubmit(data=> execLogin({ identifier: data.email, password: data.password }))} >
+      <form noValidate onSubmit={handleSubmit(data => execLogin({ identifier: data.email, password: data.password }))} >
         <Stack direction='column' gap={2}>
           {Boolean(errors.form) && <Alert severity="error">{errors.form?.message as string}</Alert>}
           <TextField
@@ -105,10 +99,25 @@ const login: React.FC = () => {
       </form>
       <Button
         sx={{ width: '100%', py: 1, mt: 1, mx: 'auto' }}
+        variant="outlined" onClick={() => setForgotPasswordOpen(true)}
+      >
+        Zapomněli jste heslo?
+      </Button>
+      <Button
+        sx={{ width: '100%', py: 1, mt: 1, mx: 'auto' }}
         variant="outlined" onClick={() => setRegisterDialogOpen(true)}
       >
         Registrace
       </Button>
+      <SimpleDialog
+        open={forgotPasswordOpen}
+        onClose={() => setForgotPasswordOpen(false)}
+        title={'Zapomenuté heslo'}
+      >
+        <Box m={3}>
+          <ForgetPassword />
+        </Box>
+      </SimpleDialog>
       <SimpleDialog
         open={registerDialogOpen}
         onClose={() => setRegisterDialogOpen(false)}

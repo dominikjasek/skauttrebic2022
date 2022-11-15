@@ -13,6 +13,160 @@
         "object": "Pozvánka k administraci skautského webu",
         "message": "<html>\n<style>\n  @charset \"utf-8\";\n  /* CSS Document */\n  @font-face {\n    font-family: 'themix';\n    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_400.eot');\n    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_400.eot? #iefix') format('embedded-opentype');\n    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_400.woff') format('woff'),\n    url('https://cdn.skauting.cz/fonts/TheMix_LT_400.woff2') format('woff2'),\n    url('https://cdn.skauting.cz/fonts/TheMix_LT_400.otf') format('opentype'),\n    url('https://cdn.skauting.cz/fonts/TheMix_LT_400.svg#themix') format('svg');\n    font-weight: 400;\n    font-style: normal;\n  }\n\n  @font-face {\n    font-family: 'themix';\n    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_400i.eot');\n    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_400i.eot? #iefix') format('embedded-opentype');\n    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_400i.woff') format('woff'),\n    url('https://cdn.skauting.cz/fonts/TheMix_LT_400i.woff2') format('woff2'),\n    url('https://cdn.skauting.cz/fonts/TheMix_LT_400i.otf') format('opentype'),\n    url('https://cdn.skauting.cz/fonts/TheMix_LT_400i.svg#themix') format('svg');\n    font-weight: 400;\n    font-style: italic;\n  }\n\n  @font-face {\n    font-family: 'themix';\n    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_700.eot');\n    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_700.eot? #iefix') format('embedded-opentype');\n    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_700.woff') format('woff'),\n    url('https://cdn.skauting.cz/fonts/TheMix_LT_700.woff2') format('woff2'),\n    url('https://cdn.skauting.cz/fonts/TheMix_LT_700.otf') format('opentype'),\n    url('https://cdn.skauting.cz/fonts/TheMix_LT_700.svg#themix') format('svg');\n    font-weight: 700;\n    font-style: normal;\n  }\n\n  @font-face {\n    font-family: 'themix';\n    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_700i.eot');\n    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_700i.eot? #iefix') format('embedded-opentype');\n    src: url('https://cdn.skauting.cz/fonts/TheMix_LT_700i.woff') format('woff'),\n    url('https://cdn.skauting.cz/fonts/TheMix_LT_700i.woff2') format('woff2'),\n    url('https://cdn.skauting.cz/fonts/TheMix_LT_700i.otf') format('opentype'),\n    url('https://cdn.skauting.cz/fonts/TheMix_LT_700i.svg#themix') format('svg');\n    font-weight: 700;\n    font-style: italic;\n  }\n\n  @font-face {\n    font-family: 'skautbold';\n    src: url('https://cdn.skauting.cz/fonts/skaut-bold-webfont.eot');\n    src: url('https://cdn.skauting.cz/fonts/skaut-bold-webfont.eot? #iefix') format('embedded-opentype');\n    src: url('https://cdn.skauting.cz/fonts/skaut-bold-webfont.woff') format('woff'),\n    url('https://cdn.skauting.cz/fonts/skaut-bold-webfont.woff2') format('woff2'),\n    url('https://cdn.skauting.cz/fonts/skaut-bold-webfont.otf') format('opentype'),\n    url('https://cdn.skauting.cz/fonts/skaut-bold-webfont.svg#skautbold') format('svg');\n    font-weight: normal;\n    font-style: normal;\n  }\n\n  body {\n    font-family: themix, sans-serif;\n  }\n\n  h1 {\n    font-family: skautbold, sans-serif;\n  }\n\n  .join-btn-wrapper {\n    text-align: center;\n    margin: 30px 0px;\n  }\n\n  .join-btn {\n    background-color: #294885;\n    padding: 10px 50px;\n\n    border-radius: 5px;\n    text-decoration: none !important;\n    color: white;\n    text-transform: uppercase;\n  }\n\n</style>\n<body>\n<h2 class=\"title\">Pozvánka k administraci skautského webu</h2>\n\n<p>Administrátor skautského webu <a href=\"https://skauttrebic.cz\">skauttrebic.cz</a> ti udělil oprávnění k administraci\n  webu.</p>\n\n<div class=\"join-btn-wrapper\">\n  <a class=\"join-btn\" href=\"<%= URL %>\">Připojit se\n  </a>\n</div>\n<small>V případě potíží kontaktuj administrátora webu (Šíšu).</small>"
       }
+    },
+    "reset_password": {
+      "options": {
+        "message": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional //EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:v=\"urn:schemas-microsoft-com:vml\" xmlns:o=\"urn:schemas-microsoft-com:office:office\">\n<head>\n<!--[if gte mso 9]>\n<xml>\n  <o:OfficeDocumentSettings>\n    <o:AllowPNG/>\n    <o:PixelsPerInch>96</o:PixelsPerInch>\n  </o:OfficeDocumentSettings>\n</xml>\n<![endif]-->\n  <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <meta name=\"x-apple-disable-message-reformatting\">\n  <!--[if !mso]><!--><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"><!--<![endif]-->\n  <title></title>\n  \n    <style type=\"text/css\">\n      @media only screen and (min-width: 520px) {\n  .u-row {\n    width: 500px !important;\n  }\n  .u-row .u-col {\n    vertical-align: top;\n  }\n\n  .u-row .u-col-100 {\n    width: 500px !important;\n  }\n\n}\n\n@media (max-width: 520px) {\n  .u-row-container {\n    max-width: 100% !important;\n    padding-left: 0px !important;\n    padding-right: 0px !important;\n  }\n  .u-row .u-col {\n    min-width: 320px !important;\n    max-width: 100% !important;\n    display: block !important;\n  }\n  .u-row {\n    width: calc(100% - 40px) !important;\n  }\n  .u-col {\n    width: 100% !important;\n  }\n  .u-col > div {\n    margin: 0 auto;\n  }\n}\nbody {\n  margin: 0;\n  padding: 0;\n}\n\ntable,\ntr,\ntd {\n  vertical-align: top;\n  border-collapse: collapse;\n}\n\np {\n  margin: 0;\n}\n\n.ie-container table,\n.mso-container table {\n  table-layout: fixed;\n}\n\n* {\n  line-height: inherit;\n}\n\na[x-apple-data-detectors='true'] {\n  color: inherit !important;\n  text-decoration: none !important;\n}\n\ntable, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: underline; }\n    </style>\n  \n  \n\n</head>\n\n<body class=\"clean-body u_body\" style=\"margin: 0;padding: 0;-webkit-text-size-adjust: 100%;background-color: #e7e7e7;color: #000000\">\n  <!--[if IE]><div class=\"ie-container\"><![endif]-->\n  <!--[if mso]><div class=\"mso-container\"><![endif]-->\n  <table id=\"u_body\" style=\"border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;min-width: 320px;Margin: 0 auto;background-color: #e7e7e7;width:100%\" cellpadding=\"0\" cellspacing=\"0\">\n  <tbody>\n  <tr style=\"vertical-align: top\">\n    <td style=\"word-break: break-word;border-collapse: collapse !important;vertical-align: top\">\n    <!--[if (mso)|(IE)]><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td align=\"center\" style=\"background-color: #e7e7e7;\"><![endif]-->\n    \n\n<div class=\"u-row-container\" style=\"padding: 0px;background-color: transparent\">\n  <div class=\"u-row\" style=\"Margin: 0 auto;min-width: 320px;max-width: 500px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;\">\n    <div style=\"border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;\">\n      <!--[if (mso)|(IE)]><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td style=\"padding: 0px;background-color: transparent;\" align=\"center\"><table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"width:500px;\"><tr style=\"background-color: transparent;\"><![endif]-->\n      \n<!--[if (mso)|(IE)]><td align=\"center\" width=\"500\" style=\"width: 500px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;\" valign=\"top\"><![endif]-->\n<div class=\"u-col u-col-100\" style=\"max-width: 320px;min-width: 500px;display: table-cell;vertical-align: top;\">\n  <div style=\"height: 100%;width: 100% !important;\">\n  <!--[if (!mso)&(!IE)]><!--><div style=\"height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;\"><!--<![endif]-->\n  \n<table style=\"font-family:arial,helvetica,sans-serif;\" role=\"presentation\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" border=\"0\">\n  <tbody>\n    <tr>\n      <td style=\"overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;\" align=\"left\">\n        \n  <div style=\"line-height: 140%; text-align: left; word-wrap: break-word;\">\n    <p style=\"font-size: 14px; line-height: 140%;\"><span style=\"font-size: 22px; line-height: 30.8px;\">Zažádal jsi o obnovu hesla.</span></p>\n<p style=\"font-size: 14px; line-height: 140%;\"> </p>\n<p style=\"font-size: 14px; line-height: 140%;\">Kliknutím <a rel=\"noopener\" href=\"<%= URL %>?code=<%= TOKEN %>\" target=\"_blank\">zde</a> si můžeš nastavit nové heslo.</span></p>\n<p style=\"font-size: 14px; line-height: 140%;\"> </p>\n<p style=\"font-size: 14px; line-height: 140%;\"><span style=\"font-size: 12px; line-height: 16.8px;\">Dominik Jašek (Šíša)</span></p>\n<p style=\"font-size: 14px; line-height: 140%;\"><span style=\"font-size: 12px; line-height: 16.8px;\">administrátor webových stránek skauttrebic.cz</span></p>\n  </div>\n\n      </td>\n    </tr>\n  </tbody>\n</table>\n\n  <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->\n  </div>\n</div>\n<!--[if (mso)|(IE)]></td><![endif]-->\n      <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->\n    </div>\n  </div>\n</div>\n\n\n    <!--[if (mso)|(IE)]></td></tr></table><![endif]-->\n    </td>\n  </tr>\n  </tbody>\n  </table>\n  <!--[if mso]></div><![endif]-->\n  <!--[if IE]></div><![endif]-->\n</body>\n\n</html>\n",
+        "object": "Obnova hesla",
+        "from": {
+          "email": "neodpovidejte@skauttrebic.cz",
+          "name": "Skaut Třebíč"
+        },
+        "response_email": "neodpovidejte@skauttrebic.cz"
+      },
+      "design": {
+        "counters": {
+          "u_column": 1,
+          "u_row": 1,
+          "u_content_text": 1
+        },
+        "body": {
+          "id": "RqVuiYevO2",
+          "rows": [
+            {
+              "id": "F6kWYW9iOK",
+              "cells": [
+                1
+              ],
+              "columns": [
+                {
+                  "id": "zJ-h1pXujP",
+                  "contents": [
+                    {
+                      "id": "hpRiRwMjM3",
+                      "type": "text",
+                      "values": {
+                        "containerPadding": "10px",
+                        "anchor": "",
+                        "textAlign": "left",
+                        "lineHeight": "140%",
+                        "linkStyle": {
+                          "inherit": true,
+                          "linkColor": "#0000ee",
+                          "linkHoverColor": "#0000ee",
+                          "linkUnderline": true,
+                          "linkHoverUnderline": true
+                        },
+                        "hideDesktop": false,
+                        "displayCondition": null,
+                        "_meta": {
+                          "htmlID": "u_content_text_1",
+                          "htmlClassNames": "u_content_text"
+                        },
+                        "selectable": true,
+                        "draggable": true,
+                        "duplicatable": true,
+                        "deletable": true,
+                        "hideable": true,
+                        "text": "<p style=\"font-size: 14px; line-height: 140%;\"><span style=\"font-size: 22px; line-height: 30.8px;\">Zažádal jsi o obnovu hesla.</span></p>\n<p style=\"font-size: 14px; line-height: 140%;\"> </p>\n<p style=\"font-size: 14px; line-height: 140%;\"><span style=\"font-size: 22px; line-height: 30.8px;\">{{URL}}</span></p>\n<p style=\"font-size: 14px; line-height: 140%;\"><span style=\"font-size: 22px; line-height: 30.8px;\">{{TOKEN}}<br />Kliknutím <a rel=\"noopener\" href=\"{{URL}}?code={{TOKEN}}\" target=\"_blank\" data-u-link-value=\"eyJuYW1lIjoid2ViIiwiYXR0cnMiOnsiaHJlZiI6Int7aHJlZn19IiwidGFyZ2V0Ijoie3t0YXJnZXR9fSJ9LCJ2YWx1ZXMiOnsiaHJlZiI6Int7VVJMfX0/Y29kZT17e1RPS0VOfX0iLCJ0YXJnZXQiOiJfYmxhbmsifX0=\">zde</a> si můžeš nastavit nové heslo.</span></p>\n<p style=\"font-size: 14px; line-height: 140%;\"> </p>\n<p style=\"font-size: 14px; line-height: 140%;\"><span style=\"font-size: 12px; line-height: 16.8px;\">Dominik Jašek (Šíša)</span></p>\n<p style=\"font-size: 14px; line-height: 140%;\"><span style=\"font-size: 12px; line-height: 16.8px;\">administrátor webových stránek skauttrebic.cz</span></p>"
+                      }
+                    }
+                  ],
+                  "values": {
+                    "backgroundColor": "",
+                    "padding": "0px",
+                    "border": {},
+                    "_meta": {
+                      "htmlID": "u_column_1",
+                      "htmlClassNames": "u_column"
+                    }
+                  }
+                }
+              ],
+              "values": {
+                "displayCondition": null,
+                "columns": false,
+                "backgroundColor": "",
+                "columnsBackgroundColor": "",
+                "backgroundImage": {
+                  "url": "",
+                  "fullWidth": true,
+                  "repeat": false,
+                  "center": true,
+                  "cover": false
+                },
+                "padding": "0px",
+                "anchor": "",
+                "hideDesktop": false,
+                "_meta": {
+                  "htmlID": "u_row_1",
+                  "htmlClassNames": "u_row"
+                },
+                "selectable": true,
+                "draggable": true,
+                "duplicatable": true,
+                "deletable": true,
+                "hideable": true
+              }
+            }
+          ],
+          "values": {
+            "popupPosition": "center",
+            "popupWidth": "600px",
+            "popupHeight": "auto",
+            "borderRadius": "10px",
+            "contentAlign": "center",
+            "contentVerticalAlign": "center",
+            "contentWidth": "500px",
+            "fontFamily": {
+              "label": "Arial",
+              "value": "arial,helvetica,sans-serif"
+            },
+            "textColor": "#000000",
+            "popupBackgroundColor": "#FFFFFF",
+            "popupBackgroundImage": {
+              "url": "",
+              "fullWidth": true,
+              "repeat": false,
+              "center": true,
+              "cover": true
+            },
+            "popupOverlay_backgroundColor": "rgba(0, 0, 0, 0.1)",
+            "popupCloseButton_position": "top-right",
+            "popupCloseButton_backgroundColor": "#DDDDDD",
+            "popupCloseButton_iconColor": "#000000",
+            "popupCloseButton_borderRadius": "0px",
+            "popupCloseButton_margin": "0px",
+            "popupCloseButton_action": {
+              "name": "close_popup",
+              "attrs": {
+                "onClick": "document.querySelector('.u-popup-container').style.display = 'none';"
+              }
+            },
+            "backgroundColor": "#e7e7e7",
+            "backgroundImage": {
+              "url": "",
+              "fullWidth": true,
+              "repeat": false,
+              "center": true,
+              "cover": false
+            },
+            "preheaderText": "",
+            "linkStyle": {
+              "body": true,
+              "linkColor": "#0000ee",
+              "linkHoverColor": "#0000ee",
+              "linkUnderline": true,
+              "linkHoverUnderline": true
+            },
+            "_meta": {
+              "htmlID": "u_body",
+              "htmlClassNames": "u_body"
+            }
+          }
+        },
+        "schemaVersion": 10
+      }
     }
   },
   "type": "object",
