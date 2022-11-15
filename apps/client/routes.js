@@ -8,6 +8,7 @@ const Routes = {
   clubRoom: '/klubovna',
   photos: '/fotografie',
   contacts: '/kontakty',
+  profile: '/profil',
 }
 
 const routes = [
@@ -46,6 +47,10 @@ const routes = [
   {
     source: Routes.contacts,
     destination: '/contacts'
+  },
+  {
+    source: Routes.profile,
+    destination: '/profile'
   }
 ]
 
