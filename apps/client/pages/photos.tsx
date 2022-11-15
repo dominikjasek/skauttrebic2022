@@ -13,15 +13,15 @@ interface PhotoLink {
 
 const photoLinks: PhotoLink[] = [
   {
-    url: 'https://eu.zonerama.com/2oddilskautu/Album/8955897',
+    url: 'https://eu.zonerama.com/2oddilskautu/743177',
     name: 'Skauti'
   },
   {
-    url: 'https://eu.zonerama.com/KarelJanicek/48905',
+    url: 'https://eu.zonerama.com/KarelJanicek/795748',
     name: 'Vlčata'
   },
   {
-    url: 'https://eu.zonerama.com/RR2oddil/790978',
+    url: 'https://eu.zonerama.com/RR2oddil/796874',
     name: 'Roveři',
   },
   {
