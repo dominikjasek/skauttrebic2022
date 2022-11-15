@@ -1,6 +1,7 @@
 const Routes = {
   home: '/',
   confirmRegistration: '/potvrzeni-registrace',
+  forgotPassword: '/obnoveni-hesla',
   login: '/prihlasit-se',
   posts: '/aktuality',
   post: '/aktuality/:postId*',
@@ -17,6 +18,10 @@ const routes = [
   {
     source: Routes.confirmRegistration,
     destination: '/auth/confirmRegistration'
+  },
+  {
+    source: Routes.forgotPassword,
+    destination: '/auth/forgotPassword'
   },
   {
     source: Routes.login,

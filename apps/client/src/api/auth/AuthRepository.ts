@@ -68,6 +68,10 @@ export class AuthRepository {
   forgotPassword = async (email: string): Promise<{ok: boolean}> => {
     return (await this.fetch('/auth/forgot-password', { method: 'POST', data: { email } })).data
   }
+
+  resetPassword = async (password: string, code: string): Promise<LoginResponse> => {
+    return (await this.fetch('/auth/reset-password', { method: 'POST', data: { password, passwordConfirmation: password, code } })).data
+  }
 }
 
 export const useAuthRepository = () => {

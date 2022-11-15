@@ -7,9 +7,15 @@ import { isValidEmail } from '~/src/utility/is-email'
 import { LoadingButton } from '@mui/lab'
 
 export const ForgetPassword: React.FC = () => {
-  const { handleSubmit, register, formState: { errors } } = useForm()
+  const { handleSubmit, register, getValues, formState: { errors } } = useForm()
   const { forgotPassword } = useAuthRepository()
-  const { mutateAsync: execForgotPassword, isLoading } = useMutation('forgotPassword', (email: string) => forgotPassword(email))
+  const { mutateAsync: execForgotPassword, isLoading, isSuccess: isForgotPasswordExecuted } = useMutation('forgotPassword', (email: string) => forgotPassword(email))
+
+  if (isForgotPasswordExecuted) {
+    return <Box>
+      <Typography>{`Na váš email ${getValues().email} byl odeslán email s odkazem na nastavení nového hesla.`}</Typography>
+    </Box>
+  }
 
   return (
     <Box>
