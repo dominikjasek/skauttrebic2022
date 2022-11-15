@@ -1,5 +1,5 @@
 import React from 'react'
-import { Alert, Container, Stack, TextField, Typography } from '@mui/material'
+import { Alert, Box, Button, Container, Stack, TextField, Typography } from '@mui/material'
 import { useMutation } from 'react-query'
 import { LoginRequest, useAuthRepository } from '~/src/api/auth/AuthRepository'
 import { useForm } from 'react-hook-form'
@@ -7,6 +7,9 @@ import { isValidEmail } from '~/src/utility/is-email'
 import { LoadingButton } from '@mui/lab'
 import { useRouter } from 'next/router'
 import { useAuth } from '~/src/api/auth/context/AuthContext'
+import { SimpleDialog } from '~/components/Dialog/SimpleDialog'
+import Link from 'next/link'
+import Routes from '~/config/routes'
 
 const login: React.FC = () => {
   const {
@@ -16,6 +19,16 @@ const login: React.FC = () => {
     setError
   } = useForm()
   const router = useRouter()
+
+  const [registerDialogOpen, setRegisterDialogOpen] = React.useState(false)
+
+  const handleClickOpen = () => {
+    setRegisterDialogOpen(true)
+  }
+
+  const handleClose = () => {
+    setRegisterDialogOpen(false)
+  }
 
   const auth = useAuth()
   const { login } = useAuthRepository()
@@ -90,6 +103,21 @@ const login: React.FC = () => {
 
         </Stack>
       </form>
+      <Button
+        sx={{ width: '100%', py: 1, mt: 1, mx: 'auto' }}
+        variant="outlined" onClick={() => setRegisterDialogOpen(true)}
+      >
+        Registrace
+      </Button>
+      <SimpleDialog
+        open={registerDialogOpen}
+        onClose={() => setRegisterDialogOpen(false)}
+        title={'Registrace'}
+      >
+        <Box m={3}>
+          Abychom zabránili registraci lidí, kteří nejsou v našich oddílech, může registraci udělat pouze vedoucí. Prosím, kontaktujte <Link href={Routes.contacts}>některého z vedoucích</Link>  a požádejte ho o vytvoření účtu.
+        </Box>
+      </SimpleDialog>
     </Container>
   )
 }
