@@ -11,7 +11,12 @@ interface NewCommentProps {
 
 export const NewComment: React.FC<NewCommentProps> = ({ onSubmit, isCommentSubmitLoading }) => {
   const user = useUser()
-  const { register, handleSubmit, formState: { errors } } = useForm()
+  const { register, handleSubmit, setValue, formState: { errors } } = useForm()
+
+  const onSubmitExec = async (comment: string) => {
+    await onSubmit(comment)
+    setValue('content', '')
+  }
 
   return (
     <>
@@ -19,7 +24,7 @@ export const NewComment: React.FC<NewCommentProps> = ({ onSubmit, isCommentSubmi
         <Stack sx={{ mt: 6, mb: 2 }}>
           <Divider sx={{ my: 2 }}></Divider>
           <Typography variant={'h5'} fontSize={'1.5rem'}>Nový komentář</Typography>
-          <form noValidate onSubmit={handleSubmit((data) => onSubmit(data.content))}>
+          <form noValidate onSubmit={handleSubmit((data) => onSubmitExec(data.content))}>
 
             <TextField
               sx={{
