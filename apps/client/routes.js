@@ -9,6 +9,7 @@ const Routes = {
   photos: '/fotografie',
   contacts: '/kontakty',
   profile: '/profil',
+  unsubscribe: '/odhlasit-odber',
 }
 
 const routes = [
@@ -51,6 +52,10 @@ const routes = [
   {
     source: Routes.profile,
     destination: '/profile'
+  },
+  {
+    source: Routes.unsubscribe,
+    destination: '/unsubscribe'
   }
 ]
 

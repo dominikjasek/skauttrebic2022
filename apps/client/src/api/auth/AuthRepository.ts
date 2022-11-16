@@ -75,6 +75,10 @@ export class AuthRepository {
   resetPassword = async (password: string, code: string): Promise<LoginResponse> => {
     return (await this.anonymousFetch('/auth/reset-password', { method: 'POST', data: { password, passwordConfirmation: password, code } })).data
   }
+
+  unsubscribe = async (token: string): Promise<unknown> => {
+    return (await this.anonymousFetch.post('/unsubscribe', { token })).data
+  }
 }
 
 export const useAuthRepository = () => {

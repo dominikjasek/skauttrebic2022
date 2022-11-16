@@ -24,6 +24,7 @@ export const sendEmailsToSubscribersOnPostPublished = async (postData: Post) => 
 
   await Promise.all(subscribers.map(subscriber => {
     try {
+      console.log(subscriber)
       strapi.log.info(`sending notification email to ${subscriber.email}`)
       return strapi
         .plugin('email-designer')
@@ -33,7 +34,8 @@ export const sendEmailsToSubscribersOnPostPublished = async (postData: Post) => 
           {
             title: post.title,
             content: post.content,
-            link: `${process.env.FRONTEND_URL}/aktualita/${post.id}`
+            link: `${process.env.FRONTEND_URL}/aktualita/${post.id}`,
+            unsubscribeLink: `${process.env.FRONTEND_URL}/odhlasit-odber?token=${subscriber.unsubscribeToken}`,
           }
         );
     } catch (err) {

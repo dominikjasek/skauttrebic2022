@@ -82,6 +82,10 @@
       "relation": "manyToMany",
       "target": "api::post.post",
       "mappedBy": "user_likes"
+    },
+    "unsubscribeToken": {
+      "type": "string",
+      "required": false
     }
   }
 }

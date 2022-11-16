@@ -576,7 +576,8 @@
           "lastName",
           "nickName",
           "subscribing_troops",
-          "post_likes"
+          "post_likes",
+          "unsubscribeToken"
         ]
       },
       "conditions": []
@@ -605,7 +606,8 @@
           "lastName",
           "nickName",
           "subscribing_troops",
-          "post_likes"
+          "post_likes",
+          "unsubscribeToken"
         ]
       },
       "conditions": []
@@ -628,7 +630,8 @@
           "lastName",
           "nickName",
           "subscribing_troops",
-          "post_likes"
+          "post_likes",
+          "unsubscribeToken"
         ]
       },
       "conditions": []

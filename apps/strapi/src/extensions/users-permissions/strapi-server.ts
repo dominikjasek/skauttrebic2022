@@ -29,15 +29,17 @@ module.exports = (plugin) => {
       models: ['plugin::users-permissions.user'],
       async afterCreate(event: AfterXXXEvent) {
         // Send email to user with reset password
-        const hash = crypto.createHash('sha256').digest('hex').toString();
+        const confirmRegistrationHash = crypto.createHash('sha256').digest('hex').toString();
+        const unsubscribeHash = crypto.createHash('sha256').digest('hex').toString();
 
         const user = await strapi.entityService.update('plugin::users-permissions.user', event.result.id, {
           data: {
-            resetPasswordToken: hash
+            resetPasswordToken: confirmRegistrationHash,
+            unsubscribeToken: unsubscribeHash
           }
         })
 
-        const registrationLink = `${process.env.FRONTEND_URL}/potvrzeni-registrace?hash=${hash}&id=${user.id}&email=${user.email}&firstName=${user.firstName}&lastName=${user.lastName}`
+        const registrationLink = `${process.env.FRONTEND_URL}/potvrzeni-registrace?hash=${confirmRegistrationHash}&id=${user.id}&email=${user.email}&firstName=${user.firstName}&lastName=${user.lastName}`
         await sendEmailToNewUser({ to: user.email, link: registrationLink })
       },
       afterCount(): void {return},

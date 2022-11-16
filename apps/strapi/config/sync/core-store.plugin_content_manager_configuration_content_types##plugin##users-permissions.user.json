@@ -219,6 +219,20 @@
           "sortable": false
         }
       },
+      "unsubscribeToken": {
+        "edit": {
+          "label": "unsubscribeToken",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "unsubscribeToken",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",

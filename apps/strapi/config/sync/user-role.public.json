@@ -40,6 +40,9 @@
       "action": "api::troop.troop.findOne"
     },
     {
+      "action": "api::unsubscribe.unsubscribe.unsubscribe"
+    },
+    {
       "action": "plugin::users-permissions.auth.callback"
     },
     {
