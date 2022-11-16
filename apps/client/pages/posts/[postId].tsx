@@ -50,14 +50,13 @@ export const PostIdPage: NextPage = () => {
       </Stack>
       <Divider sx={{ my: 2 }}></Divider>
       <Html html={ post.data.attributes.content } />
-      { post.data.attributes.files?.data?.length &&
-      <>
-        <Attachments files={post.data.attributes.files.data} />
-      </>
+      {
+        post.data.attributes.files?.data?.length &&
+          <Attachments files={post.data.attributes.files.data} />
       }
       {
         comments &&
-        <Comments onDeleteClick={submitDeleteComment} comments={comments.findAllFlat} />
+          <Comments onDeleteClick={submitDeleteComment} comments={comments.findAllFlat} />
       }
       <NewComment isCommentSubmitLoading={isCommentSubmitLoading} onSubmit={submitCreateComment} />
     </Container>

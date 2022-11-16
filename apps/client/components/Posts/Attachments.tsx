@@ -1,6 +1,6 @@
 import React from 'react'
 import { UploadFileEntity } from '~/src/api/gql/graphql'
-import { Box, Stack, Typography } from '@mui/material'
+import { Box, Divider, Stack, Typography } from '@mui/material'
 import { DownloadButton } from '~/components/Button/DownloadButton/DownloadButton'
 
 interface AttachmentsProps {
@@ -10,6 +10,7 @@ interface AttachmentsProps {
 export const Attachments: React.FC<AttachmentsProps> = ({ files }) => {
   return (
     <Box>
+      <Divider sx={{ my: 2 }}></Divider>
       <Typography sx={{ mb: 1 }} variant={'h4'} fontSize={'1.8rem'}>Soubory ke stažení</Typography>
       {
         files.map((file, i) => {
