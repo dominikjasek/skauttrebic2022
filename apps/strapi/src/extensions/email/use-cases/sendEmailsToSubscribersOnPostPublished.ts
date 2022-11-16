@@ -28,7 +28,7 @@ export const sendEmailsToSubscribersOnPostPublished = async (postData: Post) => 
       return strapi
         .plugin('email-designer')
         .service('email')
-        .sendTemplatedEmail( { to: subscriber.email },
+        .sendTemplatedEmail( { to: subscriber.email, fromName: 'Skaut' },
           { templateReferenceId: EMAIL_TEMPLATE.POST_PUBLISH },
           {
             title: post.title,

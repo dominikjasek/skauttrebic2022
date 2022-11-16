@@ -10,17 +10,15 @@ module.exports = ({ env }) => ({
 
   email: {
     config: {
-      provider: 'strapi-provider-email-sendinblue',
+      provider: 'amazon-ses',
       settings: {
-        defaultFrom: 'neodpovidat@skauttrebic.cz',
-        defaultFromName: 'Skaut Třebíč',
+        defaultFrom:  '"Skaut Třebíč" <neodpovidat@skauttrebic.cz>',
         defaultReplyTo: 'neodpovidat@skauttrebic.cz'
       },
       providerOptions: {
-        sendinblue_api_key: env('SIB_API_KEY', ''),
-        sendinblue_default_replyto: env('SIB_DEFAULT_REPLY_TO', 'neodpovidat@skauttrebic.cz'),
-        sendinblue_default_from: env('SIB_DEFAULT_FROM', 'neodpovidat@skauttrebic.cz'),
-        sendinblue_default_from_name: env('SIB_DEFAULT_FROM_NAME', 'Skaut Třebíč'),
+        key: env('AWS_ACCESS_KEY_ID'),
+        secret: env('AWS_ACCESS_SECRET'),
+        amazon: 'https://email.us-east-1.amazonaws.com',
       },
     },
   },
