@@ -47,34 +47,38 @@ interface UserInfo {
 }
 
 export class AuthRepository {
-  constructor(private readonly fetch: IApiCall) {}
+  constructor(
+      private readonly authenticatedFetch: IApiCall,
+      private readonly anonymousFetch: IApiCall
+  ) {}
 
   validateConfirmRegistration = async (id: string): Promise<ValidateConfirmRegistrationResponse> => {
-    return (await this.fetch(`/validate-confirm-registration/${id}`)).data
+    return (await this.anonymousFetch(`/validate-confirm-registration/${id}`)).data
   }
 
   confirmRegistration = async (data: ConfirmRegistrationRequest): Promise<ConfirmRegistrationResponse> => {
-    return (await this.fetch('/confirm-registration', { method: 'POST', data })).data
+    return (await this.anonymousFetch('/confirm-registration', { method: 'POST', data })).data
   }
 
   login = async (data: LoginRequest): Promise<LoginResponse> => {
-    return (await this.fetch('/auth/local', { method: 'POST', data })).data
+    return (await this.anonymousFetch('/auth/local', { method: 'POST', data })).data
   }
 
   getUserInfo = async (): Promise<UserInfo> => {
-    return (await this.fetch('/users/me')).data
+    return (await this.authenticatedFetch('/users/me')).data
   }
 
   forgotPassword = async (email: string): Promise<{ok: boolean}> => {
-    return (await this.fetch('/auth/forgot-password', { method: 'POST', data: { email } })).data
+    return (await this.anonymousFetch('/auth/forgot-password', { method: 'POST', data: { email } })).data
   }
 
   resetPassword = async (password: string, code: string): Promise<LoginResponse> => {
-    return (await this.fetch('/auth/reset-password', { method: 'POST', data: { password, passwordConfirmation: password, code } })).data
+    return (await this.anonymousFetch('/auth/reset-password', { method: 'POST', data: { password, passwordConfirmation: password, code } })).data
   }
 }
 
 export const useAuthRepository = () => {
-  const apiCall = useApiCall()
-  return new AuthRepository(apiCall)
+  const authenticatedApiCall = useApiCall()
+  const anonymounsApiCall = useApiCall({ useJwt: false })
+  return new AuthRepository(authenticatedApiCall, anonymounsApiCall)
 }
