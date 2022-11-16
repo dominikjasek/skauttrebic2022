@@ -84,7 +84,7 @@ class PostsRepository {
       paginationString = `&pagination[page]=${pagination.page}&pagination[pageSize]=${pagination.pageSize}`
     }
 
-    return (await this.fetch(`/posts?populate=*${filterString}${paginationString}`)).data as PostsResponse
+    return (await this.fetch(`/posts?sort[0]=createdAt:desc&populate=*${filterString}${paginationString}`)).data as PostsResponse
   }
 
   getPost = async (postId: number) => {
