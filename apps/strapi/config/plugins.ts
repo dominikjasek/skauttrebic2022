@@ -12,7 +12,7 @@ module.exports = ({ env }) => ({
     config: {
       provider: 'amazon-ses',
       settings: {
-        defaultFrom:  '"Skaut Třebíč" <neodpovidat@skauttrebic.cz>',
+        defaultFrom: '"Skaut Trebic" <neodpovidat@skauttrebic.cz>',
         defaultReplyTo: 'neodpovidat@skauttrebic.cz'
       },
       providerOptions: {
