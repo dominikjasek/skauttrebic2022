@@ -17,16 +17,8 @@ services:
         value: 14.20.0
       - key: NODE_ENV
         value: production
-      - key: JWT_SECRET
-        generateValue: true
       - key: DATABASE_FILENAME
         value: /data/strapi.db
-      - key: ADMIN_JWT_SECRET
-        generateValue: true
-      - key: APP_KEYS
-        generateValue: true
-      - key: API_TOKEN_SALT
-        generateValue: true
       - key: ALLOW_CREATE_SUPER_ADMIN_STRAPI_USER
         value: false
       - key: FRONTEND_URL
