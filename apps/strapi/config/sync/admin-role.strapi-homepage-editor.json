@@ -8,14 +8,15 @@
       "subject": "api::homepage.homepage",
       "properties": {
         "fields": [
-          "about",
-          "images.background_color",
-          "images.photo",
           "images.text",
-          "troops.age_gender_information",
+          "images.photo",
+          "images.background_color",
+          "images.text_color",
+          "troops.title",
           "troops.description",
+          "troops.age_gender_information",
           "troops.logo",
-          "troops.title"
+          "about"
         ]
       },
       "conditions": []
@@ -31,14 +32,15 @@
       "subject": "api::homepage.homepage",
       "properties": {
         "fields": [
-          "about",
-          "images.background_color",
-          "images.photo",
           "images.text",
-          "troops.age_gender_information",
+          "images.photo",
+          "images.background_color",
+          "images.text_color",
+          "troops.title",
           "troops.description",
+          "troops.age_gender_information",
           "troops.logo",
-          "troops.title"
+          "about"
         ]
       },
       "conditions": []
@@ -48,14 +50,15 @@
       "subject": "api::homepage.homepage",
       "properties": {
         "fields": [
-          "about",
-          "images.background_color",
-          "images.photo",
           "images.text",
-          "troops.age_gender_information",
+          "images.photo",
+          "images.background_color",
+          "images.text_color",
+          "troops.title",
           "troops.description",
+          "troops.age_gender_information",
           "troops.logo",
-          "troops.title"
+          "about"
         ]
       },
       "conditions": []

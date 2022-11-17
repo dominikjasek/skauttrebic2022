@@ -1,0 +1,37 @@
+{
+  "name": "Správce uživatelů v administračním rozhraní",
+  "code": "strapi-admin-user-editor",
+  "description": "Může upravovat a vytvářet nové uživatele v tomto administračním rozhraní (tj. vedoucí)",
+  "permissions": [
+    {
+      "action": "admin::roles.read",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "admin::users.create",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "admin::users.delete",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "admin::users.read",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "admin::users.update",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    }
+  ]
+}

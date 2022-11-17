@@ -1,0 +1,73 @@
+{
+  "name": "Správce uživatelů na webu",
+  "code": "strapi-web-user-editor",
+  "description": "Může upravovat a vytvářet nové uživatele na webu (tj. rodiče a členy)",
+  "permissions": [
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "plugin::users-permissions.user",
+      "properties": {
+        "fields": [
+          "email",
+          "resetPasswordToken",
+          "confirmationToken",
+          "role",
+          "firstName",
+          "lastName",
+          "nickName",
+          "subscribing_troops",
+          "post_likes",
+          "unsubscribeToken"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "plugin::users-permissions.user",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "plugin::users-permissions.user",
+      "properties": {
+        "fields": [
+          "email",
+          "provider",
+          "password",
+          "resetPasswordToken",
+          "confirmationToken",
+          "confirmed",
+          "blocked",
+          "role",
+          "firstName",
+          "lastName",
+          "nickName",
+          "subscribing_troops",
+          "post_likes",
+          "unsubscribeToken"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "plugin::users-permissions.user",
+      "properties": {
+        "fields": [
+          "email",
+          "resetPasswordToken",
+          "confirmationToken",
+          "blocked",
+          "firstName",
+          "lastName",
+          "nickName",
+          "subscribing_troops",
+          "unsubscribeToken"
+        ]
+      },
+      "conditions": []
+    }
+  ]
+}
