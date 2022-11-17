@@ -47,7 +47,7 @@ export const PostBox: React.FC<PostBoxProps> = ({ post }) => {
   } as MotionProps & BoxProps
 
   return (
-    <Link href={isRestrictedPost ? Routes.login : `${Routes.posts}/${post.id}`}>
+    <Link href={isRestrictedPost ? `${Routes.login}?redirect=${Routes.posts}/${post.id}` : `${Routes.posts}/${post.id}`}>
       <Card
         component={motion.div}
         {...(isRestrictedPost ? {} : authorizedCardProps)}

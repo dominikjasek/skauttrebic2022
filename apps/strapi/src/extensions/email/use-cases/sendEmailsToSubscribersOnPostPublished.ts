@@ -34,7 +34,7 @@ export const sendEmailsToSubscribersOnPostPublished = async (postData: Post) => 
           {
             title: post.title,
             content: post.content,
-            link: `${process.env.FRONTEND_URL}/aktualita/${post.id}`,
+            link: `${process.env.FRONTEND_URL}/aktuality/${post.id}`,
             unsubscribeLink: `${process.env.FRONTEND_URL}/odhlasit-odber?token=${subscriber.unsubscribeToken}`,
           }
         );

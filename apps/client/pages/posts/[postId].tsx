@@ -12,19 +12,37 @@ import { Comments } from '~/components/Posts/Comments/Comments'
 import { Attachments } from '~/components/Posts/Attachments'
 import { NewComment } from '~/components/Posts/Comments/NewComment'
 import { Html } from '~/components/Html/Html'
+import { useUser } from '~/src/api/auth/context/AuthContext'
+import Routes from '~/config/routes'
 
 export const PostIdPage: NextPage = () => {
+  console.log('PostIdPage')
   const router = useRouter()
+  console.log('router.pathname', router.pathname)
+  console.log('router.asPath', router.asPath)
+  const user = useUser()
   const { getPost, getComments, createComment, deleteComment } = usePostsRepository()
   const queryClient = useQueryClient()
 
   const postId = useQueryParam('postId') as string | null
 
   const invalidateData = async () => {
-    await Promise.all([queryClient.invalidateQueries(['post', postId]), queryClient.invalidateQueries(['comments', postId])])
+    await Promise.all([
+      queryClient.invalidateQueries(['post', postId]),
+      queryClient.invalidateQueries(['comments', postId])
+    ])
   }
 
-  const { data: post, isLoading, isFetched } = useQuery(['post', postId], () => getPost(Number(postId)), { enabled: router.isReady })
+  const { data: post, isLoading, isFetched } = useQuery(['post', postId], async () => {
+    console.log('fetching postdata')
+    const postData = await getPost(Number(postId))
+    const isPostPrivate = postData.data.attributes.title === null
+    if (isPostPrivate && user === null){
+      await router.replace(Routes.login + `?redirect=${router.asPath}`)
+    }
+
+    return postData
+  }, { enabled: router.isReady })
   const { data: comments, isLoading: isCommentsLoading } = useQuery(['comments', postId], () => getComments(Number(postId)), { enabled: router.isReady })
   const { mutateAsync: submitCreateComment, isLoading: isCommentSubmitLoading } = useMutation(['create-comment', postId], async (content: string) => {
     await createComment(Number(postId), content)

@@ -11,6 +11,7 @@ import { SimpleDialog } from '~/components/Dialog/SimpleDialog'
 import Link from 'next/link'
 import Routes from '~/config/routes'
 import { ForgetPassword } from '~/components/Auth/ForgetPassword'
+import { useQueryParam } from '~/src/utility/use-query-param'
 
 const login: React.FC = () => {
   const {
@@ -20,6 +21,7 @@ const login: React.FC = () => {
     setError
   } = useForm()
   const router = useRouter()
+  const redirect = useQueryParam('redirect')
 
   const [registerDialogOpen, setRegisterDialogOpen] = React.useState(false)
   const [forgotPasswordOpen, setForgotPasswordOpen] = React.useState(false)
@@ -41,7 +43,7 @@ const login: React.FC = () => {
         }
       })
       await router.replace({
-        pathname: '/',
+        pathname: redirect ? redirect as string : '/',
       })
     }
     catch (err) {
