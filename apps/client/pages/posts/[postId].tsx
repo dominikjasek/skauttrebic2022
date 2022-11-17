@@ -16,10 +16,7 @@ import { useUser } from '~/src/api/auth/context/AuthContext'
 import Routes from '~/config/routes'
 
 export const PostIdPage: NextPage = () => {
-  console.log('PostIdPage')
   const router = useRouter()
-  console.log('router.pathname', router.pathname)
-  console.log('router.asPath', router.asPath)
   const user = useUser()
   const { getPost, getComments, createComment, deleteComment } = usePostsRepository()
   const queryClient = useQueryClient()
@@ -34,7 +31,6 @@ export const PostIdPage: NextPage = () => {
   }
 
   const { data: post, isLoading, isFetched } = useQuery(['post', postId], async () => {
-    console.log('fetching postdata')
     const postData = await getPost(Number(postId))
     const isPostPrivate = postData.data.attributes.title === null
     if (isPostPrivate && user === null){
@@ -61,7 +57,7 @@ export const PostIdPage: NextPage = () => {
 
   return (
     <Container maxWidth={'lg'} sx={{ pt: '30px' }}>
-      <Typography variant={'h3'} fontSize={'2.7rem'}>{post.data.attributes.title}</Typography>
+      <Typography variant={'h3'} fontSize={{ xs: '2rem', md: '2.7rem' }}>{post.data.attributes.title}</Typography>
       <Stack mt={1} spacing={0.5} direction={'row'}>
         <AuthorLabel {...post.data.attributes.createdBy.data.attributes}></AuthorLabel>
         <DateLabel date={post.data.attributes.createdAt}></DateLabel>
