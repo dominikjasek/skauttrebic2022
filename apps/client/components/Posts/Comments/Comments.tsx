@@ -5,6 +5,7 @@ import { DateLabel } from '~/components/Posts/Chips/DateLabel'
 import { PersonAvatar } from '~/components/Avatar/PersonAvatar'
 import DeleteIcon from '@mui/icons-material/Delete'
 import ConfirmDialog, { confirmDialog } from '~/components/Dialog/ConfirmDialog'
+import { useUser } from '~/src/api/auth/context/AuthContext'
 
 interface CommentsProps {
     comments: GetCommentsQuery['findAllFlat']
@@ -12,6 +13,8 @@ interface CommentsProps {
 }
 
 export const Comments: React.FC<CommentsProps> = ({ comments, onDeleteClick }) => {
+  const user = useUser()
+
   const nonBlockedComments = useMemo(() => comments?.data?.filter(comment => comment?.blocked === false), [comments])
 
   if (nonBlockedComments?.length === 0) {
@@ -32,14 +35,16 @@ export const Comments: React.FC<CommentsProps> = ({ comments, onDeleteClick }) =
                     <PersonAvatar fullName={comment.author?.name ?? 'Anonym'} />
                   }
                   action={
-                    <IconButton onClick={() => {
-                      confirmDialog('Opravdu chcete smazat tento kometář?', () => {
-                        onDeleteClick(comment.id)
-                      })
-                    }
-                    } aria-label="settings">
-                      <DeleteIcon />
-                    </IconButton>
+                    comment.author?.id === user?.id ?
+                      <IconButton onClick={() => {
+                        confirmDialog('Opravdu chcete smazat tento kometář?', () => {
+                          onDeleteClick(comment.id)
+                        })
+                      }
+                      } aria-label="settings">
+                        <DeleteIcon />
+                      </IconButton>
+                      : null
                   }
                   title={comment.author?.name}
                   subheader={
