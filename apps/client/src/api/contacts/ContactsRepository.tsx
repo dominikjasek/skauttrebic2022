@@ -13,9 +13,6 @@ class ContactsRepository {
     return await this.graphqlRequestClient.request(GetContactCardsDocument)
   }
 
-  fetchTroopContactNames = async () => {
-    return await this.graphqlRequestClient.request(GetTroopContactNamesDocument)
-  }
   fetchTroopContactCards = async () => {
     return await this.graphqlRequestClient.request(GetTroopContactCardsDocument)
   }
