@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_person_card_troops",
+  "info": {
+    "displayName": "troop",
+    "icon": "address-card"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "contactCards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "person-card.kontakt"
+    }
+  }
+}

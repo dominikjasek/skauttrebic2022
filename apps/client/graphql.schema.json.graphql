@@ -5,7 +5,7 @@ schema {
     mutation: Mutation
 }
 
-union GenericMorph = Clubroom | CommentsComment | CommentsCommentReport | ComponentHomepageHomeImage | ComponentHomepageTroop | ComponentPersonCardKontakt | ComponentTotemLegend | ComponentTotemTotemComment | Contact | EmailDesignerEmailTemplate | Homepage | I18NLocale | Post | TopBar | Totem | Troop | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser
+union GenericMorph = Clubroom | CommentsComment | CommentsCommentReport | ComponentHomepageHomeImage | ComponentHomepageTroop | ComponentPersonCardKontakt | ComponentPersonCardTroop | ComponentTotemLegend | ComponentTotemTotemComment | Contact | EmailDesignerEmailTemplate | Homepage | I18NLocale | Post | TopBar | Totem | Troop | TroopContact | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser
 
 type Clubroom {
     content: String
@@ -131,6 +131,12 @@ type ComponentPersonCardKontakt {
     role: String!
 }
 
+type ComponentPersonCardTroop {
+    contactCards(filters: ComponentPersonCardKontaktFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentPersonCardKontakt]
+    id: Id!
+    name: String!
+}
+
 type ComponentTotemLegend {
     audio: UploadFileEntityResponse!
     id: Id!
@@ -247,6 +253,7 @@ type Mutation {
     deleteTopBar: TopBarEntityResponse
     deleteTotem: TotemEntityResponse
     deleteTroop(id: ID!): TroopEntityResponse
+    deleteTroopContact: TroopContactEntityResponse
     deleteUploadFile(id: ID!): UploadFileEntityResponse
     deleteUploadFolder(id: ID!): UploadFolderEntityResponse
     "Delete an existing role"
@@ -275,6 +282,7 @@ type Mutation {
     updateTopBar(data: TopBarInput!): TopBarEntityResponse
     updateTotem(data: TotemInput!): TotemEntityResponse
     updateTroop(data: TroopInput!, id: ID!): TroopEntityResponse
+    updateTroopContact(data: TroopContactInput!): TroopContactEntityResponse
     updateUploadFile(data: UploadFileInput!, id: ID!): UploadFileEntityResponse
     updateUploadFolder(data: UploadFolderInput!, id: ID!): UploadFolderEntityResponse
     "Update an existing role"
@@ -338,6 +346,7 @@ type Query {
     topBar: TopBarEntityResponse
     totem(publicationState: PublicationState = LIVE): TotemEntityResponse
     troop(id: ID): TroopEntityResponse
+    troopContact: TroopContactEntityResponse
     troops(filters: TroopFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): TroopEntityResponseCollection
     uploadFile(id: ID): UploadFileEntityResponse
     uploadFiles(filters: UploadFileFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UploadFileEntityResponseCollection
@@ -420,6 +429,21 @@ type Troop {
     posts(filters: PostFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): PostRelationResponseCollection
     subscribed_users(filters: UsersPermissionsUserFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UsersPermissionsUserRelationResponseCollection
     updatedAt: DateTime
+}
+
+type TroopContact {
+    createdAt: DateTime
+    troop(filters: ComponentPersonCardTroopFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentPersonCardTroop]
+    updatedAt: DateTime
+}
+
+type TroopContactEntity {
+    attributes: TroopContact
+    id: Id
+}
+
+type TroopContactEntityResponse {
+    data: TroopContactEntity
 }
 
 type TroopEntity {
@@ -596,6 +620,7 @@ type UsersPermissionsUser {
     provider: String
     role: UsersPermissionsRoleEntityResponse
     subscribing_troops(filters: TroopFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): TroopRelationResponseCollection
+    unsubscribeToken: String
     updatedAt: DateTime
 }
 
@@ -793,6 +818,20 @@ input ComponentPersonCardKontaktInput {
     phone: String
     photo: Id
     role: String
+}
+
+input ComponentPersonCardTroopFiltersInput {
+    and: [ComponentPersonCardTroopFiltersInput]
+    contactCards: ComponentPersonCardKontaktFiltersInput
+    name: StringFilterInput
+    not: ComponentPersonCardTroopFiltersInput
+    or: [ComponentPersonCardTroopFiltersInput]
+}
+
+input ComponentPersonCardTroopInput {
+    contactCards: [ComponentPersonCardKontaktInput]
+    id: Id
+    name: String
 }
 
 input ComponentTotemLegendFiltersInput {
@@ -1100,6 +1139,10 @@ input TotemInput {
     publishedAt: DateTime
 }
 
+input TroopContactInput {
+    troop: [ComponentPersonCardTroopInput]
+}
+
 input TroopFiltersInput {
     and: [TroopFiltersInput]
     color: StringFilterInput
@@ -1259,6 +1302,7 @@ input UsersPermissionsUserFiltersInput {
     resetPasswordToken: StringFilterInput
     role: UsersPermissionsRoleFiltersInput
     subscribing_troops: TroopFiltersInput
+    unsubscribeToken: StringFilterInput
     updatedAt: DateTimeFilterInput
     username: StringFilterInput
 }
@@ -1277,5 +1321,6 @@ input UsersPermissionsUserInput {
     resetPasswordToken: String
     role: Id
     subscribing_troops: [Id]
+    unsubscribeToken: String
     username: String
 }

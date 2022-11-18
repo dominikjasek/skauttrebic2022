@@ -34,6 +34,9 @@
       "action": "api::totem.totem.update"
     },
     {
+      "action": "api::troop-contact.troop-contact.find"
+    },
+    {
       "action": "api::troop.troop.find"
     },
     {

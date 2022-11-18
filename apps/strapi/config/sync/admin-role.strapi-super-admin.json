@@ -317,6 +317,63 @@
     },
     {
       "action": "plugin::content-manager.explorer.create",
+      "subject": "api::troop-contact.troop-contact",
+      "properties": {
+        "fields": [
+          "troop.name",
+          "troop.contactCards.name",
+          "troop.contactCards.nickname",
+          "troop.contactCards.role",
+          "troop.contactCards.phone",
+          "troop.contactCards.email",
+          "troop.contactCards.about",
+          "troop.contactCards.photo"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::troop-contact.troop-contact",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::troop-contact.troop-contact",
+      "properties": {
+        "fields": [
+          "troop.name",
+          "troop.contactCards.name",
+          "troop.contactCards.nickname",
+          "troop.contactCards.role",
+          "troop.contactCards.phone",
+          "troop.contactCards.email",
+          "troop.contactCards.about",
+          "troop.contactCards.photo"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::troop-contact.troop-contact",
+      "properties": {
+        "fields": [
+          "troop.name",
+          "troop.contactCards.name",
+          "troop.contactCards.nickname",
+          "troop.contactCards.role",
+          "troop.contactCards.phone",
+          "troop.contactCards.email",
+          "troop.contactCards.about",
+          "troop.contactCards.photo"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
       "subject": "api::troop.troop",
       "properties": {
         "fields": [

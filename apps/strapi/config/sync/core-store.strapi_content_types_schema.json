@@ -2321,7 +2321,7 @@
       "info": {
         "singularName": "contact",
         "pluralName": "contacts",
-        "displayName": "Kontakty",
+        "displayName": "Kontakty - hlavní",
         "description": ""
       },
       "options": {
@@ -2367,7 +2367,7 @@
         "info": {
           "singularName": "contact",
           "pluralName": "contacts",
-          "displayName": "Kontakty",
+          "displayName": "Kontakty - hlavní",
           "description": ""
         },
         "options": {
@@ -2920,6 +2920,86 @@
       "uid": "api::troop.troop",
       "apiName": "troop",
       "globalId": "Troop",
+      "actions": {},
+      "lifecycles": {}
+    },
+    "api::troop-contact.troop-contact": {
+      "kind": "singleType",
+      "collectionName": "troop_contacts",
+      "info": {
+        "singularName": "troop-contact",
+        "pluralName": "troop-contacts",
+        "displayName": "Kontakty - oddílové",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": false
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "troop": {
+          "displayName": "troop",
+          "type": "component",
+          "repeatable": true,
+          "component": "person-card.troop",
+          "required": false
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "troop_contacts",
+        "info": {
+          "singularName": "troop-contact",
+          "pluralName": "troop-contacts",
+          "displayName": "Kontakty - oddílové",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": false
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "troop": {
+            "displayName": "troop",
+            "type": "component",
+            "repeatable": true,
+            "component": "person-card.troop",
+            "required": false
+          }
+        },
+        "kind": "singleType"
+      },
+      "modelType": "contentType",
+      "modelName": "troop-contact",
+      "connection": "default",
+      "uid": "api::troop-contact.troop-contact",
+      "apiName": "troop-contact",
+      "globalId": "TroopContact",
       "actions": {},
       "lifecycles": {}
     }

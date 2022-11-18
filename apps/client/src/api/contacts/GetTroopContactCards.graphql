@@ -1,0 +1,28 @@
+query GetTroopContactCards {
+    troopContact {
+        data {
+            attributes {
+                troop {
+                    id
+                    name
+                    contactCards {
+                        id
+                        name
+                        email
+                        about
+                        nickname
+                        phone
+                        role
+                        photo {
+                            data {
+                                attributes {
+                                    url
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

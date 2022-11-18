@@ -1,0 +1,12 @@
+query GetTroopContactNames {
+    troopContact {
+        data {
+            attributes {
+                troop {
+                    id
+                    name
+                }
+            }
+        }
+    }
+}

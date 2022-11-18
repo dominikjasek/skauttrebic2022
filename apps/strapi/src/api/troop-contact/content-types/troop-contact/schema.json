@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "troop_contacts",
+  "info": {
+    "singularName": "troop-contact",
+    "pluralName": "troop-contacts",
+    "displayName": "Kontakty - oddílové",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "troop": {
+      "displayName": "troop",
+      "type": "component",
+      "repeatable": true,
+      "component": "person-card.troop",
+      "required": false
+    }
+  }
+}
