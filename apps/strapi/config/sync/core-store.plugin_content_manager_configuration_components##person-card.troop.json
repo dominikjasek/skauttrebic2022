@@ -16,14 +16,14 @@
         "edit": {},
         "list": {
           "label": "id",
-          "searchable": true,
-          "sortable": true
+          "searchable": false,
+          "sortable": false
         }
       },
       "name": {
         "edit": {
-          "label": "name",
-          "description": "",
+          "label": "Název oddílu",
+          "description": "Např. Skauti",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -36,7 +36,7 @@
       },
       "contactCards": {
         "edit": {
-          "label": "contactCards",
+          "label": "Karty kontaktů",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -55,7 +55,6 @@
         "name",
         "contactCards"
       ],
-      "editRelations": [],
       "edit": [
         [
           {
@@ -69,7 +68,8 @@
             "size": 12
           }
         ]
-      ]
+      ],
+      "editRelations": []
     },
     "isComponent": true
   },

@@ -22,7 +22,7 @@
       },
       "troop": {
         "edit": {
-          "label": "troop",
+          "label": "Oddíl",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -64,12 +64,6 @@
       }
     },
     "layouts": {
-      "list": [
-        "id",
-        "createdAt",
-        "updatedAt",
-        "troop"
-      ],
       "edit": [
         [
           {
@@ -78,7 +72,13 @@
           }
         ]
       ],
-      "editRelations": []
+      "editRelations": [],
+      "list": [
+        "id",
+        "createdAt",
+        "updatedAt",
+        "troop"
+      ]
     }
   },
   "type": "object",
