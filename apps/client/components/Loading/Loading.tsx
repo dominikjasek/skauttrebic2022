@@ -1,10 +1,7 @@
 import React from 'react'
-import { CircularProgress, Box, Stack } from '@mui/material'
+import { CircularProgress, Stack } from '@mui/material'
 
-interface LoadingProps {
-}
-
-export const Loading: React.FC<LoadingProps> = () => {
+export const Loading: React.FC = () => {
   return (
     <Stack sx={{ justifyContent: 'center', alignItems: 'center', height: '80vh' }}>
       <CircularProgress />

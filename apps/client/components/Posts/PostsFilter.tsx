@@ -4,9 +4,6 @@ import {
   Accordion, AccordionDetails, AccordionSummary,
   Box,
   Checkbox,
-  IconButton,
-  IconButtonProps,
-  styled,
   Typography
 } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
@@ -17,21 +14,6 @@ interface PostsFilterProps {
     selectedTroopIds: number[]
     onTroopsChanged: (selectedTroopIds: number[]) => void
 }
-
-interface ExpandMoreProps extends IconButtonProps {
-    expand: boolean;
-}
-
-const ExpandMore = styled((props: ExpandMoreProps) => {
-  const { expand, ...other } = props
-  return <IconButton {...other} />
-})(({ theme, expand }) => ({
-  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-  marginLeft: 'auto',
-  transition: theme.transitions.create('transform', {
-    duration: theme.transitions.duration.shortest,
-  }),
-}))
 
 export const PostsFilter: React.FC<PostsFilterProps> = ({ troops, selectedTroopIds, onTroopsChanged }) => {
   const { isMobileScreen } = useScreen()
