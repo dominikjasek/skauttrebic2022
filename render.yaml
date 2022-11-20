@@ -22,4 +22,4 @@ services:
       - key: ALLOW_CREATE_SUPER_ADMIN_STRAPI_USER
         value: false
       - key: FRONTEND_URL
-        value: https://new.skauttrebic.cz
+        value: https://skauttrebic.cz
