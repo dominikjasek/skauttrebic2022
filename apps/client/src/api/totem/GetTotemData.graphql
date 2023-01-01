@@ -1,0 +1,29 @@
+query GetTotemData {
+    totem {
+        data {
+            attributes {
+                legend {
+                    audio {
+                        data {
+                            attributes {
+                                url
+                            }
+                        }
+                    }
+                    id
+                    photo {
+                        data {
+                            id
+                            attributes {
+                                caption
+                                formats
+                                url
+                            }
+                        }
+                    }
+                    title
+                }
+            }
+        }
+    }
+}

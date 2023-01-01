@@ -1,0 +1,40 @@
+.photoOverlay {
+    background-image: url("https://s3.eu-central-1.amazonaws.com/skauttrebic.cz/DSC_02242_min_16f6842266.jpg");
+    height: 600px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 480px) {
+    .photoOverlay {
+        height: 400px;
+        background-position: center;
+    }
+}
+
+.photoOverlay h1 {
+    color: white;
+    text-shadow: 2px 2px 7px #174085;
+    margin: 0;
+}
+
+
+.totemFooter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.mladezKraji {
+    width: 300px;
+}
+

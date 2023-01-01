@@ -10,6 +10,7 @@ const Routes = {
   contacts: '/kontakty',
   profile: '/profil',
   unsubscribe: '/odhlasit-odber',
+  totem: '/trebicskytotem'
 }
 
 const routes = [
@@ -56,6 +57,10 @@ const routes = [
   {
     source: Routes.unsubscribe,
     destination: '/unsubscribe'
+  },
+  {
+    source: Routes.totem,
+    destination: '/totem'
   }
 ]
 
