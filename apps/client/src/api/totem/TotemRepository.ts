@@ -1,6 +1,6 @@
 import { GraphQLClient } from 'graphql-request'
 import { useGraphqlRequestClient } from '~/src/api/lib/graphqlRequestClient'
-import { GetClubroomDataDocument, GetTotemDataDocument } from '~/src/api/gql/graphql'
+import { GetTotemDataDocument } from '~/src/api/gql/graphql'
 
 class TotemRepository {
   constructor(private readonly graphqlRequestClient: GraphQLClient) {}

@@ -14,8 +14,6 @@ import { navbarHeightPx } from '~/components/Navbar/NavbarHeight'
 import { useMemo } from 'react'
 import { useUser } from '~/src/api/auth/context/AuthContext'
 import { useCycle } from 'framer-motion'
-import { useContactsRepository } from '~/src/api/contacts/ContactsRepository'
-import { useQuery } from 'react-query'
 
 const ITEMS: MenuItemType[] = [
   {

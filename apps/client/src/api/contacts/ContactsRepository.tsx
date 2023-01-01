@@ -2,8 +2,7 @@ import { GraphQLClient } from 'graphql-request'
 import { useGraphqlRequestClient } from '~/src/api/lib/graphqlRequestClient'
 import {
   GetContactCardsDocument,
-  GetTroopContactCardsDocument,
-  GetTroopContactNamesDocument
+  GetTroopContactCardsDocument
 } from '~/src/api/gql/graphql'
 
 class ContactsRepository {
