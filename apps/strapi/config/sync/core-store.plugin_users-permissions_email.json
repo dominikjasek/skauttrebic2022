@@ -6,7 +6,7 @@
       "icon": "magic",
       "options": {
         "from": {
-          "name": "Skaut Třebíč",
+          "name": "Skaut Trebic",
           "email": "neodpovidat@skauttrebic.cz"
         },
         "response_email": "",
@@ -20,7 +20,7 @@
         "object": "Obnova hesla",
         "from": {
           "email": "neodpovidejte@skauttrebic.cz",
-          "name": "Skaut Třebíč"
+          "name": "Skaut Trebic"
         },
         "response_email": "neodpovidejte@skauttrebic.cz"
       },
