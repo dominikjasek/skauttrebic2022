@@ -4,7 +4,7 @@ const JWT_KEY = 'jwt'
 
 export class JwtCookieStorage {
   set(value: string) {
-    Cookie.set(JWT_KEY, value)
+    Cookie.set(JWT_KEY, value, { expires: 2147483647 })
   }
 
   get() {
