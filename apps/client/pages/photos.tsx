@@ -21,6 +21,10 @@ const photoLinks: PhotoLink[] = [
     name: 'Vlčata'
   },
   {
+    url: 'https://svetluskytrebic.rajce.idnes.cz',
+    name: 'Světlušky'
+  },
+  {
     url: 'https://eu.zonerama.com/RR2oddil/796874',
     name: 'Roveři',
   },
