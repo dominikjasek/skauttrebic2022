@@ -3,6 +3,7 @@ import { useJwtCookieStorage } from '~/src/api/auth/context/JwtCookieStorage'
 import { AuthContext, IAuth } from '~/src/api/auth/context/AuthContext'
 import { useAuthRepository } from '~/src/api/auth/AuthRepository'
 import { useQuery, useQueryClient } from 'react-query'
+import { Loading } from '~/components/Loading/Loading'
 
 export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const jwtCookieStorage = useJwtCookieStorage()
@@ -10,7 +11,7 @@ export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const queryclient = useQueryClient()
 
   const [auth, setAuth] = useState<IAuth | null>({ jwt: jwtCookieStorage.get() })
-  const { refetch: reloadUserInfo } = useQuery('user', async () => {
+  const { refetch: reloadUserInfo, isLoading, isFetched } = useQuery('user', async () => {
     const jwt = jwtCookieStorage.get()
     if (jwt) {
       const response = await authRepository.getUserInfo()
@@ -40,6 +41,10 @@ export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
     }
     queryclient.invalidateQueries()
   }, [auth?.jwt])
+
+  if (isLoading || !isFetched) {
+    return <Loading />
+  }
 
   return (
     <AuthContext.Provider
