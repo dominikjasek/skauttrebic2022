@@ -1,0 +1,14 @@
+mutation CreateTotemComment($relation: String!, $authorId: Id!, $authorName: String!, $content: String!) {
+    createComment(
+        input: {
+            relation: $relation
+            content: $content
+            author: {
+                id: $authorId
+                name: $authorName
+            }
+        }
+    ) {
+        id
+    }
+}

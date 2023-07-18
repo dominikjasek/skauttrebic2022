@@ -1,15 +1,21 @@
-import React from 'react'
-import { dehydrate, QueryClient, useQuery } from 'react-query'
+import React, { useState } from 'react'
+import { dehydrate, QueryClient, useMutation, useQuery } from 'react-query'
 import { useTotemRepository } from '~/src/api/totem/TotemRepository'
 import { Loading } from '~/components/Loading/Loading'
 import styles from '~/components/Totem/totem.module.css'
-import { Box, Card, CardContent, CardMedia, Stack, Typography } from '@mui/material'
+import { Box, Button, Card, CardContent, CardMedia, FormControl, FormLabel, Stack, TextField, Typography } from '@mui/material'
+import { DateLabel } from '~/components/Posts/Chips/DateLabel'
 
 export const TotemPage: React.FC = () => {
   const totemRepository = useTotemRepository()
   const { data: totemData, isLoading } = useQuery('totem',totemRepository.fetchTotemData)
+  const { data: comments, isLoading: isCommentsLoading, refetch: refetchTotemComments } = useQuery('totem-comments', totemRepository.getComments)
+  const { mutateAsync: insertComment } = useMutation(totemRepository.createComment)
 
-  if (isLoading) {
+  const [name, setName] = useState('')
+  const [content, setContent] = useState('')
+
+  if (isLoading || isCommentsLoading) {
     return <Loading />
   }
 
@@ -54,6 +60,68 @@ export const TotemPage: React.FC = () => {
           ))
         }
       </Stack>
+      <Box my={4}>
+        <Typography variant={'h1'}>
+          Vzkazy
+        </Typography>
+        <Stack direction={'column'} alignItems={'center'} justifyContent={'center'} gap={2}>
+          {
+            comments?.findAllFlat?.data?.map(comment => {
+              if (comment?.blocked) {
+                return null
+              }
+
+              return (
+                <Card key={comment!.id} sx={{ my: 0.5, width: '100%', maxWidth: '700px' }}>
+                  <CardContent>
+                    <Stack direction={'row'} justifyContent={'space-between'}>
+                      <Typography gutterBottom variant="h5" component="div">
+                        {comment!.author?.name}
+                      </Typography>
+                      <Typography gutterBottom variant="subtitle1">
+                        <DateLabel date={comment!.createdAt!} />
+                      </Typography>
+                    </Stack>
+                    <Typography variant="body2" color="text.secondary">
+                      {comment?.content}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              )
+            })
+          }
+        </Stack>
+        <Stack my={4} mx={'auto'} maxWidth={700} direction={'column'} gap={1} alignItems={'center'} justifyContent={'center'}>
+          <Typography variant={'h6'}>Napište vzkaz</Typography>
+          <TextField
+            type="text"
+            variant='outlined'
+            color='secondary'
+            label="Jméno"
+            onChange={e => setName(e.target.value)}
+            value={name}
+            fullWidth
+            required
+          />
+          <TextField
+            type="text"
+            variant='outlined'
+            color='secondary'
+            label="Komentář"
+            onChange={e => setContent(e.target.value)}
+            value={content}
+            fullWidth
+            required
+          />
+          <Button sx={{ my: 2, width: 100 }} variant={'contained'} onClick={async () => {
+            await insertComment({ authorName: name, commentContent: content })
+            await refetchTotemComments()
+          }}>
+            Odeslat
+          </Button>
+        </Stack>
+
+      </Box>
       <div className={styles.totemFooter}>
         <p>Tento totem byl z většiny financován v rámci projektu <a target="_blank" href="https://www.mladezkraji.cz" rel="noreferrer">Mládež
           kraji</a>.</p>

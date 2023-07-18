@@ -9,16 +9,11 @@
   "attributes": {
     "name": {
       "type": "string",
-      "required": false
+      "required": true
     },
     "text": {
       "type": "string",
       "required": true
-    },
-    "author": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "plugin::users-permissions.user"
     }
   }
 }

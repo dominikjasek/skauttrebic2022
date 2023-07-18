@@ -1,4 +1,4 @@
-# This file was generated based on ".graphqlconfig". Do not edit manually.
+# This file was generated. Do not edit manually.
 
 schema {
     query: Query
@@ -145,9 +145,8 @@ type ComponentTotemLegend {
 }
 
 type ComponentTotemTotemComment {
-    author: UsersPermissionsUserEntityResponse
     id: Id!
-    name: String
+    name: String!
     text: String!
 }
 
@@ -406,7 +405,6 @@ type TopBarEntityResponse {
 }
 
 type Totem {
-    comment(filters: ComponentTotemTotemCommentFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTotemTotemComment]
     createdAt: DateTime
     legend(filters: ComponentTotemLegendFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTotemLegend]
     publishedAt: DateTime
@@ -848,22 +846,6 @@ input ComponentTotemLegendInput {
     title: String
 }
 
-input ComponentTotemTotemCommentFiltersInput {
-    and: [ComponentTotemTotemCommentFiltersInput]
-    author: UsersPermissionsUserFiltersInput
-    name: StringFilterInput
-    not: ComponentTotemTotemCommentFiltersInput
-    or: [ComponentTotemTotemCommentFiltersInput]
-    text: StringFilterInput
-}
-
-input ComponentTotemTotemCommentInput {
-    author: Id
-    id: Id
-    name: String
-    text: String
-}
-
 input ContactInput {
     contactCards: [ComponentPersonCardKontaktInput]
 }
@@ -1134,7 +1116,6 @@ input TopBarInput {
 }
 
 input TotemInput {
-    comment: [ComponentTotemTotemCommentInput]
     legend: [ComponentTotemLegendInput]
     publishedAt: DateTime
 }
