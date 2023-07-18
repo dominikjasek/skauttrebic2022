@@ -20,20 +20,6 @@
           "sortable": true
         }
       },
-      "comment": {
-        "edit": {
-          "label": "Vzkazy",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "comment",
-          "searchable": false,
-          "sortable": false
-        }
-      },
       "legend": {
         "edit": {
           "label": "Pověsti",
@@ -78,27 +64,20 @@
       }
     },
     "layouts": {
+      "list": [
+        "id",
+        "createdAt",
+        "updatedAt"
+      ],
       "edit": [
         [
           {
             "name": "legend",
             "size": 12
           }
-        ],
-        [
-          {
-            "name": "comment",
-            "size": 12
-          }
         ]
       ],
-      "editRelations": [],
-      "list": [
-        "id",
-        "comment",
-        "createdAt",
-        "updatedAt"
-      ]
+      "editRelations": []
     }
   },
   "type": "object",

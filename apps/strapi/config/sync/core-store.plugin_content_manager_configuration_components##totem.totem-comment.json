@@ -47,38 +47,18 @@
           "searchable": true,
           "sortable": true
         }
-      },
-      "author": {
-        "edit": {
-          "label": "Autor",
-          "description": "Pokud komentoval přihlášený uživatel, bude komentář spojený s tímto uživatelem",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "email"
-        },
-        "list": {
-          "label": "author",
-          "searchable": true,
-          "sortable": true
-        }
       }
     },
     "layouts": {
       "list": [
         "id",
         "name",
-        "author",
         "text"
       ],
       "edit": [
         [
           {
             "name": "name",
-            "size": 6
-          },
-          {
-            "name": "author",
             "size": 6
           }
         ],

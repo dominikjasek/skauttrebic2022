@@ -4,7 +4,8 @@
     "moderatorRoles": [],
     "badWords": false,
     "enabledCollections": [
-      "api::post.post"
+      "api::post.post",
+      "api::totem.totem"
     ],
     "approvalFlow": [],
     "entryLabel": {
