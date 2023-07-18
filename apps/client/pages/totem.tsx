@@ -114,7 +114,13 @@ export const TotemPage: React.FC = () => {
             required
           />
           <Button sx={{ my: 2, width: 100 }} variant={'contained'} onClick={async () => {
+            if (name === '' || content === '') {
+              alert('Vyplňte prosím všechny údaje')
+              return
+            }
             await insertComment({ authorName: name, commentContent: content })
+            setName('')
+            setContent('')
             await refetchTotemComments()
           }}>
             Odeslat
