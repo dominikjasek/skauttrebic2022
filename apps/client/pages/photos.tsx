@@ -20,7 +20,7 @@ const photoLinks: PhotoLink[] = [
     name: 'Světlušky'
   },
   {
-    url: 'https://eu.zonerama.com/RR2oddil/796874',
+    url: 'https://eu.zonerama.com/Link/Open/64ef8e6eaa781646a0a4323f',
     name: 'Roveři',
   },
   {
