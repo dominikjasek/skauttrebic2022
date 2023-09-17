@@ -2739,11 +2739,6 @@
       },
       "pluginOptions": {},
       "attributes": {
-        "comment": {
-          "type": "component",
-          "repeatable": true,
-          "component": "totem.totem-comment"
-        },
         "legend": {
           "type": "component",
           "repeatable": true,
@@ -2795,11 +2790,6 @@
         },
         "pluginOptions": {},
         "attributes": {
-          "comment": {
-            "type": "component",
-            "repeatable": true,
-            "component": "totem.totem-comment"
-          },
           "legend": {
             "type": "component",
             "repeatable": true,

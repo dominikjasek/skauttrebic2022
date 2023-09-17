@@ -263,9 +263,6 @@
       "subject": "api::totem.totem",
       "properties": {
         "fields": [
-          "comment.name",
-          "comment.text",
-          "comment.author",
           "legend.title",
           "legend.photo",
           "legend.audio"
@@ -290,9 +287,6 @@
       "subject": "api::totem.totem",
       "properties": {
         "fields": [
-          "comment.name",
-          "comment.text",
-          "comment.author",
           "legend.title",
           "legend.photo",
           "legend.audio"
@@ -305,9 +299,6 @@
       "subject": "api::totem.totem",
       "properties": {
         "fields": [
-          "comment.name",
-          "comment.text",
-          "comment.author",
           "legend.title",
           "legend.photo",
           "legend.audio"
