@@ -3,14 +3,13 @@ import { useAuthRepository } from '~/src/api/auth/AuthRepository'
 import { Container, Stack, TextField, Typography } from '@mui/material'
 import { LoadingButton } from '@mui/lab'
 import { useForm } from 'react-hook-form'
-import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
-import { ParsedUrlQuery } from 'querystring'
 import { useMutation } from 'react-query'
 import { useJwtCookieStorage } from '~/src/api/auth/context/JwtCookieStorage'
 import Link from 'next/link'
 import Routes from '~/config/routes'
+import { useRouter } from 'next/router'
 
-const forgotPassword: React.FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({ query }) => {
+const forgotPassword: React.FC = () => {
   const { resetPassword } = useAuthRepository()
   const {
     register,
@@ -19,16 +18,18 @@ const forgotPassword: React.FC<InferGetServerSidePropsType<typeof getServerSideP
     watch
   } = useForm()
 
-  const { code } = query as Record<string,string | undefined>
-  if (!code) {
-    throw new Error('Registration hash is missing in query parameters')
-  }
+  const router = useRouter()
+  const code = router.query.code
 
   const jwtCookieStorage = useJwtCookieStorage()
   jwtCookieStorage.delete()
 
-  const { isSuccess: isSubmitted, isLoading: isSubmitLoading, mutateAsync: submitResetPassword } = useMutation(async (password: string) => resetPassword(password, code)
-  )
+  const { isSuccess: isSubmitted, isLoading: isSubmitLoading, mutateAsync: submitResetPassword } = useMutation(async (password: string) => {
+    if (!code) {
+      throw new Error('Registration hash is missing in query parameters')
+    }
+    await resetPassword(password, code as string)
+  })
 
   if (isSubmitted) {
     return (
@@ -75,14 +76,6 @@ const forgotPassword: React.FC<InferGetServerSidePropsType<typeof getServerSideP
       </form>
     </Container>
   )
-}
-
-export const getServerSideProps: GetServerSideProps<{query: ParsedUrlQuery}> = async (context) => {
-  // The query params are set on `context.query`
-  const { query } = context
-  return {
-    props: { query }
-  }
 }
 
 export default forgotPassword
