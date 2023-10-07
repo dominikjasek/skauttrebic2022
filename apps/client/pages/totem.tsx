@@ -3,7 +3,7 @@ import { dehydrate, QueryClient, useMutation, useQuery } from 'react-query'
 import { useTotemRepository } from '~/src/api/totem/TotemRepository'
 import { Loading } from '~/components/Loading/Loading'
 import styles from '~/components/Totem/totem.module.css'
-import { Box, Button, Card, CardContent, CardMedia, FormControl, FormLabel, Stack, TextField, Typography } from '@mui/material'
+import { Box, Button, Card, CardContent, CardMedia, Stack, TextField, Typography } from '@mui/material'
 import { DateLabel } from '~/components/Posts/Chips/DateLabel'
 
 export const TotemPage: React.FC = () => {
@@ -12,6 +12,7 @@ export const TotemPage: React.FC = () => {
   const { data: comments, isLoading: isCommentsLoading, refetch: refetchTotemComments } = useQuery('totem-comments', totemRepository.getComments)
   const { mutateAsync: insertComment } = useMutation(totemRepository.createComment)
 
+  this will fail build
   const [name, setName] = useState('')
   const [content, setContent] = useState('')
 
