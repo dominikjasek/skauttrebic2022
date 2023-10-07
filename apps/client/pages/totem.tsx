@@ -12,7 +12,6 @@ export const TotemPage: React.FC = () => {
   const { data: comments, isLoading: isCommentsLoading, refetch: refetchTotemComments } = useQuery('totem-comments', totemRepository.getComments)
   const { mutateAsync: insertComment } = useMutation(totemRepository.createComment)
 
-  this will fail build
   const [name, setName] = useState('')
   const [content, setContent] = useState('')
 
