@@ -3,15 +3,16 @@ import { useAuthRepository } from '~/src/api/auth/AuthRepository'
 import { Container, Stack, TextField, Typography } from '@mui/material'
 import { LoadingButton } from '@mui/lab'
 import { useForm } from 'react-hook-form'
-import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
-import { ParsedUrlQuery } from 'querystring'
 import { useMutation, useQuery } from 'react-query'
 import { Loading } from '~/components/Loading/Loading'
 import Link from 'next/link'
 import Routes from '~/config/routes'
 import { useJwtCookieStorage } from '~/src/api/auth/context/JwtCookieStorage'
+import { useRouter } from 'next/router'
 
-const confirmRegistration: React.FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({ query }) => {
+const confirmRegistration: React.FC = () => {
+  const { query } = useRouter()
+
   const { confirmRegistration, validateConfirmRegistration } = useAuthRepository()
   const {
     register,
@@ -20,24 +21,18 @@ const confirmRegistration: React.FC<InferGetServerSidePropsType<typeof getServer
     watch
   } = useForm()
 
-  const { hash, email, firstName, lastName, id } = query as Record<string,string | undefined>
-  if (!hash) {
-    throw new Error('Registration hash is missing in query parameters')
-  }
-  if (!id) {
-    throw new Error('Id is missing in query parameters')
-  }
+  const { hash, email, firstName, lastName, id } = query
 
   const jwtCookieStorage = useJwtCookieStorage()
   jwtCookieStorage.delete()
 
-  const { isLoading, data: validationData } = useQuery('allowed-to-register', () => validateConfirmRegistration(id))
+  const { isLoading, data: validationData } = useQuery('allowed-to-register', () => validateConfirmRegistration(id as string), { enabled: typeof id === 'string' })
 
   const { isSuccess: isSubmitted, isLoading: isSubmitLoading, mutate: submitConfirmRegistration } = useMutation(async (password: string) => {
-    await confirmRegistration({ hash, id, password })
+    await confirmRegistration({ hash: hash as string, id: id as string, password })
   })
 
-  if (isLoading) {
+  if (!id || !hash || isLoading) {
     return <Loading />
   }
   if (validationData === undefined) {
@@ -102,14 +97,6 @@ const confirmRegistration: React.FC<InferGetServerSidePropsType<typeof getServer
       </form>
     </Container>
   )
-}
-
-export const getServerSideProps: GetServerSideProps<{query: ParsedUrlQuery}> = async (context) => {
-  // The query params are set on `context.query`
-  const { query } = context
-  return {
-    props: { query }
-  }
 }
 
 export default confirmRegistration
