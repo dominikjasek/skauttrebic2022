@@ -16,7 +16,14 @@ export default [
       },
     },
   },
-  'strapi::cors',
+  {
+    name: 'strapi::cors',
+    config: {
+      enabled: true,
+      headers: '*',
+      origin: ['http://localhost:1337', 'http://localhost:8080', 'http://localhost:8081'] // if your frontend is running on different port, add it here
+    }
+  },
   'strapi::poweredBy',
   'strapi::logger',
   'strapi::query',
