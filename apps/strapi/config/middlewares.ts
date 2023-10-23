@@ -21,7 +21,7 @@ export default [
     config: {
       enabled: true,
       headers: '*',
-      origin: ['https://api.skauttrebic.cz, https://skauttrebic.cz, http://localhost:1337', 'http://localhost:8080', 'http://localhost:8081'] // if your frontend is running on different port, add it here
+      origin: '*',
     }
   },
   'strapi::poweredBy',
