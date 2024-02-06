@@ -16,7 +16,7 @@
     },
     "role": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "phone": {
       "type": "string"
@@ -28,11 +28,12 @@
       "type": "richtext"
     },
     "photo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }
