@@ -1,15 +1,22 @@
 import React from 'react'
 import { Box, Button, Container, Link, Stack, Typography } from '@mui/material'
+import { useUser } from '~/src/api/auth/context/AuthContext'
+import { useRouter } from 'next/router'
+import Routes from '~/config/routes'
 
 interface PhotoLink {
-    name: string
-    url: string
+  name: string
+  url: string
 }
 
 const photoLinks: PhotoLink[] = [
   {
     url: 'https://eu.zonerama.com/2oddilskautu/743177',
     name: 'Skauti'
+  },
+  {
+    url: 'https://eu.zonerama.com/2oddilskautekTrebic/989542',
+    name: 'Skautky'
   },
   {
     url: 'https://eu.zonerama.com/KarelJanicek/795748',
@@ -24,16 +31,19 @@ const photoLinks: PhotoLink[] = [
     name: 'Roveři',
   },
   {
-    url: 'https://eu.zonerama.com/2oddilskautekTrebic/989542',
-    name: 'Skautky'
-  },
-  {
     url: 'https://eu.zonerama.com/2oddilbenjaminku/1078727',
     name: 'Benjamínci'
   }
 ]
 
 export const Photos = () => {
+  const router = useRouter()
+  const user = useUser()
+
+  if (user === null) {
+    router.replace(Routes.login + `?redirect=${router.asPath}`)
+    return ''
+  }
   return (
     <Container sx={{ p: 4 }} maxWidth="md">
       <Box>
