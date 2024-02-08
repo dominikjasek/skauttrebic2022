@@ -10,6 +10,7 @@ interface IUser {
 
 export interface IAuth {
     user?: IUser
+    isLoading?: boolean
     jwt?: string,
 }
 

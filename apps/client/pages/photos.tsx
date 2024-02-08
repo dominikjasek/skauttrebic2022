@@ -1,8 +1,10 @@
 import React from 'react'
 import { Box, Button, Container, Link, Stack, Typography } from '@mui/material'
-import { useUser } from '~/src/api/auth/context/AuthContext'
+import { useAuth } from '~/src/api/auth/context/AuthContext'
 import { useRouter } from 'next/router'
 import Routes from '~/config/routes'
+import dynamic from 'next/dynamic'
+import { Loading } from '~/components/Loading/Loading'
 
 interface PhotoLink {
   name: string
@@ -36,14 +38,21 @@ const photoLinks: PhotoLink[] = [
   }
 ]
 
-export const Photos = () => {
+export const Photos = dynamic(() => Promise.resolve(() => {
   const router = useRouter()
-  const user = useUser()
+  const authContext = useAuth()
+  const isUserLoading = authContext?.auth?.isLoading
+  const user = authContext?.auth?.user ?? null
+
+  if (isUserLoading) {
+    return <Loading />
+  }
 
   if (user === null) {
     router.replace(Routes.login + `?redirect=${router.asPath}`)
-    return ''
+    return <Loading />
   }
+
   return (
     <Container sx={{ p: 4 }} maxWidth="md">
       <Box>
@@ -62,7 +71,9 @@ export const Photos = () => {
       </Box>
     </Container>
   )
-}
+}), {
+  ssr: false
+})
 
 export default Photos
 
