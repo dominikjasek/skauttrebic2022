@@ -1,7 +1,7 @@
 import React from 'react'
 import { NextPage } from 'next'
 import { useRouter } from 'next/router'
-import { Container, Divider, Stack, Typography } from '@mui/material'
+import { Box, Container, Divider, Stack, Typography } from '@mui/material'
 import { useMutation, useQuery, useQueryClient } from 'react-query'
 import { useQueryParam } from '~/src/utility/use-query-param'
 import { usePostsRepository } from '~/src/api/posts/PostsRepository'
@@ -14,6 +14,7 @@ import { NewComment } from '~/components/Posts/Comments/NewComment'
 import { Html } from '~/components/Html/Html'
 import { useUser } from '~/src/api/auth/context/AuthContext'
 import Routes from '~/config/routes'
+import { TroopChip } from '~/components/Posts/Chips/TroopChip'
 
 export const PostIdPage: NextPage = () => {
   const router = useRouter()
@@ -61,6 +62,13 @@ export const PostIdPage: NextPage = () => {
       <Stack mt={1} spacing={0.5} direction={'row'}>
         <AuthorLabel {...post.data.attributes.createdBy.data.attributes}></AuthorLabel>
         <DateLabel date={post.data.attributes.createdAt}></DateLabel>
+      </Stack>
+      <Stack direction={'row'} alignItems={'center'} justifyContent={'flex-start'} flex={2} flexWrap={'wrap'}>
+        {post.data.attributes.troops.data?.map(troop => (
+          <Box key={troop.id} pr={0.5} pt={1} display={'inline'}>
+            <TroopChip troop={troop} />
+          </Box>
+        ))}
       </Stack>
       <Divider sx={{ my: 2 }}></Divider>
       <Html html={ post.data.attributes.content } />

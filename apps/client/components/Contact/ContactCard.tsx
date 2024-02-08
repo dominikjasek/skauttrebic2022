@@ -10,6 +10,7 @@ import {
 import React, { useState } from 'react'
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone'
 import EmailIcon from '@mui/icons-material/Email'
+import PersonIcon from '@mui/icons-material/Person'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 
 export interface ContactCardPerson {
@@ -68,6 +69,10 @@ export const ContactCard: React.FC<ContactCardProps> = ({ person }) => {
         </Typography>
         <Stack direction={'row'} justifyContent={'space-between'}>
           <Stack sx={{ mt: 1 }} color="text.secondary">
+            <Stack direction={'row'} gap={2}>
+              <PersonIcon />
+              <Typography>{person.role}</Typography>
+            </Stack>
             <Stack direction={'row'} gap={2}>
               <LocalPhoneIcon />
               <Typography>{person.phone}</Typography>
