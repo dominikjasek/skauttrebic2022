@@ -3,7 +3,7 @@ query GetContactCards {
         data {
             id
             attributes {
-                contactCards {
+                contactCards (pagination: {limit: -1}){
                     id
                     name
                     email

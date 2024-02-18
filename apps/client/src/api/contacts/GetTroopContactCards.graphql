@@ -5,7 +5,7 @@ query GetTroopContactCards {
                 troop {
                     id
                     name
-                    contactCards {
+                    contactCards (pagination: {limit: -1}){
                         id
                         name
                         email
