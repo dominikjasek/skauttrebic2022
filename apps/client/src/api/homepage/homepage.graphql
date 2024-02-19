@@ -2,7 +2,7 @@ query Homepage {
     homepage {
         data {
             attributes {
-                images {
+                images (pagination: {limit: -1}){
                     id
                     photo {
                         data {

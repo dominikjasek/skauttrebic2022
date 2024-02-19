@@ -128,7 +128,7 @@ type ComponentPersonCardKontakt {
     nickname: String
     phone: String
     photo: UploadFileEntityResponse
-    role: String!
+    role: String
 }
 
 type ComponentPersonCardTroop {
