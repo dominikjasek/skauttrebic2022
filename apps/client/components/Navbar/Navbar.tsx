@@ -24,10 +24,10 @@ const ITEMS: MenuItemType[] = [
     label: 'Fotogalerie',
     link: Routes.photos
   },
-  {
+  /*{
     label: 'Klubovna',
     link: Routes.clubRoom
-  },
+  },*/
   {
     label: 'Kontakty',
     link: Routes.contacts
