@@ -74,7 +74,7 @@ export const PostBox: React.FC<PostBoxProps> = ({ post }) => {
                 </Typography>
                 <Stack direction={'row'} spacing={0.5}>
                   <AuthorLabel {...data.createdBy.data.attributes} />
-                  <DateLabel date={data.createdAt} />
+                  <DateLabel date={data.publishedAt} />
                 </Stack>
               </Stack>
               <Stack direction={'row'} alignItems={'center'} justifyContent={'flex-end'} flex={2} flexWrap={'wrap'}>

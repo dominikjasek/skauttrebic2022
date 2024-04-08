@@ -61,7 +61,7 @@ export const PostIdPage: NextPage = () => {
       <Typography variant={'h3'} fontSize={{ xs: '2rem', md: '2.7rem' }}>{post.data.attributes.title}</Typography>
       <Stack mt={1} spacing={0.5} direction={'row'}>
         <AuthorLabel {...post.data.attributes.createdBy.data.attributes}></AuthorLabel>
-        <DateLabel date={post.data.attributes.createdAt}></DateLabel>
+        <DateLabel date={post.data.attributes.publishedAt}></DateLabel>
       </Stack>
       <Stack direction={'row'} alignItems={'center'} justifyContent={'flex-start'} flex={2} flexWrap={'wrap'}>
         {post.data.attributes.troops.data?.map(troop => (
