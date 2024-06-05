@@ -18,7 +18,7 @@ export default {
       await unsubscribeService.unsubscribeFromPosts(token)
 
       ctx.response.status = 200
-      ctx.send({ success:true })
+      ctx.send({ success: true })
     } catch (err) {
       ctx.body = err;
     }
