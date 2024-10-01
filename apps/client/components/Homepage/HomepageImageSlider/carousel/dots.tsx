@@ -6,6 +6,7 @@ const dotWrapStyle: React.CSSProperties = {
   bottom: '10px',
   left: '50%',
   transform: 'translateX(-50%)',
+  textAlign: 'center',
 }
 
 const dotItemStyle: React.CSSProperties = {
