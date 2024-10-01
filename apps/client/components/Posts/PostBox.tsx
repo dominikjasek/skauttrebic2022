@@ -62,7 +62,7 @@ export const PostBox: React.FC<PostBoxProps> = ({ post }) => {
             justifyContent={'space-between'}
             spacing={1}
             >
-              <Stack sx={{ }} alignItems={'flex-start'} justifyContent={'center'} flex={3}>
+              <Stack sx={{ }} alignItems={'flex-start'} justifyContent={'center'} flex={3} width={'100%'}>
                 <Typography sx={{
                   mb: 1,
                   textShadow: isRestrictedPost ? '0 0 15px black' : 'none',
@@ -72,9 +72,13 @@ export const PostBox: React.FC<PostBoxProps> = ({ post }) => {
                 >
                   {title}
                 </Typography>
-                <Stack direction={'row'} spacing={0.5}>
-                  <AuthorLabel {...data.createdBy.data.attributes} />
-                  <DateLabel date={data.publishedAt} />
+                <Stack direction={'row'} alignItems={'center'} justifyContent={'flex-start'} flex={2} flexWrap={'wrap'}>
+                  <Box pr={0.5} pt={0.5} display={'inline'}>
+                    <AuthorLabel {...data.createdBy.data.attributes} />
+                  </Box>
+                  <Box pr={0.5} pt={0.5} display={'inline'}>
+                    <DateLabel date={data.publishedAt} />
+                  </Box>
                 </Stack>
               </Stack>
               <Stack direction={'row'} alignItems={'center'} justifyContent={'flex-end'} flex={2} flexWrap={'wrap'}>
