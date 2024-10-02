@@ -1,4 +1,5 @@
 import { Post, Troop } from '../../../api/post/content-types/post/interfaces';
+
 const EMAIL_TEMPLATE = require('../templates/emailTemplates')
 
 export const sendEmailsToSubscribersOnPostPublished = async (postData: Post) => {
