@@ -1,6 +1,7 @@
 # Creating multi-stage build for production
 FROM node:14.20.0-alpine AS build
 RUN apk update && apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev vips-dev > /dev/null 2>&1
+RUN apk --no-cache add curl
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
 
