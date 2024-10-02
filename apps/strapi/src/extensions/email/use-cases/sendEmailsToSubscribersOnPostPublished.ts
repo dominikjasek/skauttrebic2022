@@ -1,5 +1,4 @@
 import { Post, Troop } from '../../../api/post/content-types/post/interfaces';
-// import EMAIL_TEMPLATE from '../templates/emailTemplates';
 
 const EMAIL_TEMPLATE = require('../templates/emailTemplates')
 
