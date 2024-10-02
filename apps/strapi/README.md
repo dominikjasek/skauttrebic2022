@@ -38,3 +38,6 @@ To temporarilly enable creating Super Admin user, set `ALLOW_CREATE_SUPER_ADMIN_
 ## Deployment
 
 Po pushi nového commitu (nebo merge PR) se aplikace automaticky deployne na [Render](https://dashboard.render.com/web/srv-cci6impa6gdiindmkeo0). Přístup má pouze Dominik, protože každý další uživatel by stál [19$/měsíc](https://render.com/pricing).
+
+## Migrace na postgres
+export sqlute: ``

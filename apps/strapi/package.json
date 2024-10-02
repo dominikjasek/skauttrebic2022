@@ -38,6 +38,7 @@
     "@strapi/strapi": "^4.4.6",
     "better-sqlite3": "7.6.2",
     "patch-package": "^6.5.0",
+    "pg": "^8.13.0",
     "postinstall-postinstall": "^2.1.0",
     "strapi-plugin-comments": "^2.2.0",
     "strapi-plugin-config-sync": "^1.0.4",
