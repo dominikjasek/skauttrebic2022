@@ -8,7 +8,6 @@ import '../styles/ckeditor.css'
 import lightTheme from '../styles/theme/lighttheme'
 import * as React from 'react'
 import { useRef } from 'react'
-import { Analytics } from '@vercel/analytics/react'
 import { AuthProvider } from '~/src/api/auth/context/AuthContextProvider'
 
 function MyApp({ Component, pageProps }: AppProps<{ dehydratedState: any }>) {
@@ -23,7 +22,6 @@ function MyApp({ Component, pageProps }: AppProps<{ dehydratedState: any }>) {
             <AppLayout>
               <title>Skaut Třebíč</title>
               <Component {...pageProps} />
-              <Analytics />
             </AppLayout>
           </AuthProvider>
         </ThemeProvider>
