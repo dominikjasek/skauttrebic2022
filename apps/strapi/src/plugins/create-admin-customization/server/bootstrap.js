@@ -28,7 +28,7 @@ module.exports = async ({ strapi }) => {
       const { registrationToken, email } = result;
       if (!registrationToken) return;
 
-      const inviteLink = `${getAbsoluteAdminUrl(strapi.config)}/auth/register?registrationToken=${registrationToken}`;
+      const inviteLink = `https://api.skauttrebic.cz/admin/auth/register?registrationToken=${registrationToken}`;
 
       await sendEmailToNewStrapiUser({ to: email, inviteLink })
     },
