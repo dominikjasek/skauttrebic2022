@@ -4,9 +4,6 @@
   "type": "public",
   "permissions": [
     {
-      "action": "api::clubroom.clubroom.find"
-    },
-    {
       "action": "api::confirm-registration.confirm-registration.confirmRegistration"
     },
     {
@@ -19,19 +16,7 @@
       "action": "api::homepage.homepage.find"
     },
     {
-      "action": "api::post.post.find"
-    },
-    {
-      "action": "api::post.post.findOne"
-    },
-    {
-      "action": "api::top-bar.top-bar.find"
-    },
-    {
       "action": "api::totem.totem.find"
-    },
-    {
-      "action": "api::totem.totem.update"
     },
     {
       "action": "api::troop-contact.troop-contact.find"
@@ -46,16 +31,13 @@
       "action": "api::unsubscribe.unsubscribe.unsubscribe"
     },
     {
-      "action": "plugin::users-permissions.auth.callback"
+      "action": "plugin::comments.client.findAllFlat"
     },
     {
-      "action": "plugin::users-permissions.auth.connect"
+      "action": "plugin::comments.client.findAllInHierarchy"
     },
     {
-      "action": "plugin::users-permissions.auth.emailConfirmation"
-    },
-    {
-      "action": "plugin::users-permissions.auth.forgotPassword"
+      "action": "plugin::comments.client.post"
     },
     {
       "action": "plugin::users-permissions.auth.register"

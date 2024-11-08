@@ -4,19 +4,7 @@
   "type": "authenticated",
   "permissions": [
     {
-      "action": "api::clubroom.clubroom.find"
-    },
-    {
-      "action": "api::contact.contact.find"
-    },
-    {
       "action": "api::homepage.homepage.find"
-    },
-    {
-      "action": "api::post.post.find"
-    },
-    {
-      "action": "api::post.post.findOne"
     },
     {
       "action": "api::top-bar.top-bar.find"
@@ -29,33 +17,6 @@
     },
     {
       "action": "api::troop-contact.troop-contact.find"
-    },
-    {
-      "action": "api::troop.troop.find"
-    },
-    {
-      "action": "api::troop.troop.findOne"
-    },
-    {
-      "action": "plugin::comments.client.findAllFlat"
-    },
-    {
-      "action": "plugin::comments.client.findAllInHierarchy"
-    },
-    {
-      "action": "plugin::comments.client.post"
-    },
-    {
-      "action": "plugin::comments.client.put"
-    },
-    {
-      "action": "plugin::comments.client.removeComment"
-    },
-    {
-      "action": "plugin::users-permissions.auth.changePassword"
-    },
-    {
-      "action": "plugin::users-permissions.user.me"
     }
   ]
 }
