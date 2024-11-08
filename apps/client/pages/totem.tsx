@@ -79,7 +79,9 @@ export const TotemPage: React.FC = () => {
                         {comment!.author?.name}
                       </Typography>
                       <Typography gutterBottom variant="subtitle1">
-                        <DateLabel date={comment!.createdAt!} />
+                        {comment?.createdAt &&
+                          <DateLabel date={comment.createdAt!} />
+                        }
                       </Typography>
                     </Stack>
                     <Typography variant="body2" color="text.secondary">
