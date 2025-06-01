@@ -13,7 +13,7 @@ interface PhotoLink {
 
 const photoLinks: PhotoLink[] = [
   {
-    url: 'https://eu.zonerama.com/2oddilskautu/743177',
+    url: 'https://eu.zonerama.com/2oddilskautu/743177?secret=KFO29DoVp6DryMYNWwnk6VNe3',
     name: 'Skauti'
   },
   {
