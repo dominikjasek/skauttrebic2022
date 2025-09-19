@@ -9,6 +9,7 @@ import lightTheme from '../styles/theme/lighttheme'
 import * as React from 'react'
 import { useRef } from 'react'
 import { AuthProvider } from '~/src/api/auth/context/AuthContextProvider'
+import { TopBarProvider } from '~/components/TopBar/TopBarProvider'
 
 function MyApp({ Component, pageProps }: AppProps<{ dehydratedState: any }>) {
   const queryclient = useRef(new QueryClient())
@@ -19,10 +20,12 @@ function MyApp({ Component, pageProps }: AppProps<{ dehydratedState: any }>) {
         <ThemeProvider theme={lightTheme}>
           <CssBaseline />
           <AuthProvider>
-            <AppLayout>
-              <title>Skaut Třebíč</title>
-              <Component {...pageProps} />
-            </AppLayout>
+            <TopBarProvider>
+              <AppLayout>
+                <title>Skaut Třebíč</title>
+                <Component {...pageProps} />
+              </AppLayout>
+            </TopBarProvider>
           </AuthProvider>
         </ThemeProvider>
       </Hydrate>

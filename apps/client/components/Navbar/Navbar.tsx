@@ -1,5 +1,4 @@
 import * as React from 'react'
-import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
@@ -48,7 +47,7 @@ export const Navbar: React.FC = () => {
   }, [user])
 
   return (
-    <AppBar position="fixed" sx={{ backgroundColor: theme.palette.secondary.main, height: navbarHeightPx }}>
+    <Box sx={{ backgroundColor: theme.palette.secondary.main, height: navbarHeightPx }}>
       <Container maxWidth="xl" disableGutters>
         <Toolbar disableGutters sx={{ height: '100%', maxHeight: '100%' }}>
           <Link href={Routes.home}>
@@ -96,6 +95,6 @@ export const Navbar: React.FC = () => {
           <MobileMenuNavigation onModalToggle={toggleLogoColorful} items={menuItems} />
         </Toolbar>
       </Container>
-    </AppBar>
+    </Box>
   )
 }
