@@ -8,11 +8,6 @@ yarn build
 yarn dev
 ```
 
-## Dumpnutí produkční databáze
-
-https://github.com/dominikjasek/skauttrebic2022/blob/master/apps/strapi/production/dump-db.sh
-Vytvoř si SSH klíč a napiš Dominikovi, přidá ho do Renderu a pak můžeš spustit tento skript.
-
 ## Config sync
 
 K synchronizaci konfigurace mezi local a production prostředím se používá plugin [Strapi Config Sync](https://market.strapi.io/plugins/strapi-plugin-config-sync). 
@@ -33,11 +28,11 @@ Background: We don't want to allow each strapi user to create new user with arbi
 
 Therefore I hardcoded that:
 
-To temporarilly enable creating Super Admin user, set `ALLOW_CREATE_SUPER_ADMIN_STRAPI_USER` to `1` in [render.yaml](./../../render.yaml). Then push, create new user in production. Don't forget to revert changes when you're done!
+To temporarilly enable creating Super Admin user, set `ALLOW_CREATE_SUPER_ADMIN_STRAPI_USER` to `1` in coolify. Then redeploy
 
 ## Deployment
 
-Po pushi nového commitu (nebo merge PR) se aplikace automaticky deployne na [Render](https://dashboard.render.com/web/srv-cci6impa6gdiindmkeo0). Přístup má pouze Dominik, protože každý další uživatel by stál [19$/měsíc](https://render.com/pricing).
+Po pushi nového commitu (nebo merge PR) se aplikace automaticky deployne na [Coolify](https://coolify.dominikjasek.cz/project/yg88gog0ogk00gs0cswkws00). Přístup má pouze Dominik.
 
 ## Migrace na postgres
 export sqlute: ``

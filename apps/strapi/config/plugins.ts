@@ -1,4 +1,10 @@
-module.exports = ({ env }) => ({
+module.exports = ({ env }) => {
+  
+  console.log("AWS_ACCESS_KEY_ID", env("AWS_ACCESS_KEY_ID"))
+  console.log("AWS_ACCESS_SECRET", env("AWS_ACCESS_SECRET"))
+  console.log("AWS_S3_BUCKET_NAME", env("AWS_S3_BUCKET_NAME"))
+  
+  return {
   'users-permissions': {
     config: {
       jwt: {
@@ -309,4 +315,4 @@ module.exports = ({ env }) => ({
     },
   },
 
-});
+}};
