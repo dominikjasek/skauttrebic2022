@@ -1,1 +1,11 @@
-14.20.0
+16.16.0
+
+nodenv install 16.16.0
+
+brew python
+
+python3 -m pip install setuptools
+
+yarn
+
+yarn dev
