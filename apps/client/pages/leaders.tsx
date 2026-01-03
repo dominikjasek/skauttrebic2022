@@ -1,42 +1,15 @@
 import React from 'react'
-import { Box, Button, Container, Link, Stack, Typography } from '@mui/material'
 import { useAuth } from '~/src/api/auth/context/AuthContext'
 import { useRouter } from 'next/router'
 import Routes from '~/config/routes'
 import dynamic from 'next/dynamic'
 import { Loading } from '~/components/Loading/Loading'
-
-interface vlink {
-  name: string
-  url: string
-}
-
-const Links: vlink[] = [
-  {
-    url: 'https://eu.zonerama.com/2oddilskautu/743177?secret=KFO29DoVp6DryMYNWwnk6VNe3',
-    name: 'Skauti'
-  },
-  {
-    url: 'https://eu.zonerama.com/2oddilskautekTrebic/989542',
-    name: 'Skautky'
-  },
-  {
-    url: 'https://eu.zonerama.com/KarelJanicek/795748',
-    name: 'Vlčata'
-  },
-  {
-    url: 'https://eu.zonerama.com/svetluskyvedouci',
-    name: 'Světlušky'
-  },
-  {
-    url: 'https://eu.zonerama.com/Link/Open/64ef8e6eaa781646a0a4323f',
-    name: 'Roveři',
-  },
-  {
-    url: 'https://eu.zonerama.com/2oddilbenjaminku/1078727',
-    name: 'Benjamínci'
-  }
-]
+import { NextPage } from 'next'
+import { dehydrate, QueryClient, useQuery } from 'react-query'
+import { useLeadersRepository } from '~/src/api/leaders/LeadersRepository'
+import { Box, Container, Typography } from '@mui/material'
+import { Html } from '~/components/Html/Html'
+import { PhotoGallery, PhotoProp } from '~/components/Gallery/Gallery'
 
 export const Leaders = dynamic(() => Promise.resolve(() => {
   const router = useRouter()
@@ -58,27 +31,38 @@ export const Leaders = dynamic(() => Promise.resolve(() => {
     return <Loading />
   }
 
+  const leadersRepository = useLeadersRepository()
+  const { data, isLoading } = useQuery('clubroom', leadersRepository.fetchLeadersData)
+
   return (
-    <Container sx={{ p: 4 }} maxWidth="md">
-      <Box>
-        <Typography variant={'h3'}>Fotogalerie</Typography>
-        {
-          Links.map((link, i) =>
-            <Stack key={i} direction={'row'} sx={{ m: 2 }} alignItems={'center'}>
-              <Typography sx={{ mr: 2 }}>{link.name}</Typography>
-              <Link href={link.url} target={'_blank'}>
-                <Button variant={'contained'}>
-                  Prohlédnout
-                </Button>
-              </Link>
-            </Stack>)
-        }
+    <Container>
+      <Box pt={2}>
+        <Typography variant={'h3'}>Test</Typography>
+        <Html html={data?.leader?.data?.attributes?.content ?? ''} />
       </Box>
+      {
+        data?.leader?.data?.attributes?.files?.data &&
+          <PhotoGallery photos={data.leader.data.attributes.files.data.map(d => d.attributes as PhotoProp)} galleryId={'clubroom-photo-gallery'} />
+      }
     </Container>
   )
 }), {
   ssr: false
 })
+
+export const getStaticProps = async () => {
+  const clubRoomRepository = useLeadersRepository()
+  const queryClient = new QueryClient()
+  await queryClient.prefetchQuery('clubroom', clubRoomRepository.fetchLeadersData)
+
+  return {
+
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+    revalidate: 120, // In seconds
+  }
+}
 
 export default Leaders
 

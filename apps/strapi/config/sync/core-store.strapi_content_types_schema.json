@@ -2497,6 +2497,100 @@
       "actions": {},
       "lifecycles": {}
     },
+    "api::leader.leader": {
+      "kind": "singleType",
+      "collectionName": "leaders",
+      "info": {
+        "singularName": "leader",
+        "pluralName": "leaders",
+        "displayName": "Vedoucí",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": false
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "title": {
+          "type": "string"
+        },
+        "content": {
+          "type": "richtext"
+        },
+        "files": {
+          "type": "media",
+          "multiple": true,
+          "required": false,
+          "allowedTypes": [
+            "images"
+          ]
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "leaders",
+        "info": {
+          "singularName": "leader",
+          "pluralName": "leaders",
+          "displayName": "Vedoucí",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": false
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "title": {
+            "type": "string"
+          },
+          "content": {
+            "type": "richtext"
+          },
+          "files": {
+            "type": "media",
+            "multiple": true,
+            "required": false,
+            "allowedTypes": [
+              "images"
+            ]
+          }
+        },
+        "kind": "singleType"
+      },
+      "modelType": "contentType",
+      "modelName": "leader",
+      "connection": "default",
+      "uid": "api::leader.leader",
+      "apiName": "leader",
+      "globalId": "Leader",
+      "actions": {},
+      "lifecycles": {}
+    },
     "api::post.post": {
       "kind": "collectionType",
       "collectionName": "posts",
