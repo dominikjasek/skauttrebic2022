@@ -2522,7 +2522,10 @@
           "multiple": true,
           "required": false,
           "allowedTypes": [
-            "images"
+            "images",
+            "videos",
+            "audios",
+            "files"
           ]
         },
         "createdAt": {
@@ -2576,7 +2579,10 @@
             "multiple": true,
             "required": false,
             "allowedTypes": [
-              "images"
+              "images",
+              "videos",
+              "audios",
+              "files"
             ]
           }
         },

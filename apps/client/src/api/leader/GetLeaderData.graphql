@@ -7,13 +7,11 @@ query GetLeaderData {
                 files {
                     data {
                         attributes {
-                           name
+                            name
                             previewUrl
                             url
                             formats
                             caption
-                            width
-                            height
                         }
                         id
                     }

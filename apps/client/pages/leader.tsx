@@ -6,9 +6,8 @@ import dynamic from 'next/dynamic'
 import { Loading } from '~/components/Loading/Loading'
 import { dehydrate, QueryClient, useQuery } from 'react-query'
 import { useLeaderRepository } from '~/src/api/leader/LeaderRepository'
-import { Box, Container, Typography } from '@mui/material'
+import { Box, Button, Container, Divider, Link, Stack, Typography } from '@mui/material'
 import { Html } from '~/components/Html/Html'
-import { PhotoGallery, PhotoProp } from '~/components/Gallery/Gallery'
 
 export const Leader = dynamic(() => Promise.resolve(() => {
   const router = useRouter()
@@ -32,16 +31,28 @@ export const Leader = dynamic(() => Promise.resolve(() => {
 
   const leaderRepository = useLeaderRepository()
   const { data, isLoading } = useQuery('leader', leaderRepository.fetchLeaderData)
+  if (isLoading) return <Loading />
 
   return (
     <Container>
+      <Box pt={4}>
+        <Typography variant={'h2'}> {data?.leader?.data?.attributes?.title} </Typography>
+      </Box>
       <Box pt={2}>
-        <Typography variant={'h3'}>Test</Typography>
         <Html html={data?.leader?.data?.attributes?.content ?? ''} />
       </Box>
+      <Divider style={{ margin: '10px 0px' }} />
       {
         data?.leader?.data?.attributes?.files?.data &&
-          <PhotoGallery photos={data.leader.data.attributes.files.data.map(d => d.attributes as PhotoProp)} galleryId={'clubroom-photo-gallery'} />
+          data?.leader?.data?.attributes?.files?.data.map((file, i) =>
+            <Stack key={i} direction={'row'} sx={{ m: 2 }} alignItems={'center'}>
+              <Typography sx={{ mr: 2 }}>{file.attributes?.caption}</Typography>
+              <Link href={file.attributes?.url} target={'_blank'}>
+                <Button variant={'contained'}>
+                  Stáhnout
+                </Button>
+              </Link>
+            </Stack>)
       }
     </Container>
   )
