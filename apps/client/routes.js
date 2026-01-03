@@ -11,7 +11,7 @@ const Routes = {
   profile: '/profil',
   unsubscribe: '/odhlasit-odber',
   totem: '/trebicskytotem',
-  leaders: '/vedouci',
+  leader: '/vedouci',
   error403: '/403'
 }
 
@@ -65,8 +65,8 @@ const routes = [
     destination: '/totem'
   },
   {
-    source: Routes.leaders,
-    destination: '/leaders'
+    source: Routes.leader,
+    destination: '/leader'
   },
   {
     source: Routes.error403,

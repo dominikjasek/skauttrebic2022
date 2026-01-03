@@ -46,16 +46,16 @@ const ITEMSlogin: MenuItemType[] = [
 
 const ITEMSleader: MenuItemType[] = [
   {
+    label: 'Vedoucí',
+    link: Routes.leader
+  },
+  {
     label: 'Aktuality',
     link: Routes.posts
   },
   {
     label: 'Fotogalerie',
     link: Routes.photos
-  },
-  {
-    label: 'Vedoucí',
-    link: Routes.leaders
   },
   {
     label: 'Kontakty',

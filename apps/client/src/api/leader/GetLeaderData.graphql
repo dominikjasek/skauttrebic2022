@@ -1,4 +1,4 @@
-query GetLeadersData {
+query GetLeaderData {
     leader {
         data {
             attributes {

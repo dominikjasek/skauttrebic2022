@@ -4,14 +4,13 @@ import { useRouter } from 'next/router'
 import Routes from '~/config/routes'
 import dynamic from 'next/dynamic'
 import { Loading } from '~/components/Loading/Loading'
-import { NextPage } from 'next'
 import { dehydrate, QueryClient, useQuery } from 'react-query'
-import { useLeadersRepository } from '~/src/api/leaders/LeadersRepository'
+import { useLeaderRepository } from '~/src/api/leader/LeaderRepository'
 import { Box, Container, Typography } from '@mui/material'
 import { Html } from '~/components/Html/Html'
 import { PhotoGallery, PhotoProp } from '~/components/Gallery/Gallery'
 
-export const Leaders = dynamic(() => Promise.resolve(() => {
+export const Leader = dynamic(() => Promise.resolve(() => {
   const router = useRouter()
   const authContext = useAuth()
   const isUserLoading = authContext?.auth?.isLoading
@@ -31,8 +30,8 @@ export const Leaders = dynamic(() => Promise.resolve(() => {
     return <Loading />
   }
 
-  const leadersRepository = useLeadersRepository()
-  const { data, isLoading } = useQuery('clubroom', leadersRepository.fetchLeadersData)
+  const leaderRepository = useLeaderRepository()
+  const { data, isLoading } = useQuery('leader', leaderRepository.fetchLeaderData)
 
   return (
     <Container>
@@ -51,9 +50,9 @@ export const Leaders = dynamic(() => Promise.resolve(() => {
 })
 
 export const getStaticProps = async () => {
-  const clubRoomRepository = useLeadersRepository()
+  const leaderRepository = useLeaderRepository()
   const queryClient = new QueryClient()
-  await queryClient.prefetchQuery('clubroom', clubRoomRepository.fetchLeadersData)
+  await queryClient.prefetchQuery('leader', leaderRepository.fetchLeaderData)
 
   return {
 
@@ -64,5 +63,5 @@ export const getStaticProps = async () => {
   }
 }
 
-export default Leaders
+export default Leader
 
