@@ -31,6 +31,7 @@ interface LoginResponse {
     updatedAt: string
     firstName: string
     lastName: string
+    leader: boolean
   }
 }
 
@@ -44,6 +45,7 @@ interface UserInfo {
   lastName: string
   provider: string
   updatedAt: string
+  leader: boolean
 }
 
 export class AuthRepository {

@@ -233,6 +233,20 @@
           "sortable": true
         }
       },
+      "leader": {
+        "edit": {
+          "label": "Vedoucí",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "leader",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -287,8 +301,14 @@
         [
           {
             "name": "password",
-            "size": 4
+            "size": 6
           },
+          {
+            "name": "leader",
+            "size": 6
+          }
+        ],
+        [
           {
             "name": "confirmed",
             "size": 4

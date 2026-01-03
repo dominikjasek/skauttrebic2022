@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-11-06T21:11:09.491Z"
+    "x-generation-date": "2026-01-03T12:40:19.289Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -10464,6 +10464,9 @@
                                           "unsubscribeToken": {
                                             "type": "string"
                                           },
+                                          "leader": {
+                                            "type": "boolean"
+                                          },
                                           "createdAt": {
                                             "type": "string",
                                             "format": "date-time"
@@ -12552,6 +12555,9 @@
                                           },
                                           "unsubscribeToken": {
                                             "type": "string"
+                                          },
+                                          "leader": {
+                                            "type": "boolean"
                                           },
                                           "createdAt": {
                                             "type": "string",
@@ -14675,6 +14681,9 @@
                                           "unsubscribeToken": {
                                             "type": "string"
                                           },
+                                          "leader": {
+                                            "type": "boolean"
+                                          },
                                           "createdAt": {
                                             "type": "string",
                                             "format": "date-time"
@@ -16763,6 +16772,9 @@
                                           },
                                           "unsubscribeToken": {
                                             "type": "string"
+                                          },
+                                          "leader": {
+                                            "type": "boolean"
                                           },
                                           "createdAt": {
                                             "type": "string",
@@ -22269,6 +22281,9 @@
                             "unsubscribeToken": {
                               "type": "string"
                             },
+                            "leader": {
+                              "type": "boolean"
+                            },
                             "createdAt": {
                               "type": "string",
                               "format": "date-time"
@@ -23722,6 +23737,9 @@
                             },
                             "unsubscribeToken": {
                               "type": "string"
+                            },
+                            "leader": {
+                              "type": "boolean"
                             },
                             "createdAt": {
                               "type": "string",
@@ -25210,6 +25228,9 @@
                             "unsubscribeToken": {
                               "type": "string"
                             },
+                            "leader": {
+                              "type": "boolean"
+                            },
                             "createdAt": {
                               "type": "string",
                               "format": "date-time"
@@ -26663,6 +26684,9 @@
                             },
                             "unsubscribeToken": {
                               "type": "string"
+                            },
+                            "leader": {
+                              "type": "boolean"
                             },
                             "createdAt": {
                               "type": "string",
@@ -35197,6 +35221,9 @@
                                         "unsubscribeToken": {
                                           "type": "string"
                                         },
+                                        "leader": {
+                                          "type": "boolean"
+                                        },
                                         "createdAt": {
                                           "type": "string",
                                           "format": "date-time"
@@ -36624,6 +36651,9 @@
                                         },
                                         "unsubscribeToken": {
                                           "type": "string"
+                                        },
+                                        "leader": {
+                                          "type": "boolean"
                                         },
                                         "createdAt": {
                                           "type": "string",
@@ -38086,6 +38116,9 @@
                                         "unsubscribeToken": {
                                           "type": "string"
                                         },
+                                        "leader": {
+                                          "type": "boolean"
+                                        },
                                         "createdAt": {
                                           "type": "string",
                                           "format": "date-time"
@@ -39513,6 +39546,9 @@
                                         },
                                         "unsubscribeToken": {
                                           "type": "string"
+                                        },
+                                        "leader": {
+                                          "type": "boolean"
                                         },
                                         "createdAt": {
                                           "type": "string",
@@ -40964,6 +41000,9 @@
                                                       },
                                                       "unsubscribeToken": {
                                                         "type": "string"
+                                                      },
+                                                      "leader": {
+                                                        "type": "boolean"
                                                       },
                                                       "createdAt": {
                                                         "type": "string",
@@ -42421,6 +42460,9 @@
                                                       },
                                                       "unsubscribeToken": {
                                                         "type": "string"
+                                                      },
+                                                      "leader": {
+                                                        "type": "boolean"
                                                       },
                                                       "createdAt": {
                                                         "type": "string",
@@ -43912,6 +43954,9 @@
                                                       "unsubscribeToken": {
                                                         "type": "string"
                                                       },
+                                                      "leader": {
+                                                        "type": "boolean"
+                                                      },
                                                       "createdAt": {
                                                         "type": "string",
                                                         "format": "date-time"
@@ -45369,6 +45414,9 @@
                                                       "unsubscribeToken": {
                                                         "type": "string"
                                                       },
+                                                      "leader": {
+                                                        "type": "boolean"
+                                                      },
                                                       "createdAt": {
                                                         "type": "string",
                                                         "format": "date-time"
@@ -45681,6 +45729,9 @@
               },
               "unsubscribeToken": {
                 "type": "string"
+              },
+              "leader": {
+                "type": "boolean"
               }
             }
           }
@@ -46990,6 +47041,9 @@
                                         "unsubscribeToken": {
                                           "type": "string"
                                         },
+                                        "leader": {
+                                          "type": "boolean"
+                                        },
                                         "createdAt": {
                                           "type": "string",
                                           "format": "date-time"
@@ -47138,6 +47192,9 @@
               },
               "unsubscribeToken": {
                 "type": "string"
+              },
+              "leader": {
+                "type": "boolean"
               },
               "createdAt": {
                 "type": "string",
@@ -48489,6 +48546,9 @@
                                         "unsubscribeToken": {
                                           "type": "string"
                                         },
+                                        "leader": {
+                                          "type": "boolean"
+                                        },
                                         "createdAt": {
                                           "type": "string",
                                           "format": "date-time"
@@ -48637,6 +48697,9 @@
               },
               "unsubscribeToken": {
                 "type": "string"
+              },
+              "leader": {
+                "type": "boolean"
               },
               "createdAt": {
                 "type": "string",
@@ -50021,6 +50084,9 @@
                                         "unsubscribeToken": {
                                           "type": "string"
                                         },
+                                        "leader": {
+                                          "type": "boolean"
+                                        },
                                         "createdAt": {
                                           "type": "string",
                                           "format": "date-time"
@@ -50169,6 +50235,9 @@
               },
               "unsubscribeToken": {
                 "type": "string"
+              },
+              "leader": {
+                "type": "boolean"
               },
               "createdAt": {
                 "type": "string",
@@ -51520,6 +51589,9 @@
                                         "unsubscribeToken": {
                                           "type": "string"
                                         },
+                                        "leader": {
+                                          "type": "boolean"
+                                        },
                                         "createdAt": {
                                           "type": "string",
                                           "format": "date-time"
@@ -51668,6 +51740,9 @@
               },
               "unsubscribeToken": {
                 "type": "string"
+              },
+              "leader": {
+                "type": "boolean"
               },
               "createdAt": {
                 "type": "string",
