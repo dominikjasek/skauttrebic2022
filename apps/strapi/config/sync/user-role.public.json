@@ -19,9 +19,6 @@
       "action": "api::homepage.homepage.find"
     },
     {
-      "action": "api::leader.leader.find"
-    },
-    {
       "action": "api::post.post.find"
     },
     {

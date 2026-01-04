@@ -1,0 +1,49 @@
+{
+  "name": "Editor stránky pro vedoucí",
+  "code": "strapi-leader-editor",
+  "description": "Může editovat stránku pro vedoucí.",
+  "permissions": [
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::leader.leader",
+      "properties": {
+        "fields": [
+          "content",
+          "files",
+          "title"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::leader.leader",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::leader.leader",
+      "properties": {
+        "fields": [
+          "content",
+          "files",
+          "title"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::leader.leader",
+      "properties": {
+        "fields": [
+          "content",
+          "files",
+          "title"
+        ]
+      },
+      "conditions": []
+    }
+  ]
+}
