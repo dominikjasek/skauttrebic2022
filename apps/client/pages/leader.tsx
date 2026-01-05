@@ -15,7 +15,16 @@ export const Leader = dynamic(() => Promise.resolve(() => {
   const isUserLoading = authContext?.auth?.isLoading
   const user = authContext?.auth?.user ?? null
 
+  const leaderRepository = useLeaderRepository()
+  const { data, isLoading } = useQuery('leader', leaderRepository.fetchLeaderData, {
+    enabled: user?.leader
+  })
+
   if (isUserLoading) {
+    return <Loading />
+  }
+
+  if (isLoading) {
     return <Loading />
   }
 
@@ -29,9 +38,7 @@ export const Leader = dynamic(() => Promise.resolve(() => {
     return <Loading />
   }
 
-  const leaderRepository = useLeaderRepository()
-  const { data, isLoading } = useQuery('leader', leaderRepository.fetchLeaderData)
-  if (isLoading) return <Loading />
+
 
   return (
     <Container>

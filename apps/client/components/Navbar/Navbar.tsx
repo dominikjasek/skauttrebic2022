@@ -14,7 +14,7 @@ import { useMemo } from 'react'
 import { useUser } from '~/src/api/auth/context/AuthContext'
 import { useCycle } from 'framer-motion'
 
-const ITEMSdefault: MenuItemType[] = [
+const ItemsUnauthenticated: MenuItemType[] = [
   {
     label: 'Aktuality',
     link: Routes.posts
@@ -29,7 +29,7 @@ const ITEMSdefault: MenuItemType[] = [
   }
 ]
 
-const ITEMSlogin: MenuItemType[] = [
+const ItemsAuthenticated: MenuItemType[] = [
   {
     label: 'Aktuality',
     link: Routes.posts
@@ -44,7 +44,7 @@ const ITEMSlogin: MenuItemType[] = [
   }
 ]
 
-const ITEMSleader: MenuItemType[] = [
+const ItemsLeader: MenuItemType[] = [
   {
     label: 'Vedoucí',
     link: Routes.leader
@@ -69,9 +69,9 @@ export const Navbar: React.FC = () => {
   const [isLogoColorful, toggleLogoColorful] = useCycle(false, true)
 
   const menuItems = useMemo(() => {
-    if (user === null) return ITEMSdefault
-    if (!user?.leader) return ITEMSlogin
-    return ITEMSleader
+    if (!user) return ItemsUnauthenticated
+    if (user.leader) return ItemsLeader
+    return ItemsAuthenticated
   }, [user])
 
   return (
