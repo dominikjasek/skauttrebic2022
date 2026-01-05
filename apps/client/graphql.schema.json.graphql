@@ -5,7 +5,7 @@ schema {
     mutation: Mutation
 }
 
-union GenericMorph = Clubroom | CommentsComment | CommentsCommentReport | ComponentHomepageHomeImage | ComponentHomepageTroop | ComponentPersonCardKontakt | ComponentPersonCardTroop | ComponentTotemLegend | ComponentTotemTotemComment | Contact | EmailDesignerEmailTemplate | Homepage | I18NLocale | Post | TopBar | Totem | Troop | TroopContact | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser
+union GenericMorph = Clubroom | CommentsComment | CommentsCommentReport | ComponentHomepageHomeImage | ComponentHomepageTroop | ComponentPersonCardKontakt | ComponentPersonCardTroop | ComponentTotemLegend | ComponentTotemTotemComment | Contact | EmailDesignerEmailTemplate | Homepage | I18NLocale | Leader | Post | TopBar | Totem | Troop | TroopContact | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser
 
 type Clubroom {
     content: String
@@ -230,6 +230,23 @@ type I18NLocaleEntityResponseCollection {
     meta: ResponseCollectionMeta!
 }
 
+type Leader {
+    content: String
+    createdAt: DateTime
+    files(filters: UploadFileFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UploadFileRelationResponseCollection
+    title: String
+    updatedAt: DateTime
+}
+
+type LeaderEntity {
+    attributes: Leader
+    id: Id
+}
+
+type LeaderEntityResponse {
+    data: LeaderEntity
+}
+
 type Mutation {
     "Change user password. Confirm with the current password."
     changePassword(currentPassword: String!, password: String!, passwordConfirmation: String!): UsersPermissionsLoginPayload
@@ -248,6 +265,7 @@ type Mutation {
     deleteContact: ContactEntityResponse
     deleteEmailDesignerEmailTemplate(id: ID!): EmailDesignerEmailTemplateEntityResponse
     deleteHomepage: HomepageEntityResponse
+    deleteLeader: LeaderEntityResponse
     deletePost(id: ID!): PostEntityResponse
     deleteTopBar: TopBarEntityResponse
     deleteTotem: TotemEntityResponse
@@ -277,6 +295,7 @@ type Mutation {
     updateEmailDesignerEmailTemplate(data: EmailDesignerEmailTemplateInput!, id: ID!): EmailDesignerEmailTemplateEntityResponse
     updateFileInfo(id: ID!, info: FileInfoInput): UploadFileEntityResponse!
     updateHomepage(data: HomepageInput!): HomepageEntityResponse
+    updateLeader(data: LeaderInput!): LeaderEntityResponse
     updatePost(data: PostInput!, id: ID!): PostEntityResponse
     updateTopBar(data: TopBarInput!): TopBarEntityResponse
     updateTotem(data: TotemInput!): TotemEntityResponse
@@ -339,6 +358,7 @@ type Query {
     homepage: HomepageEntityResponse
     i18NLocale(id: ID): I18NLocaleEntityResponse
     i18NLocales(filters: I18NLocaleFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): I18NLocaleEntityResponseCollection
+    leader: LeaderEntityResponse
     me: UsersPermissionsMe
     post(id: ID): PostEntityResponse
     posts(filters: PostFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): PostEntityResponseCollection
@@ -613,6 +633,7 @@ type UsersPermissionsUser {
     email: String!
     firstName: String!
     lastName: String
+    leader: Boolean
     nickName: String
     post_likes(filters: PostFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): PostRelationResponseCollection
     provider: String
@@ -1046,6 +1067,12 @@ input JSONFilterInput {
     startsWith: JSON
 }
 
+input LeaderInput {
+    content: String
+    files: [Id]
+    title: String
+}
+
 input PaginationArg {
     limit: Int
     page: Int
@@ -1274,6 +1301,7 @@ input UsersPermissionsUserFiltersInput {
     firstName: StringFilterInput
     id: IDFilterInput
     lastName: StringFilterInput
+    leader: BooleanFilterInput
     nickName: StringFilterInput
     not: UsersPermissionsUserFiltersInput
     or: [UsersPermissionsUserFiltersInput]
@@ -1295,6 +1323,7 @@ input UsersPermissionsUserInput {
     email: String
     firstName: String
     lastName: String
+    leader: Boolean
     nickName: String
     password: String
     post_likes: [Id]

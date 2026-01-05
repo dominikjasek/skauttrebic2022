@@ -1,0 +1,22 @@
+query GetLeaderData {
+    leader {
+        data {
+            attributes {
+                title
+                content
+                files {
+                    data {
+                        attributes {
+                            name
+                            previewUrl
+                            url
+                            formats
+                            caption
+                        }
+                        id
+                    }
+                }
+            }
+        }
+    }
+}

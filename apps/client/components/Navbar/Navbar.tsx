@@ -14,7 +14,22 @@ import { useMemo } from 'react'
 import { useUser } from '~/src/api/auth/context/AuthContext'
 import { useCycle } from 'framer-motion'
 
-const ITEMS: MenuItemType[] = [
+const ItemsUnauthenticated: MenuItemType[] = [
+  {
+    label: 'Aktuality',
+    link: Routes.posts
+  },
+  {
+    label: 'Kontakty',
+    link: Routes.contacts
+  },
+  {
+    label: 'Přihlásit se',
+    link: Routes.login
+  }
+]
+
+const ItemsAuthenticated: MenuItemType[] = [
   {
     label: 'Aktuality',
     link: Routes.posts
@@ -23,10 +38,25 @@ const ITEMS: MenuItemType[] = [
     label: 'Fotogalerie',
     link: Routes.photos
   },
-  /*{
-    label: 'Klubovna',
-    link: Routes.clubRoom
-  },*/
+  {
+    label: 'Kontakty',
+    link: Routes.contacts
+  }
+]
+
+const ItemsLeader: MenuItemType[] = [
+  {
+    label: 'Vedoucí',
+    link: Routes.leader
+  },
+  {
+    label: 'Aktuality',
+    link: Routes.posts
+  },
+  {
+    label: 'Fotogalerie',
+    link: Routes.photos
+  },
   {
     label: 'Kontakty',
     link: Routes.contacts
@@ -39,11 +69,9 @@ export const Navbar: React.FC = () => {
   const [isLogoColorful, toggleLogoColorful] = useCycle(false, true)
 
   const menuItems = useMemo(() => {
-    const itemsCpy = [...ITEMS]
-    if (user === null) {
-      itemsCpy.push({ label: 'Přihlásit se', link: Routes.login })
-    }
-    return itemsCpy
+    if (!user) return ItemsUnauthenticated
+    if (user.leader) return ItemsLeader
+    return ItemsAuthenticated
   }, [user])
 
   return (

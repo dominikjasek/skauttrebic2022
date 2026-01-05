@@ -6,6 +6,7 @@ interface IUser {
     id: number
     email: string
     image?: string
+    leader: boolean
 }
 
 export interface IAuth {

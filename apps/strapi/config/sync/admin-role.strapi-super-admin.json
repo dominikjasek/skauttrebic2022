@@ -161,6 +161,48 @@
     },
     {
       "action": "plugin::content-manager.explorer.create",
+      "subject": "api::leader.leader",
+      "properties": {
+        "fields": [
+          "title",
+          "content",
+          "files"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::leader.leader",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::leader.leader",
+      "properties": {
+        "fields": [
+          "title",
+          "content",
+          "files"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::leader.leader",
+      "properties": {
+        "fields": [
+          "title",
+          "content",
+          "files"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
       "subject": "api::post.post",
       "properties": {
         "fields": [
@@ -625,7 +667,8 @@
           "nickName",
           "subscribing_troops",
           "post_likes",
-          "unsubscribeToken"
+          "unsubscribeToken",
+          "leader"
         ]
       },
       "conditions": []
@@ -655,7 +698,8 @@
           "nickName",
           "subscribing_troops",
           "post_likes",
-          "unsubscribeToken"
+          "unsubscribeToken",
+          "leader"
         ]
       },
       "conditions": []
@@ -679,7 +723,8 @@
           "nickName",
           "subscribing_troops",
           "post_likes",
-          "unsubscribeToken"
+          "unsubscribeToken",
+          "leader"
         ]
       },
       "conditions": []

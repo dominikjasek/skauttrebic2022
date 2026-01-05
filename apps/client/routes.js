@@ -10,7 +10,9 @@ const Routes = {
   contacts: '/kontakty',
   profile: '/profil',
   unsubscribe: '/odhlasit-odber',
-  totem: '/trebicskytotem'
+  totem: '/trebicskytotem',
+  leader: '/vedouci',
+  error403: '/403'
 }
 
 const routes = [
@@ -61,6 +63,14 @@ const routes = [
   {
     source: Routes.totem,
     destination: '/totem'
+  },
+  {
+    source: Routes.leader,
+    destination: '/leader'
+  },
+  {
+    source: Routes.error403,
+    destination: '/403'
   }
 ]
 
