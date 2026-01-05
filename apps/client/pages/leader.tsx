@@ -38,8 +38,6 @@ export const Leader = dynamic(() => Promise.resolve(() => {
     return <Loading />
   }
 
-
-
   return (
     <Container>
       <Box pt={4}>
