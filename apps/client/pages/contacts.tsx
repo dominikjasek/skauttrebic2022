@@ -6,6 +6,7 @@ import { Box, Container, Tab, Tabs, Typography } from '@mui/material'
 import { Loading } from '~/components/Loading/Loading'
 import { ContactCardPerson } from '~/components/Contact/ContactCard'
 import { ContactCardsWrapper } from '~/components/Contact/ContactCardsWrapper'
+import { useAuth } from '~/src/api/auth/context/AuthContext'
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -66,16 +67,21 @@ export const Contacts: NextPage = () => {
   const contacts = useMemo(() => contactData?.contact?.data?.attributes?.contactCards, [contactData])
   const troopContacts = useMemo(() => troopContactData?.troopContact?.data?.attributes?.troop, [troopContactData])
 
-  if (isContactsLoading || isTroopContactsLoading) {
+  const authContext = useAuth()
+  const isUserLoading = authContext?.auth?.isLoading
+  const user = authContext?.auth?.user ?? null
+
+  if (isContactsLoading || isTroopContactsLoading || isUserLoading) {
     return <Loading />
   }
 
-  const convertToContacCardsProps = (originalContacts: typeof contacts): ContactCardPerson[] => {
-    return originalContacts?.map(original => ({
+  const convertToContacCardsProps = (originalContacts: typeof contacts, mainContacts: boolean): ContactCardPerson[] => {
+    return originalContacts?.map((original, index) => ({
       ...original,
       photo: {
         url: original?.photo?.data?.attributes?.url ?? null as string | null
-      }
+      },
+      phone: (user || mainContacts || index < 2) ? (original?.phone ?? null as string | null) : (null as string | null)
     } as ContactCardPerson)) ?? []
   }
 
@@ -102,14 +108,14 @@ export const Contacts: NextPage = () => {
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
-          {contacts && <ContactCardsWrapper contactCards={convertToContacCardsProps(contacts)} /> }
+          {contacts && <ContactCardsWrapper contactCards={convertToContacCardsProps(contacts, true)} /> }
         </TabPanel>
         {
           troopContacts && troopContacts.map(troopContact => {
             if (!troopContact) return
             return (
               <TabPanel value={value} index={troopContact.id} key={troopContact.id}>
-                <ContactCardsWrapper contactCards={convertToContacCardsProps(troopContact.contactCards)} />
+                <ContactCardsWrapper contactCards={convertToContacCardsProps(troopContact.contactCards, false)} />
               </TabPanel>
             )
           })
