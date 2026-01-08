@@ -9,7 +9,7 @@ export interface TopBarNotification {
 // Predefined notification baked into the code
 const PREDEFINED_NOTIFICATION: TopBarNotification = {
   id: 'rikitan-announcement',
-  message: 'Od nového roku budeme mít své středisko <strong>RIKITAN</strong>.',
+  message: 'Od nového roku máme nové středisko <strong>RIKITAN</strong>.',
   type: 'error',
 }
 
