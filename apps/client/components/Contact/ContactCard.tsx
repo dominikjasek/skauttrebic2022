@@ -69,18 +69,24 @@ export const ContactCard: React.FC<ContactCardProps> = ({ person }) => {
         </Typography>
         <Stack direction={'row'} justifyContent={'space-between'}>
           <Stack sx={{ mt: 1 }} color="text.secondary">
-            <Stack direction={'row'} gap={2}>
-              <PersonIcon />
-              <Typography>{person.role}</Typography>
-            </Stack>
-            <Stack direction={'row'} gap={2}>
-              <LocalPhoneIcon />
-              <Typography>{person.phone}</Typography>
-            </Stack>
-            <Stack direction={'row'} gap={2}>
-              <EmailIcon />
-              <Typography>{person.email}</Typography>
-            </Stack>
+            { person.role ? (
+              <Stack direction={'row'} gap={2}>
+                <PersonIcon />
+                <Typography>{person.role}</Typography>
+              </Stack>
+            ) : ''}
+            { person.phone ? (
+              <Stack direction={'row'} gap={2}>
+                <LocalPhoneIcon />
+                <Typography>{person.phone}</Typography>
+              </Stack>
+            ) : ''}
+            { person.email ? (
+              <Stack direction={'row'} gap={2}>
+                <EmailIcon />
+                <Typography>{person.email}</Typography>
+              </Stack>
+            ) : ''}
           </Stack>
           {
             person.about &&

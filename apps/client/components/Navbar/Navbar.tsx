@@ -13,6 +13,7 @@ import { navbarHeightPx } from '~/components/Navbar/NavbarHeight'
 import { useMemo } from 'react'
 import { useUser } from '~/src/api/auth/context/AuthContext'
 import { useCycle } from 'framer-motion'
+import { useRouter } from 'next/router'
 
 const ItemsUnauthenticated: MenuItemType[] = [
   {
@@ -22,10 +23,6 @@ const ItemsUnauthenticated: MenuItemType[] = [
   {
     label: 'Kontakty',
     link: Routes.contacts
-  },
-  {
-    label: 'Přihlásit se',
-    link: Routes.login
   }
 ]
 
@@ -64,12 +61,17 @@ const ItemsLeader: MenuItemType[] = [
 ]
 
 export const Navbar: React.FC = () => {
+  const router = useRouter()
   const theme = useTheme()
   const user = useUser()
   const [isLogoColorful, toggleLogoColorful] = useCycle(false, true)
 
   const menuItems = useMemo(() => {
-    if (!user) return ItemsUnauthenticated
+    if (!user) {
+      const itemsCpy = [...ItemsUnauthenticated]
+      itemsCpy.push({ label: 'Přihlásit se', link: Routes.login + (router.asPath.includes('?redirect=') ? '' : `?redirect=${router.asPath}`) })
+      return itemsCpy
+    }
     if (user.leader) return ItemsLeader
     return ItemsAuthenticated
   }, [user])
