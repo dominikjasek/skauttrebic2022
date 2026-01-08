@@ -2,11 +2,14 @@ import React, { PropsWithChildren, useMemo } from 'react'
 import { NextPage } from 'next'
 import { useContactsRepository } from '~/src/api/contacts/ContactsRepository'
 import { dehydrate, QueryClient, useQuery } from 'react-query'
-import { Box, Container, Tab, Tabs, Typography } from '@mui/material'
+import { Box, Container, Divider, Stack, Tab, Tabs, Typography } from '@mui/material'
 import { Loading } from '~/components/Loading/Loading'
 import { ContactCardPerson } from '~/components/Contact/ContactCard'
 import { ContactCardsWrapper } from '~/components/Contact/ContactCardsWrapper'
 import { useAuth } from '~/src/api/auth/context/AuthContext'
+import GroupsIcon from '@mui/icons-material/Groups'
+import LocationOnIcon from '@mui/icons-material/LocationOn'
+import NumbersIcon from '@mui/icons-material/Numbers'
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -108,6 +111,28 @@ export const Contacts: NextPage = () => {
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
+          <Box pt={3} mx="auto" width="fit-content">
+            <Typography variant={'h3'}> Kontaktní údaje</Typography>
+          </Box>
+          <Box pt={2} mx="auto" width="fit-content">
+            <Stack direction={'row'} gap={2}>
+              <GroupsIcon fontSize={'large'} />
+              <Typography variant={'h5'}> Junák - český skaut, středisko Rikitan Třebíč, z. s. </Typography>
+            </Stack>
+          </Box>
+          <Box pt={1} mx="auto" width="fit-content">
+            <Stack direction={'row'} gap={2}>
+              <LocationOnIcon fontSize={'large'} />
+              <Typography variant={'h5'}> Ruská 1373, Třebíč </Typography>
+            </Stack>
+          </Box>
+          <Box pt={1} mx="auto" width="fit-content">
+            <Stack direction={'row'} gap={2}>
+              <NumbersIcon fontSize={'large'} />
+              <Typography variant={'h5'}> IČ: 24098400 </Typography>
+            </Stack>
+          </Box>
+          <Divider style={{ margin: '20px 20px' }} />
           {contacts && <ContactCardsWrapper contactCards={convertToContacCardsProps(contacts, true)} /> }
         </TabPanel>
         {
