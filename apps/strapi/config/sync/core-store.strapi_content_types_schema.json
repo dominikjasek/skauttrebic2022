@@ -1496,10 +1496,6 @@
           "type": "string",
           "required": false
         },
-        "leader": {
-          "type": "boolean",
-          "default": false
-        },
         "createdAt": {
           "type": "datetime"
         },
@@ -1629,10 +1625,6 @@
           "unsubscribeToken": {
             "type": "string",
             "required": false
-          },
-          "leader": {
-            "type": "boolean",
-            "default": false
           }
         },
         "kind": "collectionType"

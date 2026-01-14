@@ -20,7 +20,7 @@ export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
           lastName: response.lastName,
           email: response.email,
           id: response.id,
-          leader: response.leader
+          role: response.role
         },
         jwt
       })

@@ -22,7 +22,7 @@ export interface LoginRequest {
 interface LoginResponse {
   jwt: string
   user: {
-  id: number
+    id: number
     email: string
     provider: string
     confirmed: boolean
@@ -31,7 +31,9 @@ interface LoginResponse {
     updatedAt: string
     firstName: string
     lastName: string
-    leader: boolean
+    role: {
+      type: string
+    }
   }
 }
 
@@ -45,7 +47,9 @@ interface UserInfo {
   lastName: string
   provider: string
   updatedAt: string
-  leader: boolean
+  role: {
+    type: string
+  }
 }
 
 export class AuthRepository {
@@ -67,7 +71,7 @@ export class AuthRepository {
   }
 
   getUserInfo = async (): Promise<UserInfo> => {
-    return (await this.authenticatedFetch('/users/me')).data
+    return (await this.authenticatedFetch('/users/me?populate[role][fields][0]=type')).data
   }
 
   forgotPassword = async (email: string): Promise<{ok: boolean}> => {

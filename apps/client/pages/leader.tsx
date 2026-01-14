@@ -17,7 +17,7 @@ export const Leader = dynamic(() => Promise.resolve(() => {
 
   const leaderRepository = useLeaderRepository()
   const { data, isLoading } = useQuery('leader', leaderRepository.fetchLeaderData, {
-    enabled: user?.leader
+    enabled: (user?.role?.type === 'vedouci')
   })
 
   if (isUserLoading) {
@@ -32,8 +32,8 @@ export const Leader = dynamic(() => Promise.resolve(() => {
     router.replace(Routes.login + `?redirect=${router.asPath}`)
     return <Loading />
   }
-
-  if (!user.leader) {
+  console.log(user)
+  if (user.role?.type !== 'vedouci') {
     router.replace(Routes.error403)
     return <Loading />
   }

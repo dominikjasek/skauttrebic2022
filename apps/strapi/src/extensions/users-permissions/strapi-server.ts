@@ -23,6 +23,25 @@ module.exports = (plugin) => {
     await originalCreate(ctx)
   }
 
+  const originalCallback = plugin.controllers.auth.callback;
+  plugin.controllers.auth.callback = async (ctx) => {
+    // Execute the standard login logic
+    await originalCallback(ctx);
+
+    // If login failed or no user returned, do nothing
+    if (!ctx.body || !ctx.body.user) return;
+
+    // Fetch the user again with the role populated
+    const userWithRole = await strapi.entityService.findOne(
+      'plugin::users-permissions.user',
+      ctx.body.user.id,
+      { populate: { role: { fields: ['type'] } } }
+    );
+
+    // Attach the role to the existing response body
+    ctx.body.user.role = userWithRole.role;
+  };
+
   const originalBootstrap = plugin.bootstrap
   plugin.bootstrap = async ({ strapi }) => {
     strapi.db.lifecycles.subscribe({
