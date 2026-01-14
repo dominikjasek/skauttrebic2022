@@ -42,7 +42,8 @@
     "postinstall-postinstall": "^2.1.0",
     "strapi-plugin-comments": "^2.2.0",
     "strapi-plugin-config-sync": "^1.0.4",
-    "strapi-plugin-email-designer": "^2.1.1"
+    "strapi-plugin-email-designer": "^2.1.1",
+    "strapi-plugin-populate-deep": "^3.0.1"
   },
   "author": {
     "name": "A Strapi developer"

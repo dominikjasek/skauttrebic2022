@@ -6,7 +6,6 @@ import { Box, Container, Divider, Stack, Tab, Tabs, Typography } from '@mui/mate
 import { Loading } from '~/components/Loading/Loading'
 import { ContactCardPerson } from '~/components/Contact/ContactCard'
 import { ContactCardsWrapper } from '~/components/Contact/ContactCardsWrapper'
-import { useAuth } from '~/src/api/auth/context/AuthContext'
 import GroupsIcon from '@mui/icons-material/Groups'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
 import NumbersIcon from '@mui/icons-material/Numbers'
@@ -68,23 +67,18 @@ export const Contacts: NextPage = () => {
   const { data: troopContactData, isLoading: isTroopContactsLoading } = useQuery('troop-contacts', () => contactsRepository.fetchTroopContactCards())
 
   const contacts = useMemo(() => contactData?.contact?.data?.attributes?.contactCards, [contactData])
-  const troopContacts = useMemo(() => troopContactData?.troopContact?.data?.attributes?.troop, [troopContactData])
+  const troopContacts = useMemo(() => troopContactData?.data?.attributes?.troop, [troopContactData])
 
-  const authContext = useAuth()
-  const isUserLoading = authContext?.auth?.isLoading
-  const user = authContext?.auth?.user ?? null
-
-  if (isContactsLoading || isTroopContactsLoading || isUserLoading) {
+  if (isContactsLoading || isTroopContactsLoading) {
     return <Loading />
   }
 
-  const convertToContacCardsProps = (originalContacts: typeof contacts, mainContacts: boolean): ContactCardPerson[] => {
-    return originalContacts?.map((original, index) => ({
+  const convertToContacCardsProps = (originalContacts: typeof contacts): ContactCardPerson[] => {
+    return originalContacts?.map((original) => ({
       ...original,
       photo: {
         url: original?.photo?.data?.attributes?.url ?? null as string | null
-      },
-      phone: (user || mainContacts || index < 2) ? (original?.phone ?? null as string | null) : (null as string | null)
+      }
     } as ContactCardPerson)) ?? []
   }
 
@@ -133,14 +127,14 @@ export const Contacts: NextPage = () => {
             </Stack>
           </Box>
           <Divider style={{ margin: '20px 20px' }} />
-          {contacts && <ContactCardsWrapper contactCards={convertToContacCardsProps(contacts, true)} /> }
+          {contacts && <ContactCardsWrapper contactCards={convertToContacCardsProps(contacts)} /> }
         </TabPanel>
         {
           troopContacts && troopContacts.map(troopContact => {
             if (!troopContact) return
             return (
               <TabPanel value={value} index={troopContact.id} key={troopContact.id}>
-                <ContactCardsWrapper contactCards={convertToContacCardsProps(troopContact.contactCards, false)} />
+                <ContactCardsWrapper contactCards={convertToContacCardsProps(troopContact.contactCards)} />
               </TabPanel>
             )
           })
