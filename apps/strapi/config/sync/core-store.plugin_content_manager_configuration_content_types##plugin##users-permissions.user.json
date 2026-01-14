@@ -135,8 +135,8 @@
       "role": {
         "edit": {
           "label": "Uživatelská role",
-          "description": "",
-          "placeholder": "",
+          "description": "Nepoužívejte roli Veřejný",
+          "placeholder": "Normální uživatel",
           "visible": true,
           "editable": true,
           "mainField": "name"
@@ -233,20 +233,6 @@
           "sortable": true
         }
       },
-      "leader": {
-        "edit": {
-          "label": "Vedoucí",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "leader",
-          "searchable": true,
-          "sortable": true
-        }
-      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -277,6 +263,14 @@
       }
     },
     "layouts": {
+      "list": [
+        "id",
+        "firstName",
+        "lastName",
+        "email",
+        "confirmed",
+        "subscribing_troops"
+      ],
       "edit": [
         [
           {
@@ -302,10 +296,6 @@
           {
             "name": "password",
             "size": 6
-          },
-          {
-            "name": "leader",
-            "size": 6
           }
         ],
         [
@@ -320,15 +310,8 @@
         ]
       ],
       "editRelations": [
-        "subscribing_troops"
-      ],
-      "list": [
-        "id",
-        "firstName",
-        "lastName",
-        "email",
-        "confirmed",
-        "subscribing_troops"
+        "subscribing_troops",
+        "role"
       ]
     }
   },

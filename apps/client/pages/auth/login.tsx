@@ -40,7 +40,7 @@ const login: React.FC = () => {
           lastName: response.user.lastName,
           id: response.user.id,
           email: response.user.email,
-          leader: response.user.leader
+          role: response.user.role
         }
       })
       await router.replace({

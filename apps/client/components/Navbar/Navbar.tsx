@@ -72,7 +72,7 @@ export const Navbar: React.FC = () => {
       itemsCpy.push({ label: 'Přihlásit se', link: Routes.login + (router.asPath.includes('?redirect=') ? '' : `?redirect=${router.asPath}`) })
       return itemsCpy
     }
-    if (user.leader) return ItemsLeader
+    if (user.role?.type === 'vedouci') return ItemsLeader
     return ItemsAuthenticated
   }, [user])
 

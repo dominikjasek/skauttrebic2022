@@ -1,5 +1,5 @@
 {
-  "name": "Přihlášený uživatel",
+  "name": "Normální uživatel",
   "description": "Výchozí role pro přihlášeného uživatele.",
   "type": "authenticated",
   "permissions": [
@@ -11,9 +11,6 @@
     },
     {
       "action": "api::homepage.homepage.find"
-    },
-    {
-      "action": "api::leader.leader.find"
     },
     {
       "action": "api::post.post.find"
@@ -56,6 +53,12 @@
     },
     {
       "action": "plugin::users-permissions.auth.changePassword"
+    },
+    {
+      "action": "plugin::users-permissions.role.find"
+    },
+    {
+      "action": "plugin::users-permissions.role.findOne"
     },
     {
       "action": "plugin::users-permissions.user.me"

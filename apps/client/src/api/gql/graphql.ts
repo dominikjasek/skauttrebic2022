@@ -1827,7 +1827,6 @@ export type UsersPermissionsUser = {
   email: Scalars['String'];
   firstName: Scalars['String'];
   lastName?: Maybe<Scalars['String']>;
-  leader?: Maybe<Scalars['Boolean']>;
   nickName?: Maybe<Scalars['String']>;
   post_likes?: Maybe<PostRelationResponseCollection>;
   provider?: Maybe<Scalars['String']>;
@@ -1879,7 +1878,6 @@ export type UsersPermissionsUserFiltersInput = {
   firstName?: InputMaybe<StringFilterInput>;
   id?: InputMaybe<IdFilterInput>;
   lastName?: InputMaybe<StringFilterInput>;
-  leader?: InputMaybe<BooleanFilterInput>;
   nickName?: InputMaybe<StringFilterInput>;
   not?: InputMaybe<UsersPermissionsUserFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<UsersPermissionsUserFiltersInput>>>;
@@ -1901,7 +1899,6 @@ export type UsersPermissionsUserInput = {
   email?: InputMaybe<Scalars['String']>;
   firstName?: InputMaybe<Scalars['String']>;
   lastName?: InputMaybe<Scalars['String']>;
-  leader?: InputMaybe<Scalars['Boolean']>;
   nickName?: InputMaybe<Scalars['String']>;
   password?: InputMaybe<Scalars['String']>;
   post_likes?: InputMaybe<Array<InputMaybe<Scalars['Id']>>>;
