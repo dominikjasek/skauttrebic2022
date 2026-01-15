@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import Box from '@mui/material/Box'
-import { ArrowCircleRightOutlined } from '@mui/icons-material'
+import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 
 interface DesktopMenuItemProps {
   item: MenuItemType
@@ -57,7 +57,7 @@ export const DesktopMenuItem: React.FC<DesktopMenuItemProps> = ({ item, isSubmen
           }}
         >
           <Typography>{item.label.toUpperCase()}</Typography>
-          {isSubmenu && <ArrowCircleRightOutlined fontSize={'small'} />}
+          {isSubmenu && <ChevronRightIcon fontSize={'small'} />}
         </Box>
         <Menu
           sx={{
