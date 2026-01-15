@@ -41,7 +41,7 @@ export const Leader = dynamic(() => Promise.resolve(() => {
   return (
     <Container>
       <Box pt={4}>
-        <Typography variant={'h2'}> {data?.leader?.data?.attributes?.title} </Typography>
+        <Typography variant={'h3'}> {data?.leader?.data?.attributes?.title} </Typography>
       </Box>
       <Box pt={2}>
         <Html html={data?.leader?.data?.attributes?.content ?? ''} />
@@ -50,8 +50,8 @@ export const Leader = dynamic(() => Promise.resolve(() => {
       {
         data?.leader?.data?.attributes?.files?.data &&
           data?.leader?.data?.attributes?.files?.data.map((file, i) =>
-            <Stack key={i} direction={'row'} sx={{ m: 2 }} alignItems={'center'}>
-              <Typography sx={{ mr: 2 }}>{file.attributes?.caption}</Typography>
+            <Stack key={i} direction={'row'} sx={{ m: 2, maxWidth: '100%' }} alignItems={'center'} flexWrap={'wrap'}>
+              <Typography sx={{ mr: 2, wordBreak: 'break-word' }}>{file.attributes?.caption}</Typography>
               <Link href={file.attributes?.url} target={'_blank'}>
                 <Button variant={'contained'}>
                   Stáhnout

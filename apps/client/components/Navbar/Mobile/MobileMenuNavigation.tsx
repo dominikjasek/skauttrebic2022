@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Box, useTheme } from '@mui/material'
 import { motion, useCycle } from 'framer-motion'
 import { Stack } from '@mui/system'
@@ -44,8 +44,15 @@ export const MobileMenuNavigation: React.FC<MobileMenuModalProps> = (props) => {
 
   const [isOpen, toggleOpen] = useCycle(false, true)
   const containerRef = useRef(null)
+  const [isMenuVisible, setIsMenuVisible] = useState(false)
 
   const toggleModal = () => {
+    if (isOpen) {
+      setTimeout(() => {
+        setIsMenuVisible(false)
+      }, 500)
+    }
+    else setIsMenuVisible(true)
     toggleOpen()
     props.onModalToggle()
   }
@@ -71,7 +78,12 @@ export const MobileMenuNavigation: React.FC<MobileMenuModalProps> = (props) => {
           }}
           variants={sidebar}
         >
-          <MobileNavigationItems onRedirectButtonClick={toggleModal} onLogout={toggleOpen} items={props.items} />
+          <MobileNavigationItems
+            key={isMenuVisible ? 'open' : 'closed'} // Resets stack on close/open
+            onRedirectButtonClick={toggleModal}
+            onLogout={toggleOpen}
+            items={props.items}
+          />
         </Stack>
         <Box pr={1.4}>
           <MenuToggle toggled={isOpen} toggle={toggleModal} />

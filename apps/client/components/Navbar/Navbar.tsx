@@ -44,7 +44,6 @@ const ItemsAuthenticated: MenuItemType[] = [
 const ItemsLeader: MenuItemType[] = [
   {
     label: 'Vedoucí',
-    link: Routes.leader,
     items: [
       {
         label: 'Hlavní',
