@@ -1,4 +1,5 @@
 export interface MenuItem {
-    link: string
     label: string
+    link?: string
+    items?: MenuItem[]
 }

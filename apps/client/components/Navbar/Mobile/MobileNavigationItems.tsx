@@ -83,7 +83,7 @@ export const MobileNavigationItems: React.FC<MobileNavigationItemsProps> = ({ it
       {items.map(item => (
         <div key={item.label} onClick={onRedirectButtonClick}>
           <AnimationUl>
-            <Link href={item.link} key={item.label}>
+            <Link href={item.link ?? ''} key={item.label}>
               <MenuLink>
                 {item.label}
               </MenuLink>

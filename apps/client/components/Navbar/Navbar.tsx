@@ -44,7 +44,51 @@ const ItemsAuthenticated: MenuItemType[] = [
 const ItemsLeader: MenuItemType[] = [
   {
     label: 'Vedoucí',
-    link: Routes.leader
+    link: Routes.leader,
+    items: [
+      {
+        label: 'Hlavní',
+        link: Routes.leader
+      },
+      {
+        label: 'Klubovna',
+        link: Routes.clubRoom
+      },
+      {
+        label: 'Dalsi',
+        items: [
+          {
+            label: 'Hlavní2',
+            link: Routes.leader
+          },
+          {
+            label: 'Klubovna2',
+            link: Routes.clubRoom
+          },
+          {
+            label: 'Dalsi',
+            items: [
+              {
+                label: 'Hlavní3',
+                link: Routes.leader
+              },
+              {
+                label: 'Klubovna3',
+                link: Routes.clubRoom
+              }
+            ]
+          },
+          {
+            label: 'Hlavní',
+            link: Routes.leader
+          },
+          {
+            label: 'Klubovna',
+            link: Routes.clubRoom
+          }
+        ]
+      }
+    ]
   },
   {
     label: 'Aktuality',
