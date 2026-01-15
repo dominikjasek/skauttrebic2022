@@ -106,24 +106,24 @@ export const Contacts: NextPage = () => {
         </Box>
         <TabPanel value={value} index={0}>
           <Box pt={3} mx="auto" width="fit-content">
-            <Typography variant={'h3'}> Kontaktní údaje</Typography>
+            <Typography variant={'h3'} textAlign={'center'}> Kontaktní údaje</Typography>
           </Box>
           <Box pt={2} mx="auto" width="fit-content">
             <Stack direction={'row'} gap={2}>
               <GroupsIcon fontSize={'large'} />
-              <Typography variant={'h5'}> Junák - český skaut, středisko Rikitan Třebíč, z. s. </Typography>
+              <Typography variant={'h5'} textAlign={'center'}> Junák - český skaut, středisko Rikitan Třebíč, z. s. </Typography>
             </Stack>
           </Box>
           <Box pt={1} mx="auto" width="fit-content">
             <Stack direction={'row'} gap={2}>
               <LocationOnIcon fontSize={'large'} />
-              <Typography variant={'h5'}> Ruská 1373, Třebíč </Typography>
+              <Typography variant={'h5'} textAlign={'center'}> Ruská 1373, Třebíč </Typography>
             </Stack>
           </Box>
           <Box pt={1} mx="auto" width="fit-content">
             <Stack direction={'row'} gap={2}>
               <NumbersIcon fontSize={'large'} />
-              <Typography variant={'h5'}> IČ: 24098400 </Typography>
+              <Typography variant={'h5'} textAlign={'center'}> IČ: 24098400 </Typography>
             </Stack>
           </Box>
           <Divider style={{ margin: '20px 20px' }} />

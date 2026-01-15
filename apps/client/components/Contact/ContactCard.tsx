@@ -12,6 +12,7 @@ import LocalPhoneIcon from '@mui/icons-material/LocalPhone'
 import EmailIcon from '@mui/icons-material/Email'
 import PersonIcon from '@mui/icons-material/Person'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import Link from 'next/link'
 
 export interface ContactCardPerson {
     id: string
@@ -54,13 +55,24 @@ export const ContactCard: React.FC<ContactCardProps> = ({ person }) => {
   }
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{
+      width: { xs: '100%', sm: 345 },
+      maxWidth: '100%'
+    }}>
       {
         person.photo.url &&
-          <CardMedia
-            component="img"
-            height="300"
-            image={person.photo.url}
+          <CardMedia component='img' image={person.photo.url} sx={{
+            // Use aspect-ratio and let height be automatic
+            aspectRatio: '1 / 1',
+            width: '100%',
+            objectFit: 'cover', // Ensures image isn't stretched
+
+            // If you absolutely need a minimum size on mobile:
+            minHeight: { xs: '300px', sm: 'auto' },
+
+            // On desktop (sm), if you want to switch back to fixed:
+            height: { sm: '300px' },
+          }}
           />
       }
       <CardContent sx={{ textAlign: 'center' }}>
@@ -76,10 +88,12 @@ export const ContactCard: React.FC<ContactCardProps> = ({ person }) => {
               </Stack>
             ) : ''}
             { person.phone ? (
-              <Stack direction={'row'} gap={2}>
-                <LocalPhoneIcon />
-                <Typography>{person.phone}</Typography>
-              </Stack>
+              <Link href={'tel:' + person.phone.replaceAll(' ', '')}>
+                <Stack direction={'row'} gap={2}>
+                  <LocalPhoneIcon />
+                  <Typography>{person.phone}</Typography>
+                </Stack>
+              </Link>
             ) : ''}
             { person.email ? (
               <Stack direction={'row'} gap={2}>
