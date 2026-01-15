@@ -32,7 +32,7 @@ export const Leader = dynamic(() => Promise.resolve(() => {
     router.replace(Routes.login + `?redirect=${router.asPath}`)
     return <Loading />
   }
-  console.log(user)
+
   if (user.role?.type !== 'vedouci') {
     router.replace(Routes.error403)
     return <Loading />

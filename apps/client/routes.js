@@ -5,7 +5,7 @@ const Routes = {
   login: '/prihlasit-se',
   posts: '/aktuality',
   post: '/aktuality/:postId*',
-  //clubRoom: '/klubovna',
+  clubRoom: '/klubovna',
   photos: '/fotografie',
   contacts: '/kontakty',
   profile: '/profil',
@@ -40,10 +40,10 @@ const routes = [
     source: Routes.post,
     destination: '/posts/:postId*'
   },
-  /*{
+  {
     source: Routes.clubRoom,
     destination: '/clubroom'
-  },*/
+  },
   {
     source: Routes.photos,
     destination: '/photos',
