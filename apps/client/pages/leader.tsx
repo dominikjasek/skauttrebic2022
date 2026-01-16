@@ -65,19 +65,5 @@ export const Leader = dynamic(() => Promise.resolve(() => {
   ssr: false
 })
 
-export const getStaticProps = async () => {
-  const leaderRepository = useLeaderRepository()
-  const queryClient = new QueryClient()
-  await queryClient.prefetchQuery('leader', leaderRepository.fetchLeaderData)
-
-  return {
-
-    props: {
-      dehydratedState: dehydrate(queryClient),
-    },
-    revalidate: 120, // In seconds
-  }
-}
-
 export default Leader
 
