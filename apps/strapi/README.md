@@ -33,6 +33,3 @@ To temporarilly enable creating Super Admin user, set `ALLOW_CREATE_SUPER_ADMIN_
 ## Deployment
 
 Po pushi nového commitu (nebo merge PR) se aplikace automaticky deployne na [Coolify](https://coolify.dominikjasek.cz/project/yg88gog0ogk00gs0cswkws00). Přístup má pouze Dominik.
-
-## Migrace na postgres
-export sqlute: ``
