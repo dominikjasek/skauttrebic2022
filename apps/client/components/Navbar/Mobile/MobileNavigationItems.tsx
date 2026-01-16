@@ -97,8 +97,8 @@ export const MobileNavigationItems: React.FC<MobileNavigationItemsProps> = ({ it
                   />                </MenuLink>
               ) : (
                 // If it's a leaf node, it's a link
-                <Link href={item.link ?? ''} onClick={onRedirectButtonClick}>
-                  <MenuLink>{item.label}</MenuLink>
+                <Link href={item.link ?? ''}>
+                  <MenuLink onClick={onRedirectButtonClick}>{item.label}</MenuLink>
                 </Link>
               )}
             </div>
