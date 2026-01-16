@@ -97,8 +97,18 @@ export const MobileNavigationItems: React.FC<MobileNavigationItemsProps> = ({ it
                   />                </MenuLink>
               ) : (
                 // If it's a leaf node, it's a link
-                <Link href={item.link ?? ''}>
-                  <MenuLink onClick={onRedirectButtonClick}>{item.label}</MenuLink>
+                <Link
+                  href={item.link ?? ''}
+                  passHref // Required to pass the href to the child
+                >
+                  <a
+                    target={item.newTab ? '_blank' : undefined}
+                    rel={item.newTab ? 'noopener noreferrer' : undefined}
+                    style={{ textDecoration: 'none' }} // Remove default underline
+                    onClick={onRedirectButtonClick}
+                  >
+                    <MenuLink>{item.label}</MenuLink>
+                  </a>
                 </Link>
               )}
             </div>

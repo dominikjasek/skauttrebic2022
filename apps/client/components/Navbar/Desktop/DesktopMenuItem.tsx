@@ -102,21 +102,28 @@ export const DesktopMenuItem: React.FC<DesktopMenuItemProps> = ({ item, isSubmen
     <Link
       href={item.link ?? ''}
       key={item.label}
+      passHref // Required to pass the href to the child
     >
-      <Box>
-        <Typography
-          sx={{
-            my: 2,
-            px: theme.spacing(1.5),
-            color: theme.palette.grey['900'],
-            display: 'block',
-            minWidth: isSubmenu ? '160px' : 'auto',
-            cursor: 'pointer'
-          }}
-        >
-          {item.label.toUpperCase()}
-        </Typography>
-      </Box>
+      <a
+        target={item.newTab ? '_blank' : undefined}
+        rel={item.newTab ? 'noopener noreferrer' : undefined}
+        style={{ textDecoration: 'none' }} // Remove default underline
+      >
+        <Box>
+          <Typography
+            sx={{
+              my: 2,
+              px: theme.spacing(1.5),
+              color: theme.palette.grey['900'],
+              display: 'block',
+              minWidth: isSubmenu ? '160px' : 'auto',
+              cursor: 'pointer'
+            }}
+          >
+            {item.label.toUpperCase()}
+          </Typography>
+        </Box>
+      </a>
     </Link>
   )
 }
