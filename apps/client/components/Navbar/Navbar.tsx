@@ -33,7 +33,39 @@ const ItemsAuthenticated: MenuItemType[] = [
   },
   {
     label: 'Fotogalerie',
-    link: Routes.photos
+    link: Routes.photos,
+    items: [
+      {
+        link: 'https://eu.zonerama.com/2oddilskautu/743177?secret=KFO29DoVp6DryMYNWwnk6VNe3',
+        label: 'Skauti',
+        newTab: true
+      },
+      {
+        link: 'https://eu.zonerama.com/2oddilskautekTrebic/989542',
+        label: 'Skautky',
+        newTab: true
+      },
+      {
+        link: 'https://eu.zonerama.com/KarelJanicek/795748',
+        label: 'Vlčata',
+        newTab: true
+      },
+      {
+        link: 'https://eu.zonerama.com/svetluskyvedouci',
+        label: 'Světlušky',
+        newTab: true
+      },
+      {
+        link: 'https://eu.zonerama.com/Link/Open/64ef8e6eaa781646a0a4323f',
+        label: 'Roveři',
+        newTab: true
+      },
+      {
+        link: 'https://eu.zonerama.com/2oddilbenjaminku/1078727',
+        label: 'Benjamínci',
+        newTab: true
+      }
+    ]
   },
   {
     label: 'Kontakty',
@@ -46,61 +78,12 @@ const ItemsLeader: MenuItemType[] = [
     label: 'Vedoucí',
     items: [
       {
-        label: 'Hlavní',
+        label: 'Pro vedoucí',
         link: Routes.leader
-      },
-      {
-        label: 'Klubovna',
-        link: Routes.clubRoom
-      },
-      {
-        label: 'Dalsi',
-        items: [
-          {
-            label: 'Hlavní2',
-            link: Routes.leader
-          },
-          {
-            label: 'Klubovna2',
-            link: Routes.clubRoom
-          },
-          {
-            label: 'Dalsi',
-            items: [
-              {
-                label: 'Hlavní3',
-                link: Routes.leader
-              },
-              {
-                label: 'Klubovna3',
-                link: Routes.clubRoom
-              }
-            ]
-          },
-          {
-            label: 'Hlavní',
-            link: Routes.leader
-          },
-          {
-            label: 'Klubovna',
-            link: Routes.clubRoom
-          }
-        ]
       }
     ]
   },
-  {
-    label: 'Aktuality',
-    link: Routes.posts
-  },
-  {
-    label: 'Fotogalerie',
-    link: Routes.photos
-  },
-  {
-    label: 'Kontakty',
-    link: Routes.contacts
-  }
+  ...ItemsAuthenticated
 ]
 
 export const Navbar: React.FC = () => {
@@ -112,7 +95,11 @@ export const Navbar: React.FC = () => {
   const menuItems = useMemo(() => {
     if (!user) {
       const itemsCpy = [...ItemsUnauthenticated]
-      itemsCpy.push({ label: 'Přihlásit se', link: Routes.login + (router.asPath.includes('?redirect=') ? '' : `?redirect=${router.asPath}`) })
+      // router.isReady is true on client but not on server => mismatch of first render doesn't happen
+      const redirect = router.isReady && !router.asPath.includes('?redirect=')
+        ? `?redirect=${router.asPath}`
+        : ''
+      itemsCpy.push({ label: 'Přihlásit se', link: Routes.login + redirect })
       return itemsCpy
     }
     if (user.role?.type === 'vedouci') return ItemsLeader
