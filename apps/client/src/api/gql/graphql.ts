@@ -283,24 +283,24 @@ export type ComponentHomepageTroopInput = {
   title?: InputMaybe<Scalars['String']>;
 };
 
-export type ComponentMenuTroop = {
-  __typename?: 'ComponentMenuTroop';
+export type ComponentMenuItem = {
+  __typename?: 'ComponentMenuItem';
   id: Scalars['Id'];
   label: Scalars['String'];
   link?: Maybe<Scalars['String']>;
   newTab?: Maybe<Scalars['Boolean']>;
 };
 
-export type ComponentMenuTroopFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<ComponentMenuTroopFiltersInput>>>;
+export type ComponentMenuItemFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentMenuItemFiltersInput>>>;
   label?: InputMaybe<StringFilterInput>;
   link?: InputMaybe<StringFilterInput>;
   newTab?: InputMaybe<BooleanFilterInput>;
-  not?: InputMaybe<ComponentMenuTroopFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<ComponentMenuTroopFiltersInput>>>;
+  not?: InputMaybe<ComponentMenuItemFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentMenuItemFiltersInput>>>;
 };
 
-export type ComponentMenuTroopInput = {
+export type ComponentMenuItemInput = {
   id?: InputMaybe<Scalars['Id']>;
   label?: InputMaybe<Scalars['String']>;
   link?: InputMaybe<Scalars['String']>;
@@ -573,7 +573,7 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']>;
 };
 
-export type GenericMorph = Clubroom | CommentsComment | CommentsCommentReport | ComponentHomepageHomeImage | ComponentHomepageTroop | ComponentMenuTroop | ComponentPersonCardKontakt | ComponentPersonCardTroop | ComponentTotemLegend | ComponentTotemTotemComment | Contact | EmailDesignerEmailTemplate | Homepage | I18NLocale | Leader | PhotoGallery | Post | TopBar | Totem | Troop | TroopContact | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = Clubroom | CommentsComment | CommentsCommentReport | ComponentHomepageHomeImage | ComponentHomepageTroop | ComponentMenuItem | ComponentPersonCardKontakt | ComponentPersonCardTroop | ComponentTotemLegend | ComponentTotemTotemComment | Contact | EmailDesignerEmailTemplate | Homepage | I18NLocale | Leader | PhotoGallery | Post | TopBar | Totem | Troop | TroopContact | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type Homepage = {
   __typename?: 'Homepage';
@@ -1078,13 +1078,13 @@ export type PaginationArg = {
 export type PhotoGallery = {
   __typename?: 'PhotoGallery';
   createdAt?: Maybe<Scalars['DateTime']>;
-  troop?: Maybe<Array<Maybe<ComponentMenuTroop>>>;
+  troops?: Maybe<Array<Maybe<ComponentMenuItem>>>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
 
-export type PhotoGalleryTroopArgs = {
-  filters?: InputMaybe<ComponentMenuTroopFiltersInput>;
+export type PhotoGalleryTroopsArgs = {
+  filters?: InputMaybe<ComponentMenuItemFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
@@ -1101,7 +1101,7 @@ export type PhotoGalleryEntityResponse = {
 };
 
 export type PhotoGalleryInput = {
-  troop?: InputMaybe<Array<InputMaybe<ComponentMenuTroopInput>>>;
+  troops?: InputMaybe<Array<InputMaybe<ComponentMenuItemInput>>>;
 };
 
 export type Post = {

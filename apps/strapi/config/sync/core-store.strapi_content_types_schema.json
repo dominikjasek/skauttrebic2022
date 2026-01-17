@@ -2603,10 +2603,11 @@
       },
       "pluginOptions": {},
       "attributes": {
-        "troop": {
+        "troops": {
+          "displayName": "item",
           "type": "component",
           "repeatable": true,
-          "component": "menu.troop"
+          "component": "menu.item"
         },
         "createdAt": {
           "type": "datetime"
@@ -2648,10 +2649,11 @@
         },
         "pluginOptions": {},
         "attributes": {
-          "troop": {
+          "troops": {
+            "displayName": "item",
             "type": "component",
             "repeatable": true,
-            "component": "menu.troop"
+            "component": "menu.item"
           }
         },
         "kind": "singleType"

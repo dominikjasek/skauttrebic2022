@@ -74,5 +74,5 @@ export default factories.createCoreController('api::post.post', ({ strapi }) => 
 
     const hasAccess = isAuthorized(user_troops, data.attributes.troops.data)
     return { data: hasAccess ? data : anonymizePost(data), meta }
-  },
+  }
 }));

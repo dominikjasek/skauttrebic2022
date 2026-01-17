@@ -14,7 +14,7 @@ import { useMemo } from 'react'
 import { useUser } from '~/src/api/auth/context/AuthContext'
 import { useCycle } from 'framer-motion'
 import { useRouter } from 'next/router'
-import { usePhotoGalleryRepository } from '~/src/api/photoGallery/PhotoGalleryRepository'
+import { usePhotoGalleryRepository } from '~/src/api/navbar/photoGallery/PhotoGalleryRepository'
 import { useQuery } from 'react-query'
 import { Loading } from '~/components/Loading/Loading'
 
@@ -66,7 +66,7 @@ export const Navbar: React.FC = () => {
   const { data: photoGalleryData, isLoading: isPhotoGalleryLoading } = useQuery('photo-gallery', photoGalleryRepository.fetchPhotoGallery, {
     enabled: !!user
   })
-  const photoGallery = useMemo(() => photoGalleryData?.data?.attributes?.troop, [photoGalleryData])
+  const photoGallery = useMemo(() => photoGalleryData?.data?.attributes?.troops, [photoGalleryData])
 
   const menuItems = useMemo(() => {
     if (!user) {

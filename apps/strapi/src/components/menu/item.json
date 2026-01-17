@@ -1,8 +1,7 @@
 {
-  "collectionName": "components_menu_troops",
+  "collectionName": "components_menu_items",
   "info": {
-    "displayName": "troop",
-    "description": ""
+    "displayName": "item"
   },
   "options": {},
   "attributes": {

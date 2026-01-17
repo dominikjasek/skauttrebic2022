@@ -4,7 +4,7 @@ import { MenuItem } from '~/components/Navbar/Navbar.interface'
 export interface PhotoGalleryType {
   data: {
     attributes: {
-      troop: MenuItem[]
+      troops: MenuItem[]
     }
   }
 }

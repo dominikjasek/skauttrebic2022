@@ -206,9 +206,9 @@
       "subject": "api::photo-gallery.photo-gallery",
       "properties": {
         "fields": [
-          "troop.label",
-          "troop.link",
-          "troop.newTab"
+          "troops.label",
+          "troops.link",
+          "troops.newTab"
         ]
       },
       "conditions": []
@@ -224,9 +224,9 @@
       "subject": "api::photo-gallery.photo-gallery",
       "properties": {
         "fields": [
-          "troop.label",
-          "troop.link",
-          "troop.newTab"
+          "troops.label",
+          "troops.link",
+          "troops.newTab"
         ]
       },
       "conditions": []
@@ -236,9 +236,9 @@
       "subject": "api::photo-gallery.photo-gallery",
       "properties": {
         "fields": [
-          "troop.label",
-          "troop.link",
-          "troop.newTab"
+          "troops.label",
+          "troops.link",
+          "troops.newTab"
         ]
       },
       "conditions": []

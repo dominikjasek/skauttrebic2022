@@ -2451,7 +2451,7 @@
       },
       {
         "kind": "OBJECT",
-        "name": "ComponentMenuTroop",
+        "name": "ComponentMenuItem",
         "description": null,
         "fields": [
           {
@@ -2518,7 +2518,7 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "ComponentMenuTroopFiltersInput",
+        "name": "ComponentMenuItemFiltersInput",
         "description": null,
         "fields": null,
         "inputFields": [
@@ -2530,7 +2530,7 @@
               "name": null,
               "ofType": {
                 "kind": "INPUT_OBJECT",
-                "name": "ComponentMenuTroopFiltersInput",
+                "name": "ComponentMenuItemFiltersInput",
                 "ofType": null
               }
             },
@@ -2579,7 +2579,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "ComponentMenuTroopFiltersInput",
+              "name": "ComponentMenuItemFiltersInput",
               "ofType": null
             },
             "defaultValue": null,
@@ -2594,7 +2594,7 @@
               "name": null,
               "ofType": {
                 "kind": "INPUT_OBJECT",
-                "name": "ComponentMenuTroopFiltersInput",
+                "name": "ComponentMenuItemFiltersInput",
                 "ofType": null
               }
             },
@@ -2609,7 +2609,7 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "ComponentMenuTroopInput",
+        "name": "ComponentMenuItemInput",
         "description": null,
         "fields": null,
         "inputFields": [
@@ -5138,7 +5138,7 @@
           },
           {
             "kind": "OBJECT",
-            "name": "ComponentMenuTroop",
+            "name": "ComponentMenuItem",
             "ofType": null
           },
           {
@@ -8775,7 +8775,7 @@
             "deprecationReason": null
           },
           {
-            "name": "troop",
+            "name": "troops",
             "description": null,
             "args": [
               {
@@ -8783,7 +8783,7 @@
                 "description": null,
                 "type": {
                   "kind": "INPUT_OBJECT",
-                  "name": "ComponentMenuTroopFiltersInput",
+                  "name": "ComponentMenuItemFiltersInput",
                   "ofType": null
                 },
                 "defaultValue": null,
@@ -8824,7 +8824,7 @@
               "name": null,
               "ofType": {
                 "kind": "OBJECT",
-                "name": "ComponentMenuTroop",
+                "name": "ComponentMenuItem",
                 "ofType": null
               }
             },
@@ -8914,14 +8914,14 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "troop",
+            "name": "troops",
             "description": null,
             "type": {
               "kind": "LIST",
               "name": null,
               "ofType": {
                 "kind": "INPUT_OBJECT",
-                "name": "ComponentMenuTroopInput",
+                "name": "ComponentMenuItemInput",
                 "ofType": null
               }
             },
