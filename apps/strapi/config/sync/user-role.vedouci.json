@@ -16,6 +16,9 @@
       "action": "api::leader.leader.find"
     },
     {
+      "action": "api::photo-gallery.photo-gallery.find"
+    },
+    {
       "action": "api::post.post.find"
     },
     {

@@ -1,0 +1,46 @@
+{
+  "name": "Editor fotogalerie",
+  "code": "strapi-photo-gallery-editor",
+  "description": "Může editovat karty kontaktů.",
+  "permissions": [
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::photo-gallery.photo-gallery",
+      "properties": {
+        "fields": [
+          "troop.label",
+          "troop.link"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::photo-gallery.photo-gallery",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::photo-gallery.photo-gallery",
+      "properties": {
+        "fields": [
+          "troop.label",
+          "troop.link"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::photo-gallery.photo-gallery",
+      "properties": {
+        "fields": [
+          "troop.label",
+          "troop.link"
+        ]
+      },
+      "conditions": []
+    }
+  ]
+}
