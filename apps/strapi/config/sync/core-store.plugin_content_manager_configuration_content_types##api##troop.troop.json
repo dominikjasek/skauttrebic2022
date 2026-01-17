@@ -78,6 +78,20 @@
           "sortable": true
         }
       },
+      "confidential": {
+        "edit": {
+          "label": "Tajný",
+          "description": "K postům a fotkám oddílu mají přístup pouze určení uživatelé",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "confidential",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -116,6 +130,12 @@
           },
           {
             "name": "color",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "confidential",
             "size": 6
           }
         ]

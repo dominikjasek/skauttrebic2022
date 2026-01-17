@@ -31,6 +31,10 @@
     "color": {
       "type": "customField",
       "customField": "plugin::color-picker.color"
+    },
+    "confidential": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

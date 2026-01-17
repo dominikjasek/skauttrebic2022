@@ -9,7 +9,7 @@ export const ErrorPage: NextPage = () => {
         <Typography variant={'h1'}>Error 403</Typography>
       </Box>
       <Box pt={4} mx="auto" width="fit-content">
-        <Typography variant={'h4'}>Na tuto stránku mají přístup pouze vedoucí</Typography>
+        <Typography variant={'h4'}>K této stránce nemáš přístup</Typography>
       </Box>
       <Box pt={1} mx="auto" width="fit-content">
         <Typography variant={'h6'}>Pokud jsi vedoucí, uprav si svůj účet v nastavení</Typography>

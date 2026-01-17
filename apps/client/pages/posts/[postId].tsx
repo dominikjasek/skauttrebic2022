@@ -34,8 +34,9 @@ export const PostIdPage: NextPage = () => {
   const { data: post, isLoading, isFetched } = useQuery(['post', postId], async () => {
     const postData = await getPost(Number(postId))
     const isPostPrivate = postData.data.attributes.title === null
-    if (isPostPrivate && user === null){
-      await router.replace(Routes.login + `?redirect=${router.asPath}`)
+    if (isPostPrivate){
+      if (user === null) await router.replace(Routes.login + `?redirect=${router.asPath}`)
+      else await router.replace(Routes.error403)
     }
 
     return postData
