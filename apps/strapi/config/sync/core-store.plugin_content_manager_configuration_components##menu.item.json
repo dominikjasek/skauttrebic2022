@@ -1,7 +1,7 @@
 {
-  "key": "plugin_content_manager_configuration_components::menu.troop",
+  "key": "plugin_content_manager_configuration_components::menu.item",
   "value": {
-    "uid": "menu.troop",
+    "uid": "menu.item",
     "settings": {
       "bulkable": true,
       "filterable": true,
@@ -84,7 +84,7 @@
         [
           {
             "name": "newTab",
-            "size": 4
+            "size": 6
           }
         ]
       ],

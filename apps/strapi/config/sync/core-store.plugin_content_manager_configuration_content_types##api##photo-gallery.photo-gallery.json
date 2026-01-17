@@ -20,16 +20,16 @@
           "sortable": true
         }
       },
-      "troop": {
+      "troops": {
         "edit": {
-          "label": "troop",
+          "label": "troops",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "troop",
+          "label": "troops",
           "searchable": false,
           "sortable": false
         }
@@ -66,19 +66,19 @@
     "layouts": {
       "list": [
         "id",
-        "troop",
         "createdAt",
-        "updatedAt"
+        "updatedAt",
+        "troops"
       ],
-      "editRelations": [],
       "edit": [
         [
           {
-            "name": "troop",
+            "name": "troops",
             "size": 12
           }
         ]
-      ]
+      ],
+      "editRelations": []
     }
   },
   "type": "object",
