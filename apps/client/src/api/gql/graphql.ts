@@ -283,6 +283,30 @@ export type ComponentHomepageTroopInput = {
   title?: InputMaybe<Scalars['String']>;
 };
 
+export type ComponentMenuTroop = {
+  __typename?: 'ComponentMenuTroop';
+  id: Scalars['Id'];
+  label: Scalars['String'];
+  link?: Maybe<Scalars['String']>;
+  newTab?: Maybe<Scalars['Boolean']>;
+};
+
+export type ComponentMenuTroopFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentMenuTroopFiltersInput>>>;
+  label?: InputMaybe<StringFilterInput>;
+  link?: InputMaybe<StringFilterInput>;
+  newTab?: InputMaybe<BooleanFilterInput>;
+  not?: InputMaybe<ComponentMenuTroopFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentMenuTroopFiltersInput>>>;
+};
+
+export type ComponentMenuTroopInput = {
+  id?: InputMaybe<Scalars['Id']>;
+  label?: InputMaybe<Scalars['String']>;
+  link?: InputMaybe<Scalars['String']>;
+  newTab?: InputMaybe<Scalars['Boolean']>;
+};
+
 export type ComponentPersonCardKontakt = {
   __typename?: 'ComponentPersonCardKontakt';
   about?: Maybe<Scalars['String']>;
@@ -549,7 +573,7 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']>;
 };
 
-export type GenericMorph = Clubroom | CommentsComment | CommentsCommentReport | ComponentHomepageHomeImage | ComponentHomepageTroop | ComponentPersonCardKontakt | ComponentPersonCardTroop | ComponentTotemLegend | ComponentTotemTotemComment | Contact | EmailDesignerEmailTemplate | Homepage | I18NLocale | Leader | Post | TopBar | Totem | Troop | TroopContact | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = Clubroom | CommentsComment | CommentsCommentReport | ComponentHomepageHomeImage | ComponentHomepageTroop | ComponentMenuTroop | ComponentPersonCardKontakt | ComponentPersonCardTroop | ComponentTotemLegend | ComponentTotemTotemComment | Contact | EmailDesignerEmailTemplate | Homepage | I18NLocale | Leader | PhotoGallery | Post | TopBar | Totem | Troop | TroopContact | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type Homepage = {
   __typename?: 'Homepage';
@@ -756,6 +780,7 @@ export type Mutation = {
   deleteEmailDesignerEmailTemplate?: Maybe<EmailDesignerEmailTemplateEntityResponse>;
   deleteHomepage?: Maybe<HomepageEntityResponse>;
   deleteLeader?: Maybe<LeaderEntityResponse>;
+  deletePhotoGallery?: Maybe<PhotoGalleryEntityResponse>;
   deletePost?: Maybe<PostEntityResponse>;
   deleteTopBar?: Maybe<TopBarEntityResponse>;
   deleteTotem?: Maybe<TotemEntityResponse>;
@@ -786,6 +811,7 @@ export type Mutation = {
   updateFileInfo: UploadFileEntityResponse;
   updateHomepage?: Maybe<HomepageEntityResponse>;
   updateLeader?: Maybe<LeaderEntityResponse>;
+  updatePhotoGallery?: Maybe<PhotoGalleryEntityResponse>;
   updatePost?: Maybe<PostEntityResponse>;
   updateTopBar?: Maybe<TopBarEntityResponse>;
   updateTotem?: Maybe<TotemEntityResponse>;
@@ -970,6 +996,11 @@ export type MutationUpdateLeaderArgs = {
 };
 
 
+export type MutationUpdatePhotoGalleryArgs = {
+  data: PhotoGalleryInput;
+};
+
+
 export type MutationUpdatePostArgs = {
   data: PostInput;
   id: Scalars['ID'];
@@ -1042,6 +1073,35 @@ export type PaginationArg = {
   page?: InputMaybe<Scalars['Int']>;
   pageSize?: InputMaybe<Scalars['Int']>;
   start?: InputMaybe<Scalars['Int']>;
+};
+
+export type PhotoGallery = {
+  __typename?: 'PhotoGallery';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  troop?: Maybe<Array<Maybe<ComponentMenuTroop>>>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+
+export type PhotoGalleryTroopArgs = {
+  filters?: InputMaybe<ComponentMenuTroopFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type PhotoGalleryEntity = {
+  __typename?: 'PhotoGalleryEntity';
+  attributes?: Maybe<PhotoGallery>;
+  id?: Maybe<Scalars['Id']>;
+};
+
+export type PhotoGalleryEntityResponse = {
+  __typename?: 'PhotoGalleryEntityResponse';
+  data?: Maybe<PhotoGalleryEntity>;
+};
+
+export type PhotoGalleryInput = {
+  troop?: InputMaybe<Array<InputMaybe<ComponentMenuTroopInput>>>;
 };
 
 export type Post = {
@@ -1146,6 +1206,7 @@ export type Query = {
   i18NLocales?: Maybe<I18NLocaleEntityResponseCollection>;
   leader?: Maybe<LeaderEntityResponse>;
   me?: Maybe<UsersPermissionsMe>;
+  photoGallery?: Maybe<PhotoGalleryEntityResponse>;
   post?: Maybe<PostEntityResponse>;
   posts?: Maybe<PostEntityResponseCollection>;
   topBar?: Maybe<TopBarEntityResponse>;

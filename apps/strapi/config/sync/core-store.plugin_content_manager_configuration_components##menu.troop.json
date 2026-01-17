@@ -47,13 +47,28 @@
           "searchable": true,
           "sortable": true
         }
+      },
+      "newTab": {
+        "edit": {
+          "label": "Odkaz se otevře v novém okně",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "newTab",
+          "searchable": true,
+          "sortable": true
+        }
       }
     },
     "layouts": {
       "list": [
         "id",
         "label",
-        "link"
+        "link",
+        "newTab"
       ],
       "edit": [
         [
@@ -64,6 +79,12 @@
           {
             "name": "link",
             "size": 8
+          }
+        ],
+        [
+          {
+            "name": "newTab",
+            "size": 4
           }
         ]
       ],

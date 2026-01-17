@@ -13,27 +13,27 @@ interface PhotoLink {
 
 const photoLinks: PhotoLink[] = [
   {
-    url: 'https://eu.zonerama.com/2oddilskautu/743177?secret=KFO29DoVp6DryMYNWwnk6VNe3',
+    url: '',
     name: 'Skauti'
   },
   {
-    url: 'https://eu.zonerama.com/2oddilskautekTrebic/989542',
+    url: '',
     name: 'Skautky'
   },
   {
-    url: 'https://eu.zonerama.com/KarelJanicek/795748',
+    url: '',
     name: 'Vlčata'
   },
   {
-    url: 'https://eu.zonerama.com/svetluskyvedouci',
+    url: '',
     name: 'Světlušky'
   },
   {
-    url: 'https://eu.zonerama.com/Link/Open/64ef8e6eaa781646a0a4323f',
+    url: '',
     name: 'Roveři',
   },
   {
-    url: 'https://eu.zonerama.com/2oddilbenjaminku/1078727',
+    url: '',
     name: 'Benjamínci'
   }
 ]

@@ -1,7 +1,8 @@
 {
   "collectionName": "components_menu_troops",
   "info": {
-    "displayName": "troop"
+    "displayName": "troop",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -11,6 +12,10 @@
     },
     "link": {
       "type": "string"
+    },
+    "newTab": {
+      "type": "boolean",
+      "default": true
     }
   }
 }
