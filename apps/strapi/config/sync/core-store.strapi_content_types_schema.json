@@ -2589,6 +2589,82 @@
       "actions": {},
       "lifecycles": {}
     },
+    "api::photo-gallery.photo-gallery": {
+      "kind": "singleType",
+      "collectionName": "photo_galleries",
+      "info": {
+        "singularName": "photo-gallery",
+        "pluralName": "photo-galleries",
+        "displayName": "Fotogalerie",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": false
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "troop": {
+          "type": "component",
+          "repeatable": true,
+          "component": "menu.troop"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "photo_galleries",
+        "info": {
+          "singularName": "photo-gallery",
+          "pluralName": "photo-galleries",
+          "displayName": "Fotogalerie",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": false
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "troop": {
+            "type": "component",
+            "repeatable": true,
+            "component": "menu.troop"
+          }
+        },
+        "kind": "singleType"
+      },
+      "modelType": "contentType",
+      "modelName": "photo-gallery",
+      "connection": "default",
+      "uid": "api::photo-gallery.photo-gallery",
+      "apiName": "photo-gallery",
+      "globalId": "PhotoGallery",
+      "actions": {},
+      "lifecycles": {}
+    },
     "api::post.post": {
       "kind": "collectionType",
       "collectionName": "posts",

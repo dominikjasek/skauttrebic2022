@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_menu_troops",
+  "info": {
+    "displayName": "troop"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}

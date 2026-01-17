@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "photo_galleries",
+  "info": {
+    "singularName": "photo-gallery",
+    "pluralName": "photo-galleries",
+    "displayName": "Fotogalerie",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "troop": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.troop"
+    }
+  }
+}
