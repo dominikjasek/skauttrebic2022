@@ -3,13 +3,20 @@
  */
 
 import { factories } from '@strapi/strapi'
-import { Context } from 'koa';
 
-const isAuthorized = async (ctx: Context, strapi: any): Promise<boolean> => {
-  const jwt = ctx.request.header.authorization?.split(' ')[1]
-  const verify = strapi.service('plugin::users-permissions.jwt').verify
-  const isAuthorized = jwt ? await verify(jwt) : false
-  return isAuthorized
+const isAuthorized = (user_troops: any, post_troops: any): boolean => {
+  // On of the post_troops must not be confidential of must be in user_troops
+  for (const post_troop of post_troops) {
+    if (!post_troop.attributes.confidential) {
+      return true
+    }
+    for (const user_troop of user_troops) {
+      if (post_troop.id === user_troop.id) {
+        return true
+      }
+    }
+  }
+  return false
 }
 
 const anonymizePost = (post: any) => {
@@ -28,30 +35,44 @@ const anonymizePost = (post: any) => {
 
 export default factories.createCoreController('api::post.post', ({ strapi }) => ({
   async find(ctx) {
-    const isUserAuthorized = await isAuthorized(ctx, strapi)
-
     // Calling the default core action
     // eslint-disable-next-line prefer-const
-    let { data, meta } = await super.find(ctx);
+    let { data, meta } = await super.find(ctx)
 
-    if (!isUserAuthorized) {
+    const user = ctx.state.user
+    if (!user) {
       data = data.map(anonymizePost)
+      return { data, meta }
     }
 
-    return { data, meta };
+    const user_troops = (await strapi.entityService.findOne('plugin::users-permissions.user', user.id, {
+      populate: ['subscribing_troops'],
+    })).subscribing_troops
+
+    data = data.map((post: any) => {
+      const hasAccess = isAuthorized(user_troops, post.attributes.troops.data)
+      return hasAccess ? post : anonymizePost(post)
+    })
+
+    return { data, meta }
   },
 
   async findOne(ctx) {
-    const isUserAuthorized = await isAuthorized(ctx, strapi)
-
     // Calling the default core action
     // eslint-disable-next-line prefer-const
     let { data, meta } = await super.findOne(ctx);
 
-    if (!isUserAuthorized) {
+    const user = ctx.state.user
+    if (!user) {
       data = anonymizePost(data)
+      return { data, meta }
     }
 
-    return { data, meta };
+    const user_troops = (await strapi.entityService.findOne('plugin::users-permissions.user', user.id, {
+      populate: ['subscribing_troops'],
+    })).subscribing_troops
+
+    const hasAccess = isAuthorized(user_troops, data.attributes.troops.data)
+    return { data: hasAccess ? data : anonymizePost(data), meta }
   },
 }));

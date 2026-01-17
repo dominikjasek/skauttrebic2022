@@ -8,6 +8,7 @@ import LockPersonIcon from '@mui/icons-material/LockPerson'
 import { motion, MotionProps } from 'framer-motion'
 import Link from 'next/link'
 import Routes from '~/config/routes'
+import { useUser } from '~/src/api/auth/context/AuthContext'
 
 interface PostBoxProps {
     post: Post
@@ -27,6 +28,7 @@ const generateRandomTitle = () => {
 
 export const PostBox: React.FC<PostBoxProps> = ({ post }) => {
   const theme = useTheme()
+  const user = useUser()
 
   const data = post.attributes
 
@@ -47,7 +49,11 @@ export const PostBox: React.FC<PostBoxProps> = ({ post }) => {
   } as MotionProps & BoxProps
 
   return (
-    <Link href={isRestrictedPost ? `${Routes.login}?redirect=${Routes.posts}/${post.id}` : `${Routes.posts}/${post.id}`}>
+    <Link href={((): string => {
+      if (!isRestrictedPost) return `${Routes.posts}/${post.id}`
+      if (!user) return `${Routes.login}?redirect=${Routes.posts}/${post.id}`
+      return ''
+    })()}>
       <Card
         component={motion.div}
         {...(isRestrictedPost ? {} : authorizedCardProps)}
@@ -105,7 +111,7 @@ export const PostBox: React.FC<PostBoxProps> = ({ post }) => {
                 position={'absolute'}
               >
                 <LockPersonIcon />
-                <Typography color={theme.palette.grey[800]} fontWeight={600}>Obsah se zobrazí po přihlášení</Typography>
+                <Typography color={theme.palette.grey[800]} fontWeight={600}>{ user ? 'Tento příspěvek je soukromý' : 'Obsah se zobrazí po přihlášení' }</Typography>
               </Stack>
             }
           </Box>

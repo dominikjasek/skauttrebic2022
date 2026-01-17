@@ -455,7 +455,8 @@
           "name",
           "subscribed_users",
           "posts",
-          "color"
+          "color",
+          "confidential"
         ]
       },
       "conditions": []
@@ -474,7 +475,8 @@
           "name",
           "subscribed_users",
           "posts",
-          "color"
+          "color",
+          "confidential"
         ]
       },
       "conditions": []
@@ -487,7 +489,8 @@
           "name",
           "subscribed_users",
           "posts",
-          "color"
+          "color",
+          "confidential"
         ]
       },
       "conditions": []

@@ -1471,6 +1471,7 @@ export type TotemInput = {
 export type Troop = {
   __typename?: 'Troop';
   color?: Maybe<Scalars['String']>;
+  confidential?: Maybe<Scalars['Boolean']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   name: Scalars['String'];
   posts?: Maybe<PostRelationResponseCollection>;
@@ -1542,6 +1543,7 @@ export type TroopEntityResponseCollection = {
 export type TroopFiltersInput = {
   and?: InputMaybe<Array<InputMaybe<TroopFiltersInput>>>;
   color?: InputMaybe<StringFilterInput>;
+  confidential?: InputMaybe<BooleanFilterInput>;
   createdAt?: InputMaybe<DateTimeFilterInput>;
   id?: InputMaybe<IdFilterInput>;
   name?: InputMaybe<StringFilterInput>;
@@ -1554,6 +1556,7 @@ export type TroopFiltersInput = {
 
 export type TroopInput = {
   color?: InputMaybe<Scalars['String']>;
+  confidential?: InputMaybe<Scalars['Boolean']>;
   name?: InputMaybe<Scalars['String']>;
   posts?: InputMaybe<Array<InputMaybe<Scalars['Id']>>>;
   subscribed_users?: InputMaybe<Array<InputMaybe<Scalars['Id']>>>;
