@@ -14,6 +14,9 @@ import { useMemo } from 'react'
 import { useUser } from '~/src/api/auth/context/AuthContext'
 import { useCycle } from 'framer-motion'
 import { useRouter } from 'next/router'
+import { usePhotoGalleryRepository } from '~/src/api/photoGallery/PhotoGalleryRepository'
+import { useQuery } from 'react-query'
+import { Loading } from '~/components/Loading/Loading'
 
 const ItemsUnauthenticated: MenuItemType[] = [
   {
@@ -33,39 +36,7 @@ const ItemsAuthenticated: MenuItemType[] = [
   },
   {
     label: 'Fotogalerie',
-    link: Routes.photos,
-    items: [
-      {
-        link: 'https://eu.zonerama.com/2oddilskautu/743177?secret=KFO29DoVp6DryMYNWwnk6VNe3',
-        label: 'Skauti',
-        newTab: true
-      },
-      {
-        link: 'https://eu.zonerama.com/2oddilskautekTrebic/989542',
-        label: 'Skautky',
-        newTab: true
-      },
-      {
-        link: 'https://eu.zonerama.com/KarelJanicek/795748',
-        label: 'Vlčata',
-        newTab: true
-      },
-      {
-        link: 'https://eu.zonerama.com/svetluskyvedouci',
-        label: 'Světlušky',
-        newTab: true
-      },
-      {
-        link: 'https://eu.zonerama.com/Link/Open/64ef8e6eaa781646a0a4323f',
-        label: 'Roveři',
-        newTab: true
-      },
-      {
-        link: 'https://eu.zonerama.com/2oddilbenjaminku/1078727',
-        label: 'Benjamínci',
-        newTab: true
-      }
-    ]
+    query: 'PhotoGallery'
   },
   {
     label: 'Kontakty',
@@ -82,15 +53,20 @@ const ItemsLeader: MenuItemType[] = [
         link: Routes.leader
       }
     ]
-  },
-  ...ItemsAuthenticated
+  }
 ]
 
 export const Navbar: React.FC = () => {
   const router = useRouter()
   const theme = useTheme()
   const user = useUser()
+  const photoGalleryRepository = usePhotoGalleryRepository()
   const [isLogoColorful, toggleLogoColorful] = useCycle(false, true)
+
+  const { data: photoGalleryData, isLoading: isPhotoGalleryLoading } = useQuery('photo-gallery', photoGalleryRepository.fetchPhotoGallery, {
+    enabled: !!user
+  })
+  const photoGallery = useMemo(() => photoGalleryData?.data?.attributes?.troop, [photoGalleryData])
 
   const menuItems = useMemo(() => {
     if (!user) {
@@ -102,9 +78,21 @@ export const Navbar: React.FC = () => {
       itemsCpy.push({ label: 'Přihlásit se', link: Routes.login + redirect })
       return itemsCpy
     }
-    if (user.role?.type === 'vedouci') return ItemsLeader
-    return ItemsAuthenticated
-  }, [user])
+
+    const ItemsAuthenticatedCpy = ItemsAuthenticated.map((item) => {
+      if (item.query === 'PhotoGallery') {
+        return { ...item, items: photoGallery }
+      }
+      return item
+    })
+
+    if (user.role?.type === 'vedouci') return [...ItemsLeader, ...ItemsAuthenticatedCpy]
+    return ItemsAuthenticatedCpy
+  }, [user, photoGallery, router.isReady])
+
+  if (isPhotoGalleryLoading) {
+    return <Loading />
+  }
 
   return (
     <Box sx={{ backgroundColor: theme.palette.secondary.main, height: navbarHeightPx }}>

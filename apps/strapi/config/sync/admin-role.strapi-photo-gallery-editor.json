@@ -9,7 +9,8 @@
       "properties": {
         "fields": [
           "troop.label",
-          "troop.link"
+          "troop.link",
+          "troop.newTab"
         ]
       },
       "conditions": []
@@ -26,7 +27,8 @@
       "properties": {
         "fields": [
           "troop.label",
-          "troop.link"
+          "troop.link",
+          "troop.newTab"
         ]
       },
       "conditions": []
@@ -37,7 +39,8 @@
       "properties": {
         "fields": [
           "troop.label",
-          "troop.link"
+          "troop.link",
+          "troop.newTab"
         ]
       },
       "conditions": []

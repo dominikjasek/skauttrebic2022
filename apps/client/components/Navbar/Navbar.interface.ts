@@ -3,4 +3,5 @@ export interface MenuItem {
     link?: string
     items?: MenuItem[]
     newTab?: boolean
+    query?: string
 }
