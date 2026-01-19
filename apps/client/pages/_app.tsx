@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps }: AppProps<{ dehydratedState: any }>) {
           <AuthProvider>
             <TopBarProvider>
               <AppLayout>
-                <title>Skaut Třebíč</title>
+                <title>Skautské středisko Rikitan</title>
                 <Component {...pageProps} />
               </AppLayout>
             </TopBarProvider>

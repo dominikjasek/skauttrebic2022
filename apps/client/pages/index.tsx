@@ -5,7 +5,7 @@ import { useHomePageRepository } from '~/src/api/homepage/HomepageRepository'
 import { dehydrate, QueryClient, useQuery } from 'react-query'
 
 const Home: NextPage = () => {
-  useTitle('Skaut Třebíč')
+  useTitle('Skautské středisko Rikitan')
   const homepageRepository = useHomePageRepository()
   const { data, isLoading } = useQuery('homepage', homepageRepository.fetchHomePageData)
 

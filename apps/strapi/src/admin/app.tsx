@@ -2,17 +2,21 @@
 import SkautLogoIco from './extensions/skaut-logo.ico'
 // @ts-ignore
 import SkautLogoSvg from './extensions/skaut-logo.svg'
+// @ts-ignore
+import RikitanLogoSvg from './extensions/rikitan_logo.svg'
+// @ts-ignore
+import RikitanLogoPng from './extensions/rikitan_logo.png'
 
 export default {
   config: {
     menu: {
-      logo: SkautLogoSvg,
+      logo: RikitanLogoSvg,
     },
     head: {
-      favicon: SkautLogoIco,
+      favicon: RikitanLogoPng,
     },
     auth: {
-      logo: SkautLogoSvg,
+      logo: RikitanLogoSvg,
     },
     theme: {
       colors: {
@@ -52,6 +56,7 @@ export default {
     tutorials: false,
     notifications: { release: false },
   },
-  bootstrap(app) { 
+  bootstrap(app) {
+    console.log(app)
   },
 };

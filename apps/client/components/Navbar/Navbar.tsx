@@ -2,7 +2,7 @@ import * as React from 'react'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
-import { SkautLogo } from '../Logo/SkautLogo'
+import { RikitanLogo } from '../Logo/RikitanLogo'
 import { Box, Stack, useTheme } from '@mui/material'
 import { MobileMenuNavigation } from './Mobile/MobileMenuNavigation'
 import { MenuItem as MenuItemType } from './Navbar.interface'
@@ -108,7 +108,7 @@ export const Navbar: React.FC = () => {
           <Link href={Routes.home}>
             <Stack direction={'row'} alignItems={'center'} justifyContent={'center'}>
               <Box sx={{ color: theme.palette.grey['900'], p: 0, pl: 2, zIndex: 1000, display: 'grid', placeItems: 'center', cursor: 'pointer' }}>
-                <SkautLogo black={!isLogoColorful} size={0.5} />
+                <RikitanLogo black={!isLogoColorful} size={0.5} />
               </Box>
               <Typography
                 variant="h6"
@@ -125,7 +125,7 @@ export const Navbar: React.FC = () => {
                   cursor: 'pointer'
                 }}
               >
-                Skaut Třebíč
+                Rikitan
               </Typography>
               <Typography
                 variant="h6"
@@ -142,7 +142,7 @@ export const Navbar: React.FC = () => {
                   cursor: 'pointer'
                 }}
               >
-                2. Skautské oddíly Třebíč
+                Skautské středisko Rikitan
               </Typography>
             </Stack>
           </Link>
