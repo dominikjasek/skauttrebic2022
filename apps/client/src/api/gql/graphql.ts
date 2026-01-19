@@ -286,13 +286,46 @@ export type ComponentHomepageTroopInput = {
 export type ComponentMenuItem = {
   __typename?: 'ComponentMenuItem';
   id: Scalars['Id'];
+  items?: Maybe<Array<Maybe<ComponentMenuItem2>>>;
   label: Scalars['String'];
   link?: Maybe<Scalars['String']>;
   newTab?: Maybe<Scalars['Boolean']>;
 };
 
+
+export type ComponentMenuItemItemsArgs = {
+  filters?: InputMaybe<ComponentMenuItem2FiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type ComponentMenuItem2 = {
+  __typename?: 'ComponentMenuItem2';
+  id: Scalars['Id'];
+  label: Scalars['String'];
+  link?: Maybe<Scalars['String']>;
+  newTab?: Maybe<Scalars['Boolean']>;
+};
+
+export type ComponentMenuItem2FiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentMenuItem2FiltersInput>>>;
+  label?: InputMaybe<StringFilterInput>;
+  link?: InputMaybe<StringFilterInput>;
+  newTab?: InputMaybe<BooleanFilterInput>;
+  not?: InputMaybe<ComponentMenuItem2FiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentMenuItem2FiltersInput>>>;
+};
+
+export type ComponentMenuItem2Input = {
+  id?: InputMaybe<Scalars['Id']>;
+  label?: InputMaybe<Scalars['String']>;
+  link?: InputMaybe<Scalars['String']>;
+  newTab?: InputMaybe<Scalars['Boolean']>;
+};
+
 export type ComponentMenuItemFiltersInput = {
   and?: InputMaybe<Array<InputMaybe<ComponentMenuItemFiltersInput>>>;
+  items?: InputMaybe<ComponentMenuItem2FiltersInput>;
   label?: InputMaybe<StringFilterInput>;
   link?: InputMaybe<StringFilterInput>;
   newTab?: InputMaybe<BooleanFilterInput>;
@@ -302,6 +335,7 @@ export type ComponentMenuItemFiltersInput = {
 
 export type ComponentMenuItemInput = {
   id?: InputMaybe<Scalars['Id']>;
+  items?: InputMaybe<Array<InputMaybe<ComponentMenuItem2Input>>>;
   label?: InputMaybe<Scalars['String']>;
   link?: InputMaybe<Scalars['String']>;
   newTab?: InputMaybe<Scalars['Boolean']>;
@@ -573,7 +607,7 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']>;
 };
 
-export type GenericMorph = Clubroom | CommentsComment | CommentsCommentReport | ComponentHomepageHomeImage | ComponentHomepageTroop | ComponentMenuItem | ComponentPersonCardKontakt | ComponentPersonCardTroop | ComponentTotemLegend | ComponentTotemTotemComment | Contact | EmailDesignerEmailTemplate | Homepage | I18NLocale | Leader | PhotoGallery | Post | TopBar | Totem | Troop | TroopContact | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = Clubroom | CommentsComment | CommentsCommentReport | ComponentHomepageHomeImage | ComponentHomepageTroop | ComponentMenuItem | ComponentMenuItem2 | ComponentPersonCardKontakt | ComponentPersonCardTroop | ComponentTotemLegend | ComponentTotemTotemComment | Contact | EmailDesignerEmailTemplate | Homepage | I18NLocale | Leader | PhotoGallery | Post | TopBar | Totem | Troop | TroopContact | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type Homepage = {
   __typename?: 'Homepage';

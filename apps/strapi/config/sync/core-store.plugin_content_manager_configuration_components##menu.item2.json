@@ -1,7 +1,7 @@
 {
-  "key": "plugin_content_manager_configuration_components::menu.item",
+  "key": "plugin_content_manager_configuration_components::menu.item2",
   "value": {
-    "uid": "menu.item",
+    "uid": "menu.item2",
     "settings": {
       "bulkable": true,
       "filterable": true,
@@ -61,20 +61,6 @@
           "searchable": true,
           "sortable": true
         }
-      },
-      "items": {
-        "edit": {
-          "label": "Pododkazy - pododkaz deaktivuje hlavní odkaz a otevírá menu",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "items",
-          "searchable": false,
-          "sortable": false
-        }
       }
     },
     "layouts": {
@@ -99,12 +85,6 @@
           {
             "name": "newTab",
             "size": 6
-          }
-        ],
-        [
-          {
-            "name": "items",
-            "size": 12
           }
         ]
       ],

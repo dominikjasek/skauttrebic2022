@@ -16,7 +16,7 @@ class PhotoGalleryRepository {
   ) {}
 
   fetchPhotoGallery = async () => {
-    return (await this.fetch('/photo-gallery?populate=*')).data as PhotoGalleryType
+    return (await this.fetch('/photo-gallery?populate=deep')).data as PhotoGalleryType
   }
 }
 
