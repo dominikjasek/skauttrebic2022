@@ -10,7 +10,10 @@
         "fields": [
           "troops.label",
           "troops.link",
-          "troops.newTab"
+          "troops.newTab",
+          "troops.items.label",
+          "troops.items.link",
+          "troops.items.newTab"
         ]
       },
       "conditions": []
@@ -28,7 +31,10 @@
         "fields": [
           "troops.label",
           "troops.link",
-          "troops.newTab"
+          "troops.newTab",
+          "troops.items.label",
+          "troops.items.link",
+          "troops.items.newTab"
         ]
       },
       "conditions": []
@@ -40,7 +46,10 @@
         "fields": [
           "troops.label",
           "troops.link",
-          "troops.newTab"
+          "troops.newTab",
+          "troops.items.label",
+          "troops.items.link",
+          "troops.items.newTab"
         ]
       },
       "conditions": []

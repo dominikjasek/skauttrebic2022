@@ -87,7 +87,7 @@ export const MobileNavigationItems: React.FC<MobileNavigationItemsProps> = ({ it
           )}
           { currentLevelItems.map((item) => (
             <div key={item.label}>
-              {item.items ? (
+              {item.items && item.items.length > 0 ? (
                 // If it has children, click to go deeper
                 <MenuLink onClick={() => handleForward(item.items!)}>
                   {item.label}

@@ -34,7 +34,7 @@ export const DesktopMenuItem: React.FC<DesktopMenuItemProps> = ({ item, isSubmen
     if (timeoutRef.current) clearTimeout(timeoutRef.current)
   }
 
-  if (item.items) {
+  if (item.items && item.items.length > 0) {
     return (
       <Box
         onMouseEnter={handleOpen}

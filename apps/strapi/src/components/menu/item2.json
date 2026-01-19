@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_menu_items",
+  "collectionName": "components_menu_item2s",
   "info": {
-    "displayName": "item",
+    "displayName": "item2",
     "description": ""
   },
   "options": {},
@@ -16,12 +16,6 @@
     "newTab": {
       "type": "boolean",
       "default": true
-    },
-    "items": {
-      "displayName": "item2",
-      "type": "component",
-      "repeatable": true,
-      "component": "menu.item2"
     }
   }
 }
