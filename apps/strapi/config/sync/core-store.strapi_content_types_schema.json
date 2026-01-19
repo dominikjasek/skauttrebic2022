@@ -2589,6 +2589,82 @@
       "actions": {},
       "lifecycles": {}
     },
+    "api::leader-menu.leader-menu": {
+      "kind": "singleType",
+      "collectionName": "leader_menus",
+      "info": {
+        "singularName": "leader-menu",
+        "pluralName": "leader-menus",
+        "displayName": "Vedoucí - menu",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": false
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "items": {
+          "type": "component",
+          "repeatable": true,
+          "component": "menu.item"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "leader_menus",
+        "info": {
+          "singularName": "leader-menu",
+          "pluralName": "leader-menus",
+          "displayName": "Vedoucí - menu",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": false
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "items": {
+            "type": "component",
+            "repeatable": true,
+            "component": "menu.item"
+          }
+        },
+        "kind": "singleType"
+      },
+      "modelType": "contentType",
+      "modelName": "leader-menu",
+      "connection": "default",
+      "uid": "api::leader-menu.leader-menu",
+      "apiName": "leader-menu",
+      "globalId": "LeaderMenu",
+      "actions": {},
+      "lifecycles": {}
+    },
     "api::photo-gallery.photo-gallery": {
       "kind": "singleType",
       "collectionName": "photo_galleries",

@@ -5,6 +5,57 @@
   "permissions": [
     {
       "action": "plugin::content-manager.explorer.create",
+      "subject": "api::leader-menu.leader-menu",
+      "properties": {
+        "fields": [
+          "items.label",
+          "items.link",
+          "items.newTab",
+          "items.items.label",
+          "items.items.link",
+          "items.items.newTab"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::leader-menu.leader-menu",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::leader-menu.leader-menu",
+      "properties": {
+        "fields": [
+          "items.label",
+          "items.link",
+          "items.newTab",
+          "items.items.label",
+          "items.items.link",
+          "items.items.newTab"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::leader-menu.leader-menu",
+      "properties": {
+        "fields": [
+          "items.label",
+          "items.link",
+          "items.newTab",
+          "items.items.label",
+          "items.items.link",
+          "items.items.newTab"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
       "subject": "api::leader.leader",
       "properties": {
         "fields": [
@@ -43,6 +94,36 @@
           "title"
         ]
       },
+      "conditions": []
+    },
+    {
+      "action": "plugin::upload.assets.copy-link",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::upload.assets.create",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::upload.assets.download",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::upload.assets.update",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::upload.read",
+      "subject": null,
+      "properties": {},
       "conditions": []
     }
   ]

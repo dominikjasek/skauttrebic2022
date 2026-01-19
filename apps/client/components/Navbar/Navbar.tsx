@@ -15,6 +15,7 @@ import { useUser } from '~/src/api/auth/context/AuthContext'
 import { useCycle } from 'framer-motion'
 import { useRouter } from 'next/router'
 import { usePhotoGalleryRepository } from '~/src/api/navbar/photoGallery/PhotoGalleryRepository'
+import { useLeaderMenuRepository } from '~/src/api/navbar/leaderMenu/LeaderMenuRepository'
 import { useQuery } from 'react-query'
 import { Loading } from '~/components/Loading/Loading'
 
@@ -47,12 +48,7 @@ const ItemsAuthenticated: MenuItemType[] = [
 const ItemsLeader: MenuItemType[] = [
   {
     label: 'Vedoucí',
-    items: [
-      {
-        label: 'Pro vedoucí',
-        link: Routes.leader
-      }
-    ]
+    query: 'LeaderMenu'
   }
 ]
 
@@ -61,12 +57,17 @@ export const Navbar: React.FC = () => {
   const theme = useTheme()
   const user = useUser()
   const photoGalleryRepository = usePhotoGalleryRepository()
+  const leaderMenuRepository = useLeaderMenuRepository()
   const [isLogoColorful, toggleLogoColorful] = useCycle(false, true)
 
   const { data: photoGalleryData, isLoading: isPhotoGalleryLoading } = useQuery('photo-gallery', photoGalleryRepository.fetchPhotoGallery, {
     enabled: !!user
   })
   const photoGallery = useMemo(() => photoGalleryData?.data?.attributes?.troops, [photoGalleryData])
+  const { data: leaderMenuData, isLoading: isLeaderMenuLoading } = useQuery('leader-menu', leaderMenuRepository.fetchLeaderMenu, {
+    enabled: !!user && user.role?.type === 'vedouci'
+  })
+  const leaderMenu = useMemo(() => leaderMenuData?.data?.attributes?.items, [leaderMenuData])
 
   const menuItems = useMemo(() => {
     if (!user) {
@@ -79,18 +80,24 @@ export const Navbar: React.FC = () => {
       return itemsCpy
     }
 
-    const ItemsAuthenticatedCpy = ItemsAuthenticated.map((item) => {
+    const itemsAuthenticatedCpy = ItemsAuthenticated.map((item) => {
       if (item.query === 'PhotoGallery') {
         return { ...item, items: photoGallery }
       }
       return item
     })
+    if (user.role?.type !== 'vedouci') return itemsAuthenticatedCpy
 
-    if (user.role?.type === 'vedouci') return [...ItemsLeader, ...ItemsAuthenticatedCpy]
-    return ItemsAuthenticatedCpy
-  }, [user, photoGallery, router.isReady])
+    const itemsLeaderCpy = ItemsLeader.map((item) => {
+      if (item.query === 'LeaderMenu') {
+        return { ...item, items: leaderMenu }
+      }
+      return item
+    })
+    return [...itemsLeaderCpy, ...itemsAuthenticatedCpy]
+  }, [user, photoGallery, leaderMenu, router.isReady])
 
-  if (isPhotoGalleryLoading) {
+  if (isPhotoGalleryLoading || isLeaderMenuLoading) {
     return <Loading />
   }
 

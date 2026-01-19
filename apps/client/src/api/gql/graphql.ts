@@ -607,7 +607,7 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']>;
 };
 
-export type GenericMorph = Clubroom | CommentsComment | CommentsCommentReport | ComponentHomepageHomeImage | ComponentHomepageTroop | ComponentMenuItem | ComponentMenuItem2 | ComponentPersonCardKontakt | ComponentPersonCardTroop | ComponentTotemLegend | ComponentTotemTotemComment | Contact | EmailDesignerEmailTemplate | Homepage | I18NLocale | Leader | PhotoGallery | Post | TopBar | Totem | Troop | TroopContact | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = Clubroom | CommentsComment | CommentsCommentReport | ComponentHomepageHomeImage | ComponentHomepageTroop | ComponentMenuItem | ComponentMenuItem2 | ComponentPersonCardKontakt | ComponentPersonCardTroop | ComponentTotemLegend | ComponentTotemTotemComment | Contact | EmailDesignerEmailTemplate | Homepage | I18NLocale | Leader | LeaderMenu | PhotoGallery | Post | TopBar | Totem | Troop | TroopContact | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type Homepage = {
   __typename?: 'Homepage';
@@ -794,6 +794,35 @@ export type LeaderInput = {
   title?: InputMaybe<Scalars['String']>;
 };
 
+export type LeaderMenu = {
+  __typename?: 'LeaderMenu';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  items?: Maybe<Array<Maybe<ComponentMenuItem>>>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+
+export type LeaderMenuItemsArgs = {
+  filters?: InputMaybe<ComponentMenuItemFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LeaderMenuEntity = {
+  __typename?: 'LeaderMenuEntity';
+  attributes?: Maybe<LeaderMenu>;
+  id?: Maybe<Scalars['Id']>;
+};
+
+export type LeaderMenuEntityResponse = {
+  __typename?: 'LeaderMenuEntityResponse';
+  data?: Maybe<LeaderMenuEntity>;
+};
+
+export type LeaderMenuInput = {
+  items?: InputMaybe<Array<InputMaybe<ComponentMenuItemInput>>>;
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   /** Change user password. Confirm with the current password. */
@@ -814,6 +843,7 @@ export type Mutation = {
   deleteEmailDesignerEmailTemplate?: Maybe<EmailDesignerEmailTemplateEntityResponse>;
   deleteHomepage?: Maybe<HomepageEntityResponse>;
   deleteLeader?: Maybe<LeaderEntityResponse>;
+  deleteLeaderMenu?: Maybe<LeaderMenuEntityResponse>;
   deletePhotoGallery?: Maybe<PhotoGalleryEntityResponse>;
   deletePost?: Maybe<PostEntityResponse>;
   deleteTopBar?: Maybe<TopBarEntityResponse>;
@@ -845,6 +875,7 @@ export type Mutation = {
   updateFileInfo: UploadFileEntityResponse;
   updateHomepage?: Maybe<HomepageEntityResponse>;
   updateLeader?: Maybe<LeaderEntityResponse>;
+  updateLeaderMenu?: Maybe<LeaderMenuEntityResponse>;
   updatePhotoGallery?: Maybe<PhotoGalleryEntityResponse>;
   updatePost?: Maybe<PostEntityResponse>;
   updateTopBar?: Maybe<TopBarEntityResponse>;
@@ -1027,6 +1058,11 @@ export type MutationUpdateHomepageArgs = {
 
 export type MutationUpdateLeaderArgs = {
   data: LeaderInput;
+};
+
+
+export type MutationUpdateLeaderMenuArgs = {
+  data: LeaderMenuInput;
 };
 
 
@@ -1239,6 +1275,7 @@ export type Query = {
   i18NLocale?: Maybe<I18NLocaleEntityResponse>;
   i18NLocales?: Maybe<I18NLocaleEntityResponseCollection>;
   leader?: Maybe<LeaderEntityResponse>;
+  leaderMenu?: Maybe<LeaderMenuEntityResponse>;
   me?: Maybe<UsersPermissionsMe>;
   photoGallery?: Maybe<PhotoGalleryEntityResponse>;
   post?: Maybe<PostEntityResponse>;

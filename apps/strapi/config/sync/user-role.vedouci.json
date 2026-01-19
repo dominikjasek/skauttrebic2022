@@ -13,6 +13,9 @@
       "action": "api::homepage.homepage.find"
     },
     {
+      "action": "api::leader-menu.leader-menu.find"
+    },
+    {
       "action": "api::leader.leader.find"
     },
     {
