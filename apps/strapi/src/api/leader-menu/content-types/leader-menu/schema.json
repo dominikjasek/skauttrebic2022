@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "leader_menus",
+  "info": {
+    "singularName": "leader-menu",
+    "pluralName": "leader-menus",
+    "displayName": "Vedoucí - menu",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.item"
+    }
+  }
+}

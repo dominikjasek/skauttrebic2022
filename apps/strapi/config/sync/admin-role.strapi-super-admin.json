@@ -161,6 +161,57 @@
     },
     {
       "action": "plugin::content-manager.explorer.create",
+      "subject": "api::leader-menu.leader-menu",
+      "properties": {
+        "fields": [
+          "items.label",
+          "items.link",
+          "items.newTab",
+          "items.items.label",
+          "items.items.link",
+          "items.items.newTab"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::leader-menu.leader-menu",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::leader-menu.leader-menu",
+      "properties": {
+        "fields": [
+          "items.label",
+          "items.link",
+          "items.newTab",
+          "items.items.label",
+          "items.items.link",
+          "items.items.newTab"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::leader-menu.leader-menu",
+      "properties": {
+        "fields": [
+          "items.label",
+          "items.link",
+          "items.newTab",
+          "items.items.label",
+          "items.items.link",
+          "items.items.newTab"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
       "subject": "api::leader.leader",
       "properties": {
         "fields": [
