@@ -65,7 +65,7 @@
       "phone": {
         "edit": {
           "label": "Telefon",
-          "description": "",
+          "description": "Ve formátu: 123 456 789",
           "placeholder": "",
           "visible": true,
           "editable": true
