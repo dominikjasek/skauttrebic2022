@@ -82,21 +82,21 @@ export const ContactCard: React.FC<ContactCardProps> = ({ person }) => {
         <Stack direction={'row'} justifyContent={'space-between'}>
           <Stack sx={{ mt: 1 }} color="text.secondary">
             { person.role ? (
-              <Stack direction={'row'} gap={2}>
+              <Stack direction={'row'} gap={2} alignItems={'center'}>
                 <PersonIcon />
                 <Typography>{person.role}</Typography>
               </Stack>
             ) : ''}
             { person.phone ? (
               <Link href={'tel:' + person.phone.replaceAll(' ', '')}>
-                <Stack direction={'row'} gap={2}>
+                <Stack direction={'row'} gap={2} alignItems={'center'}>
                   <LocalPhoneIcon />
                   <Typography>{person.phone}</Typography>
                 </Stack>
               </Link>
             ) : ''}
             { person.email ? (
-              <Stack direction={'row'} gap={2}>
+              <Stack direction={'row'} gap={2} alignItems={'center'}>
                 <EmailIcon />
                 <Typography>{person.email}</Typography>
               </Stack>

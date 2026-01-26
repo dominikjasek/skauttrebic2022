@@ -6,6 +6,7 @@ import { TroopProps } from '~/components/Homepage/Troops/Troop'
 import { Troops } from '~/components/Homepage/Troops/Troops'
 import { AboutUs } from '~/components/Homepage/AboutUs'
 import { notEmpty } from '~/src/utility/typescript/not-empty'
+import { SocialNetworks } from '~/components/Footer/SocialNetworks'
 
 interface HomepageProps {
     homepage: HomepageQuery
@@ -36,6 +37,7 @@ export const Homepage: React.FC<HomepageProps> = ({ homepage }) => {
     <div>
       <HomepageImageSlider images={images} />
       <AboutUs text={aboutUsText} />
+      <SocialNetworks />
       <Troops troops={troops} />
     </div>
   )

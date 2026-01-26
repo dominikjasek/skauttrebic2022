@@ -17,9 +17,9 @@ export const AppLayout: React.FC<PropsWithChildren> = ({ children }) => {
         <Navbar />
       </Box>
       <Box component="main" sx={{
-        paddingTop: `calc(${navbarHeightPx} + ${topBarNotification ? topbarHeight + 'px' : '0px'})`, // Account for both TopBar and Navbar height
+        marginTop: `calc(${navbarHeightPx} + ${topBarNotification ? topbarHeight + 'px' : '0px'})`, // Account for both TopBar and Navbar height
       }}>
-        <Container maxWidth="lg" sx={{ minHeight: `calc(100vh - ${navbarHeightPx} - ${FOOTER_HEIGHT_PX} - 48px)` }}>
+        <Container maxWidth="lg" sx={{ minHeight: `calc(100vh - ${navbarHeightPx} - ${FOOTER_HEIGHT_PX} - ${topBarNotification ? topbarHeight + 'px' : '0px'})` }}>
           {children}
         </Container>
       </Box>

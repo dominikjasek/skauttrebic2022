@@ -1,8 +1,4 @@
 // @ts-ignore
-import SkautLogoIco from './extensions/skaut-logo.ico'
-// @ts-ignore
-import SkautLogoSvg from './extensions/skaut-logo.svg'
-// @ts-ignore
 import RikitanLogoSvg from './extensions/rikitan_logo.svg'
 // @ts-ignore
 import RikitanLogoPng from './extensions/rikitan_logo.png'

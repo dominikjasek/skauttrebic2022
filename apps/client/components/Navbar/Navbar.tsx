@@ -108,7 +108,7 @@ export const Navbar: React.FC = () => {
           <Link href={Routes.home}>
             <Stack direction={'row'} alignItems={'center'} justifyContent={'center'}>
               <Box sx={{ color: theme.palette.grey['900'], p: 0, pl: 2, zIndex: 1000, display: 'grid', placeItems: 'center', cursor: 'pointer' }}>
-                <RikitanLogo black={!isLogoColorful} size={0.5} />
+                <RikitanLogo black={!isLogoColorful} size={0.55} />
               </Box>
               <Typography
                 variant="h6"
