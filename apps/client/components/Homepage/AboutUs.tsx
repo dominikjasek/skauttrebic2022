@@ -36,7 +36,7 @@ export const AboutUs: React.FC<AboutUsProps> = ({ text }) => {
             flexItem orientation={onlyMediumScreen ? 'horizontal' : 'vertical'}
           />
         </>}
-        <div>{text}</div>
+        <Box textAlign={onlyMediumScreen ? 'center' : 'left'} > {text} </Box>
       </Stack>
     </Box>
   )

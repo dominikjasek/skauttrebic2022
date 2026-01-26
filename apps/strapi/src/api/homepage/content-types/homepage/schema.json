@@ -24,7 +24,7 @@
       "component": "homepage.troop"
     },
     "about": {
-      "type": "string",
+      "type": "text",
       "required": true
     }
   }

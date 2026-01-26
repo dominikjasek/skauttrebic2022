@@ -109,19 +109,19 @@ export const Contacts: NextPage = () => {
             <Typography variant={'h3'} textAlign={'center'}> Kontaktní údaje</Typography>
           </Box>
           <Box pt={2} mx="auto" width="fit-content">
-            <Stack direction={'row'} gap={2}>
+            <Stack direction={'row'} gap={2} alignItems={'center'}>
               <GroupsIcon fontSize={'large'} />
               <Typography variant={'h5'} textAlign={'center'}> Junák - český skaut, středisko Rikitan Třebíč, z. s. </Typography>
             </Stack>
           </Box>
           <Box pt={1} mx="auto" width="fit-content">
-            <Stack direction={'row'} gap={2}>
+            <Stack direction={'row'} gap={2} alignItems={'center'}>
               <LocationOnIcon fontSize={'large'} />
               <Typography variant={'h5'} textAlign={'center'}> Ruská 1373, Třebíč </Typography>
             </Stack>
           </Box>
           <Box pt={1} mx="auto" width="fit-content">
-            <Stack direction={'row'} gap={2}>
+            <Stack direction={'row'} gap={2} alignItems={'center'}>
               <NumbersIcon fontSize={'large'} />
               <Typography variant={'h5'} textAlign={'center'}> IČ: 24098400 </Typography>
             </Stack>
