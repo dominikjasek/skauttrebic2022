@@ -103,7 +103,8 @@
         "fields": [
           "content",
           "files",
-          "title"
+          "title",
+          "visible"
         ]
       },
       "conditions": []
@@ -121,7 +122,8 @@
         "fields": [
           "content",
           "files",
-          "title"
+          "title",
+          "visible"
         ]
       },
       "conditions": []
@@ -133,7 +135,8 @@
         "fields": [
           "content",
           "files",
-          "title"
+          "title",
+          "visible"
         ]
       },
       "conditions": []

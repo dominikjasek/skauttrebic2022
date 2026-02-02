@@ -4,6 +4,7 @@ query GetMemberRegistrationData {
             attributes {
                 title
                 content
+                visible
                 files {
                     data {
                         attributes {

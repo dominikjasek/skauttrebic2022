@@ -3,5 +3,5 @@ export interface MenuItem {
     link?: string
     items?: MenuItem[]
     newTab?: boolean
-    query?: string
+    query?: string // Works as an identification for from server menu changes
 }

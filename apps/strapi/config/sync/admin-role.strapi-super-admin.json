@@ -259,7 +259,8 @@
         "fields": [
           "title",
           "content",
-          "files"
+          "files",
+          "visible"
         ]
       },
       "conditions": []
@@ -277,7 +278,8 @@
         "fields": [
           "title",
           "content",
-          "files"
+          "files",
+          "visible"
         ]
       },
       "conditions": []
@@ -289,7 +291,8 @@
         "fields": [
           "title",
           "content",
-          "files"
+          "files",
+          "visible"
         ]
       },
       "conditions": []

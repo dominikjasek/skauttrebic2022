@@ -18,6 +18,7 @@ import { usePhotoGalleryRepository } from '~/src/api/navbar/photoGallery/PhotoGa
 import { useLeaderMenuRepository } from '~/src/api/navbar/leaderMenu/LeaderMenuRepository'
 import { useQuery } from 'react-query'
 import { Loading } from '~/components/Loading/Loading'
+import { useMemberRegistrationRepository } from '~/src/api/memberRegistration/MemberRegistrationRepository'
 
 const ItemsUnauthenticated: MenuItemType[] = [
   {
@@ -37,7 +38,8 @@ const ItemsAuthenticated: MenuItemType[] = [
   },
   {
     label: 'Registrace',
-    link: Routes.memberRegistration
+    link: Routes.memberRegistration,
+    query: 'MemberRegistration'
   },
   {
     label: 'Fotogalerie',
@@ -72,6 +74,11 @@ export const Navbar: React.FC = () => {
     enabled: !!user && user.role?.type === 'vedouci'
   })
   const leaderMenu = useMemo(() => leaderMenuData?.data?.attributes?.items, [leaderMenuData])
+  const memberRegistrationRepository = useMemberRegistrationRepository()
+  const { data: memberRegisrationData, isLoading: isMemberRegistrationLoading } = useQuery('member-registration', memberRegistrationRepository.fetchMemberRegistrationData, {
+    enabled: !!user
+  })
+  const showMemberRegistration = useMemo(() => memberRegisrationData?.memberRegistration?.data?.attributes?.visible, [memberRegisrationData])
 
   const menuItems = useMemo(() => {
     if (!user) {
@@ -89,7 +96,7 @@ export const Navbar: React.FC = () => {
         return { ...item, items: photoGallery }
       }
       return item
-    })
+    }).filter((item) => (showMemberRegistration || item.query !== 'MemberRegistration'))
     if (user.role?.type !== 'vedouci') return itemsAuthenticatedCpy
 
     const itemsLeaderCpy = ItemsLeader.map((item) => {
@@ -101,7 +108,7 @@ export const Navbar: React.FC = () => {
     return [...itemsLeaderCpy, ...itemsAuthenticatedCpy]
   }, [user, photoGallery, leaderMenu, router.isReady])
 
-  if (isPhotoGalleryLoading || isLeaderMenuLoading) {
+  if (isPhotoGalleryLoading || isLeaderMenuLoading || isMemberRegistrationLoading) {
     return <Loading />
   }
 

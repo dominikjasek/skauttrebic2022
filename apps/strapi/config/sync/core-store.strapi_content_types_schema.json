@@ -2696,6 +2696,10 @@
             "audios"
           ]
         },
+        "visible": {
+          "type": "boolean",
+          "default": false
+        },
         "createdAt": {
           "type": "datetime"
         },
@@ -2752,6 +2756,10 @@
               "videos",
               "audios"
             ]
+          },
+          "visible": {
+            "type": "boolean",
+            "default": false
           }
         },
         "kind": "singleType"

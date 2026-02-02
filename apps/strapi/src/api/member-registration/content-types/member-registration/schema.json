@@ -28,6 +28,10 @@
         "videos",
         "audios"
       ]
+    },
+    "visible": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

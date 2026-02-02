@@ -62,6 +62,20 @@
           "sortable": false
         }
       },
+      "visible": {
+        "edit": {
+          "label": "Zobrazovat",
+          "description": "Odkaz se zobrazí v menu",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "visible",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -106,6 +120,10 @@
           }
         ],
         [
+          {
+            "name": "visible",
+            "size": 4
+          },
           {
             "name": "files",
             "size": 8

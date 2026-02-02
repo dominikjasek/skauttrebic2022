@@ -283,6 +283,7 @@ type MemberRegistration {
     files(filters: UploadFileFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UploadFileRelationResponseCollection
     title: String
     updatedAt: DateTime
+    visible: Boolean
 }
 
 type MemberRegistrationEntity {
@@ -1186,6 +1187,7 @@ input MemberRegistrationInput {
     content: String
     files: [Id]
     title: String
+    visible: Boolean
 }
 
 input PaginationArg {
