@@ -2665,6 +2665,106 @@
       "actions": {},
       "lifecycles": {}
     },
+    "api::member-registration.member-registration": {
+      "kind": "singleType",
+      "collectionName": "member_registrations",
+      "info": {
+        "singularName": "member-registration",
+        "pluralName": "member-registrations",
+        "displayName": "Registrace členů",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": false
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "title": {
+          "type": "string"
+        },
+        "content": {
+          "type": "richtext"
+        },
+        "files": {
+          "type": "media",
+          "multiple": true,
+          "required": false,
+          "allowedTypes": [
+            "images",
+            "files",
+            "videos",
+            "audios"
+          ]
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "member_registrations",
+        "info": {
+          "singularName": "member-registration",
+          "pluralName": "member-registrations",
+          "displayName": "Registrace členů",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": false
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "title": {
+            "type": "string"
+          },
+          "content": {
+            "type": "richtext"
+          },
+          "files": {
+            "type": "media",
+            "multiple": true,
+            "required": false,
+            "allowedTypes": [
+              "images",
+              "files",
+              "videos",
+              "audios"
+            ]
+          }
+        },
+        "kind": "singleType"
+      },
+      "modelType": "contentType",
+      "modelName": "member-registration",
+      "connection": "default",
+      "uid": "api::member-registration.member-registration",
+      "apiName": "member-registration",
+      "globalId": "MemberRegistration",
+      "actions": {},
+      "lifecycles": {}
+    },
     "api::photo-gallery.photo-gallery": {
       "kind": "singleType",
       "collectionName": "photo_galleries",

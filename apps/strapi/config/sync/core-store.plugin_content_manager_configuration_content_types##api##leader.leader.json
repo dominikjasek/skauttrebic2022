@@ -22,7 +22,7 @@
       },
       "title": {
         "edit": {
-          "label": "title",
+          "label": "Nadpis",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -36,7 +36,7 @@
       },
       "content": {
         "edit": {
-          "label": "content",
+          "label": "Obsah",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -50,7 +50,7 @@
       },
       "files": {
         "edit": {
-          "label": "files",
+          "label": "Soubory",
           "description": "",
           "placeholder": "",
           "visible": true,

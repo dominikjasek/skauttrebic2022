@@ -254,6 +254,48 @@
     },
     {
       "action": "plugin::content-manager.explorer.create",
+      "subject": "api::member-registration.member-registration",
+      "properties": {
+        "fields": [
+          "title",
+          "content",
+          "files"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::member-registration.member-registration",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::member-registration.member-registration",
+      "properties": {
+        "fields": [
+          "title",
+          "content",
+          "files"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::member-registration.member-registration",
+      "properties": {
+        "fields": [
+          "title",
+          "content",
+          "files"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
       "subject": "api::photo-gallery.photo-gallery",
       "properties": {
         "fields": [

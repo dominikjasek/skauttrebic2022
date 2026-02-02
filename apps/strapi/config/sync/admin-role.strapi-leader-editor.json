@@ -97,6 +97,48 @@
       "conditions": []
     },
     {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::member-registration.member-registration",
+      "properties": {
+        "fields": [
+          "content",
+          "files",
+          "title"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::member-registration.member-registration",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::member-registration.member-registration",
+      "properties": {
+        "fields": [
+          "content",
+          "files",
+          "title"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::member-registration.member-registration",
+      "properties": {
+        "fields": [
+          "content",
+          "files",
+          "title"
+        ]
+      },
+      "conditions": []
+    },
+    {
       "action": "plugin::upload.assets.copy-link",
       "subject": null,
       "properties": {},

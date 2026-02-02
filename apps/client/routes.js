@@ -12,6 +12,7 @@ const Routes = {
   unsubscribe: '/odhlasit-odber',
   totem: '/trebicskytotem',
   leader: '/vedouci',
+  memberRegistration: '/registrace-clenu',
   error403: '/403'
 }
 
@@ -67,6 +68,10 @@ const routes = [
   {
     source: Routes.leader,
     destination: '/leader'
+  },
+  {
+    source: Routes.memberRegistration,
+    destination: '/memberRegistration'
   },
   {
     source: Routes.error403,

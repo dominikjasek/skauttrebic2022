@@ -19,6 +19,9 @@
       "action": "api::leader.leader.find"
     },
     {
+      "action": "api::member-registration.member-registration.find"
+    },
+    {
       "action": "api::photo-gallery.photo-gallery.find"
     },
     {

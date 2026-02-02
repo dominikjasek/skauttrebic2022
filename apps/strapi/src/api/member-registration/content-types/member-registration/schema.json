@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "member_registrations",
+  "info": {
+    "singularName": "member-registration",
+    "pluralName": "member-registrations",
+    "displayName": "Registrace členů",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "files": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

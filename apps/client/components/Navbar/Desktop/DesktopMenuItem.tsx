@@ -46,7 +46,7 @@ export const DesktopMenuItem: React.FC<DesktopMenuItemProps> = ({ item, isSubmen
         <Box
           sx={{
             my: 2,
-            px: theme.spacing(1.5),
+            px: theme.spacing(1),
             color: theme.palette.grey['900'],
             minWidth: isSubmenu ? '160px' : 'auto',
             cursor: 'pointer',
@@ -113,7 +113,7 @@ export const DesktopMenuItem: React.FC<DesktopMenuItemProps> = ({ item, isSubmen
           <Typography
             sx={{
               my: 2,
-              px: theme.spacing(1.5),
+              px: theme.spacing(1),
               color: theme.palette.grey['900'],
               display: 'block',
               minWidth: isSubmenu ? '160px' : 'auto',

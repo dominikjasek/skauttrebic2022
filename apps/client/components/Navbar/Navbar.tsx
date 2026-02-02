@@ -36,6 +36,10 @@ const ItemsAuthenticated: MenuItemType[] = [
     link: Routes.posts
   },
   {
+    label: 'Registrace',
+    link: Routes.memberRegistration
+  },
+  {
     label: 'Fotogalerie',
     query: 'PhotoGallery'
   },

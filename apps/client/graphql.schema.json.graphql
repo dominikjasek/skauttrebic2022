@@ -5,7 +5,7 @@ schema {
     mutation: Mutation
 }
 
-union GenericMorph = Clubroom | CommentsComment | CommentsCommentReport | ComponentHomepageHomeImage | ComponentHomepageTroop | ComponentPersonCardKontakt | ComponentPersonCardTroop | ComponentTotemLegend | ComponentTotemTotemComment | Contact | EmailDesignerEmailTemplate | Homepage | I18NLocale | Leader | Post | TopBar | Totem | Troop | TroopContact | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser
+union GenericMorph = Clubroom | CommentsComment | CommentsCommentReport | ComponentHomepageHomeImage | ComponentHomepageTroop | ComponentMenuItem | ComponentMenuItem2 | ComponentPersonCardKontakt | ComponentPersonCardTroop | ComponentTotemLegend | ComponentTotemTotemComment | Contact | EmailDesignerEmailTemplate | Homepage | I18NLocale | Leader | LeaderMenu | MemberRegistration | PhotoGallery | Post | TopBar | Totem | Troop | TroopContact | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser
 
 type Clubroom {
     content: String
@@ -118,6 +118,21 @@ type ComponentHomepageTroop {
     id: Id!
     logo: UploadFileEntityResponse!
     title: String!
+}
+
+type ComponentMenuItem {
+    id: Id!
+    items(filters: ComponentMenuItem2FiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentMenuItem2]
+    label: String!
+    link: String
+    newTab: Boolean
+}
+
+type ComponentMenuItem2 {
+    id: Id!
+    label: String!
+    link: String
+    newTab: Boolean
 }
 
 type ComponentPersonCardKontakt {
@@ -247,6 +262,38 @@ type LeaderEntityResponse {
     data: LeaderEntity
 }
 
+type LeaderMenu {
+    createdAt: DateTime
+    items(filters: ComponentMenuItemFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentMenuItem]
+    updatedAt: DateTime
+}
+
+type LeaderMenuEntity {
+    attributes: LeaderMenu
+    id: Id
+}
+
+type LeaderMenuEntityResponse {
+    data: LeaderMenuEntity
+}
+
+type MemberRegistration {
+    content: String
+    createdAt: DateTime
+    files(filters: UploadFileFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UploadFileRelationResponseCollection
+    title: String
+    updatedAt: DateTime
+}
+
+type MemberRegistrationEntity {
+    attributes: MemberRegistration
+    id: Id
+}
+
+type MemberRegistrationEntityResponse {
+    data: MemberRegistrationEntity
+}
+
 type Mutation {
     "Change user password. Confirm with the current password."
     changePassword(currentPassword: String!, password: String!, passwordConfirmation: String!): UsersPermissionsLoginPayload
@@ -266,6 +313,9 @@ type Mutation {
     deleteEmailDesignerEmailTemplate(id: ID!): EmailDesignerEmailTemplateEntityResponse
     deleteHomepage: HomepageEntityResponse
     deleteLeader: LeaderEntityResponse
+    deleteLeaderMenu: LeaderMenuEntityResponse
+    deleteMemberRegistration: MemberRegistrationEntityResponse
+    deletePhotoGallery: PhotoGalleryEntityResponse
     deletePost(id: ID!): PostEntityResponse
     deleteTopBar: TopBarEntityResponse
     deleteTotem: TotemEntityResponse
@@ -296,6 +346,9 @@ type Mutation {
     updateFileInfo(id: ID!, info: FileInfoInput): UploadFileEntityResponse!
     updateHomepage(data: HomepageInput!): HomepageEntityResponse
     updateLeader(data: LeaderInput!): LeaderEntityResponse
+    updateLeaderMenu(data: LeaderMenuInput!): LeaderMenuEntityResponse
+    updateMemberRegistration(data: MemberRegistrationInput!): MemberRegistrationEntityResponse
+    updatePhotoGallery(data: PhotoGalleryInput!): PhotoGalleryEntityResponse
     updatePost(data: PostInput!, id: ID!): PostEntityResponse
     updateTopBar(data: TopBarInput!): TopBarEntityResponse
     updateTotem(data: TotemInput!): TotemEntityResponse
@@ -315,6 +368,21 @@ type Pagination {
     pageCount: Int!
     pageSize: Int!
     total: Int!
+}
+
+type PhotoGallery {
+    createdAt: DateTime
+    troops(filters: ComponentMenuItemFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentMenuItem]
+    updatedAt: DateTime
+}
+
+type PhotoGalleryEntity {
+    attributes: PhotoGallery
+    id: Id
+}
+
+type PhotoGalleryEntityResponse {
+    data: PhotoGalleryEntity
 }
 
 type Post {
@@ -359,7 +427,10 @@ type Query {
     i18NLocale(id: ID): I18NLocaleEntityResponse
     i18NLocales(filters: I18NLocaleFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): I18NLocaleEntityResponseCollection
     leader: LeaderEntityResponse
+    leaderMenu: LeaderMenuEntityResponse
     me: UsersPermissionsMe
+    memberRegistration: MemberRegistrationEntityResponse
+    photoGallery: PhotoGalleryEntityResponse
     post(id: ID): PostEntityResponse
     posts(filters: PostFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): PostEntityResponseCollection
     topBar: TopBarEntityResponse
@@ -442,6 +513,7 @@ type TotemEntityResponse {
 
 type Troop {
     color: String
+    confidential: Boolean
     createdAt: DateTime
     name: String!
     posts(filters: PostFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): PostRelationResponseCollection
@@ -633,7 +705,6 @@ type UsersPermissionsUser {
     email: String!
     firstName: String!
     lastName: String
-    leader: Boolean
     nickName: String
     post_likes(filters: PostFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): PostRelationResponseCollection
     provider: String
@@ -814,6 +885,40 @@ input ComponentHomepageTroopInput {
     id: Id
     logo: Id
     title: String
+}
+
+input ComponentMenuItem2FiltersInput {
+    and: [ComponentMenuItem2FiltersInput]
+    label: StringFilterInput
+    link: StringFilterInput
+    newTab: BooleanFilterInput
+    not: ComponentMenuItem2FiltersInput
+    or: [ComponentMenuItem2FiltersInput]
+}
+
+input ComponentMenuItem2Input {
+    id: Id
+    label: String
+    link: String
+    newTab: Boolean
+}
+
+input ComponentMenuItemFiltersInput {
+    and: [ComponentMenuItemFiltersInput]
+    items: ComponentMenuItem2FiltersInput
+    label: StringFilterInput
+    link: StringFilterInput
+    newTab: BooleanFilterInput
+    not: ComponentMenuItemFiltersInput
+    or: [ComponentMenuItemFiltersInput]
+}
+
+input ComponentMenuItemInput {
+    id: Id
+    items: [ComponentMenuItem2Input]
+    label: String
+    link: String
+    newTab: Boolean
 }
 
 input ComponentPersonCardKontaktFiltersInput {
@@ -1073,11 +1178,25 @@ input LeaderInput {
     title: String
 }
 
+input LeaderMenuInput {
+    items: [ComponentMenuItemInput]
+}
+
+input MemberRegistrationInput {
+    content: String
+    files: [Id]
+    title: String
+}
+
 input PaginationArg {
     limit: Int
     page: Int
     pageSize: Int
     start: Int
+}
+
+input PhotoGalleryInput {
+    troops: [ComponentMenuItemInput]
 }
 
 input PostFiltersInput {
@@ -1154,6 +1273,7 @@ input TroopContactInput {
 input TroopFiltersInput {
     and: [TroopFiltersInput]
     color: StringFilterInput
+    confidential: BooleanFilterInput
     createdAt: DateTimeFilterInput
     id: IDFilterInput
     name: StringFilterInput
@@ -1166,6 +1286,7 @@ input TroopFiltersInput {
 
 input TroopInput {
     color: String
+    confidential: Boolean
     name: String
     posts: [Id]
     subscribed_users: [Id]
@@ -1301,7 +1422,6 @@ input UsersPermissionsUserFiltersInput {
     firstName: StringFilterInput
     id: IDFilterInput
     lastName: StringFilterInput
-    leader: BooleanFilterInput
     nickName: StringFilterInput
     not: UsersPermissionsUserFiltersInput
     or: [UsersPermissionsUserFiltersInput]
@@ -1323,7 +1443,6 @@ input UsersPermissionsUserInput {
     email: String
     firstName: String
     lastName: String
-    leader: Boolean
     nickName: String
     password: String
     post_likes: [Id]
