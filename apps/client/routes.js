@@ -13,6 +13,8 @@ const Routes = {
   totem: '/trebicskytotem',
   leader: '/vedouci',
   memberRegistration: '/registrace-clenu',
+  calendarCentre: '/kalendar-stredisko',
+  calendarClubroom: '/kalendar-klubovna',
   error403: '/403'
 }
 
@@ -76,6 +78,14 @@ const routes = [
   {
     source: Routes.error403,
     destination: '/403'
+  },
+  {
+    source: Routes.calendarCentre,
+    destination: '/calendarCentre'
+  },
+  {
+    source: Routes.calendarClubroom,
+    destination: '/calendarClubroom'
   }
 ]
 

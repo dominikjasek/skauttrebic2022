@@ -26,6 +26,15 @@ const ItemsUnauthenticated: MenuItemType[] = [
     link: Routes.posts
   },
   {
+    label: 'Klubovna',
+    items: [
+      {
+        label: 'Kalendář',
+        link: Routes.calendarClubroom
+      },
+    ]
+  },
+  {
     label: 'Kontakty',
     link: Routes.contacts
   }
@@ -40,6 +49,15 @@ const ItemsAuthenticated: MenuItemType[] = [
     label: 'Registrace',
     link: Routes.memberRegistration,
     query: 'MemberRegistration'
+  },
+  {
+    label: 'Klubovna',
+    items: [
+      {
+        label: 'Kalendář',
+        link: Routes.calendarClubroom
+      },
+    ]
   },
   {
     label: 'Fotogalerie',
@@ -130,7 +148,7 @@ export const Navbar: React.FC = () => {
                 ml={2}
                 color={theme.palette.grey['900']}
                 sx={{
-                  display: { xs: 'flex', md: 'none' },
+                  display: { xs: 'flex', lg: 'none' },
                   textDecoration: 'none',
                   lineHeight: 1.4,
                   cursor: 'pointer'
@@ -147,7 +165,7 @@ export const Navbar: React.FC = () => {
                 ml={2}
                 color={theme.palette.grey['900']}
                 sx={{
-                  display: { xs: 'none', md: 'flex' },
+                  display: { xs: 'none', lg: 'flex' },
                   textDecoration: 'none',
                   lineHeight: 1.4,
                   cursor: 'pointer'
