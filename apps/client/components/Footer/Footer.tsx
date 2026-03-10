@@ -27,8 +27,8 @@ export const Footer: React.FC = () => {
         <Button variant="outlined" size="small">Administrace</Button>
       </a>
       <Dot />
-      <span><a href="mailto:sisa@skauttrebic.cz" target={'_blank'} style={{ display: 'flex', textAlign: 'center', textDecoration: 'none', color: theme.palette.grey[800] }} rel="noreferrer">
-        Dominik Jašek
+      <span><a href="mailto:jiri.i.schreiber@gmail.com" target={'_blank'} style={{ display: 'flex', textAlign: 'center', textDecoration: 'none', color: theme.palette.grey[800] }} rel="noreferrer">
+        Jiří Schreiber
       </a></span>
       <Dot />
       <span>{new Date().getFullYear()}</span>
