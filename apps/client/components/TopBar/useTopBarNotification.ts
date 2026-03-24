@@ -31,7 +31,8 @@ const getActiveNotification = (): TopBarNotification | null => {
   if (isNotificationDismissed()) {
     return null
   }
-  return PREDEFINED_NOTIFICATION
+  //return PREDEFINED_NOTIFICATION
+  return null
 }
 
 export const useTopBarNotification = () => {
