@@ -1,4 +1,4 @@
-Webová stránka [skauttrebic.cz](http://skauttrebic.cz/)
+Webová stránka [rikitantrebic.cz](http://rikitantrebic.cz/)
 
 ## Vývoj
 

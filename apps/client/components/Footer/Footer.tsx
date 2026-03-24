@@ -23,7 +23,7 @@ export const Footer: React.FC = () => {
       bottom: 0,
       background: theme.palette.grey[300],
     }}>
-      <a href="https://api.skauttrebic.cz/admin" target={'_blank'} rel="noreferrer" style={{ textDecoration: 'none' }}>
+      <a href="https://api.rikitantrebic.cz/admin" target={'_blank'} rel="noreferrer" style={{ textDecoration: 'none' }}>
         <Button variant="outlined" size="small">Administrace</Button>
       </a>
       <Dot />

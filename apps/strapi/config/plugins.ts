@@ -17,8 +17,8 @@ module.exports = ({ env }) => {
     config: {
       provider: 'amazon-ses',
       settings: {
-        defaultFrom: '"Skaut Trebic" <neodpovidat@skauttrebic.cz>',
-        defaultReplyTo: 'neodpovidat@skauttrebic.cz'
+        defaultFrom: '"Skaut Trebic" <neodpovidat@rikitantrebic.cz>',
+        defaultReplyTo: 'neodpovidat@rikitantrebic.cz'
       },
       providerOptions: {
         key: env('AWS_ACCESS_KEY_ID'),

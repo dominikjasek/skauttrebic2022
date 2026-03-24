@@ -45,7 +45,7 @@
   "Auth.form.username.label": "Uživatelské jméno",
   "Auth.form.username.placeholder": "Jan Novák",
   "Auth.form.welcome.subtitle": "Přihlaste se ke svému účtu Strapi",
-  "Auth.form.welcome.title": "Vítejte v administračním portálu skauttrebic.cz",
+  "Auth.form.welcome.title": "Vítejte v administračním portálu rikitantrebic.cz",
   "Auth.link.forgot-password": "Zapomněli jste své heslo?",
   "Auth.link.ready": "Jste připraveni se přihlásit?",
   "Auth.link.signin": "Přihlásit se",

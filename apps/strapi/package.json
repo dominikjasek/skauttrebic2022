@@ -2,7 +2,7 @@
   "name": "skautrebic",
   "private": true,
   "version": "0.1.0",
-  "description": "CMS pro skauttrebic.cz",
+  "description": "CMS pro rikitantrebic.cz",
   "scripts": {
     "translate-admin": "cp -a ./src/admin/translations/admin/. ./node_modules/@strapi/admin/admin/src/translations/",
     "translate-upload-plugin": "cp -a ./src/admin/translations/plugins/upload/. ./node_modules/@strapi/plugin-upload/admin/src/translations",

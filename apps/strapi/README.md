@@ -17,7 +17,7 @@ Postup:
 - Přejdi na stránku Config syncu - http://localhost:1337/admin/settings/config-sync
 - Klikni na tlačítko `Export`
 - Změny se zaverzují do gitu
-- Vytvoř PR, po approvu mergni a po deploy do produkce běž na https://api.skauttrebic.cz/admin/settings/config-sync
+- Vytvoř PR, po approvu mergni a po deploy do produkce běž na https://api.rikitantrebic.cz/admin/settings/config-sync
 - Klikni na tlačítko `Import` a změny se aplikují
 
 Mimochodem, tento plugin je trochu hacky, protože umožní vytvořit [více rolí](http://localhost:1337/admin/settings/roles) strapi uživatelů. Výchozí hodnota jsou [3](https://docs.strapi.io/user-docs/users-roles-permissions/configuring-administrator-roles#:~:text=a%20role).-,By%20default%2C%203%20administrator%20roles%20are%20defined%20for%20any%20Strapi%20application,-%3A)
