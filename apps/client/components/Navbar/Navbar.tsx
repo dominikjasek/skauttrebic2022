@@ -64,7 +64,7 @@ const ItemsAuthenticated: MenuItemType[] = [
         newTab: true
       },
       {
-        label: 'Kalendář',
+        label: 'Obsazenost',
         link: Routes.calendarClubroom
       },
     ]
