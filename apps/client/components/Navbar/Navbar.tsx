@@ -29,7 +29,12 @@ const ItemsUnauthenticated: MenuItemType[] = [
     label: 'Klubovna',
     items: [
       {
-        label: 'Kalendář',
+        label: 'Info',
+        link: 'https://zakladny.skaut.cz/698-klubovna-ruska',
+        newTab: true
+      },
+      {
+        label: 'Obsazenost',
         link: Routes.calendarClubroom
       },
     ]
@@ -53,6 +58,11 @@ const ItemsAuthenticated: MenuItemType[] = [
   {
     label: 'Klubovna',
     items: [
+      {
+        label: 'Info',
+        link: 'https://zakladny.skaut.cz/698-klubovna-ruska',
+        newTab: true
+      },
       {
         label: 'Kalendář',
         link: Routes.calendarClubroom
